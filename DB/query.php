@@ -27,6 +27,7 @@
     private $INSERTINTOVELICINEPOMODLAMA="INSERT INTO velicine_po_modli (ID_velicine, ID_modle) VALUES(?,?)";
     private $INSERTINTOCENE="INSERT INTO cene (	ID_velicine,ID_utiskivaca,Cena)";
     private $SELECTIMPRINT="SELECT u.Naziv, u.ID from utiskivaci u inner join utiskivaci_po_modlama upm on u.ID=upm.ID_utiskivaca where ID_modle=?";
+   private $SELECTCENA="SELECT Cena from cene where ID_velicine =? and ID_utiskivaca=?";
 
     public function __construct($db){
         $this->conn = $db;
@@ -44,6 +45,12 @@
       $stmt=$this->conn->prepare($this->INSERTINTOUTISKIVACIPOMODLAMA);
       $stmt->execute([$id_utiskivaca,$id_modle]);
     }
+      public function getprice($id_velicine,$id_utiskivaca){
+        $stmt=$this->conn->prepare($this->SELECTCENA);
+        $stmt->execute([$id_velicine,$id_utiskivaca]);
+        return $stmt;
+    }
+
     public function getSpecificProduct($naziv,$opis){
         $stmt=$this->conn->prepare($this->GETSPEECIFICPRODUCT);
         $stmt->execute([$naziv,$opis]);

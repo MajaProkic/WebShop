@@ -1,5 +1,17 @@
 
+$(document).ready(function(){
+    $('#size').change(function(){
+        var sizeVal=$('#size').val();
+        $.ajax({
+            url:'functions/calculate_price',
+            method:'post',
+            data:'size'+sizeVal
+        }).done(function(res){
+            console.log(res);
+        })
 
+    })
+})
 function filter() {
     var e = document.getElementById("filter");
     var strUser = e.options[e.selectedIndex].text;
