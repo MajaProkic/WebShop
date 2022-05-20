@@ -399,11 +399,7 @@ button{
    
 }
 .message{
-
-    &:empty{
-        display: none;
-    }
-  
+    display: block;
     margin: 15px;
     width: 50%;
     height: auto;
@@ -422,7 +418,7 @@ button{
 //--------SINGLE PRODUCT
 .product{
     display: grid;
-    grid-template-columns: 60% 30%;
+    grid-template-columns: 40% 60%;
     grid-column-gap:1em;
 
     .product-img-tit{
@@ -431,7 +427,7 @@ button{
             display: block;
             margin-left: 10%;
             img{
-               width: 50%;
+               width: 100%;
             }
         }
         .product-title{
@@ -459,11 +455,11 @@ button{
     padding: 5px;
     }
 
-    .choose-properties,.choose-properties{
+    .choose-properties-size,.choose-properties-imprint{
         
         margin-top: 30px;
         display: grid;
-        grid-template-columns: repeat(1,auto);
+        grid-template-columns: repeat(1,1fr);
        
         p{
             grid-row: 1/1;
@@ -475,6 +471,63 @@ button{
             margin: 5px;
             font-size: 16pt;
         }
+        .size{
+            margin: auto;
+         select{
+             width: 250px;
+             background-color: #fcc326;
+             color: white;
+             height: 35px;
+             font-size: 16pt;
+             border: none;         
+            
+             option{
+                font-size: 16pt;
+                text-align: center;
+              
+             }
+             &:focus{
+                 outline: none;
+             }
+         }
+           input{
+                display: inline-block;
+                width: 60px;
+                height: 60px;
+                color: white;
+                opacity: 0.8;
+                background-color: #fcc326;
+                border: none;
+                font-size: 16pt;
+                &:focus{
+                    color: var(--color);
+                    border: 2px solid black;
+                    border-radius: 10%;
+                    color: white;
+                }
+            }
+        
+        }
+        .imprint{
+            margin: auto;
+            input{
+                display: inline-block;
+                width: 150px;
+                height: 60px;
+                color: white;
+                opacity: 0.8;
+                background-color: #fcc326;
+                border: none;
+                font-size: 16pt;
+                &:focus{
+                    color: var(--color);
+                    border: 2px solid black;
+                    border-radius: 10%;
+                    color: white;
+                }
+            }
+        }
+    
         .quantity{
             display: grid;
             grid-template-columns: repeat(3,50px);

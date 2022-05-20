@@ -5,7 +5,7 @@
 
     private $SELECTALLFROMCATEGORY="SELECT * FROM kategorija ORDER BY naziv ";
     private $GETALLPRODUCTS="SELECT * FROM modla ORDER BY id DESC";
-    private $INSERTPRODUCT="INSERT INTO modla (id, status, naziv, kategorija_id, utiskivac, opis, slika, hashtag, velicina_1,velicina_2,velicina_3) VALUES(?,?,?,?,?,?,?,?,?,?,?)"; 
+    private $INSERTPRODUCT="INSERT INTO modla (id, naziv, kategorija_id, opis, slika, hashtag) VALUES(?,?,?,?,?,?)"; 
     private $INSERTCATEGORY="INSERT INTO kategorija (naziv) VALUES(?)";
     private $DELETEPRODUCT="DELETE FROM modla WHERE id=?";
     private $SELECTPRODUCTBYID="SELECT * FROM modla WHERE id=?";
@@ -16,18 +16,33 @@
     private $INSERTORDER="INSERT INTO narudzbenica (id_user, datum) VALUES (?,?)";
     private $SELECTIDOFUSER="SELECT id FROM kupci WHERE email=?";
     private $SELECTIDOFORDER="SELECT id FROM narudzbenica ORDER BY id DESC LIMIT 1";
-    private $SELECTSIZES = "SELECT velicina_1, velicina_2, velicina_3 from modla where id=?";
+    private $SELECTSIZES = "SELECT velicine.Dimenzija,velicine.ID from velicine_po_modli inner join velicine on velicine_po_modli.ID_velicine=velicine.ID  where ID_modle=?";
     private $SELECTIDCATEGORYANDNAME = "SELECT modla.kategorija_id, kategorija.naziv FROM modla INNER JOIN kategorija ON modla.kategorija_id=kategorija.id where modla.id=?";
-    private $SELECTIMPRINT = "SELECT utiskivac FROM modla WHERE id=?";
     private $INSERTINTOUSER = "INSERT INTO user(ime,prezime, mesto,ulica,broj,broj_telefona,username,password,email,role) VALUES (?,?,?,?,?,?,?,?,?,?)";
     private $GETUSERBYINFO = "SELECT * FROM USER";
     private $GETSPECIFICUSER = "SELECT * FROM USER WHERE email=? and broj_telefona=?";
     private $GETSPECIFICUSERBYUSERNAME="SELECT * FROM USER WHERE username=?";
     private $GETSPEECIFICPRODUCT ="SELECT * FROM MODLA WHERE naziv=? and opis=?";
-    
+    private $INSERTINTOUTISKIVACIPOMODLAMA="INSERT INTO utiskivaci_po_modlama (ID_utiskivaca, ID_modle) VALUES(?,?)";
+    private $INSERTINTOVELICINEPOMODLAMA="INSERT INTO velicine_po_modli (ID_velicine, ID_modle) VALUES(?,?)";
+    private $INSERTINTOCENE="INSERT INTO cene (	ID_velicine,ID_utiskivaca,Cena)";
+    private $SELECTIMPRINT="SELECT u.Naziv, u.ID from utiskivaci u inner join utiskivaci_po_modlama upm on u.ID=upm.ID_utiskivaca where ID_modle=?";
 
     public function __construct($db){
         $this->conn = $db;
+    }
+    public function insertCena($id_velicine,$id_utiskivaca,$cena){
+      $stmt=$this->conn->prepare($this->INSERTINTOCENE);
+      $stmt->execute([$id_velicine,$id_utiskivaca,$cena]);
+    }
+        public function insertVelicinePoModlama($id_velicine,$id_modle){
+      $stmt=$this->conn->prepare($this->INSERTINTOVELICINEPOMODLAMA);
+      $stmt->execute([$id_velicine,$id_modle]);
+    }
+
+    public function insertUtiskivaciPoModlama($id_utiskivaca,$id_modle){
+      $stmt=$this->conn->prepare($this->INSERTINTOUTISKIVACIPOMODLAMA);
+      $stmt->execute([$id_utiskivaca,$id_modle]);
     }
     public function getSpecificProduct($naziv,$opis){
         $stmt=$this->conn->prepare($this->GETSPEECIFICPRODUCT);
@@ -51,7 +66,8 @@
         return $this->sendQueryWithReturnValueAndNoParams($this->GETUSERBYINFO);
      }
 
-    public function selectImprint($id){
+    public function selectImprint($id)
+    {
         return $this->sendOnlyOneVariableQuery($this->SELECTIMPRINT,$id);
     }
     public function selectIdCategoryAndName($id){
@@ -100,9 +116,9 @@
         
      }
 
-     public function insertProduct($id, $status,$naziv,$kategorija,$utiskivac,$opis,$slika,$hashtag,$velicina1,$velicina2,$velicina3){
+     public function insertProduct($id,$naziv,$kategorija,$opis,$slika,$hashtag){
        $stmt=$this->conn->prepare($this->INSERTPRODUCT);
-       $stmt->execute([$id, $status,$naziv,$kategorija,$utiskivac,$opis,$slika,$hashtag,$velicina1,$velicina2,$velicina3]);
+       $stmt->execute([$id,$naziv,$kategorija,$opis,$slika,$hashtag]);
      }
 
      public function insertKupac($ime,$prezime,$email,$mesto,$ulica,$broj,$telefon,$napomena){

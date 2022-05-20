@@ -24,28 +24,6 @@ class Functions{
         return $data;
       }
 
-    public function pickTypeOfCookieCutter($utiskivac){
-        switch ($utiskivac) {
-            case '1':
-                return <<<HTML
-              
-                <option value="1">Sa utiskivacem</option>
-                <option value="0">Bez utiskivaca</option>
-                
-                HTML;
-                break;
-
-                case '0':
-                    return <<<HTML
-                    <option value="0">Bez utiskivaca</option>
-                   
-                HTML;
-                    break;
-            default:
-                # code...
-                break;
-        }
-    }
    
     public function add_in_array_imp($id,$naziv,$size,$imprint,$price,$quantity){
         
@@ -150,23 +128,11 @@ class Functions{
         }
     }
     
-    public function average_price($id)
-    {
-        $database=new Database();
-        $db=$database->connection();
-        $query=new Query($db);
-        global $query;
+   
 
-        $getProduct=$query->getProductByid($id);
-        while ($row=$getProduct->fetch(PDO::FETCH_ASSOC)) {
-            $velicina1=$row['velicina_1'];
-            $velicina2=$row['velicina_2'];
-            $velicina3=$row['velicina_3'];
-            $utiskivac=$row['utiskivac'];
-        }
-        
-        
-    }
+  
 
 }
+
+
 ?>

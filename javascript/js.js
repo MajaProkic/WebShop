@@ -1,48 +1,4 @@
-function calculate() {
-var imprint=document.getElementById("imprint");
-var imprintVal=imprint.options[imprint.selectedIndex].value;
 
-var size=document.getElementById("size");
-var sizeVal=size.options[size.selectedIndex].value;
-
-var quantity=document.getElementById("quantity").value;
-
-    if(imprintVal==0){
-        switch (sizeVal) {
-            case '6':
-                price=100*quantity;
-                break;
-                case '7':
-                    price=130*quantity;
-                    break;
-                    case '8':
-                        price=160*quantity;
-                        break;          
-            default:
-                break;     
-        }
-       }else{
-           switch (sizeVal) {
-               case '6':
-                    price=150*quantity;
-                   break;
-                   case '7':
-                     price=200*quantity;
-                   break;
-                        case '8':
-                         price=250*quantity;
-                        break;     
-               default:
-                   break;   
-           }
-    
-
-       }
-     
-       document.getElementById('pricep').value=price;
-}
-
-calculate();
 
 function filter() {
     var e = document.getElementById("filter");
@@ -73,14 +29,5 @@ const minus=document.querySelector(".minus");
 
 plus.addEventListener("click", increment);
 minus.addEventListener("click",decrement);
-
-
-
-  
-
-
-
-
-
 
 

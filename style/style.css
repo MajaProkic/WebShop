@@ -418,6 +418,7 @@ button a input {
 }
 
 .message {
+  display: block;
   margin: 15px;
   width: 50%;
   height: auto;
@@ -426,10 +427,6 @@ button a input {
   padding: 5px;
   color: white;
   font-size: 16pt;
-}
-
-.message:empty {
-  display: none;
 }
 
 .message p {
@@ -441,8 +438,8 @@ button a input {
 .product {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 60% 30%;
-      grid-template-columns: 60% 30%;
+  -ms-grid-columns: 40% 60%;
+      grid-template-columns: 40% 60%;
   grid-column-gap: 1em;
 }
 
@@ -452,7 +449,7 @@ button a input {
 }
 
 .product .product-img-tit .product-img img {
-  width: 50%;
+  width: 100%;
 }
 
 .product .product-img-tit .product-title h2 {
@@ -480,29 +477,91 @@ button a input {
   padding: 5px;
 }
 
-.product .product-info .choose-properties, .product .product-info .choose-properties {
+.product .product-info .choose-properties-size, .product .product-info .choose-properties-imprint {
   margin-top: 30px;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (auto)[1];
-      grid-template-columns: repeat(1, auto);
+  -ms-grid-columns: (1fr)[1];
+      grid-template-columns: repeat(1, 1fr);
 }
 
-.product .product-info .choose-properties p, .product .product-info .choose-properties p {
+.product .product-info .choose-properties-size p, .product .product-info .choose-properties-imprint p {
   -ms-grid-row: 1;
   grid-row: 1/1;
   text-align: center;
   font-size: 16pt;
 }
 
-.product .product-info .choose-properties #size, .product .product-info .choose-properties #imprint, .product .product-info .choose-properties #size, .product .product-info .choose-properties #imprint {
+.product .product-info .choose-properties-size #size, .product .product-info .choose-properties-size #imprint, .product .product-info .choose-properties-imprint #size, .product .product-info .choose-properties-imprint #imprint {
   -ms-grid-row: 2;
   grid-row: 2/2;
   margin: 5px;
   font-size: 16pt;
 }
 
-.product .product-info .choose-properties .quantity, .product .product-info .choose-properties .quantity {
+.product .product-info .choose-properties-size .size, .product .product-info .choose-properties-imprint .size {
+  margin: auto;
+}
+
+.product .product-info .choose-properties-size .size select, .product .product-info .choose-properties-imprint .size select {
+  width: 250px;
+  background-color: #fcc326;
+  color: white;
+  height: 35px;
+  font-size: 16pt;
+  border: none;
+}
+
+.product .product-info .choose-properties-size .size select option, .product .product-info .choose-properties-imprint .size select option {
+  font-size: 16pt;
+  text-align: center;
+}
+
+.product .product-info .choose-properties-size .size select:focus, .product .product-info .choose-properties-imprint .size select:focus {
+  outline: none;
+}
+
+.product .product-info .choose-properties-size .size input, .product .product-info .choose-properties-imprint .size input {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  color: white;
+  opacity: 0.8;
+  background-color: #fcc326;
+  border: none;
+  font-size: 16pt;
+}
+
+.product .product-info .choose-properties-size .size input:focus, .product .product-info .choose-properties-imprint .size input:focus {
+  color: var(--color);
+  border: 2px solid black;
+  border-radius: 10%;
+  color: white;
+}
+
+.product .product-info .choose-properties-size .imprint, .product .product-info .choose-properties-imprint .imprint {
+  margin: auto;
+}
+
+.product .product-info .choose-properties-size .imprint input, .product .product-info .choose-properties-imprint .imprint input {
+  display: inline-block;
+  width: 150px;
+  height: 60px;
+  color: white;
+  opacity: 0.8;
+  background-color: #fcc326;
+  border: none;
+  font-size: 16pt;
+}
+
+.product .product-info .choose-properties-size .imprint input:focus, .product .product-info .choose-properties-imprint .imprint input:focus {
+  color: var(--color);
+  border: 2px solid black;
+  border-radius: 10%;
+  color: white;
+}
+
+.product .product-info .choose-properties-size .quantity, .product .product-info .choose-properties-imprint .quantity {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (50px)[3];
@@ -511,7 +570,7 @@ button a input {
   margin: auto;
 }
 
-.product .product-info .choose-properties .quantity .plus, .product .product-info .choose-properties .quantity .minus, .product .product-info .choose-properties .quantity .plus, .product .product-info .choose-properties .quantity .minus {
+.product .product-info .choose-properties-size .quantity .plus, .product .product-info .choose-properties-size .quantity .minus, .product .product-info .choose-properties-imprint .quantity .plus, .product .product-info .choose-properties-imprint .quantity .minus {
   margin: auto;
   text-decoration: none;
   font-size: 16pt;
@@ -525,24 +584,24 @@ button a input {
   cursor: pointer;
 }
 
-.product .product-info .choose-properties .quantity #quantity, .product .product-info .choose-properties .quantity #quantity {
+.product .product-info .choose-properties-size .quantity #quantity, .product .product-info .choose-properties-imprint .quantity #quantity {
   cursor: not-allowed;
   border: none;
   text-align: center;
 }
 
-.product .product-info .choose-properties .price, .product .product-info .choose-properties .price {
+.product .product-info .choose-properties-size .price, .product .product-info .choose-properties-imprint .price {
   margin: auto;
 }
 
-.product .product-info .choose-properties .price input, .product .product-info .choose-properties .price input {
+.product .product-info .choose-properties-size .price input, .product .product-info .choose-properties-imprint .price input {
   border: 1px solid transparent;
   text-align: center;
   font-size: 16pt;
   margin-bottom: 15px;
 }
 
-.product .product-info .choose-properties .price input:disabled, .product .product-info .choose-properties .price input:disabled {
+.product .product-info .choose-properties-size .price input:disabled, .product .product-info .choose-properties-imprint .price input:disabled {
   color: black;
   background-color: transparent;
 }

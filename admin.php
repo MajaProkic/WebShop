@@ -26,11 +26,8 @@ if(isset($_POST['dodajKategoriju'])){
 <table>
     <tr>
         <th>ID</th>
-        <th>Status</th>
         <th>Naziv</th>
         <th>Kategorija</th>
-        <th>Utiskivac</th>
-      
         <th>Slika</th>
         <th>Hash tag</th>
         <th>Update</th>
@@ -46,11 +43,8 @@ if(isset($_POST['dodajKategoriju'])){
         ?>
         <tr>
         <td><?php echo $id; ?></td>
-        <td><?php echo $row['status'] ?></td>
         <td><?php echo $row['naziv'] ?></td>
-        <td><?php echo $row['kategorija_id'] ?></td>
-        <td><?php echo $row['utiskivac'] ?></td>
-        
+        <td><?php echo $row['kategorija_id'] ?></td>        
         <td><a href="product.php?product=<?php echo $row['id'] ?>"> <img src="images/modle/<?php echo $row['slika'] ?>"></a></td>
         <td><?php echo $row['hashtag'] ?></td>
         <td><a href="update-product.php?update=<?php echo $row['id'] ?>">Update</a> </td>

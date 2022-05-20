@@ -16,8 +16,7 @@
         $exe=$query->getAllProducts();
             while ($row=$exe->fetch(PDO::FETCH_ASSOC)) {   
 
-          
-                 $utiskivac=$row['utiskivac'];    
+            
     ?>
     
     <div class="product-cart" id='<?php echo $row['id']?>'>
@@ -30,7 +29,7 @@
                 <h3><?php echo $row['naziv'];?></h3>
             </div>
             <div class="price">
-                <p id='average-price'><?php $func->average_price($row['id']); ?> RSD</p>
+                <p id='average-price'>RSD</p>
             </div>
  
             <button class="buy-product"><a href="product.php?product=<?php echo $row['id']?>">Odaberite veličinu</a></button>

@@ -12,10 +12,10 @@ global $query;
 $func=new Functions();
 global $func;
 $msg=isset($msg)?$msg:"";
+
 if(isset($_POST['dodajProizvod'])){
     $id=$_POST['id'];
     $naziv=$_POST['naziv'];
-    $status=$_POST['status'];
     $kategorija=$_POST['kategorija'];
     $utiskivac=$_POST['utiskivac'];
     $opis=$_POST['opis'];
@@ -26,18 +26,26 @@ if(isset($_POST['dodajProizvod'])){
     $velicina2=$_POST['velicina_2'];
     $velicina3=$_POST['velicina_3'];
     move_uploaded_file($tmp_img_name,"images/modle/$tmp_img");
-
+    
     $getSpecProduct=$query->getSpecificProduct($naziv,$opis);
     $count=$getSpecProduct->rowCount();
-    echo $count;
+    
         if ($count<1) {
-            $res = $query->insertProduct($id,$status,$naziv, $kategorija, $utiskivac, $opis, $tmp_img,$hashtag,$velicina1,$velicina2,$velicina3);
+            $res = $query->insertProduct($id,$naziv, $kategorija, $opis, $tmp_img,$hashtag);
+            if($utiskivac==1){
+                $query->insertUtiskivaciPoModlama(1,$id);
+                $query->insertUtiskivaciPoModlama(2,$id);
+            }else{
+                $query->insertUtiskivaciPoModlama(2,$id);
+            }
+            $query->insertVelicinePoModlama($velicina1,$id);
+            $query->insertVelicinePoModlama($velicina2,$id);
+            $query->insertVelicinePoModlama($velicina3,$id);
+            
             $msg='Uspešno unet proizvod';
         }else{
             $msg='Nažalost, proizvod nije unet';
         }
-
-
     }
 
  
@@ -51,13 +59,14 @@ if(isset($_POST['dodajProizvod'])){
 
 <div class="add-product">
     <h2>Forma za dodavanje novog proizvoda</h2>
+    <div class="message">
+    <?php echo $msg;?>
+</div>
     <div class="form-div">
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">
                 <input type="text" name="id" id="" placeholder='Id'>
 
                 <input type="text" name="naziv" id="" placeholder='Naziv'>
-        
-                <input type="text" name="status" id="" placeholder='Status'>
            
 
             <div class="form-part">
@@ -77,7 +86,7 @@ if(isset($_POST['dodajProizvod'])){
             <div class="form-part">
                 <label for="utiskivac">Utiskivac</label>
                 <select name="utiskivac" id="">
-                    <option value="0">Bez utiskivaca</option>
+                    <option value="2">Bez utiskivaca</option>
                     <option value="1">Sa utiskivacem</option>
                 </select> 
             </div>
@@ -99,9 +108,7 @@ if(isset($_POST['dodajProizvod'])){
         
                <button><input type="submit" name="dodajProizvod" id="" value="Dodaj proizvod"></button> 
         </form>
-        <div class="message">
-    <?php echo $msg;?>
-</div>
+
     </div>
 </div>
 <?php

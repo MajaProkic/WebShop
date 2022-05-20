@@ -31,7 +31,6 @@ global $query;
                         $naziv_proizvoda=$row['naziv'];
                         $slika = $row['slika'];
                         $opis_proizvoda = $row['opis'];
-                        $utiskivac = $row['utiskivac'];
 
                         ?>
                         <div class="product-title">
@@ -48,34 +47,40 @@ global $query;
     <section class="product-info">
         
     <div class="bla">  
-        <div class="choose-properties">
+        <div class="choose-properties-size">
             <p>Odaberite odgovarajuću dimenziju modle</p>
 
-                <select name="size" id="size" onchange="calculate();">
+                <form action="" method="post">
+                <div class="size">
+                <select name="size" id="size">
                    <?php
                     $velicina=$query->selectSizes($product_id);
+                  
                     while ($row=$velicina->fetch(PDO::FETCH_ASSOC)) { ?>
-
-                        <option value="<?php echo $row['velicina_1']?>"> <?php echo $row['velicina_1']?> </option>
-                        <option value="<?php echo $row['velicina_2']?>"> <?php echo $row['velicina_2']?> </option>
-                        <option value="<?php echo $row['velicina_3']?>"> <?php echo $row['velicina_3']?> </option>
+                    
+                        <option value="<?php echo $row['ID']?>"><?php echo $row['Dimenzija']?> cm</option>
                     
                      <?php } ?>
-                </select>
+                     </select>
+                     </div>
+                </form>
 
-                    <div class="choose-properties">
-                        <select name="imprint" id="imprint" onchange="calculate();" >
+                    <div class="choose-properties-imprint">
+                        <div class="imprint">
+                        <p>Odaberite da li želite utiskivač </p>
                             <?php
-                                $utiskivac_fetched=$func->pickTypeOfCookieCutter($utiskivac);
-                                echo $utiskivac_fetched;                              
-                            ?>
-                        </select>
-                    </div>  
+                            $selectimprint=$query->selectImprint($product_id);  
 
+                            while ($row=$selectimprint->fetch(PDO::FETCH_ASSOC)) {  ?>
+                             <input type="button" name="imprint" id="" value='<?php echo $row['Naziv']?>'>  
+                             <?php  }  ?>
+                 </div>
+                    </div>  
+                        
                     <div class="quantity">
-                        <span class='plus'>+</span>
-                        <input type="number"  class='number' name="quantity" id="quantity" value='1' readonly="readonly" onchange="calculate();">
-                        <span class='minus'>-</span>
+                        <input type='button' class='plus' value='+' onclick='increment()'>
+                        <input type="number"  class='number' name="quantity" id="quantity" value='1' readonly="readonly" onclick="calculate();">
+                        <input type='button' class='minus' value='-' onclick='decrement()'>
                     </div>
 
                     <div class="price">
