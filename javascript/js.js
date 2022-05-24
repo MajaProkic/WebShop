@@ -35,7 +35,7 @@
               chck: vel
             },
         success:function (html) {
-           $('.products').html(html)       
+           $('.products').append(html)       
          }
         })
       } else {

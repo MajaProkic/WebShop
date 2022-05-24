@@ -29,9 +29,13 @@
     private $SELECTIMPRINT="SELECT u.Naziv, u.ID from utiskivaci u inner join utiskivaci_po_modlama upm on u.ID=upm.ID_utiskivaca where ID_modle=?";
     private $SELECTCENA="SELECT Cena from cene where ID_velicine =? and ID_utiskivaca=?";
     private $MAXMINPRICE="SELECT DISTINCT MAX(cene.Cena) AS 'maksimalna_cena', MIN(cene.Cena) as 'minimalna_cena', cene.ID_velicine, cene.ID_utiskivaca, velicine_po_modli.ID_modle FROM `velicine_po_modli` INNER JOIN cene ON velicine_po_modli.ID_velicine=cene.ID_velicine INNER JOIN utiskivaci_po_modlama ON cene.ID_utiskivaca=utiskivaci_po_modlama.ID_utiskivaca WHERE velicine_po_modli.ID_modle=190";
+    private $SELECTCOOKIECUTTERSBYCATEGORIES="SELECT * FROM `modla` INNER JOIN kategorija ON modla.kategorija_id=kategorija.id where kategorija.naziv=?";
 
     public function __construct($db){
         $this->conn = $db;
+    }
+    public function selectcookiecutterbycategories($name){
+        return $this->sendOnlyOneVariableQuery($this->SELECTCOOKIECUTTERSBYCATEGORIES,$name);
     }
     public function maxminprice(){
         return $this->sendQueryWithReturnValueAndNoParams($this->MAXMINPRICE);
