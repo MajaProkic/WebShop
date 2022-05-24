@@ -15,10 +15,10 @@
                 <?php
                         $res=$query->selectAllCategories();
                         foreach ($res as $r) {?>
-                            <div class="checkbox" class='kategorija'>
+                            <div class="checkbox">
 
                                 <input type="hidden" name="id" value='<?php echo $r['id']?>'>
-                                <input type="checkbox" name="naziv_kategorije" value='<?php echo $r['naziv']?>' id="">
+                                <input type="checkbox"  class ='chckbox' name="naziv_kategorije" value='<?php echo $r['naziv']?>' id="">
                                 <label for=""><?php echo $r['naziv']?></label>
                         
                             </div>

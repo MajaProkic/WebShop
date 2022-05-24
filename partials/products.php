@@ -29,7 +29,13 @@
                 <h3><?php echo $row['naziv'];?></h3>
             </div>
             <div class="price">
-                <p id='average-price'>RSD</p>
+                <p id='average-price'><?php
+                $res=$query->maxminprice($row['id']);
+                while ($row=$res->fetch(PDO::FETCH_ASSOC)) {
+                    echo $row['minimalna_cena'].'-';
+                    echo $row['maksimalna_cena'];
+                }
+                ?>RSD</p>
             </div>
  
             <button class="buy-product"><a href="product.php?product=<?php echo $row['id']?>">Odaberite veličinu</a></button>

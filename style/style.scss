@@ -85,7 +85,7 @@ h1{
     height: 500px;
     text-align: center;
     overflow: hidden;
-    background-image: url("../images/pexels-ekaterina-bolovtsova-5702702.jpg");
+    background-image: url("images/pexels-ekaterina-bolovtsova-5702702.jpg");
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -422,7 +422,7 @@ button{
     grid-column-gap:1em;
 
     .product-img-tit{
-      
+     
         .product-img{     
             display: block;
             margin-left: 10%;
@@ -434,7 +434,8 @@ button{
             h2{
                 margin-top: 50px;
                 margin-bottom: 50px;
-                margin-left: 10%;
+                position: relative;
+                left: 30%;
                 
                 input{
                     border: 1px solid transparent;
@@ -455,121 +456,46 @@ button{
     padding: 5px;
     }
 
-    .choose-properties-size,.choose-properties-imprint{
-        
-        margin-top: 30px;
+    .choose-properties{
         display: grid;
-        grid-template-columns: repeat(1,1fr);
-       
-        p{
-            grid-row: 1/1;
-            text-align: center;
-            font-size: 16pt;
-        }
-        #size,#imprint{
-            grid-row: 2/2;
-            margin: 5px;
-            font-size: 16pt;
-        }
-        .size{
-            margin: auto;
-         select{
-             width: 250px;
-             background-color: #fcc326;
-             color: white;
-             height: 35px;
-             font-size: 16pt;
-             border: none;         
-            
-             option{
-                font-size: 16pt;
-                text-align: center;
-              
-             }
-             &:focus{
-                 outline: none;
-             }
-         }
-           input{
-                display: inline-block;
-                width: 60px;
-                height: 60px;
-                color: white;
-                opacity: 0.8;
-                background-color: #fcc326;
-                border: none;
-                font-size: 16pt;
-                &:focus{
-                    color: var(--color);
-                    border: 2px solid black;
-                    border-radius: 10%;
-                    color: white;
-                }
-            }
-        
-        }
-        .imprint{
-            margin: auto;
-            input{
-                display: inline-block;
-                width: 150px;
-                height: 60px;
-                color: white;
-                opacity: 0.8;
-                background-color: #fcc326;
-                border: none;
-                font-size: 16pt;
-                &:focus{
-                    color: var(--color);
-                    border: 2px solid black;
-                    border-radius: 10%;
-                    color: white;
-                }
-            }
-        }
-    
-        .quantity{
+        grid-template-rows: auto;
+        .imprint,.size{
             display: grid;
-            grid-template-columns: repeat(3,50px);
-            padding: 25px;
-            margin: auto;
-            
-            .plus,.minus{
-                    margin: auto;
-                    text-decoration: none;
-                    font-size: 16pt;
-                    width: 40px;
-                    height: 40px;
-                    background-color: #fcc326;
-                    text-align: center;
-                    color: white;
-                    border-radius: 15%;
-                    padding-top: 5px;
-                    cursor: pointer;
-            }
-            #quantity{
-                cursor: not-allowed;
-                border: none;
+            grid-template-columns: 50% 50%;
+            margin-top: 50px;
+            p{
                 text-align: center;
             }
-         } 
-         .price{
-             margin: auto;
-             
-             input{
-                 border: 1px solid transparent;
-                 text-align: center;
-                 font-size: 16pt;
-                 margin-bottom: 15px;
-                  &:disabled{
-                      color: black;
-                      background-color: transparent;
-                  }
-                
-             }
-         }
-    }
+            select{
+                background-color: #fcc326;
+                color: white;
+                outline: none;
+                font-size: 16pt;
+                padding: 5px;
+                text-align: center;
+            }
+        }
 
+      .quantity{
+        
+          input{
+            width: 70px;
+            height: 70px;
+            margin-top:25px ;
+            left: 25%;
+            position: relative;
+          }
+      }
+      .price{
+          display: block;
+          margin-top: 25px;
+          font-size: 16pt;
+          text-align: center;
+      }
+      button{
+        float: left;
+      }
+    }
     #buy{
         font-size: 15pt;
         background-color: var(--color);

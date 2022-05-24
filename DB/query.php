@@ -27,11 +27,16 @@
     private $INSERTINTOVELICINEPOMODLAMA="INSERT INTO velicine_po_modli (ID_velicine, ID_modle) VALUES(?,?)";
     private $INSERTINTOCENE="INSERT INTO cene (	ID_velicine,ID_utiskivaca,Cena)";
     private $SELECTIMPRINT="SELECT u.Naziv, u.ID from utiskivaci u inner join utiskivaci_po_modlama upm on u.ID=upm.ID_utiskivaca where ID_modle=?";
-   private $SELECTCENA="SELECT Cena from cene where ID_velicine =? and ID_utiskivaca=?";
+    private $SELECTCENA="SELECT Cena from cene where ID_velicine =? and ID_utiskivaca=?";
+    private $MAXMINPRICE="SELECT DISTINCT MAX(cene.Cena) AS 'maksimalna_cena', MIN(cene.Cena) as 'minimalna_cena', cene.ID_velicine, cene.ID_utiskivaca, velicine_po_modli.ID_modle FROM `velicine_po_modli` INNER JOIN cene ON velicine_po_modli.ID_velicine=cene.ID_velicine INNER JOIN utiskivaci_po_modlama ON cene.ID_utiskivaca=utiskivaci_po_modlama.ID_utiskivaca WHERE velicine_po_modli.ID_modle=190";
 
     public function __construct($db){
         $this->conn = $db;
     }
+    public function maxminprice(){
+        return $this->sendQueryWithReturnValueAndNoParams($this->MAXMINPRICE);
+     }
+
     public function insertCena($id_velicine,$id_utiskivaca,$cena){
       $stmt=$this->conn->prepare($this->INSERTINTOCENE);
       $stmt->execute([$id_velicine,$id_utiskivaca,$cena]);
@@ -45,7 +50,7 @@
       $stmt=$this->conn->prepare($this->INSERTINTOUTISKIVACIPOMODLAMA);
       $stmt->execute([$id_utiskivaca,$id_modle]);
     }
-      public function getprice($id_velicine,$id_utiskivaca){
+    public function getprice($id_velicine,$id_utiskivaca){
         $stmt=$this->conn->prepare($this->SELECTCENA);
         $stmt->execute([$id_velicine,$id_utiskivaca]);
         return $stmt;

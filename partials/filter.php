@@ -1,5 +1,9 @@
+<?php
+
+?>
+
 <h2>Filtritajte proizvode</h2>
-            <select name="" id="filter" class='filter' onchange='filter()'>
+            <select name="filter" id="filter" class='filter' onchange='filter()'>
                 <option value="">Najnovije postavljno</option>
                 <option value="">Ekstra velike modle</option>
                 <option value="">Standardne modle</option>

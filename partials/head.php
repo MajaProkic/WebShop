@@ -12,4 +12,5 @@ $func=new Functions();
 
     <title><?php  echo $func->dynamicTitle($_SERVER['PHP_SELF'])?></title>
 </head>
-<body>
+<body >
+    

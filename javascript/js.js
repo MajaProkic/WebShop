@@ -1,17 +1,51 @@
+    
+    $(document).ready(function(){
+    
+      
+      $('#imprint, #sizee').on('change',function(){
+          var size=$('#sizee').val();
+          var imprint=$('#imprint').val();
+      
+       
+          $.ajax({
+              url:'calculate_price.php',
+              method:'post',
+              data:{
+                size: size,
+                imprint:imprint
+              },
+          success:function (html) {
+          $('#pricepinput').val(html);
+          $('#pricep').html(html+' RSD');  
+           }
+          })
+           
+      })
 
-$(document).ready(function(){
-    $('#size').change(function(){
-        var sizeVal=$('#size').val();
+//category
+      $('.chckbox').on('change',function(){
+       
+      if ($(this).prop("checked") == true) {
+        var vel=$("input[type='checkbox']:checked").val();
+        console.log(vel);
         $.ajax({
-            url:'functions/calculate_price',
+            url:'partials/categoriesProcessing.php',
             method:'post',
-            data:'size'+sizeVal
-        }).done(function(res){
-            console.log(res);
+            data:{
+              chck: vel
+            },
+        success:function (html) {
+           $('.products').html(html)       
+         }
         })
-
+      } else {
+        $('.products').html('jbg');    
+      }
+     
     })
-})
+
+
+  })
 function filter() {
     var e = document.getElementById("filter");
     var strUser = e.options[e.selectedIndex].text;

@@ -5,8 +5,6 @@ require_once 'DB/Database.php';
 
 $infoaboutProduct=isset($infoaboutProduct)?$infoaboutProduct:"";
 class Functions{
-
-
     
     public function cutString($string,$wichLength,$maxLength){
         if(strlen($string)>$wichLength){

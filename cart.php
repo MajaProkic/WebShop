@@ -15,6 +15,8 @@ $func=new Functions();
 global $func;?>
 
 <?php
+
+
  if (isset($_GET['delete'])) {
     $deleted_id=$_GET['delete'];
     $func->removeElementFromSession('product_cart',$deleted_id,'id');
@@ -67,6 +69,7 @@ if (isset($_POST['buy'])) {
                     ?>
                     
                     <tr id='cart'>
+                        
                     <td><input type="text" name="id" id="" value='<?php echo $key['id']; ?>'readonly="readonly"></td>
                         <td><input type="text" name="naziv" id="" value='<?php echo $key['naziv'] ?>'readonly="readonly" ></td>
                         <td><input type="text" name="size" id="" value='<?php echo $key['size'] ?>'readonly="readonly" ></td>
@@ -78,7 +81,7 @@ if (isset($_POST['buy'])) {
                        <td><input type="text" name="quantity" id="" value='<?php echo $key['quantity']?>'readonly="readonly"></td>
                         <td class='delete'><a href="cart.php?delete=<?php echo $key['id'];?>">Obriši</a></td>
                         <td>
-                         <input type="text" name="cena" id="" value="<?php echo $key['price']*$key['quantity'];
+                         <input type="text" name="cena" id="" value="<?php echo $key['price'];
                          $total_price=$total_price+$key['price']*$key['quantity']?>"readonly="readonly">
                         </td>
                     </tr>
