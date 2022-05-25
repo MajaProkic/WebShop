@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2022 at 12:53 PM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 7.3.28
+-- Generation Time: May 25, 2022 at 04:21 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -151,9 +151,9 @@ INSERT INTO `modla` (`id`, `naziv`, `kategorija_id`, `opis`, `slika`, `hashtag`)
 (134, 'Grožđe', 5, 'Modla standardnih veličina, čest simbol slavske trpeze', 'grozdje.PNG', '#grozdje#slava#modla#slavska'),
 (141, 'Bure', 6, 'Bure jednostavno iz prvog lica.', 'bure.PNG', '#bure#bacva#slavske#modle'),
 (142, 'Bure sa linijama', 6, 'U ponudi imamo i ovakav tip bureta', 'bure sa linijamaa.PNG', '#bure#slavske#modle#bacva#bačva'),
-(146, 'Irvas raširenih ruku', 0, 'Novogodišnja modlica irvasa raširenih ruku. Jednostavnog dizajna obećava dobro utiskivanje u testo.', 'irvas rasirenih ruku.png', '#irvas#nova#godina#modle#novogodisnje'),
-(157, 'Irvas sa lampicama', 0, 'Irvas sa lampicama na rogovima pripada tematici novogodisnjih modli, zbog svojih detaljnijih šara u predelu rogova preporučiljivo je poručivati modlu u većim dimenzijama zbog efektnijeg otiska na testu', 'irvas sa lampicama.PNG', '#irvas#lampice#nova#godina#novogodisnje#modle'),
-(161, 'Golub sa raširenim krilima', 5, '<div class=\"description\">\r\n    <p class=\'attribute\'>Debljina sekača: </p>\r\n    <p class=\'attribute_value\'> 10 cm</p>\r\n    <p class=\'attribute\'>Širina modle: </p>\r\n    <p class=\'attribute_value\'> 6,4cm</p>\r\n  <p class=\'attribute\'>Dužina modle:</p>\r\n    <p class=\'attribute_value\'> 5,3cm</p>\r\n  <p class=\'attribute\'>Debljina utiskivača:</p>\r\n    <p class=\'attribute_value\'> 6mm</p>\r\n  <p class=\'attribute\'>Težina modle:</p>\r\n    <p class=\'attribute_value\'>  5g</p>\r\n</div>', 'golub sa rasirenim krilima.PNG', '#slavske#modle#golub#ptica'),
+(146, 'Irvas raširenih ruku', 1, 'Novogodišnja modlica irvasa raširenih ruku. Jednostavnog dizajna obećava dobro utiskivanje u testo.', 'irvas rasirenih ruku.png', '#irvas#nova#godina#modle#novogodisnje'),
+(157, 'Irvas sa lampicama', 1, 'Irvas sa lampicama na rogovima pripada tematici novogodisnjih modli, zbog svojih detaljnijih šara u predelu rogova preporučiljivo je poručivati modlu u većim dimenzijama zbog efektnijeg otiska na testu', 'irvas sa lampicama.PNG', '#irvas#lampice#nova#godina#novogodisnje#modle'),
+(161, 'Golub sa raširenim krilima', 6, '<div class=\"description\">\r\n    <p class=\'attribute\'>Debljina sekača: </p>\r\n    <p class=\'attribute_value\'> 10 cm</p>\r\n    <p class=\'attribute\'>Širina modle: </p>\r\n    <p class=\'attribute_value\'> 6,4cm</p>\r\n  <p class=\'attribute\'>Dužina modle:</p>\r\n    <p class=\'attribute_value\'> 5,3cm</p>\r\n  <p class=\'attribute\'>Debljina utiskivača:</p>\r\n    <p class=\'attribute_value\'> 6mm</p>\r\n  <p class=\'attribute\'>Težina modle:</p>\r\n    <p class=\'attribute_value\'>  5g</p>\r\n</div>', 'golub sa rasirenim krilima.PNG', '#slavske#modle#golub#ptica'),
 (190, 'Candy Cat - Pepa Pig', 9, 'Candy cat pepa prase', 'candy cat.PNG', '#candy#cat#pepa#prase#modlice#za#decu#modle'),
 (193, 'Emily elephant - Pepa Pig', 9, 'emilija slonica', 'emily elephant.PNG', '#pepa#prase#pig#modle#modlice#za#decu'),
 (227, 'Časne verige Svetog Petra - Lik', 6, 'Časne verige Svetog Petra..', 'Casne verige sv petra lik.PNG', '#casne#časne#verige#svetog#petra#lik#ikona'),
@@ -300,8 +300,8 @@ CREATE TABLE `utiskivaci` (
 --
 
 INSERT INTO `utiskivaci` (`ID`, `Naziv`) VALUES
-(1, 'sa utiskivacem'),
-(2, 'bez utiskivaca');
+(1, 'Sa utiskivacem'),
+(2, 'Bez utiskivaca');
 
 -- --------------------------------------------------------
 
@@ -324,7 +324,19 @@ INSERT INTO `utiskivaci_po_modlama` (`ID_utiskivaca`, `ID_modle`) VALUES
 (2, 141),
 (2, 193),
 (1, 190),
-(2, 190);
+(2, 190),
+(1, 227),
+(2, 227),
+(1, 161),
+(2, 161),
+(1, 157),
+(2, 157),
+(1, 146),
+(2, 146),
+(1, 146),
+(2, 146),
+(2, 0),
+(2, 51);
 
 -- --------------------------------------------------------
 
@@ -360,17 +372,21 @@ INSERT INTO `velicine` (`ID`, `Dimenzija`) VALUES
 
 CREATE TABLE `velicine_po_modli` (
   `ID_velicine` int(11) NOT NULL,
-  `ID_modle` int(11) NOT NULL
+  `ID_modle` int(11) NOT NULL,
+  `RedniBrojVelicine` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `velicine_po_modli`
 --
 
-INSERT INTO `velicine_po_modli` (`ID_velicine`, `ID_modle`) VALUES
-(6, 190),
-(7, 190),
-(8, 190);
+INSERT INTO `velicine_po_modli` (`ID_velicine`, `ID_modle`, `RedniBrojVelicine`) VALUES
+(5, 190, 3),
+(6, 146, 1),
+(6, 190, 2),
+(7, 146, 2),
+(7, 190, 1),
+(8, 146, 3);
 
 --
 -- Indexes for dumped tables
@@ -447,6 +463,7 @@ ALTER TABLE `velicine`
 -- Indexes for table `velicine_po_modli`
 --
 ALTER TABLE `velicine_po_modli`
+  ADD PRIMARY KEY (`ID_velicine`,`ID_modle`),
   ADD KEY `ID_modle` (`ID_modle`),
   ADD KEY `velicine_po_modli_ibfk_1` (`ID_velicine`);
 
