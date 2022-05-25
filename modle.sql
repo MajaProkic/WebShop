@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2022 at 11:32 AM
+-- Generation Time: May 25, 2022 at 12:53 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.3.28
 
@@ -20,6 +20,30 @@ SET time_zone = "+00:00";
 --
 -- Database: `modle`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cene`
+--
+
+CREATE TABLE `cene` (
+  `ID_velicine` int(11) NOT NULL,
+  `ID_utiskivaca` int(11) NOT NULL,
+  `Cena` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cene`
+--
+
+INSERT INTO `cene` (`ID_velicine`, `ID_utiskivaca`, `Cena`) VALUES
+(6, 1, 150),
+(6, 2, 100),
+(7, 1, 200),
+(7, 2, 130),
+(8, 1, 250),
+(8, 2, 160);
 
 -- --------------------------------------------------------
 
@@ -102,41 +126,38 @@ INSERT INTO `kupci` (`id`, `ime`, `prezime`, `email`, `mesto`, `ulica`, `broj`, 
 
 CREATE TABLE `modla` (
   `id` int(11) NOT NULL,
-  `status` int(11) NOT NULL,
   `naziv` varchar(255) NOT NULL,
   `kategorija_id` int(11) NOT NULL,
-  `utiskivac` tinyint(1) NOT NULL,
   `opis` varchar(999) NOT NULL,
   `slika` varchar(255) NOT NULL,
-  `hashtag` varchar(700) NOT NULL,
-  `velicina_1` int(11) NOT NULL,
-  `velicina_2` int(11) DEFAULT NULL,
-  `velicina_3` int(11) DEFAULT NULL
+  `hashtag` varchar(700) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `modla`
 --
 
-INSERT INTO `modla` (`id`, `status`, `naziv`, `kategorija_id`, `utiskivac`, `opis`, `slika`, `hashtag`, `velicina_1`, `velicina_2`, `velicina_3`) VALUES
-(0, 1, 'Anđeo raširenih krila', 6, 0, 'Anđeo raširenih krila je modla koja nema utiskivač. Može se koristiti za razne praznike jer predstavlja jedan od osnovnih simbola vere.', 'andjeo rasirenih krila.PNG', '#andjeo#anđeo#krila#slavske#modle#božićne#bozicne', 6, 7, 8),
-(51, 1, 'Krst', 0, 0, 'Pravoslavni krst je nezaobilazna slavska modla', 'krst.PNG', '#krst#modle#slavske#pravoslavni', 6, 7, 8),
-(53, 1, 'Hrastov list', 0, 1, 'Hrastov list se može koristiti pri dekorisanju slavskog kolača. ', 'list hrasta.PNG', '#list#hrast#slavski#kolač#kolac#modle', 6, 7, 8),
-(82, 1, 'Grožđe i vino', 0, 1, 'Grožđe, vino i čaša predstavljaju neke od simbola pravoslavlja. Samim tim se često nalaze na trpezi kada je slava.', 'grozdje vino casa.PNG', '#grožđe#vino#čaša#slava#slavska#modla#casa#grozdje', 6, 7, 8),
-(83, 1, 'Knjiga i krst', 5, 1, 'Modla standardne veličine, sa utiskivačem uredno ocrtava svaki detalj. ', 'knjiga sa krstom.PNG', '#krst#knjiga#slava#modla#slavske', 6, 7, 8),
-(103, 1, 'Zeka drži šargarepu', 2, 1, 'ya', 'cupavi zeka sa sargarepom.PNG', '#zeka#jaje#zekadrzisargarepu#cupavi#uskrsnje#uskršnje#modle#modlice#sargarepa#sangarepa', 6, 7, 8),
-(104, 1, 'Zeka na jajetu', 2, 1, 'Još jedna modla od mini seta sličnih modlica gde je glavni motiv zeka', 'cupavi zeka na jajetu.PNG', '#zeka#jaje#zekanajajetu#cupavi#uskrsnje#uskršnje#modle#modlice', 6, 7, 8),
-(105, 1, 'Zeka drži jaje', 2, 1, 'Simboli uskršnjeg praznika na jednoj modlici.', 'cupavi zeka drzi jaje.PNG', '#zeka#jaje#zekadrzijaje#cupavi#uskrsnje#uskršnje#modle#modlice', 6, 7, 8),
-(116, 1, 'Anđeo koji se moli', 0, 0, 'Modla anđela koji se moli može se naći i u kategoriji slavskih modli, ali i u kategoriji novogodišnjih modli', 'andjeo se moli.PNG', '#andjeo#molitva#novogodišnje#slavske#modle', 6, 7, 8),
-(133, 1, 'Golub', 6, 1, 'Golub ', 'golub lik.PNG', '#golub#slavske#modle', 6, 7, 8),
-(134, 1, 'Grožđe', 5, 1, 'Modla standardnih veličina, čest simbol slavske trpeze', 'grozdje.PNG', '#grozdje#slava#modla#slavska', 6, 7, 8),
-(141, 1, 'Bure', 6, 1, 'Bure jednostavno iz prvog lica.', 'bure.PNG', '#bure#bacva#slavske#modle', 6, 7, 8),
-(142, 1, 'Bure sa linijama', 6, 1, 'U ponudi imamo i ovakav tip bureta', 'bure sa linijamaa.PNG', '#bure#slavske#modle#bacva#bačva', 6, 7, 8),
-(146, 1, 'Irvas raširenih ruku', 0, 1, 'Novogodišnja modlica irvasa raširenih ruku. Jednostavnog dizajna obećava dobro utiskivanje u testo.', 'irvas rasirenih ruku.png', '#irvas#nova#godina#modle#novogodisnje', 6, 7, 8),
-(157, 1, 'Irvas sa lampicama', 0, 1, 'Irvas sa lampicama na rogovima pripada tematici novogodisnjih modli, zbog svojih detaljnijih šara u predelu rogova preporučiljivo je poručivati modlu u većim dimenzijama zbog efektnijeg otiska na testu', 'irvas sa lampicama.PNG', '#irvas#lampice#nova#godina#novogodisnje#modle', 6, 7, 8),
-(161, 1, 'Golub sa raširenim krilima', 5, 1, '<div class=\"description\">\r\n    <p class=\'attribute\'>Debljina sekača: </p>\r\n    <p class=\'attribute_value\'> 10 cm</p>\r\n    <p class=\'attribute\'>Širina modle: </p>\r\n    <p class=\'attribute_value\'> 6,4cm</p>\r\n  <p class=\'attribute\'>Dužina modle:</p>\r\n    <p class=\'attribute_value\'> 5,3cm</p>\r\n  <p class=\'attribute\'>Debljina utiskivača:</p>\r\n    <p class=\'attribute_value\'> 6mm</p>\r\n  <p class=\'attribute\'>Težina modle:</p>\r\n    <p class=\'attribute_value\'>  5g</p>\r\n</div>', 'golub sa rasirenim krilima.PNG', '#slavske#modle#golub#ptica', 6, 7, 8),
-(227, 1, 'Časne verige Svetog Petra - Lik', 6, 1, 'Časne verige Svetog Petra..', 'Casne verige sv petra lik.PNG', '#casne#časne#verige#svetog#petra#lik#ikona', 6, 7, 8),
-(241, 1, 'Zeka u automobilu', 2, 1, 'Zeka u automobilu sa sargarepicma.', 'auto sa zecom.PNG', '#uskrsnje#modle#modlice#za#kolace', 6, 7, 8);
+INSERT INTO `modla` (`id`, `naziv`, `kategorija_id`, `opis`, `slika`, `hashtag`) VALUES
+(0, 'Anđeo raširenih krila', 6, 'Anđeo raširenih krila je modla koja nema utiskivač. Može se koristiti za razne praznike jer predstavlja jedan od osnovnih simbola vere.', 'andjeo rasirenih krila.PNG', '#andjeo#anđeo#krila#slavske#modle#božićne#bozicne'),
+(51, 'Krst', 0, 'Pravoslavni krst je nezaobilazna slavska modla', 'krst.PNG', '#krst#modle#slavske#pravoslavni'),
+(53, 'Hrastov list', 0, 'Hrastov list se može koristiti pri dekorisanju slavskog kolača. ', 'list hrasta.PNG', '#list#hrast#slavski#kolač#kolac#modle'),
+(82, 'Grožđe i vino', 0, 'Grožđe, vino i čaša predstavljaju neke od simbola pravoslavlja. Samim tim se često nalaze na trpezi kada je slava.', 'grozdje vino casa.PNG', '#grožđe#vino#čaša#slava#slavska#modla#casa#grozdje'),
+(83, 'Knjiga i krst', 5, 'Modla standardne veličine, sa utiskivačem uredno ocrtava svaki detalj. ', 'knjiga sa krstom.PNG', '#krst#knjiga#slava#modla#slavske'),
+(103, 'Zeka drži šargarepu', 2, 'ya', 'cupavi zeka sa sargarepom.PNG', '#zeka#jaje#zekadrzisargarepu#cupavi#uskrsnje#uskršnje#modle#modlice#sargarepa#sangarepa'),
+(104, 'Zeka na jajetu', 2, 'Još jedna modla od mini seta sličnih modlica gde je glavni motiv zeka', 'cupavi zeka na jajetu.PNG', '#zeka#jaje#zekanajajetu#cupavi#uskrsnje#uskršnje#modle#modlice'),
+(105, 'Zeka drži jaje', 2, 'Simboli uskršnjeg praznika na jednoj modlici.', 'cupavi zeka drzi jaje.PNG', '#zeka#jaje#zekadrzijaje#cupavi#uskrsnje#uskršnje#modle#modlice'),
+(116, 'Anđeo koji se moli', 0, 'Modla anđela koji se moli može se naći i u kategoriji slavskih modli, ali i u kategoriji novogodišnjih modli', 'andjeo se moli.PNG', '#andjeo#molitva#novogodišnje#slavske#modle'),
+(133, 'Golub', 6, 'Golub ', 'golub lik.PNG', '#golub#slavske#modle'),
+(134, 'Grožđe', 5, 'Modla standardnih veličina, čest simbol slavske trpeze', 'grozdje.PNG', '#grozdje#slava#modla#slavska'),
+(141, 'Bure', 6, 'Bure jednostavno iz prvog lica.', 'bure.PNG', '#bure#bacva#slavske#modle'),
+(142, 'Bure sa linijama', 6, 'U ponudi imamo i ovakav tip bureta', 'bure sa linijamaa.PNG', '#bure#slavske#modle#bacva#bačva'),
+(146, 'Irvas raširenih ruku', 0, 'Novogodišnja modlica irvasa raširenih ruku. Jednostavnog dizajna obećava dobro utiskivanje u testo.', 'irvas rasirenih ruku.png', '#irvas#nova#godina#modle#novogodisnje'),
+(157, 'Irvas sa lampicama', 0, 'Irvas sa lampicama na rogovima pripada tematici novogodisnjih modli, zbog svojih detaljnijih šara u predelu rogova preporučiljivo je poručivati modlu u većim dimenzijama zbog efektnijeg otiska na testu', 'irvas sa lampicama.PNG', '#irvas#lampice#nova#godina#novogodisnje#modle'),
+(161, 'Golub sa raširenim krilima', 5, '<div class=\"description\">\r\n    <p class=\'attribute\'>Debljina sekača: </p>\r\n    <p class=\'attribute_value\'> 10 cm</p>\r\n    <p class=\'attribute\'>Širina modle: </p>\r\n    <p class=\'attribute_value\'> 6,4cm</p>\r\n  <p class=\'attribute\'>Dužina modle:</p>\r\n    <p class=\'attribute_value\'> 5,3cm</p>\r\n  <p class=\'attribute\'>Debljina utiskivača:</p>\r\n    <p class=\'attribute_value\'> 6mm</p>\r\n  <p class=\'attribute\'>Težina modle:</p>\r\n    <p class=\'attribute_value\'>  5g</p>\r\n</div>', 'golub sa rasirenim krilima.PNG', '#slavske#modle#golub#ptica'),
+(190, 'Candy Cat - Pepa Pig', 9, 'Candy cat pepa prase', 'candy cat.PNG', '#candy#cat#pepa#prase#modlice#za#decu#modle'),
+(193, 'Emily elephant - Pepa Pig', 9, 'emilija slonica', 'emily elephant.PNG', '#pepa#prase#pig#modle#modlice#za#decu'),
+(227, 'Časne verige Svetog Petra - Lik', 6, 'Časne verige Svetog Petra..', 'Casne verige sv petra lik.PNG', '#casne#časne#verige#svetog#petra#lik#ikona'),
+(241, 'Zeka u automobilu', 2, 'Zeka u automobilu sa sargarepicma.', 'auto sa zecom.PNG', '#uskrsnje#modle#modlice#za#kolace');
 
 -- --------------------------------------------------------
 
@@ -266,40 +287,100 @@ INSERT INTO `users_online` (`id`, `session`, `time`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `velicine_modli`
+-- Table structure for table `utiskivaci`
 --
 
-CREATE TABLE `velicine_modli` (
-  `id` int(11) NOT NULL,
-  `velicina` varchar(255) NOT NULL
+CREATE TABLE `utiskivaci` (
+  `ID` int(11) NOT NULL,
+  `Naziv` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `velicine_modli`
+-- Dumping data for table `utiskivaci`
 --
 
-INSERT INTO `velicine_modli` (`id`, `velicina`) VALUES
-(3, '3 cm'),
-(4, '4 cm'),
-(5, '5 cm'),
-(6, '6 cm'),
-(7, '7 cm'),
-(8, '8 cm'),
-(9, '9 cm'),
-(10, '10 cm'),
-(11, '11 cm'),
-(12, '12 cm'),
-(13, '13 cm');
+INSERT INTO `utiskivaci` (`ID`, `Naziv`) VALUES
+(1, 'sa utiskivacem'),
+(2, 'bez utiskivaca');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `utiskivaci_po_modlama`
+--
+
+CREATE TABLE `utiskivaci_po_modlama` (
+  `ID_utiskivaca` int(11) NOT NULL,
+  `ID_modle` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `utiskivaci_po_modlama`
+--
+
+INSERT INTO `utiskivaci_po_modlama` (`ID_utiskivaca`, `ID_modle`) VALUES
+(2, 116),
+(1, 141),
+(2, 141),
+(2, 193),
+(1, 190),
+(2, 190);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `velicine`
+--
+
+CREATE TABLE `velicine` (
+  `ID` int(11) NOT NULL,
+  `Dimenzija` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `velicine`
+--
+
+INSERT INTO `velicine` (`ID`, `Dimenzija`) VALUES
+(1, 3),
+(2, 4),
+(5, 5),
+(6, 6),
+(7, 7),
+(8, 8),
+(9, 9),
+(10, 10),
+(11, 11);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `velicine_po_modli`
+--
+
+CREATE TABLE `velicine_po_modli` (
+  `ID_velicine` int(11) NOT NULL,
+  `ID_modle` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `velicine_po_modli`
+--
+
+INSERT INTO `velicine_po_modli` (`ID_velicine`, `ID_modle`) VALUES
+(6, 190),
+(7, 190),
+(8, 190);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `comment`
+-- Indexes for table `cene`
 --
-ALTER TABLE `comment`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `cene`
+  ADD PRIMARY KEY (`ID_velicine`,`ID_utiskivaca`);
 
 --
 -- Indexes for table `kategorija`
@@ -344,20 +425,34 @@ ALTER TABLE `users_online`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `velicine_modli`
+-- Indexes for table `utiskivaci`
 --
-ALTER TABLE `velicine_modli`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `utiskivaci`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `utiskivaci_po_modlama`
+--
+ALTER TABLE `utiskivaci_po_modlama`
+  ADD KEY `ID_utiskivaca` (`ID_utiskivaca`),
+  ADD KEY `ID_modle` (`ID_modle`);
+
+--
+-- Indexes for table `velicine`
+--
+ALTER TABLE `velicine`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `velicine_po_modli`
+--
+ALTER TABLE `velicine_po_modli`
+  ADD KEY `ID_modle` (`ID_modle`),
+  ADD KEY `velicine_po_modli_ibfk_1` (`ID_velicine`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `comment`
---
-ALTER TABLE `comment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `kategorija`
@@ -390,10 +485,33 @@ ALTER TABLE `users_online`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- AUTO_INCREMENT for table `velicine_modli`
+-- AUTO_INCREMENT for table `utiskivaci`
 --
-ALTER TABLE `velicine_modli`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+ALTER TABLE `utiskivaci`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `velicine`
+--
+ALTER TABLE `velicine`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `utiskivaci_po_modlama`
+--
+ALTER TABLE `utiskivaci_po_modlama`
+  ADD CONSTRAINT `utiskivaci_po_modlama_ibfk_1` FOREIGN KEY (`ID_utiskivaca`) REFERENCES `utiskivaci` (`ID`),
+  ADD CONSTRAINT `utiskivaci_po_modlama_ibfk_2` FOREIGN KEY (`ID_modle`) REFERENCES `modla` (`id`);
+
+--
+-- Constraints for table `velicine_po_modli`
+--
+ALTER TABLE `velicine_po_modli`
+  ADD CONSTRAINT `velicine_po_modli_ibfk_1` FOREIGN KEY (`ID_velicine`) REFERENCES `velicine` (`ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
