@@ -35,7 +35,7 @@
               chck: vel
             },
         success:function (html) {
-           $('.products').append(html)       
+           $('.products').html(html)       
          }
         })
       } else {
@@ -58,16 +58,36 @@ function increment() {
     num=document.querySelector('.number');
     if(num.value<10){
         num.innerHTML= num.value++;
-        return num.value;
-    }
-            
+      
+        n=num.value;
+        addInputs(n);
+    }       
 }
+
 function decrement() {
     num=document.querySelector('.number');
     if (num.value>1) {
          num.innerHTML=num.value--;
+        
+         removeInputs();
     }
-   
+}
+
+function addInputs(numvalue) {
+  for (let index = 0; index < n.length; index++) {
+    var sizeUpdate=document.querySelector('#size_update');
+    var x = document.createElement("INPUT");
+    x.setAttribute("type", "number");
+    x.setAttribute("name", "velicinaAdd[]");
+    x.setAttribute("class","dynamicSize");
+  sizeUpdate.appendChild(x);
+    
+  }
+}
+
+function removeInputs() {
+  var x=document.querySelector('.dynamicSize');
+  x.parentElement.removeChild(x);
 }
 
 const plus=document.querySelector(".plus");

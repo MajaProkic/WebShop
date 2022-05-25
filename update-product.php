@@ -16,16 +16,11 @@ if(isset($_GET['update'])){
     $res=$query->getProductByid($idGet);
     while ($row=$res->fetch(PDO::FETCH_ASSOC)) {
     $id=$row['id'];
-    $status=$row['status'];
     $naziv=$row['naziv'];
     $kategorija_id=$row['kategorija_id'];
-    $utiskivac=$row['utiskivac'];
     $opis=$row['opis'];
     $slika=$row['slika'];
     $hashtag=$row['hashtag'];
-    $velicina1=$row['velicina_1'];
-    $velicina2=$row['velicina_2'];
-    $velicina3=$row['velicina_3'];
 }
 
 ?>
@@ -43,52 +38,66 @@ if(isset($_GET['update'])){
 
 <div class="inp-group">
     <label for="naziv">ID</label>
-    <input type="text" name="id" id="" value="<?php echo $idGet?>">
+    <input type="text" name="id" value="<?php echo $idGet?>">
 </div>
+
 <div class="inp-group">
     <label for="naziv">Naziv</label>
-    <input type="text" name="naziv" id="" value="<?php echo $naziv?>">
+    <input type="text" name="naziv" value="<?php echo $naziv?>">
 </div>
-<div class="inp-group">
-    <label for="status">Status</label>
-    <input type="text" name="status" id="" value="<?php echo $status?>">
-</div>
+
+    <!--KATEGORIJA-->
 <div class="inp-group">
     <label for="kategorija">Kategorija</label>
-    <select name="kategorija" id="">
+    <select name="kategorija">
     <?php
-    $allCategories=$query->selectAllCategories();
-    $selectCategoryIDandName=$query->selectIdCategoryAndName($_SESSION['old_id']);
-  print_r($selectCategoryIDandName);
-        while ($rowid=$selectCategoryIDandName->fetch(PDO::FETCH_ASSOC)){?>
-        <option selected="selected" value="<?php echo $rowid['id']?>"> <?php echo $rowid['naziv']?></option>
+        $allCategories=$query->selectAllCategories();
+        $selectCategoryIDandName=$query->selectIdCategoryAndName($_SESSION['old_id']);
+
+        while ($row=$selectCategoryIDandName->fetch(PDO::FETCH_ASSOC)){?>
+        <option value="<?php echo $row['kategorija_id']?>"> <?php echo $row['naziv']?></option>
         <?php } 
         while ($row=$allCategories->fetch(PDO::FETCH_ASSOC)) {?>
         <option value="<?php echo $row['id']?>"> <?php echo $row['naziv']?></option>
         <?php }
-        ?>
+    ?>
         
     </select> 
-   
 </div>
-<div class="inp-group">
-    <label for="utiskivac">Utiskivac</label>
-    <select name="utiskivac" id="">
-        <?php
-        $selectImprint=$query->selectImprint($idGet);
-        while ($row=$selectImprint->fetch(PDO::FETCH_ASSOC)) {
-        if ($row['utiskivac']==1) {?>
-            <option selected="selected" value="<?php echo $row['utiskivac'] ?>">Sa utiskivacem</option>
-            <option value="0"> Bez utiskivaca</option>
-        <?php }else{ ?>
-            <option selected="selected" value="<?php echo $row['utiskivac'] ?>">Bez utiskivaca</option>
-            <option  value="1"> Sa utiskivacem</option>
-        <?php }
-        }
-        ?>
-    </select> 
-</div>
+    <!--UTISKIVACI-->
 
+        <label for="utiskivac">Utiskivac</label>
+        <?php
+         $selectImprint=$query->selectImprint($_SESSION['old_id']);
+
+            if($selectImprint->rowCount()==0){
+        ?>
+                <div class="inp-group">
+                    <label for="addImprint">Sa utiskivacem</label>
+                    <input type="checkbox" name="addImprint">
+                    <label for="addImprint">Bez utiskivaca</label>
+                    <input type="checkbox" name="withoutImprint">
+                </div>
+        
+        <?php
+            }elseif($selectImprint->rowCount()==1){ ?>
+                <div class="inp-group">
+                    <label for="addImprint">Dodaj utiskivac za ovu modlu</label>
+                    <input type="checkbox" name="addImprint" id="">
+                </div>
+
+        <?php }else{  ?>
+            <div class="inp-group">
+               <select name="imprint" id="">
+                    <?php 
+                        while ($row=$selectImprint->fetch(PDO::FETCH_ASSOC)) { ?>
+                        <option value="<?php echo $row['ID']?>"><?php echo $row['Naziv']?></option>
+                    <?php } ?>
+                </select>
+                </div>
+        <?php } ?>
+
+<!--OPIS-->
 <div class="inp-group">
     <label for="opis">Opis</label>
     <textarea name="opis" id="" cols="30" rows="10"><?php echo $opis;?></textarea>  
@@ -105,20 +114,34 @@ if(isset($_GET['update'])){
     <input type="text" name="hashtag" id="" value="<?php echo $hashtag?>">
 </div>
 
-<div class="inp-group">
-    <label for="velicina 1">Velicina 1</label>
-    <input type="text" name="velicina_1" id="" value="<?php echo $velicina1?>">
-</div>
 
-<div class="inp-group">
-    <label for="velicina 1">Velicina 2</label>
-    <input type="text" name="velicina_2" id="" value="<?php echo $velicina2?>">
-</div>
+<?php
+     $selectSizes=$query->selectsizes($idGet);
+     $countRowSizes=$selectSizes->rowCount();
+  
+     if ($countRowSizes==0) { ?>
+     <div class="inp-group">
+     <label for="velicina">Unesite broj polja za velicine</label>
+        <input type="button" name="" class='plus' id="" value='+' onclick="increment()">
+        <input type="num" name="quantityofsizes" id="quantity" class='number' value='0' readonly>
+        <input type="button" name="" class='minus' id="" value='-' onclick="decrement()" >
+    </div>
 
-<div class="inp-group">
-    <label for="velicina 1">Velicina 3</label>
-    <input type="text" name="velicina_3" id="" value="<?php echo $velicina3?>">
-</div>
+    <div class="inp-group" id='size_update'>
+        <label for="velicina">Unesite velicine</label>
+    </div>
+
+     <?php
+        
+     }else{
+        
+        while ($row=$selectSizes->fetch(PDO::FETCH_ASSOC)) {  ?>
+         <div class="inp-group">
+            <input type="text" name="velicina[]" id="" value="<?php echo $row['Dimenzija']?>">
+        </div>
+<?php  } 
+    }
+?>
 
     <button><input type="submit" name="updateProizvod" id="" value="Azuriraj proizvod"></button>
   
@@ -133,18 +156,16 @@ if(isset($_GET['update'])){
 
     $idForm=$_POST['id'];
     $_SESSION['new_id']=$_POST['id'];
-
     $naziv=$_POST['naziv'];
-    $status=$_POST['status'];
     $kategorija=$_POST['kategorija'];
-    $utiskivac=$_POST['utiskivac'];
     $opis=$_POST['opis'];
     $tmp_img=$_FILES["slika"]["name"];
     $tmp_img_name=$_FILES["slika"]["tmp_name"];
     $hashtag=$_POST['hashtag'];
-    $velicina1=$_POST['velicina_1'];
-    $velicina2=$_POST['velicina_2'];
-    $velicina3=$_POST['velicina_3'];
+  
+
+
+
     move_uploaded_file($tmp_img_name,"images/modle/$tmp_img");
   
     if(empty($tmp_img)){
@@ -152,11 +173,44 @@ if(isset($_GET['update'])){
         while($row=$res->fetch(PDO::FETCH_ASSOC)){
             $tmp_img=$row['slika'];
         }
+    }   
+
+    //handling imprint
+    if(isset($_POST['imprint']) && $_POST['imprint']==2){
+        $query->updateImprintsByCookieCutters($_SESSION['old_id'],$_POST['imprint']); //ako je utiskivac 2, odnosno bez utiskivaca, onda obrisi onaj red gde postoji utiskivac za tu modlu.
+    }elseif (isset($_POST['addImprint'])) {
+        echo 'setted';
+        $query->addImprint(1,$_SESSION['old_id']);  
+    }else{
+
+    }
+
+    if (isset($_POST['withoutImprint'])) {
+        echo 'setted';
+        $query->addImprint(2,$_SESSION['old_id']);
     }
 
 
-    $exe=$query->updateProduct($idForm,$status,$naziv,$kategorija,$utiskivac,$opis,$tmp_img,$hashtag, $velicina1,$velicina2, $velicina3,$_SESSION['old_id']);
-       if($exe){
+   $exe=$query->updateProduct($idForm,$naziv,$kategorija,$opis,$tmp_img,$hashtag,$_SESSION['old_id']);
+
+   //handling size
+   if(!empty($_POST['velicinaAdd'])){
+
+    foreach ($_POST['velicinaAdd'] as $key => $value) {
+        echo $value;
+
+        $redniBrojVelicine=$key+1;
+        $updateVelicine=$query->insertVelicinePoModlama($value,$_SESSION['old_id'],$redniBrojVelicine);
+    }
+   }else{
+        foreach ($_POST['velicina'] as $key => $value) {
+            $redniBrojVelicine=$key+1;
+            $updateVelicine=$query->updateSizesByCookieCutter($value,$_SESSION['old_id'],$redniBrojVelicine);
+        }
+   }
+    
+
+      if($exe){
            die(mysqli_error($connection));
        }else{
             $msg="Uspesno azuriran proizvod";

@@ -22,38 +22,6 @@ if (isset($_POST['size']) && isset($_POST['imprint'])) {
 
 }
 
-/*if (isset($_POST["size"])) { //proveri sto nece isset post size
- $size=$_POST["size"];
-  $res=$query->getprice($size,1);
-
-
-if ($res->rowCount()>0) {
-  while ($row=$res->fetch(PDO::FETCH_ASSOC)) {
-      echo $row['Cena'];
-    }
-}else{
-    echo 'no such rows here.';
-}
-
-}  
-
-
-if (isset($_POST['imprint'])) {
-    
-  $imprint= $_POST['imprint'];
-  
-
-  if ($imprint==1) {
-    echo 'sa utiskivacem';
-    
-  }else {
-    echo 'bez utiskivaca';
-  
-  }
-
- }*/
-
-
 
 
 ?>
