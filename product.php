@@ -20,6 +20,7 @@ global $query;
 <div class="product" >
     <section class="product-img-tit">
        <form action="cart.php" method="post">
+           
             <?php
                 if(isset($_GET['product'])){
                     $product_id = $_GET['product'];
@@ -36,10 +37,9 @@ global $query;
                         $opis_proizvoda = $row['opis'];
 
                         ?>
-                        <div class="product-title">
-                            <h2><?php echo $naziv_proizvoda;?></h2>
-                            <input type="text" name="naziv_proizvoda" id="" value='<?php echo $naziv_proizvoda;?>' hidden>
-                            
+
+                        <div class="path">
+                        <p>slavske modle>lalal</p>
                         </div>
 
                         <div class="product-img">
@@ -52,11 +52,15 @@ global $query;
       
         <div class="choose-properties">
 
-            
+        <div class="product-title">
+                            <h2><?php echo $naziv_proizvoda;?></h2>
+                            <input type="text" name="naziv_proizvoda" id="" value='<?php echo $naziv_proizvoda;?>' hidden>
+                        </div>
 
                 <div class="size">
                 <p>Odaberite odgovarajuću dimenziju modle</p>
                     <select name="size" id="sizee">
+                        <option value="-" selected='selected'>Odaberite dimenziju</option>
                         <?php
                             $velicina=$query->selectSizes($product_id);
                         
@@ -71,6 +75,7 @@ global $query;
                 <div class="imprint">
                     <p>Odaberite da li želite utiskivač </p>
                         <select name="imprint" id="imprint">
+                            <option value="-" selected='selected'>Odaberite utiskivac</option>
                             <?php
                                 $selectimprint=$query->selectImprint($product_id);  
 

@@ -1,18 +1,21 @@
     
     $(document).ready(function(){
-    
+          
       
-      $('#imprint, #sizee').on('change',function(){
+      $('#imprint, #sizee, .plus, .minus, .number').on('change',function(){
           var size=$('#sizee').val();
           var imprint=$('#imprint').val();
-      
+          var plus=$('.plus').val(); 
+          var number=$('.number').val(); 
        
           $.ajax({
-              url:'calculate_price.php',
+              url:'processing/calculate_price.php',
               method:'post',
               data:{
                 size: size,
-                imprint:imprint
+                imprint:imprint,
+                plus:plus,
+                number: number
               },
           success:function (html) {
           $('#pricepinput').val(html);
@@ -21,6 +24,21 @@
           })
            
       })
+      $('.bt').on('click',function(){
+        var id=$('.bt').attr('name')
+        $.ajax({
+          url:'cart.php',
+          method:'post',
+          data:{
+            delete: id
+          },
+      success:function (html) {
+        window.location.reload();       
+       }
+      })
+      
+      })
+
 
 //category
       $('.chckbox').on('change',function(){
@@ -29,7 +47,7 @@
         var vel=$("input[type='checkbox']:checked").val();
         console.log(vel);
         $.ajax({
-            url:'partials/categoriesProcessing.php',
+            url:'processing/categoriesProcessing.php',
             method:'post',
             data:{
               chck: vel
@@ -58,9 +76,7 @@ function increment() {
     num=document.querySelector('.number');
     if(num.value<10){
         num.innerHTML= num.value++;
-      
-        n=num.value;
-        addInputs(n);
+    
     }       
 }
 
@@ -68,9 +84,26 @@ function decrement() {
     num=document.querySelector('.number');
     if (num.value>1) {
          num.innerHTML=num.value--;
-        
-         removeInputs();
+   
     }
+}
+function incrementwithAddingInputs() {
+  num=document.querySelector('.number');
+  if(num.value<10){
+      num.innerHTML= num.value++;
+    
+      n=num.value;
+      addInputs(n);
+  } 
+}
+
+function decrementWithRemovingInputs() {
+  num=document.querySelector('.number');
+  if (num.value>1) {
+       num.innerHTML=num.value--;
+      
+       removeInputs();
+  }
 }
 
 function addInputs(numvalue) {

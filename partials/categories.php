@@ -20,7 +20,7 @@
                                 <input type="hidden" name="id" value='<?php echo $r['id']?>'>
                                 <input type="checkbox"  class ='chckbox' name="naziv_kategorije" value='<?php echo $r['naziv']?>' id="">
                                 <label for=""><?php echo $r['naziv']?></label>
-                        
+                            <button></button>
                             </div>
                            
                 <?php   }  ?>

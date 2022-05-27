@@ -71,8 +71,8 @@
     }
 
         public function insertVelicinePoModlama($id_velicine,$id_modle,$redni_broj){
-      $stmt=$this->conn->prepare($this->INSERTINTOVELICINEPOMODLAMA);
-      $stmt->execute([$id_velicine,$id_modle,$redni_broj]);
+                $stmt=$this->conn->prepare($this->INSERTINTOVELICINEPOMODLAMA);
+                $stmt->execute([$id_velicine,$id_modle,$redni_broj]);    
     }
 
     public function insertUtiskivaciPoModlama($id_utiskivaca,$id_modle){

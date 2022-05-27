@@ -122,9 +122,9 @@ if(isset($_GET['update'])){
      if ($countRowSizes==0) { ?>
      <div class="inp-group">
      <label for="velicina">Unesite broj polja za velicine</label>
-        <input type="button" name="" class='plus' id="" value='+' onclick="increment()">
+        <input type="button" name="" class='plus' id="" value='+' onclick="incrementwithAddingInputs()">
         <input type="num" name="quantityofsizes" id="quantity" class='number' value='0' readonly>
-        <input type="button" name="" class='minus' id="" value='-' onclick="decrement()" >
+        <input type="button" name="" class='minus' id="" value='-' onclick="decrementWithRemovingInputs()" >
     </div>
 
     <div class="inp-group" id='size_update'>
@@ -179,14 +179,14 @@ if(isset($_GET['update'])){
     if(isset($_POST['imprint']) && $_POST['imprint']==2){
         $query->updateImprintsByCookieCutters($_SESSION['old_id'],$_POST['imprint']); //ako je utiskivac 2, odnosno bez utiskivaca, onda obrisi onaj red gde postoji utiskivac za tu modlu.
     }elseif (isset($_POST['addImprint'])) {
-        echo 'setted';
+       
         $query->addImprint(1,$_SESSION['old_id']);  
     }else{
 
     }
 
     if (isset($_POST['withoutImprint'])) {
-        echo 'setted';
+        
         $query->addImprint(2,$_SESSION['old_id']);
     }
 
@@ -197,10 +197,15 @@ if(isset($_GET['update'])){
    if(!empty($_POST['velicinaAdd'])){
 
     foreach ($_POST['velicinaAdd'] as $key => $value) {
-        echo $value;
-
-        $redniBrojVelicine=$key+1;
-        $updateVelicine=$query->insertVelicinePoModlama($value,$_SESSION['old_id'],$redniBrojVelicine);
+        try {
+             $redniBrojVelicine=$key+1;
+            $insertSize=$query->insertVelicinePoModlama($value,$_SESSION['old_id'],$redniBrojVelicine);
+            
+        } catch (Exception $e) {
+            echo "Exception->";
+            var_dump($e->get_message()); 
+        }
+       
     }
    }else{
         foreach ($_POST['velicina'] as $key => $value) {
@@ -210,7 +215,7 @@ if(isset($_GET['update'])){
    }
     
 
-      if($exe){
+     if($exe){
            die(mysqli_error($connection));
        }else{
             $msg="Uspesno azuriran proizvod";

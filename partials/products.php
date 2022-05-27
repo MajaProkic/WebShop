@@ -23,6 +23,7 @@
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
    
             <div class="image-of-product">
+             <p class="image-text">Novo</p>
                 <a href="product.php?product=<?php echo $row['id']?>"><img src="images/modle/<?php echo $row['slika']?>" alt="product"></a>
             </div>
             <div class="title-of-product">

@@ -86,7 +86,7 @@ h1 {
   height: 500px;
   text-align: center;
   overflow: hidden;
-  background-image: url("images/pexels-ekaterina-bolovtsova-5702702.jpg");
+  background-image: url("../images/pexels-ekaterina-bolovtsova-5702702.jpg");
   background-size: cover;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -227,22 +227,35 @@ h1 {
   height: 350px;
 }
 
-.products .title-of-product {
+.products .product-cart .title-of-product {
   text-align: center;
   color: black;
 }
 
-.products .image-of-product {
+.products .product-cart .image-of-product {
+  position: relative;
   width: 200px;
   height: 200px;
   overflow: hidden;
   margin: auto;
 }
 
-.products .image-of-product img {
+.products .product-cart .image-of-product p {
+  position: absolute;
+  right: 0;
+  padding: 0;
+  margin: 0;
+  background-color: white;
+}
+
+.products .product-cart .image-of-product img {
   width: 100%;
   -o-object-fit: contain;
      object-fit: contain;
+}
+
+.products .product-cart .price {
+  text-align: center;
 }
 
 .products .buy-product {
@@ -452,18 +465,10 @@ button a input {
   width: 100%;
 }
 
-.product .product-img-tit .product-title h2 {
-  margin-top: 50px;
-  margin-bottom: 50px;
-  position: relative;
-  left: 30%;
-}
-
-.product .product-img-tit .product-title h2 input {
-  border: 1px solid transparent;
-  font-size: 16pt;
-  font: var(--font);
+.product .product-img-tit .path {
   text-align: center;
+  font-size: 12pt;
+  font-style: italic;
 }
 
 .product .product-info {
@@ -483,6 +488,18 @@ button a input {
   display: grid;
   -ms-grid-rows: auto;
       grid-template-rows: auto;
+}
+
+.product .product-info .choose-properties .product-title h2 {
+  position: relative;
+  left: 30%;
+}
+
+.product .product-info .choose-properties .product-title h2 input {
+  border: 1px solid transparent;
+  font-size: 16pt;
+  font: var(--font);
+  text-align: center;
 }
 
 .product .product-info .choose-properties .imprint, .product .product-info .choose-properties .size {
@@ -506,12 +523,22 @@ button a input {
   text-align: center;
 }
 
+.product .product-info .choose-properties .quantity {
+  margin-left: 10em;
+  display: block;
+  margin-top: 5em;
+}
+
 .product .product-info .choose-properties .quantity input {
-  width: 70px;
-  height: 70px;
-  margin-top: 25px;
+  width: 50px;
+  height: 50px;
   left: 25%;
   position: relative;
+  background-color: white;
+  border: 1px solid var(--color);
+  text-align: center;
+  font-size: 15pt;
+  font-family: var(--font);
 }
 
 .product .product-info .choose-properties .price {
@@ -522,22 +549,8 @@ button a input {
 }
 
 .product .product-info .choose-properties button {
-  float: left;
-}
-
-.product .product-info #buy {
-  font-size: 15pt;
-  background-color: var(--color);
-  padding: 5px;
-  color: white;
-  border: none;
-  margin-top: 10px;
-}
-
-.product .product-info #buy:hover {
-  background-color: white;
-  color: var(--color);
-  border: 1px solid black;
+  display: block;
+  margin: auto;
 }
 
 .description {

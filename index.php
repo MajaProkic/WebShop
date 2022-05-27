@@ -26,7 +26,7 @@ include_once 'partials/nav.php';
         </div>
 
         <section class="products" id="products">
-            <?php include_once 'partials/products.php'?>
+              <?php include_once 'partials/products.php'?>
         </section>
 
 

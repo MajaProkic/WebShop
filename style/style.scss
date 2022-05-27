@@ -85,7 +85,7 @@ h1{
     height: 500px;
     text-align: center;
     overflow: hidden;
-    background-image: url("images/pexels-ekaterina-bolovtsova-5702702.jpg");
+    background-image: url("../images/pexels-ekaterina-bolovtsova-5702702.jpg");
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -211,23 +211,37 @@ h1{
         grid-template-rows: repeat(4,1fr);
         justify-content: center;  
         height: 350px;
+        
+        .title-of-product{
+            text-align: center;
+            color: black;
+        }
+        .image-of-product{
+            position: relative;
+            p{
+                position: absolute;
+                right: 0;
+                padding: 0;
+                margin: 0;
+                background-color: white;
+            }
+            img{
+                width: 100%;
+                object-fit: contain;
+            }
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            margin: auto;
+            
+        }
+        .price{
+           
+            text-align: center;
+        }
       
     }
-    .title-of-product{
-        text-align: center;
-        color: black;
-    }
-    .image-of-product{
-        img{
-            width: 100%;
-            object-fit: contain;
-        }
-        width: 200px;
-        height: 200px;
-        overflow: hidden;
-        margin: auto;
-        
-    }
+    
 
     .buy-product{
         border-radius: 5em;
@@ -430,22 +444,14 @@ button{
                width: 100%;
             }
         }
-        .product-title{
-            h2{
-                margin-top: 50px;
-                margin-bottom: 50px;
-                position: relative;
-                left: 30%;
-                
-                input{
-                    border: 1px solid transparent;
-                    font-size: 16pt;
-                    font: var(--font);
-                    text-align: center;
-                }
-            }
+        .path{
+            text-align: center;
+            font-size: 12pt;
+            font-style: italic;
         }
+       
    }
+
    .product-info{
      display: grid;
      grid-auto-rows: minmax(100px,auto);
@@ -459,6 +465,20 @@ button{
     .choose-properties{
         display: grid;
         grid-template-rows: auto;
+
+        .product-title{
+            h2{
+                position: relative;
+                left: 30%;
+                
+                input{
+                    border: 1px solid transparent;
+                    font-size: 16pt;
+                    font: var(--font);
+                    text-align: center;
+                }
+            }
+        }
         .imprint,.size{
             display: grid;
             grid-template-columns: 50% 50%;
@@ -477,14 +497,21 @@ button{
         }
 
       .quantity{
-        
+       margin-left: 10em;
+        display: block;
+        margin-top: 5em;
           input{
-            width: 70px;
-            height: 70px;
-            margin-top:25px ;
+            width: 50px;
+            height: 50px;
             left: 25%;
             position: relative;
+            background-color: white;
+            border: 1px solid var(--color);
+            text-align: center;
+            font-size: 15pt;
+            font-family: var(--font);
           }
+
       }
       .price{
           display: block;
@@ -493,21 +520,9 @@ button{
           text-align: center;
       }
       button{
-        float: left;
+      display: block;
+      margin: auto;
       }
-    }
-    #buy{
-        font-size: 15pt;
-        background-color: var(--color);
-        padding: 5px;
-        color: white;
-        border: none;
-        margin-top: 10px;
-        &:hover{
-            background-color: white;
-            color: var(--color);
-            border: 1px solid black;
-        }
     }
    }
   

@@ -16,17 +16,19 @@ global $func;?>
 
 <?php
 
-
- if (isset($_GET['delete'])) {
-    $deleted_id=$_GET['delete'];
+if (isset($_POST['delete'])) {
+    $deleted_id=$_POST['delete'];
     $func->removeElementFromSession('product_cart',$deleted_id,'id');
-    
+    header('Location/cart.php');
 }
 if(isset($_GET['truncate_cart'])){
     if(isset($_SESSION['product_cart'])){
         session_destroy();
     }
 }
+
+
+
 
 if (isset($_POST['buy'])) {
     $id=$_POST['id'];
@@ -79,9 +81,9 @@ if (isset($_POST['buy'])) {
                         <input type="text" name="utiskivac" id="" value='<?php echo 'Sa utiskivacem' ?>' readonly="readonly" >
                        <?php }?>
                        <td><input type="text" name="quantity" id="" value='<?php echo $key['quantity']?>'readonly="readonly"></td>
-                        <td class='delete'><a href="cart.php?delete=<?php echo $key['id'];?>">Obriši</a></td>
+                        <td class='delete'><input type="button" name='<?php echo $key['id']?>' value="obrisi" class='bt'></td>
                         <td>
-                         <input type="text" name="cena" id="" value="<?php echo $key['price'];
+                         <input type="text" name="cena" id="" value="<?php echo $key['price']*$key['quantity'];
                          $total_price=$total_price+$key['price']*$key['quantity']?>"readonly="readonly">
                         </td>
                     </tr>
@@ -105,6 +107,7 @@ if (isset($_POST['buy'])) {
    
  <?php
 }
+
 ?>
 
 </div>
@@ -218,6 +221,9 @@ if(isset($_POST['poruci'])){
         global $idOfOrder;
     
     }
+   
+     
+
   
 
     $func->refresh();
