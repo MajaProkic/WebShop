@@ -126,7 +126,30 @@ class Functions{
         }
     }
     
-   
+   public function write_product($id_product,$path_to_image,$name_od_product)
+   {
+    
+           echo "<div class='image-of-product'>";
+             echo "<p class='image-text'>Novo</p>";
+               echo "<a href='product.php?product=". $id_product."><img src=".$path_to_image." alt='product'></a>"; 
+               echo "</div>";
+                echo "<div class='title-of-product'>";
+                  echo"<h3>". $name_od_product."</h3>";
+               echo "</div>"; 
+               echo "<div class='price'>";
+                  echo "<p id='average-price'>";
+                  
+                   $res=$query->maxminprice($id_of_product);
+                   while ($row=$res->fetch(PDO::FETCH_ASSOC)) {
+                       echo $row['minimalna_cena'].'-';
+                       echo $row['maksimalna_cena'];
+                   }
+                   ?>RSD</p>
+               </div>
+    
+           
+<?php
+   }
 
   
 

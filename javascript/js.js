@@ -1,6 +1,5 @@
     
     $(document).ready(function(){
-          
       
       $('#imprint, #sizee, .plus, .minus, .number').on('change',function(){
           var size=$('#sizee').val();
@@ -24,6 +23,7 @@
           })
            
       })
+      //deleting product from cart
       $('.bt').on('click',function(){
         var id=$('.bt').attr('name')
         $.ajax({
@@ -41,10 +41,10 @@
 
 
 //category
-      $('.chckbox').on('change',function(){
+      $('.rbutton').on('change',function(){
        
       if ($(this).prop("checked") == true) {
-        var vel=$("input[type='checkbox']:checked").val();
+        var vel=$("input[type='radio']:checked").val();
         console.log(vel);
         $.ajax({
             url:'processing/categoriesProcessing.php',
@@ -53,24 +53,37 @@
               chck: vel
             },
         success:function (html) {
+          
            $('.products').html(html)       
          }
         })
       } else {
-        $('.products').html('jbg');    
+        $('.products').html(html);    
       }
+    })
+
+    $('.filter').on('change',function(){
+
+        var filter=$('#filter').val();
+        console.log(filter);
+
+        $.ajax({
+            url:'processing/filter_processing.php',
+            method:'post',
+            data:{
+              value: filter
+            },
+        success:function (html) {
+           $('.products').html(html)       
+         }
+        })
      
     })
 
 
   })
-function filter() {
-    var e = document.getElementById("filter");
-    var strUser = e.options[e.selectedIndex].text;
-    console.log(strUser);
-}
 
-filter();
+
 
 function increment() {
     num=document.querySelector('.number');

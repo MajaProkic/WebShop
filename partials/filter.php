@@ -1,17 +1,12 @@
-<?php
 
-?>
+    <h3>Filtritajte proizvode</h3>
 
-<h2>Filtritajte proizvode</h2>
-            <select name="filter" id="filter" class='filter' onchange='filter()'>
-                <option value="">Najnovije postavljno</option>
-                <option value="">Ekstra velike modle</option>
-                <option value="">Standardne modle</option>
-                <option value="">Ekstra male modle</option>
-                <option value="">Sa utiskivačem</option>
-                <option value="">Bez utiskivača</option>
+            <select name="filter" id="filter" class='filter'>
+                <option value="0">Odaberite filter</option>
+                <option value="1">Najnovije postavljno</option>
+                <option value="2">Sa utiskivačem</option>
+                <option value="3">Bez utiskivača</option>
+                <option value="4">Po ceni rastuće</option>
+                <option value="5">Po ceni opadajuće</option>
             </select>
-          <script>
-
-            
-              </script>
+  

@@ -12,6 +12,7 @@ global $query;
 $func=new Functions();
 global $func;
 $msg=isset($msg)?$msg:"";
+$count=1;
 
 if(isset($_POST['dodajProizvod'])){
     $id=$_POST['id'];
@@ -22,30 +23,34 @@ if(isset($_POST['dodajProizvod'])){
     $tmp_img=$_FILES["slika"]["name"];
     $tmp_img_name=$_FILES["slika"]["tmp_name"];
     $hashtag=$_POST['hashtag'];
-    $velicina1=$_POST['velicina_1'];
-    $velicina2=$_POST['velicina_2'];
-    $velicina3=$_POST['velicina_3'];
+    $velicina=$_POST['velicinaAdd'];
     move_uploaded_file($tmp_img_name,"images/modle/$tmp_img");
     
     $getSpecProduct=$query->getSpecificProduct($naziv,$opis);
     $count=$getSpecProduct->rowCount();
     
         if ($count<1) {
-            $res = $query->insertProduct($id,$naziv, $kategorija, $opis, $tmp_img,$hashtag);
+            $res = $query->insertProduct($id,$naziv, $kategorija, $opis, $tmp_img,$hashtag,date('d-m-y H:i:s'));
             if($utiskivac==1){
-                $query->insertUtiskivaciPoModlama(1,$id);
+                $query->insertUtiskivaciPoModlama(1,$id);//HARD CODE, REPAIR THIS
                 $query->insertUtiskivaciPoModlama(2,$id);
             }else{
-                $query->insertUtiskivaciPoModlama(2,$id);
+                $query->insertUtiskivaciPoModlama(2,$id);//HARD CODE, REPAIR THIS
             }
-            $query->insertVelicinePoModlama($velicina1,$id);
-            $query->insertVelicinePoModlama($velicina2,$id);
-            $query->insertVelicinePoModlama($velicina3,$id);
             
+        
             $msg='Uspešno unet proizvod';
         }else{
             $msg='Nažalost, proizvod nije unet';
         }
+
+        foreach ($velicina as $key => $value) {
+            $count=$count+1; //HARD CODE, REPAIR THIS
+
+            $query->insertVelicinePoModlama($value,$id,$count);
+
+        }
+        $func->refresh();
     }
 
  
@@ -100,11 +105,17 @@ if(isset($_POST['dodajProizvod'])){
          
                 <input type="text" name="hashtag" id="" placeholder='Hashtag'>
             
-                <input type="text" name="velicina_1" id="" placeholder='Velicina 1'>
-            
-                <input type="text" name="velicina_2" id="" placeholder='Velicina 2'>
-            
-                <input type="text" name="velicina_3" id="" placeholder='Velicina 3'>
+                <div class="inp-group">
+                    <label for="velicina">Unesite broj polja za velicine</label>
+                    <input type="button" name="" class='plus' id="" value='+' onclick="incrementwithAddingInputs()">
+                    <input type="num" name="quantityofsizes" id="quantity" class='number' value='0' readonly>
+                    <input type="button" name="" class='minus' id="" value='-' onclick="decrementWithRemovingInputs()" >
+                 </div>
+
+                <div class="inp-group" id='size_update'>
+                    <label for="velicina">Unesite velicine</label>
+                   
+                </div>
         
                <button><input type="submit" name="dodajProizvod" id="" value="Dodaj proizvod"></button> 
         </form>

@@ -21,6 +21,15 @@ if (isset($_POST['chck'])) {
             <div class="title-of-product">
                 <h3><?php echo $row['modlaNaziv'];?></h3>
             </div>
+            <div class="price">
+                <p id='average-price'><?php
+                $res=$query->maxminprice($row['modlaId']);
+                while ($row=$res->fetch(PDO::FETCH_ASSOC)) {
+                    echo $row['minimalna_cena'].'-';
+                    echo $row['maksimalna_cena'];
+                }
+                ?>RSD</p>
+            </div>
             
 
 

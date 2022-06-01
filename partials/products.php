@@ -24,7 +24,8 @@
    
             <div class="image-of-product">
              <p class="image-text">Novo</p>
-                <a href="product.php?product=<?php echo $row['id']?>"><img src="images/modle/<?php echo $row['slika']?>" alt="product"></a>
+             <a href="product.php?product=<?php echo $row['id']?>"><div class="desc">Pogledajte detalje</div></a>
+                <img src="images/modle/<?php echo $row['slika']?>" alt="product">
             </div>
             <div class="title-of-product">
                 <h3><?php echo $row['naziv'];?></h3>
@@ -38,8 +39,7 @@
                 }
                 ?>RSD</p>
             </div>
- 
-            <button class="buy-product"><a href="product.php?product=<?php echo $row['id']?>">Odaberite veličinu</a></button>
+
         </form>
     </div>
     <?php } //END OF WHILE LOOP ?>

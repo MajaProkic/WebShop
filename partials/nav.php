@@ -20,7 +20,6 @@ ini_set('session.gc_maxlifetime', $inactive);
             <ul>
                 <li><a href="/Modlice/index">Početna strana</a></li>
                 <li><a href="/Modlice/o-nama">O nama</a></li>
-                <li><a href="#">Omiljeno</a></li>
                 <li><a href="/Modlice/cart">Korpa</a></li>
                 <?php if (isset($_SESSION['role']) && $_SESSION['role']=='admin') { ?>
                 <li><a href="/Modlice/admin">Admin</a></li>

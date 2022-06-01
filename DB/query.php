@@ -5,7 +5,7 @@
 
     private $SELECTALLFROMCATEGORY="SELECT * FROM kategorija ORDER BY naziv ";
     private $GETALLPRODUCTS="SELECT * FROM modla ORDER BY id DESC";
-    private $INSERTPRODUCT="INSERT INTO modla (id, naziv, kategorija_id, opis, slika, hashtag) VALUES(?,?,?,?,?,?)"; 
+    private $INSERTPRODUCT="INSERT INTO modla (id, naziv, kategorija_id, opis, slika, hashtag, datum_postavljanja) VALUES(?,?,?,?,?,?,?)"; 
     private $INSERTCATEGORY="INSERT INTO kategorija (naziv) VALUES(?)";
     private $DELETEPRODUCT="DELETE FROM modla WHERE id=?";
     private $SELECTPRODUCTBYID="SELECT * FROM modla WHERE id=?";
@@ -33,11 +33,17 @@
     private $UPDATESIZESBYCOOKIECUTTER="UPDATE velicine_po_modli SET ID_velicine=? where ID_modle=? and RedniBrojVelicine=?";
     private $UPDATEIMPRINTSBYCOOKIECUTTERS="DELETE FROM utiskivaci_po_modlama WHERE ID_modle=? AND ID_utiskivaca=?";
     private $ADDIMPRINT="INSERT INTO utiskivaci_po_modlama (ID_utiskivaca, ID_modle) VALUES(?,?)";
+    private $LATESTADDEDCOOKIECUTTERS="SELECT * FROM modla ORDER BY datum_postavljanja desc";
+    
     
 
     public function __construct($db){
         $this->conn = $db;
     }
+
+    public function latestAddedCookieCutter(){
+        return $this->sendQueryWithReturnValueAndNoParams($this->LATESTADDEDCOOKIECUTTERS);
+     }
 
     public function addImprint($id_utiskivaca,$id_modle){
      
@@ -158,9 +164,9 @@
         
      }
 
-     public function insertProduct($id,$naziv,$kategorija,$opis,$slika,$hashtag){
+     public function insertProduct($id,$naziv,$kategorija,$opis,$slika,$hashtag,$datum_postavljanja){
        $stmt=$this->conn->prepare($this->INSERTPRODUCT);
-       $stmt->execute([$id,$naziv,$kategorija,$opis,$slika,$hashtag]);
+       $stmt->execute([$id,$naziv,$kategorija,$opis,$slika,$hashtag,$datum_postavljanja]);
      }
 
      public function insertKupac($ime,$prezime,$email,$mesto,$ulica,$broj,$telefon,$napomena){

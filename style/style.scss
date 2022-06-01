@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tiro+Bangla&display=swap');
 
 :root{
-   --font: 'Libre Baskerville', serif;
+   --font: 'Tiro Bangla', serif;
    --color:#fcc326;
 }
 input{
@@ -128,13 +128,7 @@ h1{
     }   
 }
 
-.filter{
-    float: right;
-    margin-left: 25px;
-   h2{
-       text-align: center;
-   }
-}
+
 .footer{
     bottom: 0;
     display: block;
@@ -162,40 +156,84 @@ h1{
 }
 .content{
     display: grid;
-    
     grid-template-columns: 20% 80%;
 
     .category{
         grid-column: 1/1;
-        margin: 10px;
-        border-bottom: 2px solid var(--color);
-        border-left: 2px solid var(--color);
 
-        .checkbox{
-            display: block;
+
+        h3{
+            margin-left: 50px;
+        }
+
+        .radio{
             margin-top: 10px;
-            margin-left: 25px;
+            margin-left: 50px;        
             
             label{
                 font-size: 14pt;
                 font: var(--font);
             }
-        }
-        
 
-        h2{
-            text-align: center;
-        }
-        
+            input{
+                font-size: 14pt;
+            }
        
+            input[type=radio]:after {
+                width: 15px;
+                height: 15px;
+                border-radius: 15px;
+                top: -2px;
+                left: -1px;
+                position: relative;
+                background-color: var(--color);
+                content: '';
+                display: inline-block;
+                visibility: visible;
+                border: 2px solid white;
+            }
+
+            input[type=radio]:checked:after {
+                width: 15px;
+                height: 15px;
+                border-radius: 15px;
+                top: -2px;
+                left: -1px;
+                position: relative;
+                background-color: black;
+                content: '';
+                display: inline-block;
+                visibility: visible;
+                border: 2px solid var(--color);
+            }
+        }
+
+        button{
+            margin-top: 15px;
+            margin-left: 50px;
+        }
     }
+
     .filter{
+        margin-left: 25px;
+        h3{
+            margin-left: 25px;
+        }
         select{
             font-size: 14pt;
             float: left;
-            border: 0.5px solid var(--color);
+            background-color: var(--color);
+            font-family: var(--font);
+            color: white;
+            &:focus{
+               outline: none;
+            }
+            &:active{
+                outline: none;
+            }
             option{
                 font: var(--font);
+                padding: 5px;
             }
         }
     }
@@ -212,9 +250,11 @@ h1{
         justify-content: center;  
         height: 350px;
         
+        
         .title-of-product{
             text-align: center;
-            color: black;
+            color: var(--color);
+           
         }
         .image-of-product{
             position: relative;
@@ -225,10 +265,37 @@ h1{
                 margin: 0;
                 background-color: white;
             }
+           .desc{
+               color: white;
+               background-color: #302e26;
+                font-size: 16pt;
+                position: absolute;
+                visibility: hidden;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;   
+                text-align: center;
+                padding: 80px 0;          
+          
+           }
+
+           &:hover{
+               opacity: 0.6;
+            .desc{
+                visibility: visible;
+            }
+           }
+
             img{
                 width: 100%;
                 object-fit: contain;
+                
+               
+             
             }
+
+
             width: 200px;
             height: 200px;
             overflow: hidden;
@@ -238,30 +305,13 @@ h1{
         .price{
            
             text-align: center;
+            #average-price{
+                font-size: 16pt;
+            }
         }
       
     }
     
-
-    .buy-product{
-        border-radius: 5em;
-        display: block; 
-        border: var(--color); 
-        font-size: 16pt;
-        color: white;
-        button{
-            margin: auto;
-            padding: 5px;
-            max-width: 100%;
-            margin-bottom: 0; 
-           
-            
-        }
-        &:hover{
-            background-color: black;
-            color: var(--color);
-        } 
-    }   
 }
 
 button{
@@ -422,12 +472,14 @@ button{
     padding: 5px;
     color: white;
     font-size: 16pt;
+
     p{
         
         text-align: center;
         color: white;
         font-size: 24pt;    
     }
+
 }
 //--------SINGLE PRODUCT
 .product{
@@ -576,9 +628,30 @@ button{
 }
 
 @media only screen and (max-width: 800px) {
-.nav-primary,.nav-secondary{
-  li{
-      display: block;
-  }
+.nav{
+  display: block;
+  float: left;
+    .nav-primary{
+        display: block;
+        height: auto;
+        background-color: var(--color);
+       ul{
+        display: grid;
+        grid-template-rows: repeat(1,auto);
+       }
+    }
+    .nav-secondary{
+        display: block;
+       ul{
+           display: block;
+           position: absolute;
+           left: 0;
+           top: 65;
+       }
+    }
+}
+.products{
+    display: grid;
+    grid-template-columns: repeat(2,auto);
 }
   }
