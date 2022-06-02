@@ -342,13 +342,30 @@ button input {
 }
 
 .cart-table {
-  width: 80%;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  margin: auto;
+}
+
+.cart-table table {
+  max-width: 80%;
+}
+
+.cart-table table th {
+  background-color: var(--color);
+  color: white;
+  font-size: 14pt;
+  font-weight: normal;
+  font-family: var(--font);
+  height: 45px;
 }
 
 .cart-table table #cart td input {
   border: 0px solid transparent;
   font: var(--font);
   text-align: center;
+  font-size: 14pt;
 }
 
 .cart-table table #cart td input:disabled {
@@ -362,6 +379,24 @@ button input {
 
 .total_price {
   float: right;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 50% 50%;
+      grid-template-columns: 50% 50%;
+  text-align: center;
+}
+
+.total_price input {
+  border: none;
+  font-family: var(--font);
+  font-size: 14pt;
+  font-weight: bold;
+}
+
+.total_price p {
+  font-size: 14pt;
+  font-family: var(--font);
+  font-weight: bold;
 }
 
 .form-div {
@@ -415,6 +450,10 @@ button input {
 .form-div form textarea, .form-div .left-side textarea {
   font: var(--font);
   border: 1px solid var(--color);
+}
+
+.form-div form button, .form-div .left-side button {
+  margin: 15px;
 }
 
 .page {

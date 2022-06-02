@@ -64,18 +64,17 @@ if (isset($_POST['buy'])) {
             if (isset($_SESSION['product_cart'])) {
                 ?>
                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+
                 <?php
-                $total_price=0;
-                foreach ($_SESSION['product_cart'] as $key) {
-                  
-                    ?>
+                    $total_price=0;
+                    foreach ($_SESSION['product_cart'] as $key) {             
+                ?>
                     
-                    <tr id='cart'>
-                        
+                    <tr id='cart'> 
                     <td><input type="text" name="id" id="" value='<?php echo $key['id']; ?>'readonly="readonly"></td>
-                        <td><input type="text" name="naziv" id="" value='<?php echo $key['naziv'] ?>'readonly="readonly" ></td>
-                        <td><input type="text" name="size" id="" value='<?php echo $key['size'] ?>'readonly="readonly" ></td>
-                        <td><?php if ($key['imprint']==0) {?>
+                    <td><input type="text" name="naziv" id="" value='<?php echo $key['naziv'] ?>'readonly="readonly" ></td>
+                    <td><input type="text" name="size" id="" value='<?php echo $key['size'] ?>'readonly="readonly" ></td>
+                    <td><?php if ($key['imprint']==2) {?>
                            <input type="text" name="utiskivac" id="" value='<?php echo 'Bez utiskivaca' ?>'readonly="readonly" >
                        <?php }else{?>
                         <input type="text" name="utiskivac" id="" value='<?php echo 'Sa utiskivacem' ?>' readonly="readonly" >
@@ -85,6 +84,7 @@ if (isset($_POST['buy'])) {
                         <td>
                          <input type="text" name="cena" id="" value="<?php echo $key['price']*$key['quantity'];
                          $total_price=$total_price+$key['price']*$key['quantity']?>"readonly="readonly">
+                         
                         </td>
                     </tr>
                    
@@ -94,7 +94,11 @@ if (isset($_POST['buy'])) {
 
         </tbody>
     </table>
-            <p class='total_price'> Ukupna cena: <?php echo $total_price?> RSD</p>
+    <div class="total_price">
+        <p>Ukupna cena</p>
+        <input type="text" name="totalPrice" class='total_price' value=' <?php echo $total_price?> RSD' id="" readonly> 
+    </div>
+            
     <button id="truncate-cart"><a href="cart.php?truncate_cart">Isprazni korpu</a></button>
        <button><a href="index.php#<?php echo $key['id']?>">Nastavite sa kupovinom</a></button>   
     <?php
@@ -168,14 +172,7 @@ if (isset($_POST['buy'])) {
 
 <?php
 if(isset($_POST['poruci'])){
-    $id = $naziv = $size = $imprint = $cena = $kolicina = $ime = $prezime = $email = $mesto = $ulica = $broj = $telefon = $napomena = ""; 
-    $id=$func->test_input($_POST['id']);
-    $naziv=$func->test_input($_POST['naziv']);
-    $size=$func->test_input($_POST['size']);
-    $imprint=$func->test_input($_POST['utiskivac']);
-    $cena=$func->test_input($_POST['cena']);
-    $kolicina=$func->test_input($_POST['quantity']);
-
+ 
     $ime=$func->test_input($_POST['ime']);
     $prezime=$func->test_input($_POST['prezime']);
     $email=$func->test_input($_POST['email']);
@@ -184,48 +181,62 @@ if(isset($_POST['poruci'])){
     $broj=$func->test_input($_POST['broj']);
     $telefon=$func->test_input($_POST['telefon']);
     $napomena=$func->test_input($_POST['napomena']);
-    $datum=date('Y/m/d');
+    $datum_i_vreme=date('Y-m-d H:i:s');
+    $status='Neobradjeno';
+    $nacin_placanja='pouzecem';
 
-    $getUSersID=$query->getUsersID($email);
+    $getUSersID=$query->getUsersID($email,$telefon);
     $countOfRows=$getUSersID->rowCount();
 
-    if($countOfRows==0){
-        $res=$query->insertKupac($ime,$prezime,$email,$mesto,$ulica,$broj,$telefon,$napomena);
+    
 
-        if($res) 
+
+    if($countOfRows==0){
+        $insertCustomer=$query->insertKupac($ime,$prezime,$email,$mesto,$ulica,$broj,$telefon);
+
+        if($insertCustomer) 
         $msg='Greska pri unosu kupca u bazu';
         else 
         $msg='Uspesno unet kupac';
-        $getUSersIDD=$query->getUsersID($email);
-        while ($row=$getUSersIDD->fetch(PDO::FETCH_ASSOC)) {
+
+        $getNewUsersID=$query->getUsersID($email,$telefon);
+        while ($row=$getNewUsersID->fetch(PDO::FETCH_ASSOC)) {
             $id_new_user= $row['id'];
             global $id_new_user;
         }
-       $insertOrder=$query->insertOrder($id_new_user,$datum);
-      echo 'nov kupaac';
+
+       $insertOrder=$query->insertOrder($id_new_user,$datum_i_vreme,$total_price,$status,$napomena,$nacin_placanja);
+       
+       foreach ($_SESSION['product_cart'] as $key) {
+        $query->insertOrderedItems($key['id'],$insertOrder,$key['quantity'], $key['imprint'], $key['size'], $key['price']);
+       
+        }
+
+       if ($insertOrder) {
+           echo 'insert order ok';
+       }else{
+           echo 'insert order failed';
+       }
+     
 
     }else{
         $msg= 'Ovaj kupac vec postoji';
 
         while ($row=$getUSersID->fetch(PDO::FETCH_ASSOC)) {
-            $id_user= $row['id'];
-            global $id_user;
+            $id_of_old_user= $row['id'];
+            global $id_of_old_user;
+         
         }
-        $insertOrder=$query->insertOrder($id_user,$datum);
-        echo 'stari kupac';
-    }
 
-    $getidoforder=$query->getIdOfOrder();
-    while ($row=$getidoforder->fetch(PDO::FETCH_ASSOC)) {
-        $idOfOrder=$row['id'];
-        global $idOfOrder;
-    
+        $insertOrder=$query->insertOrder($id_of_old_user,$datum_i_vreme,$total_price,$status,$napomena,$nacin_placanja);
+        foreach ($_SESSION['product_cart'] as $key) {
+            $query->insertOrderedItems($key['id'],$insertOrder,$key['quantity'], $key['imprint'], $key['size'], $key['price']);
+           
+        }
+        
     }
    
-     
-
-  
-
+   
     $func->refresh();
 }
 

@@ -11,11 +11,10 @@
     private $SELECTPRODUCTBYID="SELECT * FROM modla WHERE id=?";
     private $UPDATEPRODUCT="UPDATE modla SET id=?, naziv=?, kategorija_id=?, opis=?, slika=?, hashtag=? WHERE id=?";
     private $SELECTPRODUCTBYCATEGORY="SELECT * FROM product WHERE kategorija_id=?";
-    private $INSERTKUPAC="INSERT INTO kupci (ime, prezime, email, mesto, ulica, broj, telefon, napomena) VALUES(?,?,?,?,?,?,?,?)";
+    private $INSERTKUPAC="INSERT INTO kupci (ime, prezime, email, mesto, ulica, broj, telefon) VALUES(?,?,?,?,?,?,?)";
     private $INSERTORDEREDITEMS="INSERT INTO poručeni_artikli (ID_proizvoda, ID_narudzbenice, kolicina, utiskivac, velicina, cena) VALUES(?,?,?,?,?,?)";
-    private $INSERTORDER="INSERT INTO narudzbenica (id_user, datum) VALUES (?,?)";
-    private $SELECTIDOFUSER="SELECT id FROM kupci WHERE email=?";
-    private $SELECTIDOFORDER="SELECT id FROM narudzbenica ORDER BY id DESC LIMIT 1";
+    private $INSERTORDER="INSERT INTO narudzbenica (id_user, datum, ukupna_cena,status, napomena, nacin_placanja) VALUES (?,?,?,?,?,?)";
+    private $SELECTIDOFUSER="SELECT id FROM kupci WHERE email=? and telefon=?";
     private $SELECTSIZES = "SELECT velicine.Dimenzija,velicine.ID from velicine_po_modli inner join velicine on velicine_po_modli.ID_velicine=velicine.ID  where ID_modle=?";
     private $SELECTIDCATEGORYANDNAME = "SELECT modla.kategorija_id, kategorija.naziv FROM modla INNER JOIN kategorija ON modla.kategorija_id=kategorija.id where modla.id=?";
     private $INSERTINTOUSER = "INSERT INTO user(ime,prezime, mesto,ulica,broj,broj_telefona,username,password,email,role) VALUES (?,?,?,?,?,?,?,?,?,?)";
@@ -34,11 +33,16 @@
     private $UPDATEIMPRINTSBYCOOKIECUTTERS="DELETE FROM utiskivaci_po_modlama WHERE ID_modle=? AND ID_utiskivaca=?";
     private $ADDIMPRINT="INSERT INTO utiskivaci_po_modlama (ID_utiskivaca, ID_modle) VALUES(?,?)";
     private $LATESTADDEDCOOKIECUTTERS="SELECT * FROM modla ORDER BY datum_postavljanja desc";
+    private $GETIDOFORDER="SELECT id from narudzbenica where datum=?";
     
     
 
     public function __construct($db){
         $this->conn = $db;
+    }
+    public function getIdofOrder($datum)
+    {
+        return $this->sendOnlyOneVariableQuery($this->GETIDOFORDER,$datum);
     }
 
     public function latestAddedCookieCutter(){
@@ -137,20 +141,16 @@
          return $this->sendOnlyOneVariableQuery($this->SELECTPRODUCTBYID,$id);
      }
 
-     public function getUsersID($email)
+     public function getUsersID($email,$telefon)
      {
          $stmt=$this->conn->prepare($this->SELECTIDOFUSER);
-        $stmt->execute([$email]);
+        $stmt->execute([$email,$telefon]);
         return $stmt;
      }
 
      public function selectSizes($id){
         return $this->sendOnlyOneVariableQuery($this->SELECTSIZES,$id);
     }
-     
-     public function getIdOfOrder(){
-        return $this->sendQueryWithReturnValueAndNoParams($this->SELECTIDOFORDER);
-     }
 
      public function updateProduct($idd,$naziv,$kategorija,$opis,$slika,$hashtag,$id){
      
@@ -169,9 +169,9 @@
        $stmt->execute([$id,$naziv,$kategorija,$opis,$slika,$hashtag,$datum_postavljanja]);
      }
 
-     public function insertKupac($ime,$prezime,$email,$mesto,$ulica,$broj,$telefon,$napomena){
+     public function insertKupac($ime,$prezime,$email,$mesto,$ulica,$broj,$telefon){
         $stmt=$this->conn->prepare($this->INSERTKUPAC);
-        $stmt->execute([$ime,$prezime,$email,$mesto,$ulica,$broj,$telefon,$napomena]);
+        $stmt->execute([$ime,$prezime,$email,$mesto,$ulica,$broj,$telefon]);
      }
 
      public function insertOrderedItems($id_proizvoda,$id_narudzbenice, $kolicina, $utiskivac, $velicina, $cena){
@@ -179,9 +179,11 @@
         $stmt->execute([$id_proizvoda,$id_narudzbenice, $kolicina, $utiskivac, $velicina, $cena]);
      }
 
-     public function insertOrder($id_usr,$date){
+     public function insertOrder($id_usr,$date,$ukupna_cena,$status,$napomena,$nacin_placanja){
         $stmt=$this->conn->prepare($this->INSERTORDER);
-        $stmt->execute([$id_usr,$date]);
+        $stmt->execute([$id_usr,$date,$ukupna_cena,$status,$napomena,$nacin_placanja]);
+        $id = $this->conn->lastInsertId();
+        return $id;
      }
 
      public function insertCategory($naziv){
