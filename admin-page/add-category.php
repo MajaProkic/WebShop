@@ -1,11 +1,17 @@
 <?php
-require_once 'partials/head.php';
-require_once 'partials/header.php';
-include_once 'partials/nav.php';
-require_once 'DB/query.php';
-require_once 'functions/functions.php';
+require_once(__DIR__.'/../functions/functions.php');
+require_once(__DIR__.'/../DB/Database.php');
+require_once(__DIR__.'/../DB/query.php');
+require_once(__DIR__.'/../partials/nav.php');
+require_once(__DIR__.'/../partials/header.php');
+require_once(__DIR__.'/../partials/head.php');
 
-$query=new Query();
+$database=new Database();
+$db=$database->connection();
+$query=new Query($db);
+global $query;
+$msg=isset($msg)?$msg:"";
+
 if(isset($_POST['dodajKategoriju'])){
     $naziv=$_POST['naziv'];
     $query->insertCategory($naziv);

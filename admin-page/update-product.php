@@ -1,9 +1,11 @@
 <?php
-require_once 'DB/query.php';
-require_once 'partials/header.php';
-require_once 'partials/head.php';
-include_once 'partials/nav.php';
-require_once 'DB/Database.php';
+require_once(__DIR__.'/../functions/functions.php');
+require_once(__DIR__.'/../DB/Database.php');
+require_once(__DIR__.'/../DB/query.php');
+require_once(__DIR__.'/../partials/nav.php');
+require_once(__DIR__.'/../partials/header.php');
+require_once(__DIR__.'/../partials/head.php');
+
 $database=new Database();
 $db=$database->connection();
 $query=new Query($db);
@@ -105,7 +107,7 @@ if(isset($_GET['update'])){
 
 <div class="inp-group">
     <label for="slika">Dodaj sliku</label>
-    <img src="images/modle/<?php echo $slika;?>" alt="" width='100px' height='100px'>
+    <img src="../images/modle/<?php echo $slika;?>" alt="" width='100px' height='100px'>
     <input type="file" name="slika" id="" value="<?php if(isset($_POST['slika'])){echo $slika;}?>">
 </div>
 
@@ -166,7 +168,7 @@ if(isset($_GET['update'])){
 
 
 
-    move_uploaded_file($tmp_img_name,"images/modle/$tmp_img");
+    move_uploaded_file($tmp_img_name,"../images/modle/$tmp_img");
   
     if(empty($tmp_img)){
         $res=$query->getProductByid($_SESSION['old_id']);
@@ -221,11 +223,11 @@ if(isset($_GET['update'])){
             $msg="Uspesno azuriran proizvod";
        }
        if (isset($_SESSION['new_id'])) {
-        header("Location:product.php?product=$idForm");
+        header("Location:../product.php?product=$idForm");
        }else{
            $old=$_SESSION['old_id'];
-        header("Location:product.php?product=$old");
+        header("Location:../product.php?product=$old");
        }
-      
+       $func->refresh();
 }
 ?>

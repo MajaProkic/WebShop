@@ -20,14 +20,15 @@ ini_set('session.gc_maxlifetime', $inactive);
             <ul>
                 <li><a href="/Modlice/index">Početna strana</a></li>
                 <li><a href="/Modlice/o-nama">O nama</a></li>
-                <li><a href="/Modlice/cart">Korpa</a></li>
+                <li></li>
                 <?php if (isset($_SESSION['role']) && $_SESSION['role']=='admin') { ?>
-                <li><a href="/Modlice/admin">Admin</a></li>
+                <li><a href="/Modlice/admin-page/admin">Admin</a></li>
                 <?php  } ?>
             </ul>
         </div>
         <div class="nav-secondary">
             <ul>
+              
                 <?php
                 if (isset($_SESSION['username'])) {?>
                    <p>Zdravo, <?php echo $_SESSION['username'];?></p>
@@ -36,6 +37,7 @@ ini_set('session.gc_maxlifetime', $inactive);
                 <li><a href="registracija">Registruj se</a></li>
                 <li><a href="login">Prijavi se</a></li>
                 <?php } ?>
+                <li><a href="/Modlice/cart"><img class='shopping-cart' src="/Modlice/images/shopping-cart.png" alt="shopping cart"> </a></li>
             </ul>
         </div>
     </div>

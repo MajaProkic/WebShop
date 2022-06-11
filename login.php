@@ -23,23 +23,26 @@ if (isset($_GET['logovanje'])) {
         if (password_verify($password, $row['password']) && $email==$row['email']) {
            $_SESSION['username']=$row['username'];
            $_SESSION['role']=$row['role'];
-        
+           $msg = 'uspesno ste se ulogovali';
+           ?>
+           <div class="msg-success">
+               <?php echo $msg?>
+           </div> 
+           <?php
         }
-    
     }
-   
-    header("Location:login.php");
-
+  
 }
 ?>
-<h1>Prijava korisnika</h1>
-<div class="form-div">
-    <form action="" method="get">
-    <input type="text" name="username" id="" required='required' placeholder='Username'>
-    <input type="mail" name="email" id="" required='required' placeholder='Email'>
-    <input type="password" name="password" id="" required='required' placeholder='Password'>
+<div class="login-page">
+    <h1>Prijava korisnika</h1>
+    <div class="form-login">
+        <form action="" method="get">
+        <input type="text" name="username" id="" required='required' placeholder='Username'>
+        <input type="mail" name="email" id="" required='required' placeholder='Email'>
+        <input type="password" name="password" id="" required='required' placeholder='Password'>
 
-    <button><input type="submit" name="logovanje" id="" value='Prijavite se'></button>
-    </form>
-
+        <button type='submit' name='logovanje' id='login-btn'>Prijavi se</button>
+        </form>
+    </div>
 </div>

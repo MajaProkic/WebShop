@@ -16,19 +16,25 @@ include_once 'partials/nav.php';
 
     <!--SECTION PRODUCTS -->
     <div class="content">
-
+    
         <div class="filter">
             <?php include_once 'partials/filter.php'?>
         </div>
-
+        <div class="searchbar">
+                <input type="search" name="searchbar" id='searchbar' placeholder='Pretražite modlice'>
+        </div>
         <div class="category">
             <?php include_once 'partials/categories.php'?>
         </div>
 
         <section class="products" id="products">
-              <?php 
+       
+            
+                  <?php 
                   include_once 'partials/products.php';
                ?>
+           
+            
         </section>
     
 

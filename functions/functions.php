@@ -1,11 +1,12 @@
 <?php
-require_once 'DB/query.php';
-require_once 'DB/Database.php';
+require_once(__DIR__.'/../DB/query.php');
+require_once(__DIR__.'/../DB/Database.php');
+
 
 
 $infoaboutProduct=isset($infoaboutProduct)?$infoaboutProduct:"";
 class Functions{
-    
+
     public function cutString($string,$wichLength,$maxLength){
         if(strlen($string)>$wichLength){
             $string = substr($string,0,$maxLength);
@@ -43,19 +44,20 @@ class Functions{
         if(empty($_SESSION[$name_of_session])){
             $_SESSION[$name_of_session]=$name_of_array;
       
-            echo "Proizvod je dodat";
+            $msg= "Proizvod je dodat";
           }else{
             $array_keys=array_keys($_SESSION[$name_of_session]);
             
             if(in_array($id_of_product,$array_keys)){
-                echo "Vec je dodat!";
+                $msg= "Vec je dodat!";
             }else{
             
               $_SESSION[$name_of_session]=$_SESSION[$name_of_session]+$name_of_array;
-              echo "Proizvod je dodat";
+              $msg= "Proizvod je dodat";
               
             }
           }
+          return $msg;
     }
 
     public function removeElementFromSession($session_name,$idofElement,$nameofElement){
@@ -126,29 +128,37 @@ class Functions{
         }
     }
     
-   public function write_product($id_product,$path_to_image,$name_od_product)
+   public function write_product($id_product,$path_to_image,$name_of_product)
    {
+    $database=new Database();
+    $db=$database->connection();
     
-           echo "<div class='image-of-product'>";
-             echo "<p class='image-text'>Novo</p>";
-               echo "<a href='product.php?product=". $id_product."><img src=".$path_to_image." alt='product'></a>"; 
-               echo "</div>";
-                echo "<div class='title-of-product'>";
-                  echo"<h3>". $name_od_product."</h3>";
-               echo "</div>"; 
-               echo "<div class='price'>";
-                  echo "<p id='average-price'>";
-                  
-                   $res=$query->maxminprice($id_of_product);
-                   while ($row=$res->fetch(PDO::FETCH_ASSOC)) {
-                       echo $row['minimalna_cena'].'-';
-                       echo $row['maksimalna_cena'];
-                   }
-                   ?>RSD</p>
-               </div>
+    $query=new Query($db);
     
-           
-<?php
+      ?>
+       <div class="product-cart" id='<?php echo $id_product?>'>
+          
+            <div class="image-of-product">
+                <p class="image-text">Novo</p>
+                <a href="product.php?product=<?php echo $id_product?>"><div class="desc">Pogledajte detalje</div></a>
+                <img src="images/modle/<?php echo $path_to_image?>" alt="product">
+            </div>
+
+            <div class="title-of-product">
+                <h3><?php echo $name_of_product;?></h3>
+            </div>
+
+            <div class="price">
+                <p id='average-price'><?php
+                $res=$query->maxminprice($id_product);
+                while ($row=$res->fetch(PDO::FETCH_ASSOC)) {
+                    echo $row['minimalna_cena'].'-';
+                    echo $row['maksimalna_cena'];
+                }
+                ?>RSD</p>
+            </div>
+        </div>
+    <?php
    }
 
   

@@ -80,6 +80,33 @@
      
     })
 
+    $('#searchbar').on('keyup',function(){
+
+      var search=$('#searchbar').val();
+
+      if(search!=""){
+          $.ajax({
+            url:'processing/searchbar.php',
+            method:'post',
+            data:{
+              search: search
+            },
+        success:function (html) {
+          $('.products').html(html)       
+        }
+        })
+      }else{
+
+      }
+    
+   
+  })
+if ($('.message-reg').is(':empty')) {
+  console.log('yes ');
+}else{
+  console.log('not ');
+}
+
 
   })
 
@@ -135,11 +162,4 @@ function removeInputs() {
   var x=document.querySelector('.dynamicSize');
   x.parentElement.removeChild(x);
 }
-
-const plus=document.querySelector(".plus");
-const minus=document.querySelector(".minus");
-
-plus.addEventListener("click", increment);
-minus.addEventListener("click",decrement);
-
 

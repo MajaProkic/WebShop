@@ -12,9 +12,73 @@ $query=new Query($db);
 global $query;
 $msg=isset($msg)?$msg:"";
 $func=new Functions();
-global $func;?>
+global $func;
 
-<?php
+if(isset($_POST['poruci'])){
+ 
+    $ime=$func->test_input($_POST['ime']);
+    $prezime=$func->test_input($_POST['prezime']);
+    $email=$func->test_input($_POST['email']);
+    $mesto=$func->test_input($_POST['mesto']);
+    $ulica=$func->test_input($_POST['ulica']);
+    $broj=$func->test_input($_POST['broj']);
+    $telefon=$func->test_input($_POST['telefon']);
+    $napomena=$func->test_input($_POST['napomena']);
+    $datum_i_vreme=date('Y-m-d H:i:s');
+    $status='Neobradjeno';
+    $nacin_placanja='pouzecem';
+
+    $getUSersID=$query->getUsersID($email,$telefon);
+    $countOfRows=$getUSersID->rowCount();
+
+    if($countOfRows==0){
+        $insertCustomer=$query->insertKupac($ime,$prezime,$email,$mesto,$ulica,$broj,$telefon);
+
+        if($insertCustomer) 
+        $msg='Greska pri unosu kupca u bazu';
+        else 
+        $msg='Uspesno unet kupac';
+
+        $getNewUsersID=$query->getUsersID($email,$telefon);
+        while ($row=$getNewUsersID->fetch(PDO::FETCH_ASSOC)) {
+            $id_new_user= $row['id'];
+            global $id_new_user;
+        }
+
+       $insertOrder=$query->insertOrder($id_new_user,$datum_i_vreme,$total_price,$status,$napomena,$nacin_placanja);
+       
+       foreach ($_SESSION['product_cart'] as $key) {
+        $insertOrderedItems=$query->insertOrderedItems($key['id'],$insertOrder,$key['quantity'], $key['imprint'], $key['size'], $key['price']);
+        
+        }
+
+       if ($insertOrder) {
+           echo 'insert order ok';
+       }else{
+           echo 'insert order failed';
+       }
+     
+
+    }else{
+        $msg= 'Ovaj kupac vec postoji';
+
+        while ($row=$getUSersID->fetch(PDO::FETCH_ASSOC)) {
+            $id_of_old_user= $row['id'];
+            global $id_of_old_user;
+         
+        }
+
+        $insertOrder=$query->insertOrder($id_of_old_user,$datum_i_vreme,$total_price,$status,$napomena,$nacin_placanja);
+        foreach ($_SESSION['product_cart'] as $key) {
+            $query->insertOrderedItems($key['id'],$insertOrder,$key['quantity'], $key['imprint'], $key['size'], $key['price']);
+           
+        }
+        
+    }
+   
+   
+    $func->refresh();
+}
 
 if (isset($_POST['delete'])) {
     $deleted_id=$_POST['delete'];
@@ -26,9 +90,6 @@ if(isset($_GET['truncate_cart'])){
         session_destroy();
     }
 }
-
-
-
 
 if (isset($_POST['buy'])) {
     $id=$_POST['id'];
@@ -103,11 +164,10 @@ if (isset($_POST['buy'])) {
        <button><a href="index.php#<?php echo $key['id']?>">Nastavite sa kupovinom</a></button>   
     <?php
 }else{
-    $msg='Vasa korpa je prazna';
-    ?>
-    <div class="message">
-        <?php echo  $msg; ?>
-    </div>
+    $msg='Vasa korpa je prazna'; ?>
+   <div class="msg-info">
+       <?php echo $msg?>
+   </div>
    
  <?php
 }
@@ -170,75 +230,4 @@ if (isset($_POST['buy'])) {
     <?php include_once 'partials/footer.php'?>
     </div>
 
-<?php
-if(isset($_POST['poruci'])){
- 
-    $ime=$func->test_input($_POST['ime']);
-    $prezime=$func->test_input($_POST['prezime']);
-    $email=$func->test_input($_POST['email']);
-    $mesto=$func->test_input($_POST['mesto']);
-    $ulica=$func->test_input($_POST['ulica']);
-    $broj=$func->test_input($_POST['broj']);
-    $telefon=$func->test_input($_POST['telefon']);
-    $napomena=$func->test_input($_POST['napomena']);
-    $datum_i_vreme=date('Y-m-d H:i:s');
-    $status='Neobradjeno';
-    $nacin_placanja='pouzecem';
 
-    $getUSersID=$query->getUsersID($email,$telefon);
-    $countOfRows=$getUSersID->rowCount();
-
-    
-
-
-    if($countOfRows==0){
-        $insertCustomer=$query->insertKupac($ime,$prezime,$email,$mesto,$ulica,$broj,$telefon);
-
-        if($insertCustomer) 
-        $msg='Greska pri unosu kupca u bazu';
-        else 
-        $msg='Uspesno unet kupac';
-
-        $getNewUsersID=$query->getUsersID($email,$telefon);
-        while ($row=$getNewUsersID->fetch(PDO::FETCH_ASSOC)) {
-            $id_new_user= $row['id'];
-            global $id_new_user;
-        }
-
-       $insertOrder=$query->insertOrder($id_new_user,$datum_i_vreme,$total_price,$status,$napomena,$nacin_placanja);
-       
-       foreach ($_SESSION['product_cart'] as $key) {
-        $query->insertOrderedItems($key['id'],$insertOrder,$key['quantity'], $key['imprint'], $key['size'], $key['price']);
-       
-        }
-
-       if ($insertOrder) {
-           echo 'insert order ok';
-       }else{
-           echo 'insert order failed';
-       }
-     
-
-    }else{
-        $msg= 'Ovaj kupac vec postoji';
-
-        while ($row=$getUSersID->fetch(PDO::FETCH_ASSOC)) {
-            $id_of_old_user= $row['id'];
-            global $id_of_old_user;
-         
-        }
-
-        $insertOrder=$query->insertOrder($id_of_old_user,$datum_i_vreme,$total_price,$status,$napomena,$nacin_placanja);
-        foreach ($_SESSION['product_cart'] as $key) {
-            $query->insertOrderedItems($key['id'],$insertOrder,$key['quantity'], $key['imprint'], $key['size'], $key['price']);
-           
-        }
-        
-    }
-   
-   
-    $func->refresh();
-}
-
-
-?>

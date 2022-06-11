@@ -1,10 +1,11 @@
 <?php
-require_once 'DB/query.php';
-require_once 'partials/header.php';
-require_once 'partials/head.php';
-include_once 'partials/nav.php';
-require_once 'functions/functions.php';
-require_once 'DB/Database.php';
+require_once(__DIR__.'/../functions/functions.php');
+require_once(__DIR__.'/../DB/Database.php');
+require_once(__DIR__.'/../DB/query.php');
+require_once(__DIR__.'/../partials/nav.php');
+require_once(__DIR__.'/../partials/header.php');
+require_once(__DIR__.'/../partials/head.php');
+
 $database=new Database();
 $db=$database->connection();
 $query=new Query($db);
@@ -24,7 +25,7 @@ if(isset($_POST['dodajProizvod'])){
     $tmp_img_name=$_FILES["slika"]["tmp_name"];
     $hashtag=$_POST['hashtag'];
     $velicina=$_POST['velicinaAdd'];
-    move_uploaded_file($tmp_img_name,"images/modle/$tmp_img");
+    move_uploaded_file($tmp_img_name,"../images/modle/$tmp_img");
     
     $getSpecProduct=$query->getSpecificProduct($naziv,$opis);
     $count=$getSpecProduct->rowCount();
@@ -122,6 +123,3 @@ if(isset($_POST['dodajProizvod'])){
 
     </div>
 </div>
-<?php
-
-?>

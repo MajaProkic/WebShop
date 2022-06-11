@@ -34,11 +34,62 @@
     private $ADDIMPRINT="INSERT INTO utiskivaci_po_modlama (ID_utiskivaca, ID_modle) VALUES(?,?)";
     private $LATESTADDEDCOOKIECUTTERS="SELECT * FROM modla ORDER BY datum_postavljanja desc";
     private $GETIDOFORDER="SELECT id from narudzbenica where datum=?";
-    
-    
-
+    private $GETCOOKIECUTTERSWITHIMPRINT="SELECT * FROM `utiskivaci_po_modlama` inner join modla on utiskivaci_po_modlama.ID_modle=modla.id INNER JOIN utiskivaci on utiskivaci_po_modlama.ID_utiskivaca=utiskivaci.ID WHERE utiskivaci.Naziv='sa utiskivacem'";
+    private $GETCOOKIECUTTERSWITHOUTIMPRINT="SELECT * FROM `utiskivaci_po_modlama` inner join modla on utiskivaci_po_modlama.ID_modle=modla.id INNER JOIN utiskivaci on utiskivaci_po_modlama.ID_utiskivaca=utiskivaci.ID WHERE utiskivaci.Naziv='bez utiskivaca'";
+    private $ORDERBYPRICEDISCENDING="SELECT MAX(cene.Cena), modla.* FROM modla INNER JOIN utiskivaci_po_modlama ON modla.id=utiskivaci_po_modlama.ID_modle INNER JOIN velicine_po_modli on modla.id=velicine_po_modli.ID_modle INNER JOIN cene on cene.ID_velicine=velicine_po_modli.ID_velicine";
+    private $ORDERBYPRICEASCENDING="SELECT MIN(cene.Cena), modla.* FROM modla INNER JOIN utiskivaci_po_modlama ON modla.id=utiskivaci_po_modlama.ID_modle INNER JOIN velicine_po_modli on modla.id=velicine_po_modli.ID_modle INNER JOIN cene on cene.ID_velicine=velicine_po_modli.ID_velicine";
+    private $CUSTOMERANDORDERS="SELECT * FROM `kupci` INNER JOIN narudzbenica on kupci.id=narudzbenica.id_user INNER JOIN poručeni_artikli on narudzbenica.id=poručeni_artikli.ID_narudzbenice";
+    private $NUMBEROFORDERS="SELECT COUNT(id_user) as 'broj porudzbina', kupci.ime, kupci.prezime, kupci.id FROM `narudzbenica` INNER JOIN kupci on narudzbenica.id_user=kupci.id GROUP BY id_user HAVING COUNT(id_user)";
+    private $JOINEDORDERSBYCUSTOMER="SELECT * FROM `narudzbenica` INNER join poručeni_artikli on narudzbenica.id=poručeni_artikli.ID_narudzbenice where narudzbenica.id_user=?";
+    private $ALLABOUTCUSTOMER="SELECT * FROM kupci where id=?";
+    private $SPECIFICORDERBYIDCUSTOMERANDIDORDER="SELECT * FROM `poručeni_artikli` INNER JOIN modla on poručeni_artikli.ID_proizvoda=modla.id INNER JOIN narudzbenica on poručeni_artikli.ID_narudzbenice=narudzbenica.id WHERE poručeni_artikli.ID_narudzbenice=?";
+   
     public function __construct($db){
         $this->conn = $db;
+    }
+
+    public function getSpecificOrderByIdCustomerAndIdOfOrder($id)
+    {
+        return $this->sendOnlyOneVariableQuery($this->SPECIFICORDERBYIDCUSTOMERANDIDORDER,$id);
+    }
+
+    public function allAboutCustomer($id)
+    {
+        return $this->sendOnlyOneVariableQuery($this->ALLABOUTCUSTOMER,$id);
+    }
+
+    public function joinedOrdersByCustomer($id)
+    {
+        return $this->sendOnlyOneVariableQuery($this->JOINEDORDERSBYCUSTOMER,$id);
+    }
+
+    public function numberoforders()
+    {
+        return $this->sendQueryWithReturnValueAndNoParams($this->NUMBEROFORDERS);
+    }
+    public function customersandorders()
+    {
+        return $this->sendQueryWithReturnValueAndNoParams($this->CUSTOMERANDORDERS);
+    }
+
+    public function orderByPriceAscending()
+    {
+        return $this->sendQueryWithReturnValueAndNoParams($this->ORDERBYPRICEASCENDING);
+    }
+
+    public function orderByPriceDiscending()
+    {
+        return $this->sendQueryWithReturnValueAndNoParams($this->ORDERBYPRICEDISCENDING);
+    }
+
+    public function getCookieCutterWithoutimprint()
+    {
+        return $this->sendQueryWithReturnValueAndNoParams($this->GETCOOKIECUTTERSWITHOUTIMPRINT);
+    }
+
+    public function getCookieCutterWithimprint()
+    {
+        return $this->sendQueryWithReturnValueAndNoParams($this->GETCOOKIECUTTERSWITHIMPRINT);
     }
     public function getIdofOrder($datum)
     {

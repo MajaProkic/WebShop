@@ -1,10 +1,11 @@
 <?php
-require_once 'partials/head.php';
-require_once 'partials/header.php';
-include_once 'partials/nav.php';
-require_once 'DB/query.php';
-require_once 'functions/functions.php';
-require_once 'DB/Database.php';
+require_once(__DIR__.'/../functions/functions.php');
+require_once(__DIR__.'/../DB/Database.php');
+require_once(__DIR__.'/../DB/query.php');
+require_once(__DIR__.'/../partials/nav.php');
+require_once(__DIR__.'/../partials/header.php');
+require_once(__DIR__.'/../partials/head.php');
+
 $database=new Database();
 $db=$database->connection();
 $query=new Query($db);
@@ -22,6 +23,7 @@ if(isset($_POST['dodajKategoriju'])){
 
 <button><a href="add-product.php">Dodaj proizvod</a></button>
 <button><a href="add-category.php">Dodaj kategoriju</a></button>
+<button><a href="orderedProducts.php">Porudzbenice</a></button>
 
 <table>
     <tr>
@@ -45,7 +47,7 @@ if(isset($_POST['dodajKategoriju'])){
         <td><?php echo $id; ?></td>
         <td><?php echo $row['naziv'] ?></td>
         <td><?php echo $row['kategorija_id'] ?></td>        
-        <td><a href="product.php?product=<?php echo $row['id'] ?>"> <img src="images/modle/<?php echo $row['slika'] ?>"></a></td>
+        <td><a href="product.php?product=<?php echo $row['id'] ?>"> <img src="../images/modle/<?php echo $row['slika'] ?>"></a></td>
         <td><?php echo $row['hashtag'] ?></td>
         <td><a href="update-product.php?update=<?php echo $row['id'] ?>">Update</a> </td>
         <td><a href="admin.php?delete=<?php echo $row['id']?>">Delete</a></td>
