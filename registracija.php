@@ -54,26 +54,22 @@ if (isset($_POST['registruj_se'])) {
 
     <h1>Registracija korisnika</h1>
 
-    <div class="form-div">
+    <div class="form-reg">
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
 
-        <div class="sub-inline">
-            <input type="text" name="ime" id="" required='required' placeholder='Ime'> 
-            <input type="text" name="prezime" id="" required='required' placeholder='Prezime'> 
-        </div>
+            <input type="text" name="ime" id="ime" required='required' placeholder='Ime'> 
+            <input type="text" name="prezime" id="prezime" required='required' placeholder='Prezime'> 
+  
+            <input type="text" name="grad" id="mesto" required='required' placeholder='Mesto'> 
+            <input type="text" name="ulica" id="ulica" required='required' placeholder='Ulica'> 
+            <input type="text" name="broj" id="broj" required='required' placeholder='Broj'>         
 
-        <div class="sub-inline-three">
-            <input type="text" name="grad" id="" required='required' placeholder='Mesto'> 
-            <input type="text" name="ulica" id="" required='required' placeholder='Ulica'> 
-            <input type="text" name="broj" id="" required='required' placeholder='Broj'> 
-        </div>
+            <input type="text" name="telefon" id="telefon" required='required' placeholder='Telefon'> 
+            <input type="mail" name="email" id="email" required='required' placeholder='E-mail'> 
+            <input type="text" name="username" id="username" required='required' placeholder='Username'> 
+            <input type="password" name="lozinka" id="lozinka" required='required' placeholder='Lozinka'> 
 
-            <input type="text" name="telefon" id="" required='required' placeholder='Telefon'> 
-            <input type="mail" name="email" id="" required='required' placeholder='E-mail'> 
-            <input type="text" name="username" id="" required='required' placeholder='Username'> 
-            <input type="password" name="lozinka" id="" required='required' placeholder='Lozinka'> 
-
-            <button><input type="submit" name="registruj_se" id="" value='Registrujte se'></button>
+            <button type='submit' name='registruj_se'>Registruj se</button>
         </form>
         
     </div>

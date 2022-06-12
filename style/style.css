@@ -8,6 +8,10 @@ input:focus {
   outline: transparent;
 }
 
+a {
+  text-decoration: none;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -65,7 +69,6 @@ h1 {
 }
 
 .nav .nav-primary a, .nav .nav-secondary a {
-  text-decoration: none;
   margin-right: 15px;
   text-transform: uppercase;
   color: white;
@@ -161,7 +164,6 @@ h1 {
 
 .footer ul li a {
   color: #fcc326;
-  text-decoration: none;
 }
 
 .content {
@@ -269,8 +271,8 @@ h1 {
 .products {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (auto)[4];
-      grid-template-columns: repeat(4, auto);
+  -ms-grid-columns: (auto)[5];
+      grid-template-columns: repeat(5, auto);
 }
 
 .products .product-cart {
@@ -347,14 +349,8 @@ h1 {
 }
 
 .cart-table {
-  max-width: -webkit-fit-content;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
-  margin: auto;
-}
-
-.cart-table table {
   max-width: 80%;
+  margin: auto;
 }
 
 .cart-table table th {
@@ -407,10 +403,14 @@ h1 {
 .login-page {
   width: 40%;
   height: 70%;
-  padding: 15px;
-  margin: auto;
-  background-color: #f0f5f7;
+  margin-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #f0f2f5;
   border-radius: 25px;
+  padding: 15px;
+  -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .login-page .form-login {
@@ -447,71 +447,139 @@ h1 {
   margin-left: 10px;
 }
 
-.form-div {
-  font-family: var(--font);
+.registration-page {
+  width: 40%;
+  height: 70%;
   margin-top: 25px;
-  display: -ms-grid;
-  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #f0f2f5;
+  border-radius: 25px;
+  padding: 15px;
+  -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
-.form-div #btn-poruci {
-  margin-top: 10px;
-}
-
-.form-div form, .form-div .left-side {
+.registration-page .form-reg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  display: -ms-grid;
-  display: grid;
-  grid-row-gap: 20px;
 }
 
-.form-div form .sub-inline, .form-div .left-side .sub-inline {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (50%)[2];
-      grid-template-columns: repeat(2, 50%);
-  grid-column-gap: 10px;
+.registration-page .form-reg input {
+  display: block;
+  width: 400px;
+  height: 3em;
+  margin: 10px;
+  outline: none;
+  border-radius: 15px;
+  border: 0.5px solid var(--color);
+  font-family: var(--font);
+  font-size: 12pt;
 }
 
-.form-div form .sub-inline-three, .form-div .left-side .sub-inline-three {
+.registration-page .form-reg button {
+  height: 50px;
+  width: auto;
+  padding: 5px;
+  background-color: var(--color);
+  color: white;
+  border: none;
+  font-size: 14pt;
+  font-family: var(--font);
+  border-radius: 15px;
+  margin-left: 10px;
+}
+
+.customer-info {
+  margin-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #f0f2f5;
+  border-radius: 25px;
+  padding: 15px;
+  -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 60% 30%;
+      grid-template-columns: 60% 30%;
+  -webkit-column-gap: 20px;
+          column-gap: 20px;
+}
+
+.customer-info .form-div {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (33%)[3];
       grid-template-columns: repeat(3, 33%);
-  grid-column-gap: 10px;
+  row-gap: 2px;
 }
 
-.form-div form input, .form-div form select, .form-div .left-side input, .form-div .left-side select {
-  font: var(--font);
-  size: 18pt;
-  border: 0px solid transparent;
-  border-bottom: 1px solid var(--color);
+.customer-info .form-div #telefon, .customer-info .form-div #napomena, .customer-info .form-div #email {
+  grid-column: 1/-1;
 }
 
-.form-div form textarea, .form-div .left-side textarea {
-  font: var(--font);
-  border: 1px solid var(--color);
+.customer-info .form-div input, .customer-info .form-div textarea {
+  display: block;
+  width: auto;
+  height: 2em;
+  margin: 10px;
+  outline: none;
+  border-radius: 15px;
+  border: 0.5px solid var(--color);
+  font-family: var(--font);
+  font-size: 12pt;
 }
 
-.form-div form button, .form-div .left-side button {
-  margin: 15px;
+.customer-info .form-div button {
+  height: 50px;
+  width: 150px;
+  padding: 5px;
+  background-color: var(--color);
+  color: white;
+  border: none;
+  font-size: 14pt;
+  font-family: var(--font);
+  border-radius: 15px;
+  margin-left: 10px;
+  grid-column: 1/-1;
 }
 
-.page {
+.customer-info .form-div .nacin-placanja, .customer-info .form-div .kurirska-sluzba {
+  width: 80%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (50%)[2];
-      grid-template-columns: repeat(2, 50%);
+  -ms-grid-columns: 50px auto;
+      grid-template-columns: 50px auto;
 }
 
-.right-side {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: 2fr;
-      grid-template-rows: 2fr;
-  text-align: center;
+.customer-info .form-div .nacin-placanja span, .customer-info .form-div .kurirska-sluzba span {
+  margin: auto;
+}
+
+.customer-info .form-div .nacin-placanja input, .customer-info .form-div .kurirska-sluzba input {
+  margin: auto;
+}
+
+.customer-info .info-for-customer button {
+  height: 50px;
+  width: 150px;
+  padding: 5px;
+  background-color: var(--color);
+  color: white;
+  border: none;
+  font-size: 14pt;
+  font-family: var(--font);
+  border-radius: 15px;
+  margin-left: 10px;
+}
+
+.customer-info .info-for-customer button a {
+  color: #f5efd3;
 }
 
 table {
@@ -805,7 +873,6 @@ table td {
   height: 35px;
   background-color: var(--color);
   width: auto;
-  text-decoration: none;
   color: white;
   margin-bottom: 5px;
   font-size: 14pt;

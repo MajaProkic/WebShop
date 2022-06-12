@@ -149,81 +149,81 @@ if (isset($_POST['buy'])) {
                         </td>
                     </tr>
                    
-            <?php 
-             
-                }   ?>
+            <?php }  ?>
 
         </tbody>
     </table>
+
     <div class="total_price">
         <p>Ukupna cena</p>
         <input type="text" name="totalPrice" class='total_price' value=' <?php echo $total_price?> RSD' id="" readonly> 
     </div>
             
-    <button id="truncate-cart"><a href="cart.php?truncate_cart">Isprazni korpu</a></button>
-       <button><a href="index.php#<?php echo $key['id']?>">Nastavite sa kupovinom</a></button>   
-    <?php
-}else{
-    $msg='Vasa korpa je prazna'; ?>
-   <div class="msg-info">
-       <?php echo $msg?>
-   </div>
-   
- <?php
-}
+        <button id="truncate-cart"><a href="cart.php?truncate_cart">Isprazni korpu</a></button>
+       <button><a href="index.php#<?php echo $key['id']?>">Nastavite sa kupovinom</a></button> 
 
-?>
+    <?php
+    }else{  $msg='Vasa korpa je prazna'; ?>
+        <div class="msg-info">
+            <?php echo $msg?>
+        </div>
+    <?php } ?>
 
 </div>
 
 
 <h1>Popunite Vaše podatke za slanje</h1>
 
-    <div class="page">
+    <div class="customer-info">
         <div class="form-div">
-            <div class="left-side">
-                <div class="sub-inline">
                     <?php if (isset($_SESSION['username'])) {
-                       $user=$query->getSpecificUserByUsername($_SESSION['username']);
-                        while ($row=$user->fetch(PDO::FETCH_ASSOC)) {?>
-                            <input type="text" name="ime" id="" placeholder="Ime" required="required" value='<?php echo $row['ime']?>' >
-                    <input type="text" name="prezime" id="" placeholder="Prezime" required="required" value='<?php echo $row['prezime']?>' >
-                </div>
-                        <input type="text" name="email" id="" placeholder='E-mail' required="required"  value='<?php echo $row['email']?>'>
-                         <div class="sub-inline-three">
-                            <input type="text" name="mesto" id="" placeholder='Mesto' required="required" value='<?php echo $row['mesto']?>'>
-                            <input type="text" name="ulica" id="" placeholder='Ulica' required="required" value='<?php echo $row['ulica']?>'>
-                            <input type="number" name="broj" id="" placeholder='Broj' required="required" value='<?php echo $row['broj']?>'>
-                        </div>
-              
-                        <input type="number" name="telefon" id="" placeholder='Broj telefona' required="required" value='<?php echo $row['broj_telefona']?>'>
-                      <?php  }
-                    }else{?>
-                    <input type="text" name="ime" id="" placeholder="Ime" required="required" >
-                    <input type="text" name="prezime" id="" placeholder="Prezime" required="required" >
-                </div>
-                        <input type="text" name="email" id="" placeholder='E-mail' required="required" >
-                         <div class="sub-inline-three">
-                            <input type="text" name="mesto" id="" placeholder='Mesto' required="required" >
-                            <input type="text" name="ulica" id="" placeholder='Ulica' required="required" >
-                            <input type="number" name="broj" id="" placeholder='Broj' required="required" >
-                        </div>
-                        <input type="number" name="telefon" id="" placeholder='Broj telefona' required="required" >
-              <?php }?>
+                            $user=$query->getSpecificUserByUsername($_SESSION['username']);
+                                while ($row=$user->fetch(PDO::FETCH_ASSOC)) {?>
+                                    <input type="text" name="ime" id="ime" placeholder="Ime" required="required" value='<?php echo $row['ime']?>' >
+                                    <input type="text" name="prezime" id="prezime" placeholder="Prezime" required="required" value='<?php echo $row['prezime']?>' >
+                                    <input type="text" name="email" id="email" placeholder='E-mail' required="required"  value='<?php echo $row['email']?>'>
+                                    <input type="text" name="mesto" id="mesto" placeholder='Mesto' required="required" value='<?php echo $row['mesto']?>'>
+                                    <input type="text" name="ulica" id="ulica" placeholder='Ulica' required="required" value='<?php echo $row['ulica']?>'>
+                                    <input type="number" name="broj" id="broj" placeholder='Broj' required="required" value='<?php echo $row['broj']?>'>
+                                    <input type="number" name="telefon" id="telefon" placeholder='Broj telefona' required="required" value='<?php echo $row['broj_telefona']?>'>
+                        <?php } 
+                                 }else{?>
+                            <input type="text" name="ime" id="ime" placeholder="Ime" required="required" >
+                            <input type="text" name="prezime" id="prezime" placeholder="Prezime" required="required" >
+                            <input type="text" name="email" id="email" placeholder='E-mail' required="required" >
+                            <input type="text" name="mesto" id="mesto" placeholder='Mesto' required="required" >
+                            <input type="text" name="ulica" id="ulica" placeholder='Ulica' required="required" >
+                            <input type="number" name="broj" id="broj" placeholder='Broj' required="required" >
+                            <input type="number" name="telefon" id="telefon" placeholder='Broj telefona' required="required" >
+                        <?php }?>
                         
-                    <textarea name="napomena" id="" cols="30" rows="10" placeholder='Napomena'></textarea>
+                    <textarea name="napomena" id="napomena" cols="30" rows="10" placeholder='Napomena'></textarea>
+                        
+                    <div class="nacin-placanja">
+                        <input type="radio" name="pouzecem" id="">
+                        <span>Pouzećem</span>
                 
-            </div>
+                        <input type="radio" name="preSlanja" id="">
+                        <span>Pre slanja</span>
+                    </div>
 
-                <button id='btn-poruci'><input type="submit" name="poruci" id="" value='Poruči'></button>
-
+                    <div class="kurirska-sluzba">
+                        <input type="radio" name="PostExpress" id="">
+                        <span>Post ekspress</span>
+                
+                        <input type="radio" name="DExpress" id="">
+                        <span>D-Express</span>
+                    </div>
+                  
+                    <button id='btn-poruci' type="submit" name="poruci">Poruči</button>
+        </div>
             </form>
+            <div class="info-for-customer">
+               <button> <a href="https://www.posta.rs/cir/alati/KalkulatorCena.aspx?vrPos=peSrb" target=”_blank” >Izracunajte cene</a></button>
+            </div>
+    </div>
 
-        </div>
-        <div class="right-side">
-            <p>Slanje se obavlja kurirskom službom PostExpress. Cena ove usluge <b>okvirno</b> iznosi 300 dinara. </p>
-
-        </div>
+       
 
     </div>
     <div class="footer">

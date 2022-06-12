@@ -9,6 +9,9 @@ input{
         outline: transparent;
     }
 }
+a{
+    text-decoration: none;
+}
 body{
   margin: 0;
   padding: 0;
@@ -59,7 +62,6 @@ h1{
         }
     
         a{
-            text-decoration: none;
             margin-right: 15px;
             text-transform: uppercase;
             color: white;
@@ -151,7 +153,6 @@ h1{
             margin: 10px;
             a{
                 color: #fcc326;
-                text-decoration: none;
             }
         }
     }
@@ -255,9 +256,8 @@ h1{
 }
 
 .products{  
-  
         display: grid;
-        grid-template-columns: repeat(4,auto);
+        grid-template-columns: repeat(5,auto);
         .product-cart{
             display: grid;
             grid-template-rows: repeat(4,1fr);
@@ -337,11 +337,10 @@ h1{
     
 //PAGE CART------------
 .cart-table{
-    max-width: fit-content;
+    max-width: 80%;
     margin: auto;
-   
     table{
-        max-width: 80%;
+       
       th{
           background-color: var(--color);
           color: white;
@@ -392,13 +391,18 @@ h1{
         font-weight: bold;
     }
 }
+
+//LOGIN PAGE
 .login-page{
     width: 40%;
     height: 70%;
-    padding: 15px;
-    margin: auto;
-    background-color: #f0f5f7;
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f0f2f5;
     border-radius: 25px;
+    padding: 15px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 
     .form-login{
         display: flex;
@@ -416,7 +420,6 @@ h1{
             font-size: 12pt;
         }
         button{
-          
           height: 50px;
           width: 150px;
           padding: 5px;
@@ -431,62 +434,127 @@ h1{
        
     }    
 }
+//REGISTRATION PAGE
 .registration-page{
-    
-}
-
-.form-div{
-    font-family: var(--font);
+    width: 40%;
+    height: 70%;
     margin-top: 25px;
-    display: grid;
-    #btn-poruci{
-        margin-top: 10px;
-    }
-    
-    form, .left-side{ 
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f0f2f5;
+    border-radius: 25px;
+    padding: 15px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+    .form-reg{
+        display: flex;
         justify-content: center;
-        display: grid; 
-        grid-row-gap: 20px;
-      
-        
-        .sub-inline{
-            display: grid;
-            grid-template-columns: repeat(2,50%);  
-            grid-column-gap: 10px;  
+
+        input{
+            display: block;
+            width: 400px;
+            height: 3em;
+            margin: 10px;
+            outline: none;
+            border-radius: 15px;
+            border: 0.5px solid var(--color);
+            font-family: var(--font);
+            font-size: 12pt;
         }
-        .sub-inline-three{
-            display: grid;
-            grid-template-columns: repeat(3,33%); 
-            grid-column-gap: 10px;   
+        button{
+          
+          height: 50px;
+          width: auto;
+          padding: 5px;
+          background-color: var(--color);
+          color: white;
+          border: none;
+          font-size: 14pt;   
+          font-family: var(--font);
+          border-radius: 15px;
+          margin-left: 10px;
         }
-        
-            input, select{
-                
-                font: var(--font);
-                size: 18pt;  
-                border: 0px solid transparent;
-                border-bottom: 1px solid var(--color); 
-             
-            }
-            textarea{
-                font: var(--font);
-                border: 1px solid var(--color);
-            }
-            button{
-                margin: 15px;
-            }
-    }
-}
-.page{
-    display: grid;
-    grid-template-columns: repeat(2, 50%);
-}
-.right-side{
-    display: grid;
-    grid-template-rows: 2fr;
-    text-align: center;
+       
+    }    
 
 }
+//CART PAGE - CUSTOMER INFO FORM
+.customer-info{
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f0f2f5;
+    border-radius: 25px;
+    padding: 15px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    display: grid;
+    grid-template-columns: 60% 30%;
+    column-gap: 20px;
+    .form-div{
+        display: grid;
+        grid-template-columns: repeat(3, 33%);
+        row-gap: 2px;
+     
+        #telefon,#napomena,#email{
+            grid-column: 1/-1;
+        }
+        input,textarea{
+            display: block;
+            width: auto;
+            height: 2em;
+            margin: 10px;
+            outline: none;
+            border-radius: 15px;
+            border: 0.5px solid var(--color);
+            font-family: var(--font);
+            font-size: 12pt;
+        }
+        button{
+            height: 50px;
+            width: 150px;
+            padding: 5px;
+            background-color: var(--color);
+            color: white;
+            border: none;
+            font-size: 14pt;   
+            font-family: var(--font);
+            border-radius: 15px;
+            margin-left: 10px;
+            grid-column: 1/-1;
+          }
+          .nacin-placanja,.kurirska-sluzba{
+              width: 80%;
+            display: grid;
+            grid-template-columns: 50px auto;
+           
+            span{
+                margin: auto;
+            }
+            input{
+                margin: auto;
+            }
+          }
+    }
+
+    .info-for-customer{
+        button{
+            height: 50px;
+            width: 150px;
+            padding: 5px;
+            background-color: var(--color);
+            color: white;
+            border: none;
+            font-size: 14pt;   
+            font-family: var(--font);
+            border-radius: 15px;
+            margin-left: 10px;
+            a{
+                color: #f5efd3;
+            }
+        }
+    }
+}
+
 table{
     width: 100%;
     height: auto;
@@ -752,7 +820,6 @@ font-size: 14pt;
        height: 35px;
        background-color: var(--color);
        width: auto;
-       text-decoration: none;
        color: white;
        margin-bottom: 5px;
        font-size: 14pt;

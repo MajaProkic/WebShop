@@ -98,7 +98,7 @@ global $query;
                         
                     </div>
                         
-                    <button><input type="submit" name="buy" id="" value='Dodaj u korpu'></button>  
+                    <button type="submit" name="buy">Dodaj u korpu</button>  
                     
                 <div class="short-description">
                     <p><?php echo $opis_proizvoda ?></p>
