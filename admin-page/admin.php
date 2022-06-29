@@ -20,10 +20,17 @@ if(isset($_POST['dodajKategoriju'])){
         }
     }
 ?>
+<div class="admin-page">
 
-<button><a href="add-product.php">Dodaj proizvod</a></button>
-<button><a href="add-category.php">Dodaj kategoriju</a></button>
-<button><a href="orderedProducts.php">Porudzbenice</a></button>
+    <div class="admin-menu">
+        <button><a href="add-product.php">Dodaj proizvod</a></button>
+        <button><a href="add-category.php">Dodaj kategoriju</a></button>
+        <button><a href="orderedProducts.php">Porudzbenice</a></button>
+    </div>
+
+    <div class="title">
+        <h2>Admin strana</h2>
+    </div>
 
 <table>
     <tr>
@@ -47,17 +54,17 @@ if(isset($_POST['dodajKategoriju'])){
         <td><?php echo $id; ?></td>
         <td><?php echo $row['naziv'] ?></td>
         <td><?php echo $row['kategorija_id'] ?></td>        
-        <td><a href="product.php?product=<?php echo $row['id'] ?>"> <img src="../images/modle/<?php echo $row['slika'] ?>"></a></td>
+        <td><a href="product.php?product=<?php echo $row['id'] ?>"> <img src="../images/modle/<?php echo $row['slika'] ?>" id='ImgCookieCutters'></a></td>
         <td><?php echo $row['hashtag'] ?></td>
-        <td><a href="update-product.php?update=<?php echo $row['id'] ?>">Update</a> </td>
-        <td><a href="admin.php?delete=<?php echo $row['id']?>">Delete</a></td>
+        <td><a href="update-product.php?update=<?php echo $row['id'] ?>"><img src="../images/updating.png" alt="update" id='update'></a> </td>
+        <td><a href="admin.php?delete=<?php echo $row['id']?>"><img src="../images/x.png" alt="delete" id='delete'></a></td>
         </tr>
     <?php
     }
     ?>
     </tbody>
 </table>
-
+</div>
 
 <?php
 

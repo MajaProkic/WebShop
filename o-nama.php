@@ -31,5 +31,5 @@ include_once 'partials/nav.php';
 </div>
 
 <div class="footer">
-    <?php include_once 'partials/footer.php'?>
+    <?php include_once 'footer/footer.php'?>
     </div>

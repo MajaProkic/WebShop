@@ -65,10 +65,11 @@ class Functions{
         if($key!==false){
             unset($_SESSION[$session_name][$key]);
             $_SESSION[$session_name] = array_values($_SESSION[$session_name]);
+            return $_SESSION[$session_name];
         }else {
-           $msg='Nije pronađen proizvod';
+           
         }
-
+        return $_SESSION[$session_name];
     }
     public function refresh()
     {
@@ -157,6 +158,7 @@ class Functions{
                 }
                 ?>RSD</p>
             </div>
+           
         </div>
     <?php
    }

@@ -11,7 +11,9 @@
     global $query;
 
 ?>
-    <h3>Kategorije</h3>
+   <div class="functionality">
+    Kategorije
+   </div>
             <form action="" method="post">
                 <?php
                         $res=$query->selectAllCategories();
@@ -25,6 +27,6 @@
                             </div>
                            
                 <?php   }  ?>
-                            <button><a href="/Modlice/index.php" id='unsetCategory'> Resetuj kategorije</a></button>
+                            <button id='unsetCategory'> Resetuj kategorije</button>
                
             </form>

@@ -34,7 +34,10 @@ if (isset($_POST['chck'])) {
 
 
     </div>
-    <?php } } ?>
+    <?php } } 
+    
+    
+   ?>
 
 
 

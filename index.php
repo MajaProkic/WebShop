@@ -6,6 +6,7 @@ require_once 'functions/functions.php';
 include_once 'partials/nav.php';
 
 ?>
+
     <!--SECTION COVER IMAGE-->
     <section class="cover-image">
             <div class="cover-text">
@@ -13,7 +14,6 @@ include_once 'partials/nav.php';
               <a href ='#products' class="buy-cover">Pogledajte ponudu</a>
             </div>
     </section>
-
     <!--SECTION PRODUCTS -->
     <div class="content">
     
@@ -22,6 +22,7 @@ include_once 'partials/nav.php';
         </div>
         <div class="searchbar">
                 <input type="search" name="searchbar" id='searchbar' placeholder='Pretražite modlice'>
+                
         </div>
         <div class="category">
             <?php include_once 'partials/categories.php'?>
@@ -42,7 +43,7 @@ include_once 'partials/nav.php';
     </div>
     
     <div class="footer">
-    <?php include_once 'partials/footer.php'?>
+    <?php include_once 'footer/footer.php'?>
     </div>
 
         

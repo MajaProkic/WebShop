@@ -1,10 +1,11 @@
     
     $(document).ready(function(){
       
-      $('#imprint, #sizee, .plus, .minus, .number').on('change',function(){
+      $('#imprint, #sizee, .plus, .minus').on('change',function(){
           var size=$('#sizee').val();
           var imprint=$('#imprint').val();
-          var plus=$('.plus').val(); 
+          var plus=$('.plus').val();
+          var minus=$('.minus').val();  
           var number=$('.number').val(); 
        
           $.ajax({
@@ -14,6 +15,7 @@
                 size: size,
                 imprint:imprint,
                 plus:plus,
+                minus:minus,
                 number: number
               },
           success:function (html) {
@@ -26,21 +28,20 @@
       //deleting product from cart
       $('.bt').on('click',function(){
         var id=$('.bt').attr('name')
-        $.ajax({
-          url:'cart.php',
-          method:'post',
-          data:{
-            delete: id
-          },
-      success:function (html) {
-        window.location.reload();       
-       }
+        console.log(id);
+          $.ajax({
+            url:'processing/delete.php',
+            method:'post',
+            data:{
+              del: id
+            },
+          success:function () {
+            location.reload(true);      
+          }
+        })
       })
       
-      })
-
-
-//category
+  //category
       $('.rbutton').on('change',function(){
        
       if ($(this).prop("checked") == true) {
@@ -61,6 +62,7 @@
         $('.products').html(html);    
       }
     })
+
 
     $('.filter').on('change',function(){
 
@@ -98,14 +100,13 @@
       }else{
 
       }
-    
-   
+     
   })
-if ($('.message-reg').is(':empty')) {
-  console.log('yes ');
-}else{
-  console.log('not ');
-}
+  
+  $('.additionalSizes,.size_upd').hide();
+  $('#chckForAdditionalSizes').on('click', function(){
+    $('.additionalSizes,.size_upd').show();
+  })
 
 
   })

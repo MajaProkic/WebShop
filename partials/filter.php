@@ -1,5 +1,4 @@
 
-    <h3>Filtritajte proizvode</h3>
 
             <select name="filter" id="filter" class='filter'>
                 <option value="0">Odaberite filter</option>

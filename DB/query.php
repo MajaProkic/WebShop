@@ -5,7 +5,7 @@
 
     private $SELECTALLFROMCATEGORY="SELECT * FROM kategorija ORDER BY naziv ";
     private $GETALLPRODUCTS="SELECT * FROM modla ORDER BY id DESC";
-    private $INSERTPRODUCT="INSERT INTO modla (id, naziv, kategorija_id, opis, slika, hashtag, datum_postavljanja) VALUES(?,?,?,?,?,?,?)"; 
+    private $INSERTPRODUCT="INSERT INTO modla (id, naziv, kategorija_id, slika, hashtag, datum_postavljanja) VALUES(?,?,?,?,?,?)"; 
     private $INSERTCATEGORY="INSERT INTO kategorija (naziv) VALUES(?)";
     private $DELETEPRODUCT="DELETE FROM modla WHERE id=?";
     private $SELECTPRODUCTBYID="SELECT * FROM modla WHERE id=?";
@@ -13,10 +13,10 @@
     private $SELECTPRODUCTBYCATEGORY="SELECT * FROM product WHERE kategorija_id=?";
     private $INSERTKUPAC="INSERT INTO kupci (ime, prezime, email, mesto, ulica, broj, telefon) VALUES(?,?,?,?,?,?,?)";
     private $INSERTORDEREDITEMS="INSERT INTO poručeni_artikli (ID_proizvoda, ID_narudzbenice, kolicina, utiskivac, velicina, cena) VALUES(?,?,?,?,?,?)";
-    private $INSERTORDER="INSERT INTO narudzbenica (id_user, datum, ukupna_cena,status, napomena, nacin_placanja) VALUES (?,?,?,?,?,?)";
+    private $INSERTORDER="INSERT INTO narudzbenica (id_user, datum,status, napomena, nacin_placanja,kurirska_sluzba) VALUES (?,?,?,?,?,?)";
     private $SELECTIDOFUSER="SELECT id FROM kupci WHERE email=? and telefon=?";
     private $SELECTSIZES = "SELECT velicine.Dimenzija,velicine.ID from velicine_po_modli inner join velicine on velicine_po_modli.ID_velicine=velicine.ID  where ID_modle=?";
-    private $SELECTIDCATEGORYANDNAME = "SELECT modla.kategorija_id, kategorija.naziv FROM modla INNER JOIN kategorija ON modla.kategorija_id=kategorija.id where modla.id=?";
+    private $SELECTIDCATEGORYANDNAME = "SELECT modla.kategorija_id, kategorija.naziv as 'naziv kategorije', modla.naziv as 'naziv modle', modla.*, kategorija.* FROM modla INNER JOIN kategorija ON modla.kategorija_id=kategorija.id where modla.id=?";
     private $INSERTINTOUSER = "INSERT INTO user(ime,prezime, mesto,ulica,broj,broj_telefona,username,password,email,role) VALUES (?,?,?,?,?,?,?,?,?,?)";
     private $GETUSERBYINFO = "SELECT * FROM USER";
     private $GETSPECIFICUSER = "SELECT * FROM USER WHERE email=? and broj_telefona=?";
@@ -24,11 +24,11 @@
     private $GETSPEECIFICPRODUCT ="SELECT * FROM MODLA WHERE naziv=? and opis=?";
     private $INSERTINTOUTISKIVACIPOMODLAMA="INSERT INTO utiskivaci_po_modlama (ID_utiskivaca, ID_modle) VALUES(?,?)";
     private $INSERTINTOVELICINEPOMODLAMA="INSERT INTO velicine_po_modli (ID_velicine, ID_modle, RedniBrojVelicine) VALUES(?,?,?)";
-    private $INSERTINTOCENE="INSERT INTO cene (	ID_velicine,ID_utiskivaca,Cena)";
+    private $INSERTINTOCENE="INSERT INTO cene (	ID_velicine,ID_utiskivaca,Cena) VALUES(?,?,?)";
     private $SELECTIMPRINT="SELECT u.Naziv, u.ID from utiskivaci u inner join utiskivaci_po_modlama upm on u.ID=upm.ID_utiskivaca where ID_modle=?";
     private $SELECTCENA="SELECT Cena from cene where ID_velicine =? and ID_utiskivaca=?";
     private $MAXMINPRICE="SELECT DISTINCT MAX(cene.Cena) AS 'maksimalna_cena', MIN(cene.Cena) as 'minimalna_cena', cene.ID_velicine, cene.ID_utiskivaca, velicine_po_modli.ID_modle FROM `velicine_po_modli` INNER JOIN cene ON velicine_po_modli.ID_velicine=cene.ID_velicine INNER JOIN utiskivaci_po_modlama ON cene.ID_utiskivaca=utiskivaci_po_modlama.ID_utiskivaca WHERE velicine_po_modli.ID_modle=190";
-    private $SELECTCOOKIECUTTERSBYCATEGORIES="SELECT modla.naziv as' modlaNaziv', modla.id as 'modlaId', modla.opis, modla.slika, modla.hashtag, modla.kategorija_id, kategorija.id as 'kategorijaId', kategorija.naziv as 'kategorijaNaziv' FROM `modla` INNER JOIN kategorija ON modla.kategorija_id=kategorija.id where kategorija.naziv=?";
+    private $SELECTCOOKIECUTTERSBYCATEGORIES="SELECT modla.naziv as' modlaNaziv', modla.id as 'modlaId', modla.slika, modla.hashtag, modla.kategorija_id, kategorija.id as 'kategorijaId', kategorija.naziv as 'kategorijaNaziv' FROM `modla` INNER JOIN kategorija ON modla.kategorija_id=kategorija.id where kategorija.naziv=?";
     private $UPDATESIZESBYCOOKIECUTTER="UPDATE velicine_po_modli SET ID_velicine=? where ID_modle=? and RedniBrojVelicine=?";
     private $UPDATEIMPRINTSBYCOOKIECUTTERS="DELETE FROM utiskivaci_po_modlama WHERE ID_modle=? AND ID_utiskivaca=?";
     private $ADDIMPRINT="INSERT INTO utiskivaci_po_modlama (ID_utiskivaca, ID_modle) VALUES(?,?)";
@@ -43,10 +43,22 @@
     private $JOINEDORDERSBYCUSTOMER="SELECT * FROM `narudzbenica` INNER join poručeni_artikli on narudzbenica.id=poručeni_artikli.ID_narudzbenice where narudzbenica.id_user=?";
     private $ALLABOUTCUSTOMER="SELECT * FROM kupci where id=?";
     private $SPECIFICORDERBYIDCUSTOMERANDIDORDER="SELECT * FROM `poručeni_artikli` INNER JOIN modla on poručeni_artikli.ID_proizvoda=modla.id INNER JOIN narudzbenica on poručeni_artikli.ID_narudzbenice=narudzbenica.id WHERE poručeni_artikli.ID_narudzbenice=?";
-   
+    private $INSERTDESCRIPTIONOFCOOKIECUTTER="INSERT INTO opis_modle (ID_modle,debljina_sekaca,sirina_modle,duzina_modle,debljina_utiskivaca,tezina_modle,visina_utiskivaca,visina_sekaca,utiskivac_sekac_spojeni,velicina_testiranog_proizvoda) VALUES(?,?,?,?,?,?,?,?,?,?)";
+    private $SELECTDESCRIPTIONFORSPECIFICPRODUCT='SELECT * FROM opis_modle WHERE ID_modle=?';
+
     public function __construct($db){
         $this->conn = $db;
     }
+
+    public function selectdescriptionforspecificproduct($id)
+    {
+        return $this->sendOnlyOneVariableQuery($this->SELECTDESCRIPTIONFORSPECIFICPRODUCT,$id);
+    }
+
+    public function insertDescriptionOfProduct($id_modle,$debljina_sekaca,$sirina_modle,$duzina_modle,$debljina_utiskivaca,$tezina_modle,$visina_utiskivaca,$visina_sekaca,$utiskivac_sekac_spojeni,$velicina_testiranog_proizvoda){
+        $stmt=$this->conn->prepare($this->INSERTDESCRIPTIONOFCOOKIECUTTER);
+        $stmt->execute([$id_modle,$debljina_sekaca,$sirina_modle,$duzina_modle,$debljina_utiskivaca,$tezina_modle,$visina_utiskivaca,$visina_sekaca,$utiskivac_sekac_spojeni,$velicina_testiranog_proizvoda]);    
+    }   
 
     public function getSpecificOrderByIdCustomerAndIdOfOrder($id)
     {
@@ -215,9 +227,10 @@
         
      }
 
-     public function insertProduct($id,$naziv,$kategorija,$opis,$slika,$hashtag,$datum_postavljanja){
+     public function insertProduct($id,$naziv,$kategorija,$slika,$hashtag,$datum_postavljanja){
        $stmt=$this->conn->prepare($this->INSERTPRODUCT);
-       $stmt->execute([$id,$naziv,$kategorija,$opis,$slika,$hashtag,$datum_postavljanja]);
+       $stmt->execute([$id,$naziv,$kategorija,$slika,$hashtag,$datum_postavljanja]);
+    
      }
 
      public function insertKupac($ime,$prezime,$email,$mesto,$ulica,$broj,$telefon){
@@ -230,9 +243,9 @@
         $stmt->execute([$id_proizvoda,$id_narudzbenice, $kolicina, $utiskivac, $velicina, $cena]);
      }
 
-     public function insertOrder($id_usr,$date,$ukupna_cena,$status,$napomena,$nacin_placanja){
+     public function insertOrder($id_usr,$date,$status,$napomena,$nacin_placanja,$kurirskaSluzba){
         $stmt=$this->conn->prepare($this->INSERTORDER);
-        $stmt->execute([$id_usr,$date,$ukupna_cena,$status,$napomena,$nacin_placanja]);
+        $stmt->execute([$id_usr,$date,$status,$napomena,$nacin_placanja,$kurirskaSluzba]);
         $id = $this->conn->lastInsertId();
         return $id;
      }

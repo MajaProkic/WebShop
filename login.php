@@ -10,8 +10,7 @@ $db=$database->connection();
 $msg=isset($msg)?$msg:"";
 $query=new Query($db);
 global $query;
-?>
-<?php
+
 if (isset($_GET['logovanje'])) {
     $username=$_GET['username'];
     $email=$_GET['email'];
@@ -23,7 +22,8 @@ if (isset($_GET['logovanje'])) {
         if (password_verify($password, $row['password']) && $email==$row['email']) {
            $_SESSION['username']=$row['username'];
            $_SESSION['role']=$row['role'];
-           $msg = 'uspesno ste se ulogovali';
+           $msg = 'uspesno ste se ulogovali '.$_SESSION['username'] ;
+           header('Refresh:1; url=index.php');
            ?>
            <div class="msg-success">
                <?php echo $msg?>
@@ -31,7 +31,6 @@ if (isset($_GET['logovanje'])) {
            <?php
         }
     }
-  
 }
 ?>
 <div class="login-page">

@@ -7,7 +7,7 @@ ini_set('session.gc_maxlifetime', $inactive);
         // last request was more than 2 hours ago
         session_unset();     // unset $_SESSION variable for this page
         session_destroy();   // destroy session data
-        header("Location:index.php");
+        header("Location:../index.php");
     }
     $_SESSION['time'] = time(); 
 
@@ -16,28 +16,34 @@ ini_set('session.gc_maxlifetime', $inactive);
        <div class="logo">
           <a href="/Modlice/index.php"><img src="/Modlice/images/logo.jpg" alt="Logo 3D radionica"></a>  
         </div>
-        <div class="nav-primary">
+   
             <ul>
-                <li><a href="/Modlice/index">Početna strana</a></li>
-                <li><a href="/Modlice/o-nama">O nama</a></li>
-                <li></li>
+                <li><a href="/Modlice/index">Modle</a></li>
+                <li><a href="#">Stensili</a></li>
+                <li><a href="#">Podmetaci za čaše</a></li>
+                <li><a href="#">Prstenčići za salvete</a></li>
+                <li><a href="#">Druge figure</a></li>
+            
                 <?php if (isset($_SESSION['role']) && $_SESSION['role']=='admin') { ?>
-                <li><a href="/Modlice/admin-page/admin">Admin</a></li>
+                <li id='admin'><a href="/Modlice/admin-page/admin">Admin</a></li>
                 <?php  } ?>
+      
+              <div class="dropdown">
+                <li><a href="#">Prijavi se</a></li>
+                <div class="dropdown-items">
+                        <?php if (isset($_SESSION['username'])) {?>
+                            <li id='logout'><a href="logout">Odjavi se</a></li>
+                        <?php }else{?>
+                        
+                        <li id='reg'><a href="registracija">Registruj se</a></li>
+                        <li id='log'><a href="login">Prijavi se</a></li>
+                        <?php } ?>
+                    </div>
+                    <li id='shp-cart'><a href="/Modlice/cart">Korpa </a></li>
+                </div>
+               
+                   
             </ul>
-        </div>
-        <div class="nav-secondary">
-            <ul>
-              
-                <?php
-                if (isset($_SESSION['username'])) {?>
-                   <p>Zdravo, <?php echo $_SESSION['username'];?></p>
-                    <li><a href="logout">Odjavi se</a></li>
-                <?php }else{?>
-                <li><a href="registracija">Registruj se</a></li>
-                <li><a href="login">Prijavi se</a></li>
-                <?php } ?>
-                <li><a href="/Modlice/cart"><img class='shopping-cart' src="/Modlice/images/shopping-cart.png" alt="shopping cart"> </a></li>
-            </ul>
-        </div>
+     
     </div>
+</div>

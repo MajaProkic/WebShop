@@ -15,30 +15,34 @@ global $query;
 $func=new Functions();
 global $func;
 ?>
-<h3>Na ovoj stranici se nalaze porudzbine, njihovi detalji i korisnicki profili</h3>
-<table>
-    <thead>
-        <th>Ime i prezime korisnika</th>
-        <th>Broj kupovina</th>
-        <th>Detalji porudzbina</th>
-        <th>Profil korisnika</th>
-    </thead>
-    <tbody>
-        <?php 
+<div class="admin-page">
+    <div class="title">
+        <h2>Na ovoj stranici se nalaze porudzbine, njihovi detalji i korisnicki profili</h2>
+    </div>
+
+    <table>
+        <thead>
+            <th>Ime i prezime korisnika</th>
+            <th>Broj kupovina</th>
+            <th>Detalji porudzbina</th>
+            <th>Profil korisnika</th>
+        </thead>
+        <tbody>
+            <?php 
+                    $numberoforders=$query->numberoforders();
+                        while ($row=$numberoforders->fetch(PDO::FETCH_ASSOC)) {
+                    ?>
+                    <tr>
+                        <td><?php echo $row['ime'].' '. $row['prezime']?></td>
+                        <td><?php echo $row['broj porudzbina'];                
+                        ?></td>
+                        <td><a href="details_of_order.php?detail=<?php echo $row['id']?>"><img src="../images/file.png" alt="detalji porudzbine"></a></td>
+                        <td><a href="customer_profile.php?profile=<?php echo $row['id']?>"><img src="../images/user.png" alt="detalji porudzbine"></a></td>
+                    </tr>
+            <?php 
+                }
+            ?>
             
-                $numberoforders=$query->numberoforders();
-                    while ($row=$numberoforders->fetch(PDO::FETCH_ASSOC)) {
-                ?>
-                <tr>
-                    <td><?php echo $row['ime'].' '. $row['prezime']?></td>
-                    <td><?php echo $row['broj porudzbina'];                
-                    ?></td>
-                    <td><a href="details_of_order.php?detail=<?php echo $row['id']?>">Detalji porudzbina</a></td>
-                    <td><a href="customer_profile.php?profile=<?php echo $row['id']?>">Profil korisnika</a></td>
-                </tr>
-        <?php 
-            }
-        ?>
-        
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</div>
