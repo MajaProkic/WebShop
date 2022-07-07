@@ -19,10 +19,9 @@ ini_set('session.gc_maxlifetime', $inactive);
    
             <ul>
                 <li><a href="/Modlice/index">Modle</a></li>
-                <li><a href="#">Stensili</a></li>
-                <li><a href="#">Podmetaci za čaše</a></li>
-                <li><a href="#">Prstenčići za salvete</a></li>
-                <li><a href="#">Druge figure</a></li>
+                <li><a href="/Modlice/content/stencil.php">Stensili</a></li>
+                <li><a href="/Modlice/content/utiskivaci.php">Utiskivaci</a></li>
+                
             
                 <?php if (isset($_SESSION['role']) && $_SESSION['role']=='admin') { ?>
                 <li id='admin'><a href="/Modlice/admin-page/admin">Admin</a></li>
@@ -32,14 +31,14 @@ ini_set('session.gc_maxlifetime', $inactive);
                 <li><a href="#">Prijavi se</a></li>
                 <div class="dropdown-items">
                         <?php if (isset($_SESSION['username'])) {?>
-                            <li id='logout'><a href="logout">Odjavi se</a></li>
+                            <li id='logout'><a href="/Modlice/header/logout">Odjavi se</a></li>
                         <?php }else{?>
                         
-                        <li id='reg'><a href="registracija">Registruj se</a></li>
-                        <li id='log'><a href="login">Prijavi se</a></li>
+                        <li id='reg'><a href="/Modlice/content/registracija">Registruj se</a></li>
+                        <li id='log'><a href="/Modlice/content/login">Prijavi se</a></li>
                         <?php } ?>
                     </div>
-                    <li id='shp-cart'><a href="/Modlice/cart">Korpa </a></li>
+                    <li id='shp-cart'><a href="/Modlice/content/cart">Korpa </a></li>
                 </div>
                
                    

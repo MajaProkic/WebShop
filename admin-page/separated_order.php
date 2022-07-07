@@ -1,10 +1,10 @@
 <?php
-require_once(__DIR__.'/../functions/functions.php');
-require_once(__DIR__.'/../DB/Database.php');
+require_once (__DIR__.'/../header/header.php');
+require_once (__DIR__.'/../header/head.php');
+require_once (__DIR__.'/../functions/functions.php');
+include_once(__DIR__.'/../header/nav.php');
 require_once(__DIR__.'/../DB/query.php');
-require_once(__DIR__.'/../partials/nav.php');
-require_once(__DIR__.'/../partials/header.php');
-require_once(__DIR__.'/../partials/head.php');
+require_once(__DIR__.'/../DB/Database.php');
 
 $database=new Database();
 $db=$database->connection();
@@ -16,16 +16,22 @@ if (isset($_GET['order'])) {
 
     $getSpecificOrderByIdCustomerAndIdOfOrder=$query->getSpecificOrderByIdCustomerAndIdOfOrder($id_of_order);
     while ($row=$getSpecificOrderByIdCustomerAndIdOfOrder->fetch(PDO::FETCH_ASSOC)) { ?>
-
+    <section class="separated-order">
+    <div class="admin-menu">
         <button><a href="orderedProducts.php">Poruceni proizvodi</a></button>
         <button><a href="admin.php">Admin panel</a></button>
+        <button><a href="orderedProducts.php">Porudzbenice</a></button>
+    </div>
 
-        <section>
-            <h3>Detalji porudzbine <?php echo $row['ID_narudzbenice']?></h3>
-        </section>
+
+            <div class="title">
+            Detalji porudzbine <?php echo $row['ID_narudzbenice']?>
+            </div>
+              
         <table>
             <thead>
                 <th>Naziv artikla</th>
+                <th>Slika</th>
                 <th>Kolicina</th>
                 <th>Utiskivac</th>
                 <th>Velicina</th>
@@ -34,6 +40,7 @@ if (isset($_GET['order'])) {
             <tbody>
                 <tr>
                     <td><?php echo $row['naziv']?></td>
+                    <td><img src="/Modlice/images/modle/<?php echo $row['slika']?>" alt=""></td>
                     <td><?php echo $row['kolicina']?></td>
                     <td><?php echo $row['utiskivac']?></td>
                     <td><?php echo $row['velicina']?></td>
@@ -45,4 +52,5 @@ if (isset($_GET['order'])) {
     }
 }
 ?>
+</section>
 

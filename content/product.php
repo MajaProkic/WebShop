@@ -1,10 +1,10 @@
 <?php
-require_once 'partials/head.php';
-require_once 'DB/query.php';
-require_once 'partials/header.php';
-include_once 'partials/nav.php';
-require_once 'functions/functions.php';
-require_once 'DB/Database.php';
+require_once (__DIR__.'/../header/header.php');
+require_once (__DIR__.'/../header/head.php');
+require_once (__DIR__.'/../functions/functions.php');
+include_once(__DIR__.'/../header/nav.php');
+require_once(__DIR__.'/../DB/query.php');
+require_once(__DIR__.'/../DB/Database.php');
 
 $database=new Database();
 $db=$database->connection();
@@ -60,27 +60,24 @@ if (isset($_POST['buy'])) {
                         $slika = $row['slika'];
                        
                         ?>
-
+                        
                         <div class="path">
                             <?php echo $row['naziv kategorije']." > ".$row['naziv modle']; ?>
                         </div>
 
                         <div class="product-img">
-                        <img src="images/modle/<?php echo $slika ?>" alt="image of product">
+                            <img src="../images/modle/<?php echo $slika ?>" alt="image of product">
                         </div>
-    </section>
-
-    <section class="product-info">
-        
+    </section>        
       
-        <div class="choose-properties">
+        <section class="choose-properties">
 
-        <div class="product-title">
-                            <?php echo $naziv_proizvoda;?>
-                            <input type="text" name="naziv_proizvoda" id="" value='<?php echo $naziv_proizvoda;?>' hidden>
-                        </div>
+            <div class="product-title">
+                    <?php echo $naziv_proizvoda;?>
+                    <input type="text" name="naziv_proizvoda" id="" value='<?php echo $naziv_proizvoda;?>' hidden>
+            </div>
 
-                <div class="size">
+                <div class="size-and-imprint">
                
                     <select name="size" id="sizee">
                         <option value="-" selected='selected'>Odaberite dimenziju</option>
@@ -92,12 +89,8 @@ if (isset($_POST['buy'])) {
                                 
                         <?php  } ?>
                      </select>
-                </div>            
-
-                   
-                <div class="imprint">
                     
-                        <select name="imprint" id="imprint">
+                    <select name="imprint" id="imprint">
                             <option value="-" selected='selected'>Odaberite utiskivac</option>
                             <?php
                                 $selectimprint=$query->selectImprint($product_id);  
@@ -105,7 +98,7 @@ if (isset($_POST['buy'])) {
                                 while ($row=$selectimprint->fetch(PDO::FETCH_ASSOC)) {  ?>
                                 <option value="<?php echo $row['ID']?>"> <?php echo $row['Naziv'] ?></option>
                             <?php  }  ?>
-                        </select>
+                    </select>
                  </div>
                      
                         
@@ -120,12 +113,29 @@ if (isset($_POST['buy'])) {
                         <input type="text" name="price" id="pricepinput" value='' hidden>
                         
                     </div>
-                                   
-                    <button type="submit" name="buy">Dodaj u korpu</button>  
+
+                    <div class="buy">
+                        <button type="submit" name="buy">Dodaj u korpu</button>  
+                    </div>   
+                    <div class="tags">
+                            <div class="title">
+                                Tagovi:
+                            </div>
+                            <div class="hashtags">
+                                <?php 
+                                    $getHashtag=$query->selecthashtag($product_id);
+                                    while ($row=$getHashtag->fetch(PDO::FETCH_ASSOC)) {
+                                        $hashatg=$row['hashtag'];
+                                        echo $hashatg;
+                                    }
+                                ?>        
+                            </div>
+                    </div>    
+                    
               
-        </div>  
+            </section>  
          
-    </section>   
+     
         <?php    
     }
              }
@@ -135,8 +145,10 @@ if (isset($_POST['buy'])) {
        
 </div>
 <div class="short-description">
-                        <h4>Opis proizvoda:</h4>
-                        <p>Napomena: Kako bi Vam dali predstavu o dimenzijama modlice, ispisane su tačne dimenzije za jednu vličinu modle, u tabeli ispod je navedeno koja veličina je obrađena. Ukoliko Vas zanimaju detalji za drugu dimenziju modle, pišite nam.</p>
+                        <div class="title">Opis proizvoda:</div>
+                        <div class="description">Napomena: Kako bi Vam dali predstavu o dimenzijama modlice, ispisane su tačne dimenzije za jednu vličinu modle,
+                             u tabeli ispod je navedeno koja veličina je obrađena. Ukoliko Vas zanimaju detalji za drugu dimenziju modle, pišite nam. Više detalja o
+                            modlama možete saznati <a href="footer/o-nama.php#modle">ovde</a></div>
                    <table id='product_description'>
                         <?php 
                             $description=$query->selectdescriptionforspecificproduct($product_id);
@@ -193,13 +205,16 @@ if (isset($_POST['buy'])) {
             </div>
             <?php 
         
-            $products=$query->selectcookiecutterbycategories($kategorija);
+            $products=$query->relatedProducts($kategorija);
             while ($row=$products->fetch(PDO::FETCH_ASSOC)) {
-                $func->write_product($row['modlaId'],$row['slika'],$row['modlaNaziv']);
+                if ($row['modlaId']!=$product_id) {
+                    $func->write_product($row['modlaId'],$row['slika'],$row['modlaNaziv']);
+                }
+               
              } ?>
     </div>
 
 
 <div class="footer">
-    <?php include_once 'footer/footer.php'?>
+    <?php include_once '../footer/footer.php'?>
     </div>

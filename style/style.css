@@ -1,8 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Tiro+Bangla&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 :root {
   --font: 'Tiro Bangla', serif;
   --color:#fcc326;
   --color-white:#fafafa;
+  --font-bold: 'Righteous', cursive;
+  --color-info:#94c9e0;
+  --color-warning:#e0cc94;
+  --color-error:#e0a394;
+  --color-successful:#a8e094;
 }
 
 * {
@@ -132,10 +138,12 @@ h1 {
 }
 
 .footer {
+  position: relative;
+  margin-top: 25px;
   bottom: 0;
-  display: block;
   background-color: #302e26;
   height: 10vw;
+  width: 100%;
 }
 
 .footer p {
@@ -268,6 +276,28 @@ h1 {
   padding: 5px;
 }
 
+.content .pagination {
+  width: 80vw;
+  text-align: center;
+  margin: auto;
+}
+
+.content .pagination button {
+  width: 40px;
+  height: 40px;
+}
+
+.content .pagination a {
+  width: 60px;
+  height: 60px;
+  color: white;
+  background-color: var(--color);
+  margin: 5px;
+  font-size: 14pt;
+  padding: 5px;
+  border-radius: 5px;
+}
+
 .searchbar {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -376,11 +406,6 @@ h1 {
   font-size: 16pt;
 }
 
-.about-us-story {
-  width: 85%;
-  margin: auto;
-}
-
 .title h2 {
   text-align: center;
 }
@@ -390,12 +415,24 @@ h1 {
   text-align: center;
 }
 
-.cart-table table {
+.cart {
+  width: 100%;
   margin: auto;
-  width: 80%;
 }
 
-.cart-table table th {
+.cart .cart-table .title {
+  margin: 25px 0px 25px 0px;
+  text-align: center;
+  font-size: 18pt;
+  font-family: var(--font-bold);
+}
+
+.cart .cart-table table {
+  margin: 25px 0px 25px 0px;
+  width: 100%;
+}
+
+.cart .cart-table table th {
   background-color: var(--color);
   color: white;
   font-size: 14pt;
@@ -404,62 +441,50 @@ h1 {
   height: 45px;
 }
 
-.cart-table table #cart td input {
+.cart .cart-table table #cart td input {
   border: 0px solid transparent;
   font: var(--font);
   text-align: center;
   font-size: 14pt;
 }
 
-.cart-table table #cart td input:disabled {
+.cart .cart-table table #cart td input:disabled {
   color: black;
   background-color: transparent;
 }
 
-.cart-table #truncate-cart {
+.cart .cart-table table #cart td img {
+  width: 70px;
+  height: 70px;
+}
+
+.cart .cart-table #truncate-cart {
   margin-top: 10px;
 }
 
-button {
-  height: 50px;
-  width: auto;
-  padding: 5px;
-  background-color: var(--color);
-  border: none;
-  border-radius: 15px;
-  margin-left: 10px;
-}
-
-button a {
-  font-size: 14pt;
-  font-family: var(--font);
-  color: white;
-}
-
-.total_price {
-  float: right;
+.cart .cart-table .total_price {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 50% 50%;
       grid-template-columns: 50% 50%;
-  text-align: center;
+  float: right;
 }
 
-.total_price input {
+.cart .cart-table .total_price input {
   border: none;
   font-family: var(--font);
   font-size: 14pt;
   font-weight: bold;
 }
 
-.total_price p {
+.cart .cart-table .total_price p {
   font-size: 14pt;
   font-family: var(--font);
   font-weight: bold;
 }
 
-.customer-info {
-  width: 80%;
+.cart .customer-info {
+  width: 80vw;
   margin-top: 25px;
   margin-left: auto;
   margin-right: auto;
@@ -476,7 +501,7 @@ button a {
           column-gap: 20px;
 }
 
-.customer-info .form-div {
+.cart .customer-info .form-div {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (33%)[3];
@@ -484,11 +509,11 @@ button a {
   row-gap: 2px;
 }
 
-.customer-info .form-div #telefon, .customer-info .form-div #napomena, .customer-info .form-div #email {
+.cart .customer-info .form-div #telefon, .cart .customer-info .form-div #napomena, .cart .customer-info .form-div #email {
   grid-column: 1/-1;
 }
 
-.customer-info .form-div input, .customer-info .form-div textarea {
+.cart .customer-info .form-div input, .cart .customer-info .form-div textarea {
   display: block;
   width: auto;
   height: 2em;
@@ -498,9 +523,10 @@ button a {
   border: 0.5px solid var(--color);
   font-family: var(--font);
   font-size: 12pt;
+  padding-left: 10px;
 }
 
-.customer-info .form-div button {
+.cart .customer-info .form-div button {
   height: 50px;
   width: 150px;
   padding: 5px;
@@ -514,7 +540,7 @@ button a {
   grid-column: 1/-1;
 }
 
-.customer-info .form-div .nacin-placanja, .customer-info .form-div .kurirska-sluzba {
+.cart .customer-info .form-div .nacin-placanja, .cart .customer-info .form-div .kurirska-sluzba {
   width: 80%;
   display: -ms-grid;
   display: grid;
@@ -522,16 +548,16 @@ button a {
       grid-template-columns: 50px auto;
 }
 
-.customer-info .form-div .nacin-placanja span, .customer-info .form-div .kurirska-sluzba span {
+.cart .customer-info .form-div .nacin-placanja span, .cart .customer-info .form-div .kurirska-sluzba span {
   margin: auto;
 }
 
-.customer-info .form-div .nacin-placanja input, .customer-info .form-div .kurirska-sluzba input {
+.cart .customer-info .form-div .nacin-placanja input, .cart .customer-info .form-div .kurirska-sluzba input {
   margin: auto;
 }
 
-.customer-info .info-for-customer button {
-  height: 50px;
+.cart .customer-info .info-for-customer button {
+  height: 60px;
   width: 150px;
   padding: 5px;
   background-color: var(--color);
@@ -543,13 +569,124 @@ button a {
   margin-left: 10px;
 }
 
-.customer-info .info-for-customer button a {
+.cart .customer-info .info-for-customer button a {
   color: #f5efd3;
+}
+
+button {
+  height: auto;
+  width: auto;
+  padding: 5px;
+  background-color: var(--color);
+  border: none;
+  border-radius: 15px;
+  margin-left: 10px;
+}
+
+button a {
+  font-size: 14pt;
+  font-family: var(--font);
+  color: white;
+}
+
+.invoice {
+  margin: auto;
+  width: 60vw;
+  height: 80vw;
+  background-color: #f2ecdc;
+}
+
+.invoice .logo {
+  text-align: center;
+  height: 10%;
+  border-bottom: 2px solid #343634;
+}
+
+.invoice .logo img {
+  width: 100px;
+  height: 100px;
+  float: left;
+  margin: 10px;
+}
+
+.invoice .logo .title {
+  padding-top: 35px;
+  font-family: var(--font-bold);
+  font-size: 22pt;
+  display: inline-block;
+}
+
+.invoice .logo .invoice-no {
+  float: right;
+  margin: 0;
+  font-family: var(--font);
+  font-size: 14pt;
+  color: white;
+  background-color: var(--color);
+  padding: 10px;
+}
+
+.invoice .supplier-client-data {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 50% 50%;
+      grid-template-columns: 50% 50%;
+}
+
+.invoice .supplier-client-data .supplier, .invoice .supplier-client-data .client {
+  width: 80%;
+  padding-top: 15px;
+  padding-left: 30px;
+  font-size: 12pt;
+  font-family: var(--font);
+  color: black;
+  letter-spacing: 0.5px;
+}
+
+.invoice .supplier-client-data .supplier span, .invoice .supplier-client-data .client span {
+  font-weight: bold;
+}
+
+.invoice .supplier-client-data .supplier .title, .invoice .supplier-client-data .client .title {
+  text-align: center;
+  text-transform: uppercase;
+  font-family: var(--font);
+  font-weight: bold;
+  font-size: 16pt;
+  padding-top: 10px;
+  color: #302e26;
+  border-bottom: 1px solid black;
+}
+
+.invoice .order-details {
+  margin: 25px 0px 10px 0px;
+  float: right;
+  padding-right: 10%;
+}
+
+.invoice .order-details span {
+  font-weight: bold;
+}
+
+.invoice .ordered-items {
+  display: block;
+}
+
+.invoice .ordered-items table {
+  width: 80%;
+  text-align: center;
+}
+
+.invoice .ordered-items table th {
+  height: 25px;
+  background-color: var(--color);
+  color: white;
+  letter-spacing: 1px;
 }
 
 .login-page {
   width: 40%;
-  height: 70%;
+  height: 100%;
   margin-top: 25px;
   margin-left: auto;
   margin-right: auto;
@@ -579,6 +716,20 @@ button a {
   border: 0.5px solid var(--color);
   font-family: var(--font);
   font-size: 12pt;
+  padding-left: 10px;
+}
+
+.login-page .form-login button {
+  height: 50px;
+  width: auto;
+  padding: 5px;
+  background-color: var(--color);
+  color: white;
+  border: none;
+  font-size: 14pt;
+  font-family: var(--font);
+  border-radius: 15px;
+  margin-left: 10px;
 }
 
 .registration-page {
@@ -601,6 +752,16 @@ button a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.registration-page .form-reg .two-columns {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 200px;
 }
 
 .registration-page .form-reg input {
@@ -613,9 +774,11 @@ button a {
   border: 0.5px solid var(--color);
   font-family: var(--font);
   font-size: 12pt;
+  padding-left: 15px;
 }
 
 .registration-page .form-reg button {
+  display: block;
   height: 50px;
   width: auto;
   padding: 5px;
@@ -628,56 +791,144 @@ button a {
   margin-left: 10px;
 }
 
-.msg-error {
-  height: 50px;
-  font-family: var(--font);
-  background-color: #e0a394;
-  color: white;
-  font-size: 14pt;
-}
-
-.msg-success {
-  height: 50px;
-  font-family: var(--font);
-  background-color: #a8e094;
-  color: white;
-  font-size: 14pt;
+#msg-error {
   position: absolute;
-  top: 5em;
-  right: 0;
-  width: auto;
-  height: auto;
-  text-align: center;
-  padding: 15px;
-}
-
-.msg-warning {
-  height: 50px;
-  font-family: var(--font);
-  background-color: #e0cc94;
-  color: white;
-  font-size: 14pt;
-  position: relative;
-  top: 5em;
-  right: 0;
-  width: auto;
-  height: auto;
-  text-align: center;
-  padding: 15px;
-}
-
-.msg-info {
-  height: 50px;
-  font-family: var(--font);
-  background-color: #94c9e0;
-  color: white;
-  font-size: 14pt;
+  padding: 10px;
   display: block;
-  right: 0;
-  width: auto;
+  top: 10%;
+  color: white;
+  font-family: var(--font);
+  width: 25%;
   height: auto;
-  text-align: center;
-  padding: 15px;
+  background-color: var(--color-error);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1.2fr 7fr;
+      grid-template-columns: 1.2fr 7fr;
+  -webkit-animation: movein 0.5s ease forwards, moveout 0.5s 5s ease forwards;
+          animation: movein 0.5s ease forwards, moveout 0.5s 5s ease forwards;
+}
+
+#msg-error .msg-error-image {
+  float: left;
+}
+
+#msg-error .msg-error-text {
+  margin: auto;
+}
+
+#msg-successful {
+  position: absolute;
+  display: block;
+  top: 10%;
+  padding: 10px;
+  color: white;
+  font-family: var(--font);
+  width: 25%;
+  height: auto;
+  background-color: var(--color-successful);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1.2fr 7fr;
+      grid-template-columns: 1.2fr 7fr;
+  -webkit-animation: movein 0.5s ease forwards, moveout 0.5s 5s ease forwards;
+          animation: movein 0.5s ease forwards, moveout 0.5s 5s ease forwards;
+}
+
+#msg-successful .msg-successful-image {
+  float: left;
+}
+
+#msg-successful .msg-successful-text {
+  margin: auto;
+}
+
+#msg-warning {
+  position: absolute;
+  top: 10%;
+  display: block;
+  padding: 10px;
+  color: white;
+  font-family: var(--font);
+  width: 25%;
+  height: auto;
+  background-color: var(--color-warning);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1.2fr 7fr;
+      grid-template-columns: 1.2fr 7fr;
+  -webkit-animation: movein 0.5s ease forwards, moveout 0.5s 5s ease forwards;
+          animation: movein 0.5s ease forwards, moveout 0.5s 5s ease forwards;
+}
+
+#msg-warning .msg-warning-image {
+  float: left;
+}
+
+#msg-warning .msg-warning-text {
+  margin: auto;
+}
+
+#msg-info {
+  position: absolute;
+  padding: 10px;
+  top: 10%;
+  display: block;
+  color: white;
+  font-family: var(--font);
+  width: 25%;
+  height: auto;
+  background-color: var(--color-info);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1.2fr 7fr;
+      grid-template-columns: 1.2fr 7fr;
+  -webkit-animation: movein 0.5s ease forwards, moveout 0.5s 5s ease forwards;
+          animation: movein 0.5s ease forwards, moveout 0.5s 5s ease forwards;
+}
+
+#msg-info .msg-info-image {
+  float: left;
+}
+
+#msg-info .msg-info-text {
+  margin: auto;
+}
+
+@-webkit-keyframes movein {
+  from {
+    right: -200px;
+  }
+  to {
+    right: 10px;
+  }
+}
+
+@keyframes movein {
+  from {
+    right: -200px;
+  }
+  to {
+    right: 10px;
+  }
+}
+
+@-webkit-keyframes moveout {
+  from {
+    right: 10px;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes moveout {
+  from {
+    right: 10px;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 .container {
@@ -742,16 +993,65 @@ button a {
   color: #343634;
 }
 
+.short-description {
+  padding: 30px 0px 10px 0px;
+  margin: auto;
+  width: 90vw;
+}
+
+.short-description .title {
+  margin-top: 25px;
+  font-family: var(--font-bold);
+  font-size: 16pt;
+  text-align: left;
+}
+
+.short-description .description {
+  font-family: var(--font);
+  font-size: 14pt;
+  text-align: justify;
+  margin-bottom: 25px;
+  letter-spacing: 0.5px;
+}
+
+.short-description .description a {
+  color: wheat;
+}
+
+.short-description table {
+  text-align: center;
+  width: 80vw;
+}
+
+.short-description table th {
+  width: 30%;
+  text-align: left;
+  background-color: #343634;
+  color: #f0f2f5;
+  height: 40px;
+  padding-left: 15px;
+  font-weight: lighter;
+  font-size: 14pt;
+}
+
+.short-description table td {
+  width: 70%;
+  background-color: #fafafa;
+  height: 40px;
+  padding-left: 15px;
+  font-size: 14pt;
+}
+
 .related-product {
   margin-left: 5%;
   height: 50%;
-  width: 100%;
+  width: 90vw;
   margin-bottom: 20px;
 }
 
 .related-product .related-product-text {
   font-size: 16pt;
-  font-family: var(--font);
+  font-family: var(--font-bold);
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -780,14 +1080,6 @@ button a {
   height: 200px;
   overflow: hidden;
   margin: auto;
-}
-
-.related-product .product-cart .image-of-product p {
-  position: absolute;
-  right: 0;
-  padding: 0;
-  margin: 0;
-  background-color: white;
 }
 
 .related-product .product-cart .image-of-product .desc {
@@ -834,7 +1126,7 @@ button a {
   display: grid;
   -ms-grid-columns: 40% 60%;
       grid-template-columns: 40% 60%;
-  grid-column-gap: 1em;
+  grid-column-gap: 10px;
 }
 
 .product .product-img-tit .product-img {
@@ -853,48 +1145,28 @@ button a {
   font-style: italic;
 }
 
-.product .product-info {
-  display: -ms-grid;
-  display: grid;
-  grid-auto-rows: minmax(100px, auto);
-  margin: 70px;
-}
-
-.product .product-info .choose-properties {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: auto;
-      grid-template-rows: auto;
-}
-
-.product .product-info .choose-properties .product-title {
+.product .choose-properties .product-title {
+  margin-top: 25px;
   position: relative;
   left: 10%;
-  font-size: 16pt;
-  font-family: var(--font);
+  font-size: 18pt;
+  font-family: var(--font-bold);
 }
 
-.product .product-info .choose-properties .product-title input {
+.product .choose-properties .product-title input {
   border: 1px solid transparent;
   font-size: 16pt;
   font: var(--font);
   text-align: center;
 }
 
-.product .product-info .choose-properties .imprint, .product .product-info .choose-properties .size {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-top: 50px;
+.product .choose-properties .size-and-imprint {
+  margin-top: 5%;
+  text-align: center;
 }
 
-.product .product-info .choose-properties .imprint select, .product .product-info .choose-properties .size select {
+.product .choose-properties .size-and-imprint select {
+  margin: 15px;
   background-color: #fcc326;
   color: white;
   outline: none;
@@ -903,19 +1175,19 @@ button a {
   text-align: center;
   border-radius: 20px;
   width: 40%;
+  height: 10%;
+  font-family: var(--font);
 }
 
-.product .product-info .choose-properties .quantity {
-  margin-left: 10em;
+.product .choose-properties .quantity {
+  text-align: center;
   display: block;
-  margin-top: 5em;
+  margin-top: 5%;
 }
 
-.product .product-info .choose-properties .quantity input {
+.product .choose-properties .quantity input {
   width: 50px;
   height: 50px;
-  left: 25%;
-  position: relative;
   background-color: white;
   border: 1px solid var(--color);
   text-align: center;
@@ -923,14 +1195,19 @@ button a {
   font-family: var(--font);
 }
 
-.product .product-info .choose-properties .price {
+.product .choose-properties .price {
   display: block;
-  margin-top: 25px;
+  margin-top: 5%;
   font-size: 16pt;
   text-align: center;
 }
 
-.product .product-info .choose-properties button {
+.product .choose-properties .buy {
+  margin-top: 5%;
+  text-align: center;
+}
+
+.product .choose-properties .buy button {
   height: 50px;
   width: 150px;
   padding: 5px;
@@ -940,9 +1217,32 @@ button a {
   font-size: 14pt;
   font-family: var(--font);
   border-radius: 15px;
-  margin-left: 10px;
-  -ms-grid-column-align: center;
-      justify-self: center;
+}
+
+.product .choose-properties .tags {
+  margin-top: 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.product .choose-properties .tags .title {
+  font-family: var(--font);
+  font-size: 14pt;
+  text-transform: uppercase;
+}
+
+.product .choose-properties .tags .hashtags {
+  padding-left: 5px;
+  font-family: var(--font);
+  font-size: 14pt;
+  color: #302e26;
 }
 
 .description {
@@ -964,28 +1264,107 @@ button a {
   border-bottom: 1px solid black;
 }
 
-.short-description {
-  padding: 30px 30px 10px 30px;
+.contact-page {
+  width: 80%;
+  margin: auto;
+  background-color: #f0f2f5;
+  border-radius: 25px;
+  padding: 15px;
+  -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
-.short-description table {
+.contact-page .title {
+  padding-top: 25px;
+  padding-bottom: 5px;
   text-align: center;
-  width: 70vw;
+  font-size: 36pt;
+  border-bottom: 1px solid black;
+  font-family: var(--font-bold);
 }
 
-.short-description table th {
-  width: 30%;
-  text-align: left;
-  background-color: #343634;
-  color: #f0f2f5;
-  height: 40px;
+.contact-page .contact-form {
+  padding-top: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.short-description table td {
-  width: 70%;
+.contact-page .contact-form input, .contact-page .contact-form textarea {
+  display: block;
+  width: 400px;
+  height: 3em;
+  margin: 10px;
+  outline: none;
+  border-radius: 15px;
+  border: 0.5px solid var(--color);
+  font-family: var(--font);
+  font-size: 12pt;
+  padding-left: 10px;
+}
+
+.contact-page .contact-form textarea {
+  padding-top: 10px;
+  height: 8em;
+}
+
+.contact-page .contact-form button {
+  height: 50px;
+  width: auto;
+  padding: 5px;
   background-color: var(--color);
-  height: 40px;
+  color: white;
+  border: none;
+  font-size: 14pt;
+  font-family: var(--font);
+  border-radius: 15px;
+  margin-left: 10px;
+}
+
+.contact-page .contact-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.contact-page .contact-info .c-info {
   padding-left: 15px;
+  font-size: 14pt;
+  font-family: var(--font-bold);
+  margin: 15px 0px 15px 0px;
+}
+
+.placanje-i-isporuka-page, .reklamacije-page, .about-us {
+  width: 80%;
+  margin: auto;
+}
+
+.placanje-i-isporuka-page .title, .reklamacije-page .title, .about-us .title {
+  margin-top: 25px;
+  font-family: var(--font-bold);
+  font-size: 16pt;
+  text-align: left;
+}
+
+.placanje-i-isporuka-page .description, .reklamacije-page .description, .about-us .description {
+  font-family: var(--font);
+  font-size: 14pt;
+  text-align: justify;
+  margin-bottom: 25px;
+  letter-spacing: 0.5px;
+}
+
+.placanje-i-isporuka-page .description a, .reklamacije-page .description a, .about-us .description a {
+  color: wheat;
 }
 
 .admin-menu {
@@ -1000,6 +1379,7 @@ button a {
 
 .admin-page table {
   margin-top: 15px;
+  width: 90%;
 }
 
 .admin-page table th {
@@ -1035,6 +1415,39 @@ button a {
 .admin-page table tr td img {
   height: 16pt;
   width: 16pt;
+}
+
+.details-of-order, .separated-order {
+  width: 90%;
+  margin: auto;
+}
+
+.details-of-order .title, .separated-order .title {
+  font-family: var(--font-bold);
+  margin-top: 25px;
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: 18pt;
+}
+
+.details-of-order table, .separated-order table {
+  width: 100%;
+  text-align: center;
+}
+
+.details-of-order table th, .separated-order table th {
+  font-size: 14pt;
+  margin-bottom: 10px;
+}
+
+.details-of-order table td, .separated-order table td {
+  margin: 5px;
+  letter-spacing: 1px;
+}
+
+.details-of-order table td img, .separated-order table td img {
+  width: 70px;
+  height: 70px;
 }
 
 .add-product {
@@ -1115,17 +1528,12 @@ button a {
 }
 
 .update-product {
-  width: auto;
+  width: 90vw;
+  margin: auto;
 }
 
 .update-product .form-div {
   margin-top: 15px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 
 .update-product .form-div input {
@@ -1135,6 +1543,9 @@ button a {
   border: 0.5px solid var(--color);
   font-family: var(--font);
   font-size: 12pt;
+  width: 20vw;
+  height: 30px;
+  padding-left: 15px;
 }
 
 .update-product .form-div .inp-group, .update-product .add-product .form-div .inp-group-group, .add-product .update-product .form-div .inp-group-group {
@@ -1155,6 +1566,9 @@ button a {
   padding: 5px;
   color: var(--color-white);
   border-radius: 15px;
+  width: 20vw;
+  height: 30px;
+  padding-left: 15px;
 }
 
 .update-product .form-div .inp-group .sub-inp-group, .update-product .add-product .form-div .inp-group-group .sub-inp-group, .add-product .update-product .form-div .inp-group-group .sub-inp-group {

@@ -1,10 +1,10 @@
 <?php
-require_once(__DIR__.'/../functions/functions.php');
-require_once(__DIR__.'/../DB/Database.php');
+require_once (__DIR__.'/../header/header.php');
+require_once (__DIR__.'/../header/head.php');
+require_once (__DIR__.'/../functions/functions.php');
+include_once(__DIR__.'/../header/nav.php');
 require_once(__DIR__.'/../DB/query.php');
-require_once(__DIR__.'/../partials/nav.php');
-require_once(__DIR__.'/../partials/header.php');
-require_once(__DIR__.'/../partials/head.php');
+require_once(__DIR__.'/../DB/Database.php');
 
 $database=new Database();
 $db=$database->connection();
@@ -56,8 +56,10 @@ if(isset($_POST['dodajProizvod'])){
             
         
             $msg='Uspešno unet proizvod';
+            $func->successfulClass($msg);
         }else{
             $msg='Nažalost, proizvod nije unet';
+            $func->errorClass($msg);
         }
 
         foreach ($velicina as $key => $value) {
@@ -66,7 +68,8 @@ if(isset($_POST['dodajProizvod'])){
             $query->insertVelicinePoModlama($value,$id,$count);
 
         }
-        $func->refresh();
+      
+        header('Refresh:1; url=/Modlice/index.php');
     }
 ?>
 <div class="admin-menu">

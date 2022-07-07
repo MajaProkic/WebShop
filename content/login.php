@@ -1,10 +1,11 @@
 <?php
-require_once 'DB/query.php';
-require_once 'partials/header.php';
-require_once 'partials/head.php';
-require_once 'functions/functions.php';
-require_once 'partials/nav.php';
-require_once 'DB/Database.php';
+require_once (__DIR__.'/../header/header.php');
+require_once (__DIR__.'/../header/head.php');
+require_once (__DIR__.'/../functions/functions.php');
+include_once(__DIR__.'/../header/nav.php');
+require_once(__DIR__.'/../DB/query.php');
+require_once(__DIR__.'/../DB/Database.php');
+
 $database=new Database();
 $db=$database->connection();
 $msg=isset($msg)?$msg:"";
@@ -23,12 +24,8 @@ if (isset($_GET['logovanje'])) {
            $_SESSION['username']=$row['username'];
            $_SESSION['role']=$row['role'];
            $msg = 'uspesno ste se ulogovali '.$_SESSION['username'] ;
-           header('Refresh:1; url=index.php');
-           ?>
-           <div class="msg-success">
-               <?php echo $msg?>
-           </div> 
-           <?php
+           header('Refresh:1; url=../index.php');
+           $func->successfulClass($msg);
         }
     }
 }
@@ -44,4 +41,7 @@ if (isset($_GET['logovanje'])) {
         <button type='submit' name='logovanje' id='login-btn'>Prijavi se</button>
         </form>
     </div>
+</div>
+<div class="footer">
+    <?php include_once '../footer/footer.php'?>
 </div>

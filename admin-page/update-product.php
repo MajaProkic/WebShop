@@ -1,10 +1,10 @@
 <?php
-require_once(__DIR__.'/../functions/functions.php');
-require_once(__DIR__.'/../DB/Database.php');
+require_once (__DIR__.'/../header/header.php');
+require_once (__DIR__.'/../header/head.php');
+require_once (__DIR__.'/../functions/functions.php');
+include_once(__DIR__.'/../header/nav.php');
 require_once(__DIR__.'/../DB/query.php');
-require_once(__DIR__.'/../partials/nav.php');
-require_once(__DIR__.'/../partials/header.php');
-require_once(__DIR__.'/../partials/head.php');
+require_once(__DIR__.'/../DB/Database.php');
 
 $database=new Database();
 $db=$database->connection();
@@ -20,7 +20,7 @@ if(isset($_GET['update'])){
     $id=$row['id'];
     $naziv=$row['naziv'];
     $kategorija_id=$row['kategorija_id'];
-    $opis=$row['opis'];
+
     $slika=$row['slika'];
     $hashtag=$row['hashtag'];
 }
@@ -108,18 +108,124 @@ if(isset($_GET['update'])){
                     <?php } ?>
         </div>
 
-            <!--OPIS-->
-            <div class="inp-group">
-                <label for="opis">Opis</label>
-                <textarea name="opis" id="" cols="30" rows="10"><?php echo $opis;?></textarea>  
-            </div>
-
+            <!--OPIS--------->
+            <?php
+                $description=$query->selectdescriptionforspecificproduct($_SESSION['old_id']);
+                $rowCount_description=$description->rowCount();
+                $_SESSION['rowCount_description']=$rowCount_description;
+                if ($rowCount_description==1) {
+                    while ($row=$description->fetch(PDO::FETCH_ASSOC)) { ?>
+                        <table>     <tr>
+                                        <th>ID opisa</th>
+                                        <td><input type="text" name="ID_opisa" value='<?php echo $row['ID_opisa']?>' hidden></td>
+                                    </tr>
+                                    <tr>
+                                        <th>ID modle</th>
+                                        <td><input type="text" name="ID_modle" value='<?php echo $row['ID_modle']?>' hidden></td>
+                                    </tr>
+    
+                                    <tr>
+                                        <th>Debljina sekača</th>
+                                        <td><input type="text" name="debljina_sekaca" value='<?php echo $row['debljina_sekaca']?>'></td>
+                                    </tr>
+    
+                                    <tr>
+                                        <th>Širina modle</th>
+                                        <td><input type="text" name="sirina_modle" value='<?php echo $row['sirina_modle']?>'></td>
+                                    </tr>
+    
+                                    <tr>
+                                        <th>Dužina modle</th>
+                                        <td><input type="text" name="duzina_modle" value='<?php echo $row['duzina_modle']?>'></td>
+                                    </tr>
+    
+                                    <tr>
+                                        <th>Debljina utiskivača</th>
+                                        <td><input type="text" name="debljina_utiskivaca" value='<?php echo $row['debljina_utiskivaca']?>'></td>
+                                    </tr>
+    
+                                    <tr>
+                                            <th>Težina modle</th>
+                                            <td><input type="text" name="tezina_modle" value='<?php echo $row['tezina_modle']?>'></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Visina utiskivača</th>
+                                        <td><input type="text" name="visina_utiskivaca" value='<?php echo $row['visina_utiskivaca']?>'></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Visina sekača</th>
+                                        <td><input type="text" name="visina_sekaca" value='<?php echo $row['visina_sekaca']?>'></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Utiskivač i sekač su spojeni</th>
+                                        <td><input type="text" name="utiskivac_sekac_spojeni" value='<?php echo $row['utiskivac_sekac_spojeni']?>'></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Veličina opisanog proizvoda je:</th>
+                                        <td><input type="text" name="velicina_testiranog_proizvoda" value='<?php echo $row['velicina_testiranog_proizvoda']?>'></td>
+                                    </tr>
+                        </table>
+                 <?php  
+                    }
+                }else{?>
+                 <table>
+                                    <tr>
+                                        <th>ID modle</th>
+                                        <td><input type="text" name="ID_modle_ins"  value='<?php echo $_SESSION['old_id'] ?>'  hidden required="required"></td>
+                                    </tr>
+    
+                                    <tr>
+                                        <th>Debljina sekača</th>
+                                        <td><input type="text" name="debljina_sekaca_ins" required="required"></td>
+                                    </tr>
+    
+                                    <tr>
+                                        <th>Širina modle</th>
+                                        <td><input type="text" name="sirina_modle_ins" required="required"></td>
+                                    </tr>
+    
+                                    <tr>
+                                        <th>Dužina modle</th>
+                                        <td><input type="text" name="duzina_modle_ins" required="required"></td>
+                                    </tr>
+    
+                                    <tr>
+                                        <th>Debljina utiskivača</th>
+                                        <td><input type="text" name="debljina_utiskivaca_ins"></td>
+                                    </tr>
+    
+                                    <tr>
+                                            <th>Težina modle</th>
+                                            <td><input type="text" name="tezina_modle_ins" required="required"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Visina utiskivača</th>
+                                        <td><input type="text" name="visina_utiskivaca_ins"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Visina sekača</th>
+                                        <td><input type="text" name="visina_sekaca_ins" required="required"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Utiskivač i sekač su spojeni</th>
+                                        <td><input type="text" name="utiskivac_sekac_spojeni_ins" ></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Veličina opisanog proizvoda je:</th>
+                                        <td><input type="text" name="velicina_testiranog_proizvoda_ins" required="required"></td>
+                                    </tr>
+                        </table>
+            <?php               
+                }
+            ?>
+            <!--SLIKA-->
         <div class="inp-group">
             <label for="slika">Dodaj sliku</label>
             <img src="../images/modle/<?php echo $slika;?>" alt="" width='100px' height='100px'>
             <input type="file" name="slika" id="" value="<?php if(isset($_POST['slika'])){echo $slika;}?>">
         </div>
 
+            <!--HASHTAG-->
         <div class="inp-group">
             <label for="hashtag">Hashtag</label>
             <input type="text" name="hashtag" id="" value="<?php echo $hashtag?>">
@@ -190,7 +296,6 @@ if(isset($_GET['update'])){
     $_SESSION['new_id']=$_POST['id'];
     $naziv=$_POST['naziv'];
     $kategorija=$_POST['kategorija'];
-    $opis=$_POST['opis'];
     $tmp_img=$_FILES["slika"]["name"];
     $tmp_img_name=$_FILES["slika"]["tmp_name"];
     $hashtag=$_POST['hashtag'];
@@ -221,7 +326,7 @@ if(isset($_GET['update'])){
     }
 
 
-   $exe=$query->updateProduct($idForm,$naziv,$kategorija,$opis,$tmp_img,$hashtag,$_SESSION['old_id']);
+   $exe=$query->updateProduct($idForm,$naziv,$kategorija,$tmp_img,$hashtag,$_SESSION['old_id']);
 
    //handling size
    if(!empty($_POST['velicinaAdd'])){
@@ -243,18 +348,55 @@ if(isset($_GET['update'])){
             $updateVelicine=$query->updateSizesByCookieCutter($value,$_SESSION['old_id'],$redniBrojVelicine);
         }
    }
-    
 
-     if($exe){
+   if($_SESSION['rowCount_description']==1){
+    
+    #update description
+    $ID_opisa=$_POST['ID_opisa'];
+    $ID_modle=$_POST['ID_modle'];
+    $debljina_sekaca=$_POST['debljina_sekaca'];
+    $sirina_modle=$_POST['sirina_modle'];
+    $duzina_modle=$_POST['duzina_modle'];
+    $debljina_utiskivaca=$_POST['debljina_utiskivaca'];
+    $tezina_modle=$_POST['tezina_modle'];
+    $visina_utiskivaca=$_POST['visina_utiskivaca'];
+    $visina_sekaca=$_POST['visina_sekaca'];
+    $utiskivac_sekac_spojeni=$_POST['utiskivac_sekac_spojeni'];
+    $velicina_testiranog_proizvoda=$_POST['velicina_testiranog_proizvoda'];
+
+    $update_description=$query->UPDATEDESCRIPTIONOFPRODUCT($ID_modle,$debljina_sekaca,$sirina_modle,$duzina_modle,$debljina_utiskivaca,$tezina_modle,$visina_utiskivaca,$visina_sekaca,$utiskivac_sekac_spojeni,$velicina_testiranog_proizvoda,$ID_opisa);
+}else{
+    #insert description
+    $ID_modle_ins=$_POST['ID_modle_ins'];
+    $debljina_sekaca_ins=$_POST['debljina_sekaca_ins'];
+    $sirina_modle_ins=$_POST['sirina_modle_ins'];
+    $duzina_modle_ins=$_POST['duzina_modle_ins'];
+    $debljina_utiskivaca_ins=$_POST['debljina_utiskivaca_ins'];
+    $tezina_modle_ins=$_POST['tezina_modle_ins'];
+    $visina_utiskivaca_ins=$_POST['visina_utiskivaca_ins'];
+    $visina_sekaca_ins=$_POST['visina_sekaca_ins'];
+    $utiskivac_sekac_spojeni_ins=$_POST['utiskivac_sekac_spojeni_ins'];
+    $velicina_testiranog_proizvoda_ins=$_POST['velicina_testiranog_proizvoda_ins'];
+
+    $insertDescription=$query->insertDescriptionOfProduct($ID_modle_ins,$debljina_sekaca_ins, $sirina_modle_ins,$duzina_modle_ins,$debljina_utiskivaca_ins,$tezina_modle_ins,$visina_utiskivaca_ins,$visina_sekaca_ins,$utiskivac_sekac_spojeni_ins,$velicina_testiranog_proizvoda_ins);
+
+    if ($insertDescription==1) {
+        echo 'inseeredt desc ';
+    }else{
+        echo 'not inserted';
+    }
+    
+}
+    if($exe){
            die(mysqli_error($connection));
        }else{
             $msg="Uspesno azuriran proizvod";
        }
        if (isset($_SESSION['new_id'])) {
-        header("Location:../product.php?product=$idForm");
+        header("Location:../content/product.php?product=$idForm");
        }else{
            $old=$_SESSION['old_id'];
-        header("Location:../product.php?product=$old");
+        header("Location:../content/product.php?product=$old");
        }
        $func->refresh();
 }

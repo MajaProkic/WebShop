@@ -122,6 +122,93 @@ class Functions{
                                                 case 'Products.php':
                                                     return 'Proizvodi';
                                                     break;
+
+                                                    case 'contact.php':
+                                                        return 'Kontakt';
+                                                        break;
+
+                                                        case 'mapa.php':
+                                                            return 'Mapa sajta';
+                                                            break;
+
+                                                            case 'placanje-i-isporuka.php':
+                                                                return 'Placanje i isporuka';
+                                                                break;
+
+                                                                case 'reklamacije.php':
+                                                                    return 'Reklamacije';
+                                                                    break;
+
+                                                                    case 'stencil.php':
+                                                                        return 'Stensili';
+                                                                        break;
+            
+            default:
+            return '3D radionica';
+                break;
+        }
+    }
+    public function dynamicDescription($path)
+    {
+        $path=$_SERVER['PHP_SELF'];
+        $page=basename($path);
+
+        switch ($page) {
+            case 'index.php':
+                return 'Izrađujemo modlice za kolače, fondane, medenjake itd. Modlice izrađujemo od PLA plastike. Na našem sajtu možete naći najveći izbor raznolikih modlica koje će Vam ulepšati praznike';
+                break;
+
+                case 'cart.php':
+                    return 'U korpi se nalaze svi dodati proizvodi. Proizvodi koji su dodati u korpu nisu još uvek poručeni';
+                    break;
+
+                    case 'o-nama.php':
+                        return 'Strana o nama sadrži osnovne informacije o 3D radionici i o materijalima sa kojima radimo';
+                        break;
+
+                        case 'product.php':
+                            return 'Pojedinačni proizvodi sa svojim atributima gde kupac može pogledati sve informacije vezane za pojedinačni proizvod.';
+                            break;
+
+                            case 'admin.php':
+                                return 'Admin strana sadrži sve informacije vezane za porudžbine, kupce i ostale detalje. Ova strana nije dostupna regularnim kupcima';
+                                break;
+
+                                case 'add.product.php':
+                                    return 'Dodavanje proizvoda spada u okviru admin strane gde se dodaju novi proizvodi od strane ovlašćenog lica';
+                                    break;
+
+                                    case 'update-product.php':
+                                        return 'Ažuriranje proizvoda se odvija na admin strani od strane ovlašćenog lica i ova stranica nije dostupna regularnim korisnicima';
+                                        break;
+
+                                        case 'registracija.php':
+                                            return 'Registracija korisnika se vrši an stranici registracija gde korisnici ostavljaju svoje lične podatke koji će pomoći da ne moraju unositi svoje lične podtke svaki put kada požele da naruče proizvod';
+                                            break;
+
+                                            case 'login.php':
+                                                return 'Prijava korisnika predstavlja upotrebu informacija sa registracije kako bi sajt znao sa kojim korinsikom se trenutno bavi.';
+                                                break;
+
+                                                case 'Products.php':
+                                                    return 'Svi proizvodi koji su uneti u bazu podataka, brzi pregled svih proizvoda';
+                                                    break;
+
+                                                    case 'contact.php':
+                                                        return 'Kontakt strana omogućuje kontakt sa ovlašćenim licima u vezi bilo kojih dodatnih informacija. Korisnik može kontaktirati ovlašćeeno lice na više načina';
+                                                        break;
+
+                                                            case 'placanje-i-isporuka.php':
+                                                                return 'Ova strana pruža sv informacije koje su vezane za dostavu proizvoda potrošaču';
+                                                                break;
+
+                                                                case 'reklamacije.php':
+                                                                    return 'Stranica na kojoj korisnik može pročitati informacije vezane za reklamaciju proizvoda.';
+                                                                    break;
+
+                                                                    case 'stencil.php':
+                                                                        return 'Stencili predstavljaju proizvod od PLA plastike koji se upotrebljavaju za dekorisanje kolača. Karakteriše ih jako tanka struktura i šupljine koje imaju smislen oblik';
+                                                                        break;
             
             default:
             return '3D radionica';
@@ -129,24 +216,30 @@ class Functions{
         }
     }
     
+    
    public function write_product($id_product,$path_to_image,$name_of_product)
    {
     $database=new Database();
     $db=$database->connection();
     
     $query=new Query($db);
+    $fun=new Functions();
+    
     
       ?>
        <div class="product-cart" id='<?php echo $id_product?>'>
           
             <div class="image-of-product">
-                <p class="image-text">Novo</p>
-                <a href="product.php?product=<?php echo $id_product?>"><div class="desc">Pogledajte detalje</div></a>
-                <img src="images/modle/<?php echo $path_to_image?>" alt="product">
+               
+                <a href="/Modlice/content/product.php?product=<?php echo $id_product?>"><div class="desc">Pogledajte detalje</div></a>
+                <img src="/Modlice/images/modle/<?php echo $path_to_image?>" alt="product">
             </div>
 
             <div class="title-of-product">
-                <h3><?php echo $name_of_product;?></h3>
+                <h3><?php 
+               echo $fun->cutString($name_of_product,20,18);
+              
+             ?></h3>
             </div>
 
             <div class="price">
@@ -162,8 +255,70 @@ class Functions{
         </div>
     <?php
    }
+   public function infoClass($text)
+   {    ?>
+   <div class="message" id='msg-info'>
 
-  
+        <div class="msg-info-image">
+            <img src="/Modlice/images/icons8-info-48.png" alt="info icon">
+        </div>
+        <div class="msg-info-text">
+            <?php echo $text?>
+        </div>
+    
+   </div>
+
+    <?php  
+   }
+
+   public function errorClass($text)
+   {    ?>
+   <div class="message" id='msg-error'>
+
+        <div class="msg-error-image">
+            <img src="/Modlice/images/icons8-error-48.png" alt="error icon">
+        </div>
+        <div class="msg-error-text">
+            <?php echo $text?>
+        </div>
+    
+   </div>
+
+    <?php  
+   }
+
+   public function successfulClass($text)
+   {    ?>
+   <div class="message" id='msg-successful'>
+
+        <div class="msg-successful-image">
+            <img src="/Modlice/images/icons8-tick-48.png" alt="successful icon">
+        </div>
+        <div class="msg-successful-text">
+            <?php echo $text?>
+        </div>
+    
+   </div>
+
+    <?php  
+   }
+
+   public function warningClass($text)
+   {    ?>
+   <div class="message" id='msg-warning'>
+
+        <div class="msg-warning-image">
+            <img src="/Modlice/images/icons8-xbox-x-48.png" alt="warning icon">
+        </div>
+        <div class="msg-warning-text">
+            <?php echo $text?>
+        </div>
+    
+   </div>
+
+    <?php  
+   }
+
 
 }
 

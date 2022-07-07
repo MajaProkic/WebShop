@@ -1,10 +1,10 @@
 <?php
-require_once(__DIR__.'/../functions/functions.php');
-require_once(__DIR__.'/../DB/Database.php');
+require_once (__DIR__.'/../header/header.php');
+require_once (__DIR__.'/../header/head.php');
+require_once (__DIR__.'/../functions/functions.php');
+include_once(__DIR__.'/../header/nav.php');
 require_once(__DIR__.'/../DB/query.php');
-require_once(__DIR__.'/../partials/nav.php');
-require_once(__DIR__.'/../partials/header.php');
-require_once(__DIR__.'/../partials/head.php');
+require_once(__DIR__.'/../DB/Database.php');
 
 $database=new Database();
 $db=$database->connection();
@@ -12,13 +12,15 @@ $query=new Query($db);
 global $query;
 if($_SESSION['role']=='admin'){
 
-if(isset($_POST['dodajKategoriju'])){
-    $naziv=$_POST['naziv'];
-    $query->insertCategory($naziv);
-        if(!$query){
-            echo "Erorr";
-        }
+    if (isset($_GET['delete'])) {
+        $id=$_GET['delete'];
+        $del_utiskivaci_po_modlama=$query->DELETEUTISKIVACIPOMODLAMA($id);
+        $res=$query->deleteProduct($id);
+    
+        header("Refresh:0; url=admin.php");
+     
     }
+
 ?>
 <div class="admin-page">
 
@@ -64,19 +66,14 @@ if(isset($_POST['dodajKategoriju'])){
     ?>
     </tbody>
 </table>
+
 </div>
 
 <?php
 
+
 if(isset($_GET['update'])){
     include_once 'update-product.php';
- }else if (isset($_GET['delete'])) {
-     $id=$_GET['delete'];
-         $query->deleteProduct($id);
-         header("Refresh:0; url=admin.php");
- 
  }
-}else {
-    header("Location:index.php");
 }
  ?>

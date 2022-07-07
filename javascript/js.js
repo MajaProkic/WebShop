@@ -1,6 +1,6 @@
     
     $(document).ready(function(){
-      
+         
       $('#imprint, #sizee, .plus, .minus').on('change',function(){
           var size=$('#sizee').val();
           var imprint=$('#imprint').val();
@@ -9,7 +9,7 @@
           var number=$('.number').val(); 
        
           $.ajax({
-              url:'processing/calculate_price.php',
+              url:'../processing/calculate_price.php',
               method:'post',
               data:{
                 size: size,
@@ -30,7 +30,7 @@
         var id=$('.bt').attr('name')
         console.log(id);
           $.ajax({
-            url:'processing/delete.php',
+            url:'../processing/delete.php',
             method:'post',
             data:{
               del: id
@@ -48,7 +48,7 @@
         var vel=$("input[type='radio']:checked").val();
         console.log(vel);
         $.ajax({
-            url:'processing/categoriesProcessing.php',
+            url:'./processing/categoriesProcessing.php',
             method:'post',
             data:{
               chck: vel
@@ -70,7 +70,7 @@
         console.log(filter);
 
         $.ajax({
-            url:'processing/filter_processing.php',
+            url:'./processing/filter_processing.php',
             method:'post',
             data:{
               value: filter
@@ -88,7 +88,7 @@
 
       if(search!=""){
           $.ajax({
-            url:'processing/searchbar.php',
+            url:'./processing/searchbar.php',
             method:'post',
             data:{
               search: search
@@ -163,4 +163,13 @@ function removeInputs() {
   var x=document.querySelector('.dynamicSize');
   x.parentElement.removeChild(x);
 }
+function validate() {
+  if( document.forma.ime.value == "" ) {
+    alert( "Please provide your name!" );
+    document.myForm.Name.focus() ;
+    return false;
+ }
+}
+
+
 

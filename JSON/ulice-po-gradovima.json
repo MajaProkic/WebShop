@@ -1,0 +1,15 @@
+{
+    "Beograd":[
+        {
+        "Naziv":"1. sokače (ulica u Beogradu)",
+        "belongsTo":"Zvezdara"
+        },
+        {
+            "Naziv":"1300 kaplara (ulica u Beogradu)",
+            "belongsTo":"Stari grad"
+        }
+    ]
+        
+
+
+}
