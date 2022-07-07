@@ -29,6 +29,7 @@ if(isset($_POST['poruci'])){
     $status='Neobradjeno';
     $nacin_placanja=$_POST['nacinplacanja'];
     $kurirska_sluzba=$_POST['kurirskaSluzba'];
+    global $users_ID;
 
     $is_customer_inserted=$is_order_inserted=$is_ordered_items_inserted=false;
 
@@ -39,83 +40,23 @@ if(isset($_POST['poruci'])){
     if($countOfRows==0){
 
         $insertCustomer=$query->insertKupac($ime,$prezime,$email,$mesto,$ulica,$broj,$telefon); 
-
-        #CHECK INSERTED CUSTOMER
-        $check_inserted_customer=$query->CHECKFORINSERTEDCUSTOMER();
-        while ($row=$check_inserted_customer->fetch(PDO::FETCH_ASSOC)) {
-            $DB_email=$row['email'];
-            $DB_telefon=$row['telefon'];
-            global $email,$telefon;
-        }
-        if ($DB_email==$email && $DB_telefon==$telefon) {
-            $is_customer_inserted=true;
-        }
-
-        #GET ID OF NEW USER
-        $getNewUsersID=$query->getUsersID($email,$telefon);
-        while ($row=$getNewUsersID->fetch(PDO::FETCH_ASSOC)) {
-            $id_new_user= $row['id'];
-            global $id_new_user;
-        }
-
-        #INSERT ORDER
-       $insertOrder=$query->insertOrder($id_new_user,$datum_i_vreme,$status,$napomena,$nacin_placanja,$kurirska_sluzba);
-       $_SESSION['orderNo2']=$insertOrder;
-        #CHECK FOR INSERTED ORDER
-        $trimdata=substr($datum_i_vreme,17);
-       
-        $checkfor=$query->CHECKFORINSERTEDORDEREDITEMS();
-        while ($row=$checkfor->fetch(PDO::FETCH_ASSOC)) {
-            $datum= $row['datum'];
-            $id_user=$row['id_user'];
-            global $datum,$id_user;
-        }
-
-        $trimfromdatabase=substr($datum,17);
-        if ($trimdata==$trimfromdatabase && $id_of_old_user==$id_user) {
-            $is_order_inserted=true;
-        }
-       
-       foreach ($_SESSION['product_cart'] as $key) {
-        $insertOrderedItems=$query->insertOrderedItems($key['id'],$insertOrder,$key['quantity'], $key['imprint'], $key['size'], $key['price']);
-        } 
-
-        #CHECK FOR INSERTED ORDER ITEMS
-        $check_for_inserted_order_items=$query->CHECKFORINSERTEDORDERITEMS();
-        while ($row=$check_for_inserted_order_items->fetch(PDO::FETCH_ASSOC)) {
-            $DB_ID_narudzbenice=$row['ID_narudzbenice'];
-            global $DB_ID_narudzbenice;
-        }
-        if ($insertOrder==$DB_ID_narudzbenice) {
-            $is_ordered_items_inserted=true;
-        }
-
-        #CHECKING
-        if ($is_customer_inserted==true && $is_order_inserted==true && $is_ordered_items_inserted==true) {
-            $func->successfulClass('Sve je top :)');
-        }else {
-            $msg='Customer is inserted: '.$is_customer_inserted.' <br> Order is inserted: '.$is_order_inserted.'<br> Order items are inserted: '.$is_ordered_items_inserted;
-            $func->errorClass($msg);
-        }
-        
-
+        $users_ID=$insertCustomer;
+         
     }else{
-        //CUSTOMER ALREADY EXIST
-        $msg= 'Ovaj kupac vec postoji';
 
         while ($row=$getUSersID->fetch(PDO::FETCH_ASSOC)) {
             $id_of_old_user= $row['id'];
-            global $id_of_old_user;
-         
+            $users_ID=$id_of_old_user;
+        }
+    }
+
+        $insertOrder=$query->insertOrder($users_ID,$datum_i_vreme,$status,$napomena,$nacin_placanja,$kurirska_sluzba);
+       $_SESSION['orderNo']=$insertOrder;
+
+        foreach ($_SESSION['product_cart'] as $key) {  
+           $query->insertOrderedItems($key['id'],$insertOrder,$key['quantity'], $key['imprint'], $key['size'], $key['price']); 
         }
 
-        $insertOrder=$query->insertOrder($id_of_old_user,$datum_i_vreme,$status,$napomena,$nacin_placanja,$kurirska_sluzba);
-        $_SESSION['orderNo1']=$insertOrder;
-
-        foreach ($_SESSION['product_cart'] as $key) {
-            
-            $query->insertOrderedItems($key['id'],$insertOrder,$key['quantity'], $key['imprint'], $key['size'], $key['price']);  
-        }
          #CHECK FOR INSERTED ORDER ITEMS
          $check_for_inserted_order_items=$query->CHECKFORINSERTEDORDERITEMS();
         while ($row=$check_for_inserted_order_items->fetch(PDO::FETCH_ASSOC)) {
@@ -124,32 +65,11 @@ if(isset($_POST['poruci'])){
         }
         if ($insertOrder==$DB_ID_narudzbenice) {
             $is_ordered_items_inserted=true;
+            
         }
-
-         #CHECK FOR INSERTED ORDER
-        $trimdata=substr($datum_i_vreme,17);
-       
-        $checkfor=$query->CHECKFORINSERTEDORDEREDITEMS();
-        while ($row=$checkfor->fetch(PDO::FETCH_ASSOC)) {
-            $datum= $row['datum'];
-            $id_user=$row['id_user'];
-            global $datum,$id_user;
-        }
-
-        $trimfromdatabase=substr($datum,17); //oduzimanje sekundi
-        if ($trimdata==$trimfromdatabase && $id_of_old_user==$id_user) {
-            $is_order_inserted=true;
-        }
-
-        if ($is_order_inserted==true && $is_ordered_items_inserted==true) {
-            $func->successfulClass('Porudzbina je uspešno kreirana');
-        }else {
-            $msg='Customer is inserted: '.$is_customer_inserted.' <br> Order is inserted: '.$is_order_inserted.'<br> Order items are inserted: '.$is_ordered_items_inserted;
-            $func->errorClass($msg);
-        }
-    }
-
-
+        $_SESSION['id_customer']=$users_ID;
+    echo $_SESSION['id_customer'];
+    header("Location:invoice.php");
 }
 
 if(isset($_GET['truncate_cart'])){
@@ -157,7 +77,6 @@ if(isset($_GET['truncate_cart'])){
         session_destroy();
     }
 }
-
     
 ?>
 <div class="cart">
@@ -181,7 +100,7 @@ if(isset($_GET['truncate_cart'])){
         </thead>
         <tbody>
             <?php if (isset($_SESSION['product_cart'])) { ?>
-                    <form action="" method="post">
+                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
 
              <?php  $total_price=0;
                     foreach ($_SESSION['product_cart'] as $key) {             

@@ -42,7 +42,7 @@ if (isset($_POST['buy'])) {
 <div class="product" >
     <section class="product-img-tit">
      
-       <form action="" method="post">
+       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
            
             <?php
                 if(isset($_GET['product'])){

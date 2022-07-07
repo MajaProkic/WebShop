@@ -11,8 +11,11 @@ $db=$database->connection();
 $msg=isset($msg)?$msg:"";
 $query=new Query($db);
 global $query;
+$func=new Functions();
+global $func;
 global $orderID;
-if (isset($_SESSION['orderNo'])&& isset($_SESSION['id_customer'])) {
+
+if (isset($_SESSION['id_customer'])) {
     $orderID=$_SESSION['orderNo'];
 
     $result=$query->joinedOrdersByCustomer($_SESSION['id_customer']);
@@ -25,12 +28,7 @@ if (isset($_SESSION['orderNo'])&& isset($_SESSION['id_customer'])) {
         $nacinPlacanja=$row['nacin_placanja'];
 
     }
-
-}else{
-    echo 'nema';
-}
-
-$result=$query->allAboutCustomer($_SESSION['id_customer']);
+    $result=$query->allAboutCustomer($_SESSION['id_customer']);
 while ($row=$result->fetch(PDO::FETCH_ASSOC)) {
     global $imeiprezime,$adresa,$telefon,$email;
     $imeiprezime=$row['ime'].' '.$row['prezime'];
@@ -38,6 +36,12 @@ while ($row=$result->fetch(PDO::FETCH_ASSOC)) {
     $telefon=$row['telefon'];
     $email=$row['email'];
 }
+
+
+}else{
+    echo 'nema';
+}
+
 
 
   ?>
@@ -103,12 +107,23 @@ while ($row=$result->fetch(PDO::FETCH_ASSOC)) {
                     <td><?php echo $row['utiskivac']?></td>
                     <td><?php echo $row['velicina']?></td>
                     <td><?php echo $row['kolicina']?></td>
-                    <td><?php echo $row['cena']?></td>
+                    <td><?php 
+                    global $total_price;
+                    $total_price+=$row['cena'];
+                    echo $row['cena']?></td>
                 </tr>
                 <?php } ?>
             </tbody>
         </table>
-      
+        <div class="total_price">
+                      Ukupno:  <?php echo $total_price;?> RSD
+        </div>
+        <div class="print-button">
+    
+   <a href="#" onclick="window.print()"><img src="/Modlice/images/icons8-print-50.png" alt=""></a> 
     </div>
+    </div>
+  
+    
 
 </div>
