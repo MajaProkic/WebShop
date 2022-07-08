@@ -34,13 +34,15 @@ if (isset($_GET['logovanje'])) {
     <h1>Prijava korisnika</h1>
     <div class="form-login">
         <form action="" method="get">
-        <input type="text" name="username" id="" required='required' placeholder='Username'>
-        <input type="mail" name="email" id="" required='required' placeholder='Email'>
-        <input type="password" name="password" id="" required='required' placeholder='Password'>
-
+        <input type="text" name="username" id="login-username" required='required' placeholder='Username'>
+        <input type="mail" name="email" id="login-email" required='required' placeholder='Email'>
+        <input type="password" name="password" id="login-password" required='required' placeholder='Password'>
+        <a href="#">Zaboravili ste lozinku?</a>
         <button type='submit' name='logovanje' id='login-btn'>Prijavi se</button>
         </form>
+      
     </div>
+    
 </div>
 <div class="footer">
     <?php include_once '../footer/footer.php'?>

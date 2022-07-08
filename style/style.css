@@ -22,6 +22,27 @@ input:focus {
   outline: transparent;
 }
 
+#ime, #prezime, #mesto {
+  text-transform: capitalize;
+}
+
+#error_ime,
+#error_prezime,
+#error_email,
+#error_mesto,
+#error_ulica,
+#error_broj,
+#error_telefon,
+#error_lozinka,
+#error_lozinka_check,
+#error_username {
+  position: relative;
+  float: left;
+  margin-left: 10px;
+  display: block;
+  color: var(--color-error);
+}
+
 a {
   text-decoration: none;
 }
@@ -484,7 +505,7 @@ h1 {
 }
 
 .cart .customer-info {
-  width: 80vw;
+  width: 90%;
   margin-top: 25px;
   margin-left: auto;
   margin-right: auto;
@@ -495,25 +516,22 @@ h1 {
           box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 60% 30%;
-      grid-template-columns: 60% 30%;
-  -webkit-column-gap: 20px;
-          column-gap: 20px;
+  -ms-grid-columns: auto 30%;
+      grid-template-columns: auto 30%;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
 }
 
 .cart .customer-info .form-div {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (33%)[3];
-      grid-template-columns: repeat(3, 33%);
+  -ms-grid-rows: (auto)[auto];
+      grid-template-rows: repeat(auto auto);
   row-gap: 2px;
 }
 
-.cart .customer-info .form-div #telefon, .cart .customer-info .form-div #napomena, .cart .customer-info .form-div #email {
-  grid-column: 1/-1;
-}
-
 .cart .customer-info .form-div input, .cart .customer-info .form-div textarea {
+  grid-column: 1/-1;
   display: block;
   width: auto;
   height: 2em;
@@ -540,20 +558,12 @@ h1 {
   grid-column: 1/-1;
 }
 
-.cart .customer-info .form-div .nacin-placanja, .cart .customer-info .form-div .kurirska-sluzba {
-  width: 80%;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 50px auto;
-      grid-template-columns: 50px auto;
+.cart .customer-info .form-div .radio-buttons {
+  display: block;
 }
 
-.cart .customer-info .form-div .nacin-placanja span, .cart .customer-info .form-div .kurirska-sluzba span {
-  margin: auto;
-}
-
-.cart .customer-info .form-div .nacin-placanja input, .cart .customer-info .form-div .kurirska-sluzba input {
-  margin: auto;
+.cart .customer-info .form-div .radio-buttons .nacin-placanja .span, .cart .customer-info .form-div .radio-buttons .nacin-placanja input, .cart .customer-info .form-div .radio-buttons .kurirska-sluzba .span, .cart .customer-info .form-div .radio-buttons .kurirska-sluzba input {
+  display: inline;
 }
 
 .cart .customer-info .info-for-customer button {
@@ -701,9 +711,7 @@ button a {
 .login-page {
   width: 40%;
   height: 100%;
-  margin-top: 25px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 10% auto 10% auto;
   background-color: #f0f2f5;
   border-radius: 25px;
   padding: 15px;
@@ -733,7 +741,13 @@ button a {
   padding-left: 10px;
 }
 
+.login-page .form-login a {
+  padding-left: 10px;
+  margin: 10px 0px 10px 0px;
+}
+
 .login-page .form-login button {
+  display: block;
   height: 50px;
   width: auto;
   padding: 5px;
@@ -748,6 +762,7 @@ button a {
 
 .registration-page {
   width: 40%;
+  max-width: 70%;
   height: 70%;
   margin-top: 25px;
   margin-left: auto;
@@ -760,27 +775,22 @@ button a {
 }
 
 .registration-page .form-reg {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  margin: auto;
+  width: 100%;
+  overflow: hidden;
 }
 
 .registration-page .form-reg .two-columns {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  width: 200px;
+  margin: auto;
+  width: 90%;
 }
 
 .registration-page .form-reg input {
   display: block;
-  width: 400px;
+  width: 90%;
   height: 3em;
   margin: 10px;
   outline: none;

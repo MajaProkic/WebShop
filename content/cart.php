@@ -167,30 +167,36 @@ if(isset($_GET['truncate_cart'])){
                             <?php } 
                                     }else{?>
                                 <input type="text" name="ime" id="ime" placeholder="Ime" required="required" >
+                                <span id='error_ime'></span>
                                 <input type="text" name="prezime" id="prezime" placeholder="Prezime" required="required" >
+                                <span id='error_prezime'></span>
                                 <input type="text" name="email" id="email" placeholder='E-mail' required="required" >
+                                   <span id='error_email'></span> 
                                 <input type="text" name="mesto" id="mesto" placeholder='Mesto' required="required" >
+                                <span id='error_mesto'></span> 
                                 <input type="text" name="ulica" id="ulica" placeholder='Ulica' required="required" >
+                                <span id='error_ulica'></span>    
                                 <input type="number" name="broj" id="broj" placeholder='Broj' required="required" >
+                                <span id='error_broj'></span>    
                                 <input type="number" name="telefon" id="telefon" placeholder='Broj telefona' required="required" >
                             <?php }?>
                         
                                 <textarea name="napomena" id="napomena" cols="30" rows="10" placeholder='Napomena'></textarea>
-                        
+                        <div class="radio-buttons">
                                 <div class="nacin-placanja">
-                                    <input type="radio" name="nacinplacanja" value='Pouzećem' id="">
+                                    <input type="radio" name="nacinplacanja" value='Pouzećem' id="" required>
                                     <span>Pouzećem</span>
-                                    <input type="radio" name="nacinplacanja" value='Pre slanja' id="">
+                                    <input type="radio" name="nacinplacanja" value='Pre slanja' id="" required>
                                     <span>Pre slanja</span>
                                 </div>
 
                                 <div class="kurirska-sluzba">
-                                    <input type="radio" name="kurirskaSluzba" value='Post express' id="">
+                                    <input type="radio" name="kurirskaSluzba" value='Post express' id="" required>
                                     <span>Post ekspress</span>
-                                    <input type="radio" name="kurirskaSluzba" value='D-Express' id="">
+                                    <input type="radio" name="kurirskaSluzba" value='D-Express' id="" required>
                                     <span>D-Express</span>
                                 </div>
-                  
+                        </div>
                     <button id='btn-poruci' type="submit" name="poruci">Poruči</button>
                 </div>
             </form>

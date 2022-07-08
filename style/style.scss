@@ -17,9 +17,29 @@
     padding: 0;
 }
 input{
+ 
     &:focus{
         outline: transparent;
     }
+}
+#ime,#prezime,#mesto{
+text-transform: capitalize;
+}
+#error_ime,
+#error_prezime,
+#error_email,
+#error_mesto,
+#error_ulica,
+#error_broj,
+#error_telefon,
+#error_lozinka,
+#error_lozinka_check,
+#error_username{
+    position: relative;
+    float: left;
+    margin-left: 10px;
+    display: block;
+    color: var(--color-error);
 }
 
 a{
@@ -160,7 +180,9 @@ margin: 0;
     }
     ul{
         display: inline-block;
+    
         li{
+            
             list-style: none;
             display: inline-block;
             margin: 10px;
@@ -481,7 +503,7 @@ margin: 0;
         
     }
     .customer-info{
-        width: 80vw;
+        width: 90%;
         margin-top: 25px;
         margin-left: auto;
         margin-right: auto;
@@ -490,17 +512,15 @@ margin: 0;
         padding: 15px;
         box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
         display: grid;
-        grid-template-columns: 60% 30%;
-        column-gap: 20px;
+        grid-template-columns: auto 30%;
+        column-gap: 10px;
         .form-div{
             display: grid;
-            grid-template-columns: repeat(3, 33%);
+            grid-template-rows: repeat(auto auto);
             row-gap: 2px;
-         
-            #telefon,#napomena,#email{
-                grid-column: 1/-1;
-            }
+
             input,textarea{
+                grid-column: 1/-1;
                 display: block;
                 width: auto;
                 height: 2em;
@@ -525,18 +545,19 @@ margin: 0;
                 margin-left: 10px;
                 grid-column: 1/-1;
               }
-              .nacin-placanja,.kurirska-sluzba{
-                  width: 80%;
-                display: grid;
-                grid-template-columns: 50px auto;
-               
-                span{
-                    margin: auto;
-                }
-                input{
-                    margin: auto;
+              .radio-buttons{
+                display: block;
+                
+                .nacin-placanja,.kurirska-sluzba{
+                 
+                  .span,input{
+                    display: inline;
+                   
+                  }
+              
                 }
               }
+             
         }
     
         .info-for-customer{
@@ -686,9 +707,7 @@ button{
 .login-page{
     width: 40%;
     height: 100%;
-    margin-top: 25px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 10% auto 10% auto;
     background-color: #f0f2f5;
     border-radius: 25px;
     padding: 15px;
@@ -710,8 +729,12 @@ button{
             font-size: 12pt;
             padding-left: 10px;
         }
+        a{
+            padding-left: 10px;
+            margin: 10px 0px 10px 0px;
+        }
         button{
-          
+          display: block;
             height: 50px;
             width: auto;
             padding: 5px;
@@ -730,6 +753,7 @@ button{
 //REGISTRATION PAGE
 .registration-page{
     width: 40%;
+    max-width: 70%;
     height: 70%;
     margin-top: 25px;
     margin-left: auto;
@@ -738,19 +762,20 @@ button{
     border-radius: 25px;
     padding: 15px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-
-    .form-reg{
-        display: flex;
-        justify-content: center;
-        align-items: center;
+  .form-reg{
+        margin: auto;
+        width: 100%;
+        overflow: hidden;
+        
         .two-columns{
             display: inline-flex;
-            width:200px;
+            margin: auto;
+            width: 90%;
         }
 
         input{
             display: block;
-            width: 400px;
+            width: 90%;
             height: 3em;
             margin: 10px;
             outline: none;
