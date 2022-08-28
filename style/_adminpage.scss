@@ -1,0 +1,43 @@
+.admin-menu{
+    margin-top: 15px;
+}
+
+.admin-page{
+    width: 90%;
+    margin: auto;
+    padding: 0;
+    table{
+        margin-top: 15px;
+        width: 90%;
+        th{
+            background-color: #343634;
+            color: white;
+            height: 40px;
+        }
+        tr{
+            border-bottom: 1px solid black;
+   
+            td{
+                padding: 5px;
+                font-size: 14pt;
+                font-family: var(--font);
+                text-align: center;
+                height: fit-content;
+                a{
+                    text-decoration: none;
+                    color: black;
+                }
+              
+                #ImgCookieCutters{
+                    width: 80px;
+                    height: 80px;
+                }
+              img{
+                height: 16pt;
+                width: 16pt;
+              }
+            }
+        }
+    }
+    
+}

@@ -1,0 +1,27 @@
+.details-of-order,.separated-order{
+    width: 90%;
+    margin: auto;
+    .title{
+        font-family: var(--font-bold);
+        margin-top: 25px;
+        margin-bottom: 25px;
+        text-align: center;
+        font-size: 18pt;
+    }
+    table{
+        width: 100%;
+        text-align: center;
+        th{
+            font-size: 14pt;
+            margin-bottom: 10px;
+        }
+        td{
+            margin: 5px;
+            letter-spacing: 1px;
+            img{
+                width: 70px;
+                height: 70px;
+            }
+        }
+    }
+}

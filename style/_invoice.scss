@@ -1,0 +1,139 @@
+.invoice{
+    margin: auto;
+    width: 60vw;
+    height: 80vw;
+    background-color: #f2ecdc;
+    .logo{
+        text-align: center;
+        height: 100px;
+
+        img{
+            width: 85px;
+            height: 85px;
+            float: left;
+            margin: 5px;
+        }
+        .title{
+            padding-top: 35px;
+            font-family: var(--font-bold);
+            font-size: 22pt;
+            display: inline-block;
+        }
+        .invoice-no{
+            float: right;
+            margin: 0;
+            font-family: var(--font);
+            font-size: 14pt;
+            color: white;
+            background-color: var(--color);
+            padding: 10px;
+        }
+    }
+    .line{
+        width: 55vw;
+        display: block;
+        height: 2px;
+        background-color: #302e26;
+        margin: auto;
+    }
+    //supplier-client-data
+    .supplier-client-data{
+        display: grid;
+        grid-template-columns: 50% 50%;
+       
+        .supplier,.client{
+            width: 80%;
+            span{
+            font-weight: bold;
+            }
+            .title{
+                text-align: center;
+                text-transform: uppercase;
+                font-family: var(--font);
+                font-weight: bold;
+                font-size: 16pt;
+                padding-top: 10px;
+                color: #302e26;
+                border-bottom: 1px solid black;
+            }
+            padding-top: 15px;
+            padding-left: 30px;
+            font-size: 12pt;
+            font-family: var(--font);
+            color: black;
+            letter-spacing: 0.5px;
+        }
+      
+    }
+        //order details
+        .order-details{
+            margin: 25px 0px 10px 0px;
+            float: right;
+            padding-right: 10%;
+            span{
+                font-weight: bold;
+            }
+        }
+
+        .ordered-items{
+            display: block;
+           
+
+            table{
+                margin-top: 30px;
+                width: 100%;
+                text-align: center;
+                th{
+                    height: 25px;
+                    background-color: var(--color);
+                    color: white;
+                    letter-spacing: 1px;
+                }
+                
+
+            }
+            .total_price{
+                float: right;
+                padding-right: 20px;
+                font-weight: bold;
+                font-size: 16pt;
+                margin-top: 15px;
+                display: block;
+            }
+            .print-button{
+             
+               
+                float: left;
+                margin-top: 5px;
+                margin-left: 10px;
+                a{
+                    color: white;
+                    font-size: 14pt;
+                    
+                }
+            }
+           
+        }
+}
+@media screen and (max-width:700px) {
+.invoice{
+    margin-left: 0px;
+    width: 100vw;
+    height: 100vh;
+    .logo{
+        img{
+      display: none;
+            
+        }
+        .title{
+            font-size: 14pt;
+        }
+        .invoice-no{
+            float: none;
+        }
+    }
+    .line{
+        width: 80vw;
+    }
+}
+}

@@ -1,0 +1,57 @@
+.update-product{
+    width: 90vw;
+    margin: auto;
+
+    .form-div{
+        margin-top: 15px;
+    
+
+        input{
+            margin: 10px;
+            outline: none;
+            border-radius: 15px;
+            border: 0.5px solid var(--color);
+            font-family: var(--font);
+            font-size: 12pt;
+            width: 20vw;
+            height: 30px;
+            padding-left: 15px;
+        }
+       .inp-group{
+        margin: 10px;
+            label{
+               font-size: 12pt;
+               font-family: var(--font); 
+            }   
+            select{
+                border: 0.5px solid var(--color-white);
+                font-family: var(--font);
+                font-size: 12pt;
+                outline: none;
+                background-color: var(--color);
+                padding: 5px;
+                color: var(--color-white);
+                border-radius: 15px;
+                width: 20vw;
+                height: 30px;
+                padding-left: 15px;
+            }
+            .sub-inp-group{
+                display: inline;
+            }
+       }
+    }
+    button{
+        height: 50px;
+        width: auto;
+        padding: 5px;
+        background-color: var(--color);
+        color: white;
+        border: none;
+        font-size: 14pt;   
+        font-family: var(--font);
+        border-radius: 15px;
+        margin-left: 10px;
+      }
+
+}

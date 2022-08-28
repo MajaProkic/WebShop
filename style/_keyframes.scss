@@ -1,0 +1,9 @@
+@keyframes movein {
+    from { right: -200px; }
+    to   { right: 10px; }
+  }
+  
+  @keyframes moveout {
+    from { right: 10px; }
+    to   { opacity: 0;}
+  }

@@ -1,0 +1,1 @@
+[19-Jul-2022 10:35:44 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18

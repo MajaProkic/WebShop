@@ -1,0 +1,36 @@
+.searchbar{
+    display: flex;
+    justify-content: center;
+    
+       input{
+           margin-top: 25px;
+           width: 40%;
+           margin-left: 60px;
+           height:50%;
+           outline: none;
+           border-radius:25px;
+           border: 5px solid var(--color);
+           font-size: 12pt;
+           background-image: url("../images/search-30.png");
+           background-repeat: no-repeat;
+           background-position: 95%;
+           padding: 15px;
+          
+       }
+     
+     
+   }
+   @media screen and (max-width:700px) {
+    .searchbar{
+        margin-top: 15px;
+        margin-bottom: 15px;
+           input{
+               margin: auto;
+               width:80%;
+               
+           }
+         
+         
+       }
+   }
+   

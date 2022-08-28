@@ -1,0 +1,55 @@
+[12-Jul-2022 13:53:03 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:222
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(222): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/processing/username_check.php(13): Query->getSpecificUserByUsername()
+#2 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 222
+[19-Jul-2022 09:25:30 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:229
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(229): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/processing/username_check.php(13): Query->getSpecificUserByUsername()
+#2 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 229
+[19-Jul-2022 09:32:23 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:229
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(229): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/processing/username_check.php(13): Query->getSpecificUserByUsername()
+#2 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 229
+[19-Jul-2022 09:38:01 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 09:38:01 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:229
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(229): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/processing/username_check.php(13): Query->getSpecificUserByUsername()
+#2 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 229
+[19-Jul-2022 09:39:10 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 09:39:10 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:229
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(229): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/processing/username_check.php(13): Query->getSpecificUserByUsername()
+#2 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 229
+[19-Jul-2022 09:41:23 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 09:41:23 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:229
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(229): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/processing/username_check.php(13): Query->getSpecificUserByUsername()
+#2 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 229
+[19-Jul-2022 10:15:00 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:15:00 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:229
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(229): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/processing/username_check.php(13): Query->getSpecificUserByUsername()
+#2 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 229
+[19-Jul-2022 10:16:28 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:16:28 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:229
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(229): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/processing/username_check.php(13): Query->getSpecificUserByUsername()
+#2 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 229
+[19-Jul-2022 10:38:11 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:38:12 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18

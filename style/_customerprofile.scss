@@ -1,0 +1,48 @@
+.container{
+    display: flex;
+    justify-content: center;
+
+    .customer-profile{
+        height: 65%;
+        width: 80%;
+        background-color: #fcc326;
+        margin: 15px;
+        display: grid;
+        grid-template-columns: 40% 60%;
+        
+        .left{
+            align-items: center;
+            margin: 25px;
+            display: block;
+            img{
+                height: 200px;
+                width: 200px;
+            }
+            p{
+                font-family: var(--font);
+                font-size: 18pt;
+                margin-left: 25px;
+                color: #f5efd3;
+            }  
+        }
+        .right{
+      
+          .info-box{
+            display: flex;
+            justify-content: left;
+            .description{
+                margin: 10px;
+                font-weight: 300;
+                font-size: 16pt;
+                color: #343634;
+              }
+              .information{
+                margin: 10px;
+                font-size: 16pt;
+                color: #343634;
+              }
+          }
+        }
+    
+    }
+}

@@ -1,0 +1,67 @@
+.add-product{
+    width: auto;
+     h2{
+         text-align: center;
+     }
+     .form-div{
+         margin-top: 15px;
+         display: flex;
+         justify-content: center;
+ 
+         input{
+             margin: 10px;
+             outline: none;
+             border-radius: 15px;
+             border: 0.5px solid var(--color);
+             font-family: var(--font);
+             font-size: 12pt;
+         }
+        .inp-group{
+         margin: 10px;
+             label{
+                font-size: 12pt;
+                font-family: var(--font); 
+             }   
+             select{
+                 margin-top: 10px;
+                 border: 0.5px solid var(--color-white);
+                 font-family: var(--font);
+                 font-size: 12pt;
+                 outline: none;
+                 background-color: var(--color);
+                 padding: 5px;
+                 color: var(--color-white);
+                 border-radius: 15px;
+             }
+             .sub-inp-group{
+                 display: inline;
+             }
+        }
+        .inp-group-group{
+         border: 1px solid black;
+       
+         @extend .inp-group;
+         display: grid;
+         grid-template-columns: repeat(2,50%);
+         input{
+             width: 80px;
+         }
+        }
+     }
+     button{
+         height: 50px;
+         width: auto;
+         padding: 5px;
+         background-color: var(--color);
+         color: white;
+         border: none;
+         font-size: 14pt;   
+         font-family: var(--font);
+         border-radius: 15px;
+         margin-left: 10px;
+       }
+ 
+ }
+ 
+ 
+ 

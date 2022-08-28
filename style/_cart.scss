@@ -1,0 +1,233 @@
+.cart{
+    width: 100vw;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-auto-flow: dense;
+    .additional-information{
+       margin-right: 15px;
+        .title{
+            margin: 25px 0px 25px 0px;
+            text-transform: uppercase;
+            font-size: 25pt;
+            font-family: var(--font);
+            text-align: left;
+            margin-left: 50px;
+
+        }
+
+        .delivery,.payment{
+            margin-top: 65px;
+            .title{
+                margin: 25px 0px 25px 0px;
+                text-transform: uppercase;
+                font-size: 14pt;
+                font-family: var(--font);
+                text-align: left;
+                margin-left: 50px;
+                border-bottom: 1px solid black;
+            }
+           label{
+        
+            input{
+            margin-left: 50px;
+            }
+           }
+        }
+        .total-price{
+            margin-top: 45px;
+            font-size: 16pt;
+            text-transform: uppercase;
+            
+        }
+        .customer-info{
+            margin-left: 50px;
+            .title{
+                margin: 25px 0px 25px 0px;
+                text-transform: uppercase;
+                font-size: 14pt;
+                font-family: var(--font);
+                text-align: left;
+                border-bottom: 1px solid black;
+    
+            }
+            input,textarea{
+                border: none;
+                border-bottom: 1px solid var(--color);
+                outline: none;
+                padding-left: 7px;
+                display: block;
+                width: 50%;
+                font-size: 14pt;
+                margin: 10px 0px 10px 0px;
+                font-family: var(--font);
+                font-weight: normal;
+            }
+        
+        }
+
+    }
+    .cart-table{
+ 
+        .title{
+            margin: 25px 0px 25px 0px;
+            text-transform: uppercase;
+            font-size: 25pt;
+            font-family: var(--font);
+            text-align: center;
+        }
+        .small-img{
+            height: 30px;
+            width: 35px;
+            margin-right: 20px;
+            margin-top: 5px;
+            float: right;
+        }
+        .total-price{
+            display: inline-block;
+            font-size: 14pt;
+            margin-top: 15px;
+            font-family: var(--font);
+
+        }
+        button{
+            color: white;
+            float: right;
+            margin-right: 20px;
+            height: 45px;
+            font-size: 14pt;
+        }
+        table{
+            margin-right: 15px;
+
+            thead{
+                tr{
+                    th{
+                        font-weight: normal;    
+                        font-size: 14pt;
+                        font-family: var(--font);
+                    }
+                }
+            }
+            tbody{
+                tr{
+       
+                    td{
+                        input{
+                            border: none;
+                            font-size: 12pt;
+                            text-align: center;
+                      
+                        }
+                        .small-img{
+                            height: 20px;
+                            width: 25px;
+                        }
+                        img{
+                            height: 100px;
+                            width: 100px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .res{
+        display: none;
+    }
+}
+
+@media screen and (max-width:700px) {
+    
+    input{
+        border: none;
+        font-size: 12pt;
+        text-align: center;
+        font-family: var(--font);
+  
+    }
+    .cart{
+    width: 100vw;
+    display: flex;
+    flex-direction: column-reverse;
+    
+    .cart-table{
+        display: none;
+    }
+        .res{
+            .title{
+                text-align: center;
+                font-size: 16pt;
+                font-family: var(--font);
+            }
+            .responsive-cart-table{
+                border-bottom: 1px solid black;
+                display: grid;
+                grid-template-columns:20% 50% 10% 30%;
+            
+                
+                .img{
+                    margin: auto;
+                    img{
+                        width: 70px;
+                        height: 70px;
+                    }
+                }
+                .description{
+                    margin: auto;
+                    #naziv{
+                        margin-left: 3px;
+                        input{
+                            font-weight: bold;
+                            text-align: left;
+                        }
+                    }
+                    #imprint,#size,#price{
+                        margin-left: 3px;
+                        input{
+                        text-align: left;
+                        }
+                    }
+                }
+                .quantity{
+                margin: auto;
+                
+                    #quantity{
+                        input{
+                            text-align: center;
+                            width: 50px
+                        }
+                    }
+                
+                }
+                .delete{
+                    margin: auto;
+                    padding-right: 10px;
+                a{
+                    img{
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+                }
+            }
+            #btn-poruci,.total-price{
+                margin-top: 10px;
+                display: inline-block;
+            }
+            #btn-poruci{
+                color: white;
+                padding: 7px;
+                margin-left: 15px;
+            }
+            a{
+                float: right;
+                img{
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+        
+        }
+    }
+}

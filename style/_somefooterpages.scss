@@ -1,0 +1,21 @@
+.placanje-i-isporuka-page,.reklamacije-page,.about-us{
+    width: 80%;
+    margin: auto;
+    .title{
+        margin-top: 25px;
+        font-family: var(--font-bold);
+        font-size: 16pt;
+        text-align: left;
+    }
+    .description{
+        font-family: var(--font);
+        font-size: 14pt;
+        text-align: justify;
+        margin-bottom: 25px;
+        letter-spacing: 0.5px;
+        a{
+           
+            color: wheat;
+        }
+    }
+}

@@ -1,0 +1,178 @@
+[15-Aug-2022 18:39:47 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '7-178' for key 'PRIMARY' in /home/maja98/public_html/Modlice/DB/query.php:188
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(188): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/admin-page/update-product.php(348): Query->updateSizesByCookieCutter()
+#2 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 188
+[15-Aug-2022 18:40:15 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '7-84' for key 'PRIMARY' in /home/maja98/public_html/Modlice/DB/query.php:188
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(188): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/admin-page/update-product.php(348): Query->updateSizesByCookieCutter()
+#2 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 188
+[15-Aug-2022 18:40:45 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '7-51' for key 'PRIMARY' in /home/maja98/public_html/Modlice/DB/query.php:188
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(188): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/admin-page/update-product.php(348): Query->updateSizesByCookieCutter()
+#2 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 188
+[15-Aug-2022 18:41:09 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '7-49' for key 'PRIMARY' in /home/maja98/public_html/Modlice/DB/query.php:188
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(188): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/admin-page/update-product.php(348): Query->updateSizesByCookieCutter()
+#2 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 188
+[15-Aug-2022 18:41:25 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '7-44' for key 'PRIMARY' in /home/maja98/public_html/Modlice/DB/query.php:188
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(188): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/admin-page/update-product.php(348): Query->updateSizesByCookieCutter()
+#2 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 188
+[15-Aug-2022 18:41:39 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '7-43' for key 'PRIMARY' in /home/maja98/public_html/Modlice/DB/query.php:188
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(188): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/admin-page/update-product.php(348): Query->updateSizesByCookieCutter()
+#2 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 188
+[15-Aug-2022 19:02:51 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '7-44' for key 'PRIMARY' in /home/maja98/public_html/Modlice/DB/query.php:198
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(198): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/admin-page/update-product.php(348): Query->updateSizesByCookieCutter()
+#2 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 198
+[17-Aug-2022 09:10:55 UTC] PHP Warning:  Undefined array key "kupciid" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 38
+[17-Aug-2022 09:10:55 UTC] PHP Warning:  Undefined array key "datum" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 40
+[17-Aug-2022 09:10:55 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 41
+[17-Aug-2022 09:10:55 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 43
+[17-Aug-2022 09:10:55 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 44
+[17-Aug-2022 09:10:55 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 45
+[17-Aug-2022 09:10:55 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 46
+[17-Aug-2022 09:11:02 UTC] PHP Warning:  Undefined array key "kupciid" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 38
+[17-Aug-2022 09:11:02 UTC] PHP Warning:  Undefined array key "datum" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 40
+[17-Aug-2022 09:11:02 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 41
+[17-Aug-2022 09:11:02 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 43
+[17-Aug-2022 09:11:02 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 44
+[17-Aug-2022 09:11:02 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 45
+[17-Aug-2022 09:11:02 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 46
+[17-Aug-2022 09:11:36 UTC] PHP Warning:  Undefined array key "kupciid" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 38
+[17-Aug-2022 09:11:36 UTC] PHP Warning:  Undefined array key "datum" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 40
+[17-Aug-2022 09:11:36 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 41
+[17-Aug-2022 09:11:36 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 43
+[17-Aug-2022 09:11:36 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 44
+[17-Aug-2022 09:11:36 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 45
+[17-Aug-2022 09:11:36 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 46
+[17-Aug-2022 09:11:38 UTC] PHP Warning:  Undefined array key "kupciid" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 38
+[17-Aug-2022 09:11:38 UTC] PHP Warning:  Undefined array key "datum" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 40
+[17-Aug-2022 09:11:38 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 41
+[17-Aug-2022 09:11:38 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 43
+[17-Aug-2022 09:11:38 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 44
+[17-Aug-2022 09:11:38 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 45
+[17-Aug-2022 09:11:38 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 46
+[17-Aug-2022 09:13:10 UTC] PHP Warning:  Undefined array key "kupciid" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 38
+[17-Aug-2022 09:13:10 UTC] PHP Warning:  Undefined array key "datum" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 40
+[17-Aug-2022 09:13:10 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 41
+[17-Aug-2022 09:13:10 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 43
+[17-Aug-2022 09:13:10 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 44
+[17-Aug-2022 09:13:10 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 45
+[17-Aug-2022 09:13:10 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 46
+[17-Aug-2022 09:13:52 UTC] PHP Warning:  Undefined array key "datum" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 36
+[17-Aug-2022 09:13:52 UTC] PHP Warning:  Undefined array key "kupciid" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 39
+[17-Aug-2022 09:13:52 UTC] PHP Warning:  Undefined array key "datum" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 41
+[17-Aug-2022 09:13:52 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 42
+[17-Aug-2022 09:13:52 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 44
+[17-Aug-2022 09:13:52 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 45
+[17-Aug-2022 09:13:52 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 46
+[17-Aug-2022 09:13:52 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 47
+[17-Aug-2022 09:13:54 UTC] PHP Warning:  Undefined array key "datum" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 36
+[17-Aug-2022 09:13:54 UTC] PHP Warning:  Undefined array key "kupciid" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 39
+[17-Aug-2022 09:13:54 UTC] PHP Warning:  Undefined array key "datum" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 41
+[17-Aug-2022 09:13:54 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 42
+[17-Aug-2022 09:13:54 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 44
+[17-Aug-2022 09:13:54 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 45
+[17-Aug-2022 09:13:54 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 46
+[17-Aug-2022 09:13:54 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 47
+[17-Aug-2022 09:13:54 UTC] PHP Warning:  Undefined array key "datum" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 36
+[17-Aug-2022 09:13:54 UTC] PHP Warning:  Undefined array key "kupciid" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 39
+[17-Aug-2022 09:13:54 UTC] PHP Warning:  Undefined array key "datum" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 41
+[17-Aug-2022 09:13:54 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 42
+[17-Aug-2022 09:13:54 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 44
+[17-Aug-2022 09:13:54 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 45
+[17-Aug-2022 09:13:54 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 46
+[17-Aug-2022 09:13:54 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 47
+[17-Aug-2022 09:13:56 UTC] PHP Warning:  Undefined array key "datum" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 36
+[17-Aug-2022 09:13:56 UTC] PHP Warning:  Undefined array key "kupciid" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 39
+[17-Aug-2022 09:13:56 UTC] PHP Warning:  Undefined array key "datum" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 41
+[17-Aug-2022 09:13:56 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 42
+[17-Aug-2022 09:13:56 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 44
+[17-Aug-2022 09:13:56 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 45
+[17-Aug-2022 09:13:56 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 46
+[17-Aug-2022 09:13:56 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 47
+[17-Aug-2022 09:15:31 UTC] PHP Warning:  Undefined array key "kupciid" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 39
+[17-Aug-2022 09:15:31 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 42
+[17-Aug-2022 09:15:31 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 44
+[17-Aug-2022 09:15:31 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 45
+[17-Aug-2022 09:15:31 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 46
+[17-Aug-2022 09:15:31 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 47
+[17-Aug-2022 09:15:38 UTC] PHP Warning:  Undefined array key "kupciid" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 39
+[17-Aug-2022 09:15:38 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 42
+[17-Aug-2022 09:15:38 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 44
+[17-Aug-2022 09:15:38 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 45
+[17-Aug-2022 09:15:38 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 46
+[17-Aug-2022 09:15:38 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 47
+[17-Aug-2022 09:17:17 UTC] PHP Warning:  Undefined array key "kupciid" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 38
+[17-Aug-2022 09:17:17 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 41
+[17-Aug-2022 09:17:17 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 43
+[17-Aug-2022 09:17:17 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 44
+[17-Aug-2022 09:17:17 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 45
+[17-Aug-2022 09:17:17 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 46
+[17-Aug-2022 09:17:17 UTC] PHP Warning:  Undefined array key "idNarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 63
+[17-Aug-2022 09:17:26 UTC] PHP Warning:  Undefined array key "kupciid" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 38
+[17-Aug-2022 09:17:26 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 41
+[17-Aug-2022 09:17:26 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 43
+[17-Aug-2022 09:17:26 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 44
+[17-Aug-2022 09:17:26 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 45
+[17-Aug-2022 09:17:26 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 46
+[17-Aug-2022 09:17:26 UTC] PHP Warning:  Undefined array key "idNarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 63
+[17-Aug-2022 09:18:01 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 36
+[17-Aug-2022 09:18:01 UTC] PHP Warning:  Undefined array key "kupciid" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 39
+[17-Aug-2022 09:18:01 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 42
+[17-Aug-2022 09:18:01 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 44
+[17-Aug-2022 09:18:01 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 45
+[17-Aug-2022 09:18:01 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 46
+[17-Aug-2022 09:18:01 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 47
+[17-Aug-2022 09:18:03 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 36
+[17-Aug-2022 09:18:03 UTC] PHP Warning:  Undefined array key "kupciid" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 39
+[17-Aug-2022 09:18:03 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 42
+[17-Aug-2022 09:18:03 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 44
+[17-Aug-2022 09:18:03 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 45
+[17-Aug-2022 09:18:03 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 46
+[17-Aug-2022 09:18:03 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 47
+[17-Aug-2022 09:18:04 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 36
+[17-Aug-2022 09:18:04 UTC] PHP Warning:  Undefined array key "kupciid" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 39
+[17-Aug-2022 09:18:04 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 42
+[17-Aug-2022 09:18:04 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 44
+[17-Aug-2022 09:18:04 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 45
+[17-Aug-2022 09:18:04 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 46
+[17-Aug-2022 09:18:04 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 47
+[17-Aug-2022 09:18:07 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 36
+[17-Aug-2022 09:18:07 UTC] PHP Warning:  Undefined array key "kupciid" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 39
+[17-Aug-2022 09:18:07 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 42
+[17-Aug-2022 09:18:07 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 44
+[17-Aug-2022 09:18:07 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 45
+[17-Aug-2022 09:18:07 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 46
+[17-Aug-2022 09:18:07 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 47
+[17-Aug-2022 09:18:07 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 36
+[17-Aug-2022 09:18:07 UTC] PHP Warning:  Undefined array key "kupciid" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 39
+[17-Aug-2022 09:18:07 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 42
+[17-Aug-2022 09:18:07 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 44
+[17-Aug-2022 09:18:07 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 45
+[17-Aug-2022 09:18:07 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 46
+[17-Aug-2022 09:18:07 UTC] PHP Warning:  Undefined array key "idnarudzbenice" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 47
+[17-Aug-2022 09:18:43 UTC] PHP Warning:  Undefined array key "kupciid" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 39
+[17-Aug-2022 09:18:59 UTC] PHP Warning:  Undefined array key "kupciid" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 39
+[17-Aug-2022 09:19:02 UTC] PHP Warning:  Undefined array key "kupciid" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 39
+[17-Aug-2022 09:19:11 UTC] PHP Warning:  Undefined array key "kupciid" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 39
+[17-Aug-2022 09:19:47 UTC] PHP Warning:  Undefined array key "kupciid" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 39
+[17-Aug-2022 09:20:10 UTC] PHP Warning:  Undefined array key "kupciid" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 39
+[17-Aug-2022 09:20:46 UTC] PHP Warning:  Undefined array key "kupciid" in /home/maja98/public_html/Modlice/admin-page/orderedProducts.php on line 39
+[17-Aug-2022 11:21:08 UTC] PHP Warning:  Undefined array key "role" in /home/maja98/public_html/Modlice/admin-page/admin.php on line 13

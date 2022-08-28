@@ -1,0 +1,646 @@
+[12-Jul-2022 13:30:52 UTC] PHP Warning:  Undefined variable $product_id in /home/maja98/public_html/Modlice/content/product.php on line 154
+[12-Jul-2022 13:30:52 UTC] PHP Warning:  Undefined variable $kategorija in /home/maja98/public_html/Modlice/content/product.php on line 208
+[12-Jul-2022 13:32:08 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '\008Deni_artikli (ID_proizvoda, ID_narudzbenice, kolicina, utiskivac, velicina, ...' at line 1 in /home/maja98/public_html/Modlice/DB/query.php:296
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(296): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/content/cart.php(57): Query->insertOrderedItems()
+#2 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 296
+[12-Jul-2022 13:40:12 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '\008Deni_artikli (ID_proizvoda, ID_narudzbenice, kolicina, utiskivac, velicina, ...' at line 1 in /home/maja98/public_html/Modlice/DB/query.php:296
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(296): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/content/cart.php(57): Query->insertOrderedItems()
+#2 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 296
+[12-Jul-2022 13:41:59 UTC] PHP Warning:  Undefined variable $id_narudzbenice in /home/maja98/public_html/Modlice/content/invoice.php on line 56
+[12-Jul-2022 13:41:59 UTC] PHP Warning:  Undefined variable $imeiprezime in /home/maja98/public_html/Modlice/content/invoice.php on line 75
+[12-Jul-2022 13:41:59 UTC] PHP Warning:  Undefined variable $adresa in /home/maja98/public_html/Modlice/content/invoice.php on line 76
+[12-Jul-2022 13:41:59 UTC] PHP Warning:  Undefined variable $telefon in /home/maja98/public_html/Modlice/content/invoice.php on line 77
+[12-Jul-2022 13:41:59 UTC] PHP Warning:  Undefined variable $email in /home/maja98/public_html/Modlice/content/invoice.php on line 78
+[12-Jul-2022 13:41:59 UTC] PHP Warning:  Undefined variable $datum in /home/maja98/public_html/Modlice/content/invoice.php on line 83
+[12-Jul-2022 13:41:59 UTC] PHP Warning:  Undefined variable $isporuka in /home/maja98/public_html/Modlice/content/invoice.php on line 84
+[12-Jul-2022 13:41:59 UTC] PHP Warning:  Undefined variable $nacinPlacanja in /home/maja98/public_html/Modlice/content/invoice.php on line 85
+[12-Jul-2022 13:41:59 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '\008Deni_artikli.ID_proizvoda=modla.id INNER JOIN narudzbenica on poruÄ\008Deni_ar...' at line 1 in /home/maja98/public_html/Modlice/DB/query.php:341
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(341): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(116): Query->sendOnlyOneVariableQuery()
+#2 /home/maja98/public_html/Modlice/content/invoice.php(100): Query->getSpecificOrderByIdCustomerAndIdOfOrder()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 341
+[12-Jul-2022 13:42:10 UTC] PHP Warning:  Undefined variable $id_narudzbenice in /home/maja98/public_html/Modlice/content/invoice.php on line 56
+[12-Jul-2022 13:42:10 UTC] PHP Warning:  Undefined variable $imeiprezime in /home/maja98/public_html/Modlice/content/invoice.php on line 75
+[12-Jul-2022 13:42:10 UTC] PHP Warning:  Undefined variable $adresa in /home/maja98/public_html/Modlice/content/invoice.php on line 76
+[12-Jul-2022 13:42:10 UTC] PHP Warning:  Undefined variable $telefon in /home/maja98/public_html/Modlice/content/invoice.php on line 77
+[12-Jul-2022 13:42:10 UTC] PHP Warning:  Undefined variable $email in /home/maja98/public_html/Modlice/content/invoice.php on line 78
+[12-Jul-2022 13:42:10 UTC] PHP Warning:  Undefined variable $datum in /home/maja98/public_html/Modlice/content/invoice.php on line 83
+[12-Jul-2022 13:42:10 UTC] PHP Warning:  Undefined variable $isporuka in /home/maja98/public_html/Modlice/content/invoice.php on line 84
+[12-Jul-2022 13:42:10 UTC] PHP Warning:  Undefined variable $nacinPlacanja in /home/maja98/public_html/Modlice/content/invoice.php on line 85
+[12-Jul-2022 13:42:10 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '\008Deni_artikli.ID_proizvoda=modla.id INNER JOIN narudzbenica on poruÄ\008Deni_ar...' at line 1 in /home/maja98/public_html/Modlice/DB/query.php:341
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(341): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(116): Query->sendOnlyOneVariableQuery()
+#2 /home/maja98/public_html/Modlice/content/invoice.php(100): Query->getSpecificOrderByIdCustomerAndIdOfOrder()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 341
+[12-Jul-2022 13:42:11 UTC] PHP Warning:  Undefined variable $id_narudzbenice in /home/maja98/public_html/Modlice/content/invoice.php on line 56
+[12-Jul-2022 13:42:11 UTC] PHP Warning:  Undefined variable $imeiprezime in /home/maja98/public_html/Modlice/content/invoice.php on line 75
+[12-Jul-2022 13:42:11 UTC] PHP Warning:  Undefined variable $adresa in /home/maja98/public_html/Modlice/content/invoice.php on line 76
+[12-Jul-2022 13:42:11 UTC] PHP Warning:  Undefined variable $telefon in /home/maja98/public_html/Modlice/content/invoice.php on line 77
+[12-Jul-2022 13:42:11 UTC] PHP Warning:  Undefined variable $email in /home/maja98/public_html/Modlice/content/invoice.php on line 78
+[12-Jul-2022 13:42:11 UTC] PHP Warning:  Undefined variable $datum in /home/maja98/public_html/Modlice/content/invoice.php on line 83
+[12-Jul-2022 13:42:11 UTC] PHP Warning:  Undefined variable $isporuka in /home/maja98/public_html/Modlice/content/invoice.php on line 84
+[12-Jul-2022 13:42:11 UTC] PHP Warning:  Undefined variable $nacinPlacanja in /home/maja98/public_html/Modlice/content/invoice.php on line 85
+[12-Jul-2022 13:42:11 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '\008Deni_artikli.ID_proizvoda=modla.id INNER JOIN narudzbenica on poruÄ\008Deni_ar...' at line 1 in /home/maja98/public_html/Modlice/DB/query.php:341
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(341): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(116): Query->sendOnlyOneVariableQuery()
+#2 /home/maja98/public_html/Modlice/content/invoice.php(100): Query->getSpecificOrderByIdCustomerAndIdOfOrder()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 341
+[12-Jul-2022 13:42:12 UTC] PHP Warning:  Undefined variable $id_narudzbenice in /home/maja98/public_html/Modlice/content/invoice.php on line 56
+[12-Jul-2022 13:42:12 UTC] PHP Warning:  Undefined variable $imeiprezime in /home/maja98/public_html/Modlice/content/invoice.php on line 75
+[12-Jul-2022 13:42:12 UTC] PHP Warning:  Undefined variable $adresa in /home/maja98/public_html/Modlice/content/invoice.php on line 76
+[12-Jul-2022 13:42:12 UTC] PHP Warning:  Undefined variable $telefon in /home/maja98/public_html/Modlice/content/invoice.php on line 77
+[12-Jul-2022 13:42:12 UTC] PHP Warning:  Undefined variable $email in /home/maja98/public_html/Modlice/content/invoice.php on line 78
+[12-Jul-2022 13:42:12 UTC] PHP Warning:  Undefined variable $datum in /home/maja98/public_html/Modlice/content/invoice.php on line 83
+[12-Jul-2022 13:42:12 UTC] PHP Warning:  Undefined variable $isporuka in /home/maja98/public_html/Modlice/content/invoice.php on line 84
+[12-Jul-2022 13:42:12 UTC] PHP Warning:  Undefined variable $nacinPlacanja in /home/maja98/public_html/Modlice/content/invoice.php on line 85
+[12-Jul-2022 13:42:12 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '\008Deni_artikli.ID_proizvoda=modla.id INNER JOIN narudzbenica on poruÄ\008Deni_ar...' at line 1 in /home/maja98/public_html/Modlice/DB/query.php:341
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(341): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(116): Query->sendOnlyOneVariableQuery()
+#2 /home/maja98/public_html/Modlice/content/invoice.php(100): Query->getSpecificOrderByIdCustomerAndIdOfOrder()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 341
+[12-Jul-2022 13:44:44 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '\008Deni_artikli (ID_proizvoda, ID_narudzbenice, kolicina, utiskivac, velicina, ...' at line 1 in /home/maja98/public_html/Modlice/DB/query.php:296
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(296): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/content/cart.php(57): Query->insertOrderedItems()
+#2 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 296
+[12-Jul-2022 13:46:00 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '\008Deni_artikli (ID_proizvoda, ID_narudzbenice, kolicina, utiskivac, velicina, ...' at line 1 in /home/maja98/public_html/Modlice/DB/query.php:296
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(296): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/content/cart.php(57): Query->insertOrderedItems()
+#2 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 296
+[12-Jul-2022 13:47:15 UTC] PHP Warning:  Undefined variable $id_narudzbenice in /home/maja98/public_html/Modlice/content/invoice.php on line 56
+[12-Jul-2022 13:47:15 UTC] PHP Warning:  Undefined variable $imeiprezime in /home/maja98/public_html/Modlice/content/invoice.php on line 75
+[12-Jul-2022 13:47:15 UTC] PHP Warning:  Undefined variable $adresa in /home/maja98/public_html/Modlice/content/invoice.php on line 76
+[12-Jul-2022 13:47:15 UTC] PHP Warning:  Undefined variable $telefon in /home/maja98/public_html/Modlice/content/invoice.php on line 77
+[12-Jul-2022 13:47:15 UTC] PHP Warning:  Undefined variable $email in /home/maja98/public_html/Modlice/content/invoice.php on line 78
+[12-Jul-2022 13:47:15 UTC] PHP Warning:  Undefined variable $datum in /home/maja98/public_html/Modlice/content/invoice.php on line 83
+[12-Jul-2022 13:47:15 UTC] PHP Warning:  Undefined variable $isporuka in /home/maja98/public_html/Modlice/content/invoice.php on line 84
+[12-Jul-2022 13:47:15 UTC] PHP Warning:  Undefined variable $nacinPlacanja in /home/maja98/public_html/Modlice/content/invoice.php on line 85
+[12-Jul-2022 13:47:15 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '\008Deni_artikli.ID_proizvoda=modla.id INNER JOIN narudzbenica on poruÄ\008Deni_ar...' at line 1 in /home/maja98/public_html/Modlice/DB/query.php:341
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(341): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(116): Query->sendOnlyOneVariableQuery()
+#2 /home/maja98/public_html/Modlice/content/invoice.php(100): Query->getSpecificOrderByIdCustomerAndIdOfOrder()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 341
+[12-Jul-2022 13:48:30 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:317
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(317): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(232): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(20): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 317
+[12-Jul-2022 13:49:06 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:317
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(317): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(232): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(20): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 317
+[12-Jul-2022 13:51:27 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:317
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(317): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(232): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(20): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 317
+[12-Jul-2022 13:53:46 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:228
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(228): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/content/registracija.php(31): Query->getSpecificUser()
+#2 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 228
+[12-Jul-2022 13:56:56 UTC] PHP Warning:  Undefined variable $product_id in /home/maja98/public_html/Modlice/content/product.php on line 154
+[12-Jul-2022 13:56:56 UTC] PHP Warning:  Undefined variable $kategorija in /home/maja98/public_html/Modlice/content/product.php on line 208
+[12-Jul-2022 13:57:23 UTC] PHP Warning:  Undefined variable $product_id in /home/maja98/public_html/Modlice/content/product.php on line 154
+[12-Jul-2022 13:57:23 UTC] PHP Warning:  Undefined variable $kategorija in /home/maja98/public_html/Modlice/content/product.php on line 208
+[12-Jul-2022 13:57:30 UTC] PHP Warning:  Undefined variable $key in /home/maja98/public_html/Modlice/content/cart.php on line 142
+[12-Jul-2022 13:57:30 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/maja98/public_html/Modlice/content/cart.php on line 142
+[12-Jul-2022 13:57:37 UTC] PHP Warning:  Undefined variable $product_id in /home/maja98/public_html/Modlice/content/product.php on line 154
+[12-Jul-2022 13:57:37 UTC] PHP Warning:  Undefined variable $kategorija in /home/maja98/public_html/Modlice/content/product.php on line 208
+[12-Jul-2022 13:57:47 UTC] PHP Warning:  Undefined variable $product_id in /home/maja98/public_html/Modlice/content/product.php on line 154
+[12-Jul-2022 13:57:47 UTC] PHP Warning:  Undefined variable $kategorija in /home/maja98/public_html/Modlice/content/product.php on line 208
+[12-Jul-2022 13:58:04 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:317
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(317): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(232): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(20): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 317
+[12-Jul-2022 13:58:14 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:317
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(317): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(232): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(20): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 317
+[12-Jul-2022 13:59:02 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:317
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(317): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(232): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(20): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 317
+[12-Jul-2022 13:59:35 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:317
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(317): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(232): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(20): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 317
+[12-Jul-2022 14:00:11 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:317
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(317): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(232): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(20): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 317
+[12-Jul-2022 14:00:23 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:317
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(317): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(232): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(20): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 317
+[12-Jul-2022 14:00:24 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:317
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(317): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(232): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(20): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 317
+[12-Jul-2022 14:00:24 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:317
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(317): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(232): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(20): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 317
+[12-Jul-2022 14:00:24 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:317
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(317): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(232): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(20): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 317
+[12-Jul-2022 14:01:07 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:317
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(317): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(232): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(20): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 317
+[12-Jul-2022 14:01:12 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:317
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(317): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(232): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(20): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 317
+[12-Jul-2022 14:01:47 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:317
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(317): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(232): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(20): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 317
+[12-Jul-2022 14:02:35 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:317
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(317): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(232): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(23): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 317
+[12-Jul-2022 14:03:22 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:317
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(317): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(232): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(20): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 317
+[12-Jul-2022 14:03:35 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:317
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(317): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(232): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(20): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 317
+[13-Jul-2022 05:39:09 UTC] PHP Warning:  Undefined variable $product_id in /home/maja98/public_html/Modlice/content/product.php on line 154
+[13-Jul-2022 05:39:09 UTC] PHP Warning:  Undefined variable $kategorija in /home/maja98/public_html/Modlice/content/product.php on line 208
+[19-Jul-2022 08:04:55 UTC] PHP Fatal error:  Uncaught TypeError: PDO::__construct(): Argument #4 ($options) must be of type ?array, string given in /home/maja98/public_html/Modlice/DB/Database.php:16
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/Database.php(16): PDO->__construct()
+#1 /home/maja98/public_html/Modlice/content/stencil.php(10): Database->connection()
+#2 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/Database.php on line 16
+[19-Jul-2022 08:04:57 UTC] PHP Fatal error:  Uncaught TypeError: PDO::__construct(): Argument #4 ($options) must be of type ?array, string given in /home/maja98/public_html/Modlice/DB/Database.php:16
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/Database.php(16): PDO->__construct()
+#1 /home/maja98/public_html/Modlice/content/utiskivaci.php(10): Database->connection()
+#2 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/Database.php on line 16
+[19-Jul-2022 08:05:06 UTC] PHP Fatal error:  Uncaught TypeError: PDO::__construct(): Argument #4 ($options) must be of type ?array, string given in /home/maja98/public_html/Modlice/DB/Database.php:16
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/Database.php(16): PDO->__construct()
+#1 /home/maja98/public_html/Modlice/content/utiskivaci.php(10): Database->connection()
+#2 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/Database.php on line 16
+[19-Jul-2022 08:05:13 UTC] PHP Fatal error:  Uncaught TypeError: PDO::__construct(): Argument #4 ($options) must be of type ?array, string given in /home/maja98/public_html/Modlice/DB/Database.php:16
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/Database.php(16): PDO->__construct()
+#1 /home/maja98/public_html/Modlice/content/registracija.php(10): Database->connection()
+#2 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/Database.php on line 16
+[19-Jul-2022 08:40:37 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:324
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(324): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(239): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(20): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 324
+[19-Jul-2022 08:42:53 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:324
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(324): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(239): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(20): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 324
+[19-Jul-2022 08:45:25 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:324
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(324): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(239): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(20): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 324
+[19-Jul-2022 08:47:03 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:324
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(324): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(239): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(21): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 324
+[19-Jul-2022 08:48:50 UTC] PHP Parse error:  syntax error, unexpected variable "$_POST" in /home/maja98/public_html/Modlice/content/login.php on line 16
+[19-Jul-2022 08:48:52 UTC] PHP Parse error:  syntax error, unexpected variable "$_POST" in /home/maja98/public_html/Modlice/content/login.php on line 16
+[19-Jul-2022 08:48:59 UTC] PHP Parse error:  syntax error, unexpected variable "$_POST" in /home/maja98/public_html/Modlice/content/login.php on line 16
+[19-Jul-2022 08:49:01 UTC] PHP Parse error:  syntax error, unexpected variable "$_POST" in /home/maja98/public_html/Modlice/content/login.php on line 16
+[19-Jul-2022 08:49:08 UTC] PHP Parse error:  syntax error, unexpected variable "$_POST" in /home/maja98/public_html/Modlice/content/login.php on line 16
+[19-Jul-2022 08:50:08 UTC] PHP Parse error:  syntax error, unexpected variable "$_POST" in /home/maja98/public_html/Modlice/content/login.php on line 16
+[19-Jul-2022 08:50:29 UTC] PHP Parse error:  syntax error, unexpected variable "$_POST" in /home/maja98/public_html/Modlice/content/login.php on line 16
+[19-Jul-2022 08:50:36 UTC] PHP Parse error:  syntax error, unexpected variable "$_POST" in /home/maja98/public_html/Modlice/content/login.php on line 16
+[19-Jul-2022 08:52:23 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:324
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(324): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(239): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(20): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 324
+[19-Jul-2022 08:53:07 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:324
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(324): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(239): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(20): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 324
+[19-Jul-2022 08:58:49 UTC] PHP Warning:  Undefined variable $product_id in /home/maja98/public_html/Modlice/content/product.php on line 154
+[19-Jul-2022 08:58:49 UTC] PHP Warning:  Undefined variable $kategorija in /home/maja98/public_html/Modlice/content/product.php on line 208
+[19-Jul-2022 09:01:14 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:324
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(324): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(239): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(20): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 324
+[19-Jul-2022 09:02:16 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:324
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(324): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(239): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(20): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 324
+[19-Jul-2022 09:02:39 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:324
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(324): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(239): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(20): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 324
+[19-Jul-2022 09:12:13 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:324
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(324): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(239): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(21): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 324
+[19-Jul-2022 09:15:48 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:324
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(324): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(239): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(26): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 324
+[19-Jul-2022 09:17:23 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:324
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(324): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(239): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(21): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 324
+[19-Jul-2022 09:25:50 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:235
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(235): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/content/registracija.php(31): Query->getSpecificUser()
+#2 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 235
+[19-Jul-2022 09:32:35 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:235
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(235): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/content/registracija.php(31): Query->getSpecificUser()
+#2 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 235
+[19-Jul-2022 09:36:35 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 09:36:48 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 09:36:48 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:324
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(324): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(239): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(21): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 324
+[19-Jul-2022 09:37:21 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 09:37:28 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 09:37:28 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:324
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(324): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(239): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(21): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 324
+[19-Jul-2022 09:37:41 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 09:38:48 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 09:38:49 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 09:39:16 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 09:39:16 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:235
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(235): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/content/registracija.php(31): Query->getSpecificUser()
+#2 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 235
+[19-Jul-2022 09:41:09 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 09:41:31 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 09:41:31 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:235
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(235): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/content/registracija.php(32): Query->getSpecificUser()
+#2 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 235
+[19-Jul-2022 09:54:35 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 09:54:43 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 09:54:43 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '@gmail.com and broj_telefona=06281433192' at line 1 in /home/maja98/public_html/Modlice/content/registracija.php:32
+Stack trace:
+#0 /home/maja98/public_html/Modlice/content/registracija.php(32): PDOStatement->execute()
+#1 {main}
+  thrown in /home/maja98/public_html/Modlice/content/registracija.php on line 32
+[19-Jul-2022 09:55:35 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 09:55:35 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '@gmail.com and broj_telefona=06281433192' at line 1 in /home/maja98/public_html/Modlice/content/registracija.php:33
+Stack trace:
+#0 /home/maja98/public_html/Modlice/content/registracija.php(33): PDOStatement->execute()
+#1 {main}
+  thrown in /home/maja98/public_html/Modlice/content/registracija.php on line 33
+[19-Jul-2022 09:55:35 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 09:55:42 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 09:55:42 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '@gmail.com and broj_telefona=06281433192' at line 1 in /home/maja98/public_html/Modlice/content/registracija.php:33
+Stack trace:
+#0 /home/maja98/public_html/Modlice/content/registracija.php(33): PDOStatement->execute()
+#1 {main}
+  thrown in /home/maja98/public_html/Modlice/content/registracija.php on line 33
+[19-Jul-2022 10:12:52 UTC] PHP Parse error:  Invalid numeric literal in /home/maja98/public_html/Modlice/content/registracija.php on line 31
+[19-Jul-2022 10:12:57 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:12:57 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:13:00 UTC] PHP Parse error:  Invalid numeric literal in /home/maja98/public_html/Modlice/content/registracija.php on line 31
+[19-Jul-2022 10:13:35 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:13:35 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:13:54 UTC] PHP Parse error:  Invalid numeric literal in /home/maja98/public_html/Modlice/content/registracija.php on line 31
+[19-Jul-2022 10:13:55 UTC] PHP Parse error:  Invalid numeric literal in /home/maja98/public_html/Modlice/content/registracija.php on line 31
+[19-Jul-2022 10:13:57 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:14:01 UTC] PHP Parse error:  Invalid numeric literal in /home/maja98/public_html/Modlice/content/registracija.php on line 31
+[19-Jul-2022 10:14:35 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:15:07 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:15:55 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:15:55 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:235
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(235): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/content/registracija.php(77): Query->getSpecificUser()
+#2 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 235
+[19-Jul-2022 10:16:31 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:16:31 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:235
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(235): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/content/registracija.php(77): Query->getSpecificUser()
+#2 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 235
+[19-Jul-2022 10:19:21 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:19:26 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:19:26 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:324
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(324): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(239): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(40): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 324
+[19-Jul-2022 10:19:44 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:19:44 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:324
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(324): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(239): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(40): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 324
+[19-Jul-2022 10:20:01 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:20:01 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:324
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(324): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(239): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(40): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 324
+[19-Jul-2022 10:20:05 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:20:42 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:20:50 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:20:50 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:324
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(324): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(239): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(44): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 324
+[19-Jul-2022 10:21:14 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:21:19 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:21:19 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:324
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(324): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(239): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(40): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 324
+[19-Jul-2022 10:21:50 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:22:01 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:22:01 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:324
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(324): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(239): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(45): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 324
+[19-Jul-2022 10:22:34 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:22:40 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:22:40 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:324
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(324): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(239): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(21): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 324
+[19-Jul-2022 10:24:40 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:26:17 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:26:17 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:324
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(324): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(239): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(15): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 324
+[19-Jul-2022 10:26:19 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:26:19 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:324
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(324): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(239): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(15): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 324
+[19-Jul-2022 10:26:20 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:26:20 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:324
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(324): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(239): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(15): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 324
+[19-Jul-2022 10:26:20 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:26:20 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:324
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(324): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(239): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(15): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 324
+[19-Jul-2022 10:26:21 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:26:21 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:324
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(324): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(239): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(15): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 324
+[19-Jul-2022 10:26:21 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:26:21 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:324
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(324): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(239): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(15): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 324
+[19-Jul-2022 10:26:24 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:26:24 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:324
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(324): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(239): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(15): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 324
+[19-Jul-2022 10:26:52 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:26:52 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:324
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(324): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(239): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(36): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 324
+[19-Jul-2022 10:26:54 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:26:54 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:324
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(324): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(239): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(36): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 324
+[19-Jul-2022 10:27:00 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:27:00 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'maja98_modle.USER' doesn't exist in /home/maja98/public_html/Modlice/DB/query.php:324
+Stack trace:
+#0 /home/maja98/public_html/Modlice/DB/query.php(324): PDOStatement->execute()
+#1 /home/maja98/public_html/Modlice/DB/query.php(239): Query->sendQueryWithReturnValueAndNoParams()
+#2 /home/maja98/public_html/Modlice/content/login.php(36): Query->getUsers()
+#3 {main}
+  thrown in /home/maja98/public_html/Modlice/DB/query.php on line 324
+[19-Jul-2022 10:28:34 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:34:10 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:34:28 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:34:35 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:37:21 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:38:08 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:38:08 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:38:08 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:38:08 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:38:08 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:38:08 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:38:08 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:38:13 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:38:13 UTC] PHP Warning:  Undefined variable $product_id in /home/maja98/public_html/Modlice/content/product.php on line 154
+[19-Jul-2022 10:38:13 UTC] PHP Warning:  Undefined variable $kategorija in /home/maja98/public_html/Modlice/content/product.php on line 208
+[19-Jul-2022 10:38:14 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:38:19 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:38:27 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:38:32 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:38:40 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:38:40 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:39:23 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:40:08 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:40:08 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:40:08 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:40:08 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:40:08 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:40:08 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 10:40:08 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 11:05:58 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 11:05:58 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 11:05:58 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 11:05:58 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 11:05:58 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 11:05:58 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 11:05:58 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 12:05:40 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 12:05:40 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 12:05:40 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 12:05:40 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 12:05:40 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 12:05:40 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 12:05:40 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[19-Jul-2022 12:37:27 UTC] PHP Warning:  Undefined property: PDO::$connect_errno in /home/maja98/public_html/Modlice/DB/Database.php on line 18
+[17-Aug-2022 09:10:28 UTC] PHP Warning:  Undefined variable $product_id in /home/maja98/public_html/Modlice/content/product.php on line 155
+[17-Aug-2022 09:10:28 UTC] PHP Warning:  Undefined variable $kategorija in /home/maja98/public_html/Modlice/content/product.php on line 209

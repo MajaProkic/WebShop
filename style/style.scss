@@ -1,0 +1,125 @@
+@import 'mediaquery';
+@import url('https://fonts.googleapis.com/css2?family=Tiro+Bangla&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import 'navbar';
+@import 'coverimage';
+@import 'footer';
+@import 'addproduct';
+@import 'adminpage';
+@import 'cart';
+@import 'contactpage';
+@import 'content';
+@import 'coverimage';
+@import 'customerprofile';
+@import 'detailsoforder';
+@import 'invoice';
+@import 'keyframes';
+@import 'login';
+@import 'mediaqueryprint';
+@import 'messages';
+@import 'products';
+@import 'registration';
+@import 'relatedproduct';
+@import 'searchbar';
+@import 'singleproducts';
+@import 'somefooterpages';
+@import 'tabledescription';
+@import 'updateproduct';
+
+
+
+:root{
+   --font: 'Tiro Bangla', serif;
+   --color:#fcc326;
+   --color-white:#fafafa;
+   --font-bold: 'Righteous', cursive;
+   --color-info:#94c9e0;
+   --color-warning:#e0cc94;
+   --color-error:#e0a394;
+   --color-successful:#a8e094;
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+input{
+ 
+    &:focus{
+        outline: transparent;
+    }
+}
+#ime,#prezime,#mesto{
+text-transform: capitalize;
+}
+#error_ime,
+#error_prezime,
+#error_email,
+#error_mesto,
+#error_ulica,
+#error_broj,
+#error_telefon,
+#error_lozinka,
+#error_lozinka_check,
+#error_username{
+    position: relative;
+    float: left;
+    margin-left: 10px;
+    display: block;
+    color: var(--color-error);
+}
+
+a{
+    text-decoration: none;
+}
+
+body{
+  font-family: var(--font);
+}
+
+h1{
+    text-align: center;
+    padding-bottom: 35px;
+}
+//TITLE
+.title{
+    h2{
+        text-align: center;
+    }
+    h4{
+        display: block;
+        text-align: center;
+    }
+}   
+
+button{
+    height: auto;
+    width: auto;
+    padding: 5px;
+    background-color: var(--color);
+    border: none;
+    border-radius: 15px;
+    margin-left: 10px;
+
+    a{
+        font-size: 14pt;   
+        font-family: var(--font);
+        color: white;
+    }
+  }
+
+.description{
+    font-size: 14pt;
+    .attribute{
+       font-weight: bold;
+    }
+    .attribute_value{
+        color: var(--color);
+    }
+    p{
+        display: inline-block;
+        margin-bottom: 0;
+        padding: 0;
+        border-bottom: 1px solid black;      
+    }
+}

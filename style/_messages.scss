@@ -1,0 +1,90 @@
+#msg-error{
+    position: absolute;
+    padding: 10px;
+    display: block;
+    top: 10%;
+    color: white;
+    font-family: var(--font);
+    width: 25%;
+    height: auto;
+    background-color: var(--color-error);
+    display: grid;
+    grid-template-columns: 1.2fr 7fr ;
+    animation: movein 0.5s ease forwards, moveout 0.5s 5s ease forwards;
+     .msg-error-image{
+         float: left;
+     }
+ 
+     .msg-error-text{
+       margin: auto;
+     }
+ 
+}
+#msg-successful{
+    position: absolute;
+    display: block;
+    top: 10%;
+    padding: 10px;
+    color: white;
+    font-family: var(--font);
+    width: 25%;
+    height: auto;
+    background-color: var(--color-successful);
+    display: grid;
+    grid-template-columns: 1.2fr 7fr ;
+    animation: movein 0.5s ease forwards, moveout 0.5s 5s ease forwards;
+     .msg-successful-image{
+         float: left;
+     }
+ 
+     .msg-successful-text{
+       margin: auto;
+     }
+ 
+}
+#msg-warning{
+    position: absolute;
+    top: 10%;
+    display: block;
+    padding: 10px;
+    color: white;
+    font-family: var(--font);
+    width: 25%;
+    height: auto;
+    background-color: var(--color-warning);
+    display: grid;
+    grid-template-columns: 1.2fr 7fr ;
+    animation: movein 0.5s ease forwards, moveout 0.5s 5s ease forwards;
+     .msg-warning-image{
+         float: left;
+     }
+ 
+     .msg-warning-text{
+       margin: auto;
+     }
+ 
+}
+
+
+#msg-info{
+   position: absolute;
+   padding: 10px;
+   top: 10%;
+   display: block;
+   color: white;
+   font-family: var(--font);
+   width: 25%;
+   height: auto;
+   background-color: var(--color-info);
+   display: grid;
+   grid-template-columns: 1.2fr 7fr ;
+   animation: movein 0.5s ease forwards, moveout 0.5s 5s ease forwards;
+    .msg-info-image{
+        float: left;
+    }
+
+    .msg-info-text{
+      margin: auto;
+    }
+
+}
