@@ -12,8 +12,13 @@ $query=new Query($db);
 global $query;
 $msg=isset($msg)?$msg:"";
 
+<<<<<<< HEAD
 if (isset($_GET['userid'])) {
     $id_of_customer=$_GET['userid'];
+=======
+if (isset($_GET['detail'])) {
+    $id_of_customer=$_GET['detail'];
+>>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
    ?>
    <section class='details-of-order'>
        <?php $allAboutCustomer=$query->allAboutCustomer($id_of_customer);

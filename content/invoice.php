@@ -5,7 +5,10 @@ require_once (__DIR__.'/../header/nav.php');
 require_once (__DIR__.'/../functions/functions.php');
 require_once(__DIR__.'/../DB/query.php');
 require_once(__DIR__.'/../DB/Database.php');
+<<<<<<< HEAD
 require_once (__DIR__.'/../header/url_extension.php');
+=======
+>>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
 
 $database=new Database();
 $db=$database->connection();
@@ -40,6 +43,7 @@ while ($row=$result->fetch(PDO::FETCH_ASSOC)) {
 
 
 }else{
+<<<<<<< HEAD
     echo 'Nije pronadjen kupac pod navedenim ID-jem';
 }
 
@@ -47,6 +51,17 @@ while ($row=$result->fetch(PDO::FETCH_ASSOC)) {
 <div class="invoice">
     <div class="logo">
         <img src="<?php echo $_SESSION['base']?>/images/logo.jpg" alt="logo">
+=======
+    echo 'nema';
+}
+
+
+
+  ?>
+<div class="invoice">
+    <div class="logo">
+        <img src="/Modlice/images/logo.jpg" alt="logo">
+>>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
         <div class="title">
             3D Radionica - Predračun
         </div>
@@ -55,7 +70,11 @@ while ($row=$result->fetch(PDO::FETCH_ASSOC)) {
             Broj porudzbine: <?php echo $id_narudzbenice?>
         </div>
     </div>
+<<<<<<< HEAD
 <div class="line"></div>
+=======
+
+>>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
     <div class="supplier-client-data">
         <div class="supplier">
             <div class="title">
@@ -108,11 +127,16 @@ while ($row=$result->fetch(PDO::FETCH_ASSOC)) {
                     <td><?php echo $row['kolicina']?></td>
                     <td><?php 
                     global $total_price;
+<<<<<<< HEAD
                     
                     echo $ukupna_cena_po_proizvodu= $row['cena']*$row['kolicina'];
                     $total_price+=$ukupna_cena_po_proizvodu;
                     ?>
                 </td>
+=======
+                    $total_price+=$row['cena'];
+                    echo $row['cena']?></td>
+>>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
                 </tr>
                 <?php } ?>
             </tbody>
@@ -122,8 +146,12 @@ while ($row=$result->fetch(PDO::FETCH_ASSOC)) {
         </div>
         <div class="print-button">
     
+<<<<<<< HEAD
    <a href="#" onclick="window.print()"><img src="<?php echo $_SESSION['base']?>/images/icons8-print-50.png" alt=""></a> 
    <a href="<?php $_SESSION['base']?>/index.php"><img src="<?php echo $_SESSION['base']?>/images/icons8-home-48.png" alt="gggg"></a>
+=======
+   <a href="#" onclick="window.print()"><img src="/Modlice/images/icons8-print-50.png" alt=""></a> 
+>>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
     </div>
     </div>
   

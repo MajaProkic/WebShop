@@ -1,6 +1,9 @@
 <?php
 require_once '../functions/functions.php';
+<<<<<<< HEAD
 require_once (__DIR__.'/../header/url_extension.php');
+=======
+>>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
 session_start();
 $func=new Functions();
 global $func;

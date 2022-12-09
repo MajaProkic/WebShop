@@ -22,10 +22,19 @@ if($_SESSION['role']=='admin'){
         }
     }
 ?>
+<<<<<<< HEAD
 <div class="admin-menu">
     <?php include_once 'admin-menu.php'; ?>
 </div>
 
+=======
+<div class="side-bar">
+    <a href="add-product.php">Dodaj proizvod</a>
+    <a href="add-category.php">Dodaj kategoriju</a>
+    <a href="admin.php">Svi proizvodi</a>
+
+</div>
+>>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
 <div class="form-div">
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
     <div class="form-part">

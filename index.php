@@ -4,7 +4,10 @@ require_once (__DIR__.'/header/head.php');
 require_once (__DIR__.'/functions/functions.php');
 include_once(__DIR__.'/header/nav.php');
 require_once(__DIR__.'/DB/query.php');
+<<<<<<< HEAD
 require_once (__DIR__.'/header/url_extension.php');
+=======
+>>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
 ?>
 
     <!--SECTION COVER IMAGE-->
@@ -17,7 +20,11 @@ require_once (__DIR__.'/header/url_extension.php');
 
     <!--SECTION PRODUCTS -->
     <div class="content">
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
         <div class="filter">
             <?php include_once 'content/partials/filter.php'?>
         </div>
@@ -27,6 +34,7 @@ require_once (__DIR__.'/header/url_extension.php');
         </div>
 
         <div class="category">
+<<<<<<< HEAD
 
             <?php
           
@@ -48,6 +56,13 @@ require_once (__DIR__.'/header/url_extension.php');
      
                     ?>
 
+=======
+            <?php include_once 'content/partials/categories.php'?>
+        </div>
+
+        <section class="products" id="products">
+                  <?php include_once 'content/products.php' ?>
+>>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
         </section>
 
         <div class="pagination">
