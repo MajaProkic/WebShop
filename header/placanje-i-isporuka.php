@@ -38,5 +38,5 @@ require_once (__DIR__.'/../header/url_extension.php');
 
 </section>
 <div class="footer">
-    <?php include_once 'footer.php'?>
+    <?php include_once '../footer/footer.php'?>
 </div>

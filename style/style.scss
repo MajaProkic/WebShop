@@ -1,6 +1,5 @@
 @import 'mediaquery';
-@import url('https://fonts.googleapis.com/css2?family=Tiro+Bangla&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,300&display=swap');
 @import 'navbar';
 @import 'coverimage';
 @import 'footer';
@@ -29,10 +28,9 @@
 
 
 :root{
-   --font: 'Tiro Bangla', serif;
+   --font: 'Roboto Serif', serif;
    --color:#fcc326;
    --color-white:#fafafa;
-   --font-bold: 'Righteous', cursive;
    --color-info:#94c9e0;
    --color-warning:#e0cc94;
    --color-error:#e0a394;
@@ -75,6 +73,7 @@ a{
 
 body{
   font-family: var(--font);
+  background-color: #ededed;
 }
 
 h1{

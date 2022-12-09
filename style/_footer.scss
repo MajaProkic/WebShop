@@ -2,20 +2,23 @@
     position: relative;
     margin-top: 25px;
     bottom: 0;
-    background-color: #302e26;
+    background-color: #21201e;
     height: auto;
     padding-bottom: 25px;
     padding-top: 5px;
     width: 100%;
     p{
-        color: #fcc326;
+        color: #f5f4f2;
         text-align: center;
         display: block;
+        padding-top:15px;
       
     }
     ul{
+        width: 100%;
+        text-align: center;
         display: inline-block;
-    
+   
         li{
             
             list-style: none;
@@ -23,7 +26,19 @@
             margin: 10px;
             padding-top: 15px;
             a{
-                color: #fcc326;
+                text-align: center;
+            
+                img{
+                    background-color: #f5f4f2;
+                }
+            }
+        }
+    }
+    .footer-menu{
+        li{
+            a{
+                color: white;
+                font-family: sans-serif;
             }
         }
     }
@@ -48,5 +63,6 @@
                 
             }
         }
+        
     }
 }

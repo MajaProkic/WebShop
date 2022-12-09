@@ -14,7 +14,9 @@ require_once(__DIR__.'/../header/url_extension.php');
    
             <ul id='nav'>
                 <li><a href="<?php echo $_SESSION['base']?>/index.php">Početna strana</a></li>
-           
+                <li><a href="<?php echo $_SESSION['base']?>/header/contact.php">Kontakt</a></li>
+                <li><a href="<?php echo $_SESSION['base']?>/header/o-nama.php">O nama</a></li>
+                      
                 <?php if (isset($_SESSION['role']) && $_SESSION['role']=='admin') { ?>
                 <li id='admin'><a href="<?php echo $_SESSION['base']?>/admin-page/admin.php">Admin</a></li>
                 <?php  } ?>
@@ -47,10 +49,7 @@ require_once(__DIR__.'/../header/url_extension.php');
                     </span>
                     <a href="<?php echo $_SESSION['base']?>/content/cart.php"><img src="<?php echo $_SESSION['base']?>/images/icons8-shopping-bag-50.png" alt=""> </a>
                   </div>
-         
-                
-                   
+        
             </ul>
-     
     </div>
 </div>

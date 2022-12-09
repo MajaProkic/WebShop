@@ -46,6 +46,19 @@
     } 
    
 }
+
+@media screen and (max-width:870px) {
+.cover-image{
+    .cover-text{
+        h1{
+            font-size: 20pt;
+        }
+        .buy-cover{
+            font-size: 14pt;
+        }
+    }
+}
+}
 @media screen and (max-width:700px) {
 .cover-image{
     margin-top: 0px;

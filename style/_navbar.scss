@@ -1,6 +1,7 @@
 .nav{
     margin: 0;
     height: 70px;
+    width: 100vw;
     background-color: var(--color);
  
 
@@ -94,9 +95,11 @@
        
     }
    
+  
     @media screen and (max-width:700px) {
         
         .nav{
+            width: 100vw;
                #burger{
                     display: block;
                     float: right;

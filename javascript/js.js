@@ -1,7 +1,6 @@
     
     $(document).ready(function(){
 
-
       $('#imprint, #sizee, .plus, .minus').on('change',function(){
           var size=$('#sizee').val();
           var imprint=$('#imprint').val();
@@ -40,6 +39,19 @@
             location.reload(true);      
           }
         })
+      })
+
+      $('.small-img').on('click',function(){
+        
+        var smallImg=$(this).attr('src');
+        var bigImg=$('.big-img').attr('src');
+       
+        var tmp=bigImg;
+        bigImg=smallImg;
+        smallImg=tmp;
+        $('.big-img').attr('src',smallImg);
+        $('.big-img').attr('src',bigImg);
+          
       })
 
       $('#burger').on('click',function(){

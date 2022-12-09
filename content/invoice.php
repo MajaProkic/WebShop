@@ -40,10 +40,8 @@ while ($row=$result->fetch(PDO::FETCH_ASSOC)) {
 
 
 }else{
-    echo 'nema';
+    echo 'Nije pronadjen kupac pod navedenim ID-jem';
 }
-
-
 
   ?>
 <div class="invoice">
@@ -110,8 +108,11 @@ while ($row=$result->fetch(PDO::FETCH_ASSOC)) {
                     <td><?php echo $row['kolicina']?></td>
                     <td><?php 
                     global $total_price;
-                    $total_price+=$row['cena'];
-                    echo $row['cena']?></td>
+                    
+                    echo $ukupna_cena_po_proizvodu= $row['cena']*$row['kolicina'];
+                    $total_price+=$ukupna_cena_po_proizvodu;
+                    ?>
+                </td>
                 </tr>
                 <?php } ?>
             </tbody>

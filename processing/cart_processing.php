@@ -57,6 +57,7 @@ if(isset($_POST['poruci'])){
        $_SESSION['orderNo']=$insertOrder;
 
         foreach ($_SESSION['product_cart'] as $key) {  
+      
            $query->insertOrderedItems($key['id'],$insertOrder,$key['quantity'], $key['imprint'], $key['size'], $key['price']); 
         }
 

@@ -111,6 +111,7 @@ if(isset($_GET['deleteall'])){
                         $total_price=$counter=0;
                     
                         foreach ($_SESSION['product_cart'] as $key) {
+     
                          $counter=$counter+1;
                             ?>
                         <tr class='table-product'>
@@ -118,17 +119,19 @@ if(isset($_GET['deleteall'])){
                             <?php
                             //slika 
                             $image=$query->getProductByid($key['id']);
-                            while ($row=$image->fetch(PDO::FETCH_ASSOC)) {?>
-                            <td><img src="<?php echo $_SESSION['base']?>/images/modle/<?php echo $row['slika']?>" alt="slika modle"></td>
+                            while ($row=$image->fetch(PDO::FETCH_ASSOC)) {
+                   
+                                ?>
+                            <td><img src="<?php echo $_SESSION['base']?>/images/modle/<?php echo $row['slika1']?>" alt="slika modle"></td>
                             <?php } ?>
 
                             <!--Naziv proizvoda-->
                             <td><input type="text" name="naziv" id="" value='<?php echo $key['naziv'] ?>'readonly="readonly" ></td>
                             
                             <td><input type="text" name="size" id="" value='<?php echo $key['size'] ?>'readonly="readonly" ></td>
-                            <td><?php if ($key['imprint']==2) {?>
+                            <td><?php if ($key['imprint']==0) {?>
                             <input type="text" name="utiskivac" id="" value='<?php echo 'Bez utiskivaca' ?>'readonly="readonly" >
-                        <?php }else{?>
+                        <?php }else if($key['imprint']==1){?>
                             <input type="text" name="utiskivac" id="" value='<?php echo 'Sa utiskivacem' ?>' readonly="readonly" >
                         <?php }?></td>
                             <td><input type="text" name="quantity" id="" value='<?php echo $key['quantity']?>'readonly="readonly"></td>
@@ -151,13 +154,12 @@ if(isset($_GET['deleteall'])){
         </div>
                 <!-- TABELA ZA RESPONZIVNOST -->
                    
-<div class="res">
-<div class="title">Korpa</div>
-<?php 
-                        $total_price=0;
-                        foreach ($_SESSION['product_cart'] as $key) {
-                         
-                            ?>
+    <div class="res">
+        <div class="title">Korpa</div>
+                <?php 
+                    $total_price=0;
+                    foreach ($_SESSION['product_cart'] as $key) {
+                ?>
 
                 <div class="responsive-cart-table">
                     <div class="img">
@@ -165,7 +167,7 @@ if(isset($_GET['deleteall'])){
                                 //slika 
                                 $image=$query->getProductByid($key['id']);
                                 while ($row=$image->fetch(PDO::FETCH_ASSOC)) {?>
-                                <img src="<?php echo $_SESSION['base']?>/images/modle/<?php echo $row['slika']?>" alt="slika modle">
+                                <img src="<?php echo $_SESSION['base']?>/images/modle/<?php echo $row['slika1']?>" alt="slika modle">
                             <?php } ?>
                     </div>
                     <div class="description">
@@ -174,7 +176,7 @@ if(isset($_GET['deleteall'])){
                         </span>
 
                         <span id='imprint'>
-                            <?php if ($key['imprint']==2) {?>
+                            <?php if ($key['imprint']==0) {?>
                                 <input type="text" name="utiskivac" id="" value='<?php echo 'Bez utiskivaca' ?>'readonly="readonly" >
                             <?php }else{?>
                                 <input type="text" name="utiskivac" id="" value='<?php echo 'Sa utiskivacem' ?>' readonly="readonly" >
@@ -184,9 +186,10 @@ if(isset($_GET['deleteall'])){
                         <span id='size'>
                             <input type="text" name="size" id="" value='<?php echo $key['size'] ?>'readonly="readonly" >
                         </span>
-
-                        <span id="price"><input type="text" name="cena" id="" value="<?php echo $key['price']*$key['quantity'];
-                            $total_price=$total_price+$key['price']*$key['quantity']?>"readonly="readonly">
+                            
+                        <span id="price"><input type="text" name="cena" id="" value="<?php echo $key['quantity']?>"readonly="readonly">
+                        <?php //echo $key['price']*$key['quantity'];
+                            //$total_price=$total_price+$key['price']*$key['quantity']?>
                         </span>
                     </div>
 
@@ -208,23 +211,17 @@ if(isset($_GET['deleteall'])){
             </div>
             <button id='btn-poruci' type="submit" name="poruci">Naredni korak</button>
             <a href="cart.php?deleteall"> <img src="<?php echo $_SESSION['base']?>/images/icons8-trash-50.png" alt="" class='small-img'></a>
-                </div>
-                        
-
-               
-                
-
+    </div>
+                    
         <?php }else{  
             $msg='Vasa korpa je prazna';
             $func->infoClass($msg);
          } ?>
-
-                  
-                 
+   
     </div>
 
 </form>
                   
-<?php
-
-?>
+<div class="footer">
+    <?php include_once '../footer/footer.php'?>
+</div>

@@ -34,6 +34,8 @@ global $func;
             <?php 
                     $numberoforders=$query->numberoforders();
                         while ($row=$numberoforders->fetch(PDO::FETCH_ASSOC)) {
+                            $getStatus=$query->SELECTSTATUSOFORDER($row['idnarudzbenice']);
+                            while ($row_status=$getStatus->fetch(PDO::FETCH_ASSOC)) {
                     
                     ?>
                     <tr class='status'>
@@ -42,18 +44,62 @@ global $func;
                         <td><?php echo $row['datum']?></td>
                         <td><?php echo $row['idnarudzbenice']?></td>
                         <td><?php echo $row['ime'].' '. $row['prezime']?></td>
-                           <td><a href="orderedProducts.php?iduser=<?php echo $row['idnarudzbenice']?>&status=primljeno"> Primljeno</a>
+                       
+                       <td>
+                        <?php
+                        $currentStatus=$row_status['status'];
+                            switch ($currentStatus) {
+                                case 'primljeno':
+                                    ?>
+                            <a href="orderedProducts.php?iduser=<?php echo $row['idnarudzbenice']?>&status=primljeno" style='color:blue'> Primljeno</a>
                            <a href="orderedProducts.php?iduser=<?php echo $row['idnarudzbenice']?>&status=u izradi"> U izradi</a>
                            <a href="orderedProducts.php?iduser=<?php echo $row['idnarudzbenice']?>&status=spakovano"> Spakovano</a>
                            <a href="orderedProducts.php?iduser=<?php echo $row['idnarudzbenice']?>&status=poslato"> Poslato</a>
-                        </td>            
+                                    <?php
+                                    break;
+                                    case 'u izradi':
+                                        ?>
+                                <a href="orderedProducts.php?iduser=<?php echo $row['idnarudzbenice']?>&status=primljeno"> Primljeno</a>
+                               <a href="orderedProducts.php?iduser=<?php echo $row['idnarudzbenice']?>&status=u izradi"  style='color:blue'> U izradi</a>
+                               <a href="orderedProducts.php?iduser=<?php echo $row['idnarudzbenice']?>&status=spakovano"> Spakovano</a>
+                               <a href="orderedProducts.php?iduser=<?php echo $row['idnarudzbenice']?>&status=poslato"> Poslato</a>
+                                        <?php
+                                        break;
+                                        case 'spakovano':
+                                            ?>
+                                    <a href="orderedProducts.php?iduser=<?php echo $row['idnarudzbenice']?>&status=primljeno" style='color:blue'> Primljeno</a>
+                                   <a href="orderedProducts.php?iduser=<?php echo $row['idnarudzbenice']?>&status=u izradi"> U izradi</a>
+                                   <a href="orderedProducts.php?iduser=<?php echo $row['idnarudzbenice']?>&status=spakovano" style='color:blue'> Spakovano</a>
+                                   <a href="orderedProducts.php?iduser=<?php echo $row['idnarudzbenice']?>&status=poslato"> Poslato</a>
+                                            <?php
+                                            break;
+                                            case 'poslato':
+                                                ?>
+                                        <a href="orderedProducts.php?iduser=<?php echo $row['idnarudzbenice']?>&status=primljeno" > Primljeno</a>
+                                       <a href="orderedProducts.php?iduser=<?php echo $row['idnarudzbenice']?>&status=u izradi"> U izradi</a>
+                                       <a href="orderedProducts.php?iduser=<?php echo $row['idnarudzbenice']?>&status=spakovano"> Spakovano</a>
+                                       <a href="orderedProducts.php?iduser=<?php echo $row['idnarudzbenice']?>&status=poslato" style='color:blue'> Poslato</a>
+                                                <?php
+                                                break;
+                                
+                                default:?>
+                                <a href="orderedProducts.php?iduser=<?php echo $row['idnarudzbenice']?>&status=primljeno" > Primljeno</a>
+                                <a href="orderedProducts.php?iduser=<?php echo $row['idnarudzbenice']?>&status=u izradi"> U izradi</a>
+                                <a href="orderedProducts.php?iduser=<?php echo $row['idnarudzbenice']?>&status=spakovano"> Spakovano</a>
+                                <a href="orderedProducts.php?iduser=<?php echo $row['idnarudzbenice']?>&status=poslato" > Poslato</a>
+                                   <?php break;
+                            }
+                        ?>
+                      
+                        </td>     
+                    
                         <td><a href="details_of_order.php?userid=<?php echo $row['kupciid']?>"><img src="<?php echo $_SESSION['base']?>/images/file.png" alt="detalji porudzbine"></a></td>
                         <td><a href="customer_profile.php?userid=<?php echo $row['kupciid']?>"><img src="<?php echo $_SESSION['base']?>/images/file.png" alt="detalji porudzbine"></a></td>
                       
                     </tr>
             <?php 
             
-                }
+                }   }
             ?>
             
         </tbody>

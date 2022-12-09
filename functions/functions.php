@@ -247,7 +247,10 @@ class Functions{
                     echo $row['minimalna_cena'].'-';
                     echo $row['maksimalna_cena'];
                 }
-                ?>RSD</p>
+                ?> RSD</p>
+            </div>
+            <div class="button">
+                <button> <a href="<?php echo $_SESSION['base']?>/content/product.php?product=<?php echo $id_product?>"><div class="desc"> Pogledajte detalje </a></button>
             </div>
            
         </div>

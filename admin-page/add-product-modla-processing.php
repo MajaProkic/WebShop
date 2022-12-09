@@ -16,16 +16,45 @@ $msg=isset($msg)?$msg:"";
 $count=1;
 
 if(isset($_POST['dodajProizvod'])){
+
+    //onemoguci dodavanje dva proizvoda sa istim ID!!
     $id=$_POST['id'];
     $naziv=$_POST['naziv'];
     $kategorija=$_POST['kategorija'];
     $utiskivac=$_POST['utiskivac'];
-    $tmp_img=$_FILES["slika"]["name"];
-    $tmp_img_name=$_FILES["slika"]["tmp_name"];
+   
     $hashtag=$_POST['hashtag'];
     $velicina=$_POST['velicinaAdd'];
 
-    move_uploaded_file($tmp_img_name,"../images/modle/$tmp_img");//proveri da li ce da radi na live
+    $tmp_img1=$_FILES["slika1"]["name"];
+    $tmp_img_name=$_FILES["slika1"]["tmp_name"];
+    move_uploaded_file($tmp_img_name,"../images/modle/$tmp_img1");
+
+    $tmp_img2=$_FILES["slika2"]["name"];
+    $tmp_img_name=$_FILES["slika2"]["tmp_name"];
+    move_uploaded_file($tmp_img_name,"../images/modle/$tmp_img2");
+
+    $tmp_img3=$_FILES["slika3"]["name"];
+    $tmp_img_name=$_FILES["slika3"]["tmp_name"];
+    move_uploaded_file($tmp_img_name,"../images/modle/$tmp_img3");
+
+    $tmp_img4=$_FILES["slika4"]["name"];
+    $tmp_img_name=$_FILES["slika4"]["tmp_name"];
+    move_uploaded_file($tmp_img_name,"../images/modle/$tmp_img4");
+
+    $tmp_img5=$_FILES["slika5"]["name"];
+    $tmp_img_name=$_FILES["slika5"]["tmp_name"];
+    move_uploaded_file($tmp_img_name,"../images/modle/$tmp_img5");
+
+    $tmp_img6=$_FILES["slika6"]["name"];
+    $tmp_img_name=$_FILES["slika6"]["tmp_name"];
+    move_uploaded_file($tmp_img_name,"../images/modle/$tmp_img6");
+
+    $tmp_img7=$_FILES["slika7"]["name"];
+    $tmp_img_name=$_FILES["slika7"]["tmp_name"];
+    move_uploaded_file($tmp_img_name,"../images/modle/$tmp_img7");
+
+    $query->INSERTIMAGES($id,$tmp_img1,$tmp_img2,$tmp_img3,$tmp_img4,$tmp_img5,$tmp_img6,$tmp_img7);
 
     //description
     $debljina_sekaca=$_POST['debljina_sekaca'];
@@ -46,13 +75,15 @@ if(isset($_POST['dodajProizvod'])){
    }
     
         if (empty($isProductAlreadyExistVAL)) {
-            $res = $query->insertProduct($id,$naziv, $kategorija, $tmp_img,$hashtag,date('d-m-y H:i:s'));
+            $res = $query->insertProduct($id,$naziv, $kategorija,$hashtag,date('d-m-y H:i:s'));
             $insertDescription=$query->insertDescriptionOfProduct($id,$debljina_sekaca,$sirina_modle,$duzina_modle,$debljina_utiskivaca,$tezina_modle,$visina_utiskivaca,$visina_sekaca,$utiskivac_sekac_spojeni,$velicina_testiranog_proizvoda);
+            $insertImages=$query->INSERTIMAGES($id,$tmp_img,$tmp_img1,$tmp_img2,$tmp_img3,$tmp_img4,$tmp_img5,$tmp_img6,$tmp_img7);
             if($utiskivac==1){
                 $query->insertUtiskivaciPoModlama(1,$id);//HARD CODE, REPAIR THIS
-                $query->insertUtiskivaciPoModlama(2,$id);
+                $query->insertUtiskivaciPoModlama(0,$id);
+
             }else{
-                $query->insertUtiskivaciPoModlama(2,$id);//HARD CODE, REPAIR THIS
+                $query->insertUtiskivaciPoModlama(0,$id);//HARD CODE, REPAIR THIS
             }
             
         

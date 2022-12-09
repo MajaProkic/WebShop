@@ -103,9 +103,37 @@ $count=1;
                 
                 </div>
         
-            <div class="inp-group">
-                <label for="slika">Dodaj sliku</label>
+                <div class="inp-group">
+                <label for="slika">Dodaj 1 sliku</label>
                 <input type="file" name="slika" id="" >
+            </div>
+            <div class="inp-group">
+                <label for="slika">Dodaj 2. sliku</label>
+                <input type="file" name="slika1" id="" >
+            </div>
+            <div class="inp-group">
+                <label for="slika">Dodaj 3. sliku</label>
+                <input type="file" name="slika2" id="" >
+            </div>
+            <div class="inp-group">
+                <label for="slika">Dodaj 4. sliku</label>
+                <input type="file" name="slika3" id="" >
+            </div>
+            <div class="inp-group">
+                <label for="slika">Dodaj 5. sliku</label>
+                <input type="file" name="slika4" id="" >
+            </div>
+            <div class="inp-group">
+                <label for="slika">Dodaj 6. sliku</label>
+                <input type="file" name="slika5" id="" >
+            </div>
+            <div class="inp-group">
+                <label for="slika">Dodaj 7. sliku</label>
+                <input type="file" name="slika6" id="" >
+            </div>
+            <div class="inp-group">
+                <label for="slika">Dodaj 8. sliku</label>
+                <input type="file" name="slika7" id="" >
             </div>
 
             <div class="inp-group">

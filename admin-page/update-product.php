@@ -20,8 +20,15 @@ if(isset($_GET['update'])){
     $id=$row['id'];
     $naziv=$row['naziv'];
     $kategorija_id=$row['kategorija_id'];
-
-    $slika=$row['slika'];
+global $slika1,$slika2,$slika3;
+    $slika1=$row['slika1'];
+    $slika2=$row['slika2'];
+    $slika3=$row['slika3'];
+    $slika4=$row['slika4'];
+    $slika5=$row['slika5'];
+    $slika6=$row['slika6'];
+    $slika7=$row['slika7'];
+    $slika8=$row['slika8'];
     $hashtag=$row['hashtag'];
 }
 
@@ -218,12 +225,48 @@ if(isset($_GET['update'])){
             <?php               
                 }
             ?>
-            <!--SLIKA-->
+            <!--SLIKE-->
         <div class="inp-group">
-            <label for="slika">Dodaj sliku</label>
-            <img src="<?php echo $_SESSION['base'] ?>/images/modle/<?php echo $slika;?>" alt="" width='100px' height='100px'>
-            <input type="file" name="slika" id="" value="<?php if(isset($_POST['slika'])){echo $slika;}?>">
+            <label for="slika">Dodaj glavnu sliku</label>
+            <img src="<?php echo $_SESSION['base'] ?>/images/modle/<?php echo $slika1;?>" alt="" width='100px' height='100px'>
+            <input type="file" name="slika1" id="" value="<?php if(isset($_POST['slika1'])){echo $slika1;}?>">
         </div>
+        <div class="inp-group">
+            <label for="slika">Dodaj 2. sliku</label>
+            <img src="<?php echo $_SESSION['base'] ?>/images/modle/<?php echo $slika2;?>" alt="" width='100px' height='100px'>
+            <input type="file" name="slika2" id="" value="<?php if(isset($_POST['slika2'])){echo $slika2;}?>">
+        </div>
+        <div class="inp-group">
+            <label for="slika">Dodaj 3. sliku</label>
+            <img src="<?php echo $_SESSION['base'] ?>/images/modle/<?php echo $slika3;?>" alt="" width='100px' height='100px'>
+            <input type="file" name="slika3" id="" value="<?php if(isset($_POST['slika3'])){echo $slika3;}?>">
+        </div>
+        <div class="inp-group">
+            <label for="slika">Dodaj 4. sliku</label>
+            <img src="<?php echo $_SESSION['base'] ?>/images/modle/<?php echo $slika4;?>" alt="" width='100px' height='100px'>
+            <input type="file" name="slika4" id="" value="<?php if(isset($_POST['slika4'])){echo $slika4;}?>">
+        </div>
+        <div class="inp-group">
+            <label for="slika">Dodaj 5. sliku</label>
+            <img src="<?php echo $_SESSION['base'] ?>/images/modle/<?php echo $slika5;?>" alt="" width='100px' height='100px'>
+            <input type="file" name="slika5" id="" value="<?php if(isset($_POST['slika5'])){echo $slika5;}?>">
+        </div>
+        <div class="inp-group">
+            <label for="slika">Dodaj 6. sliku</label>
+            <img src="<?php echo $_SESSION['base'] ?>/images/modle/<?php echo $slika6;?>" alt="" width='100px' height='100px'>
+            <input type="file" name="slika6" id="" value="<?php if(isset($_POST['slika6'])){echo $slika6;}?>">
+        </div>
+        <div class="inp-group">
+            <label for="slika">Dodaj 7. sliku</label>
+            <img src="<?php echo $_SESSION['base'] ?>/images/modle/<?php echo $slika7;?>" alt="" width='100px' height='100px'>
+            <input type="file" name="slika7" id="" value="<?php if(isset($_POST['slika7'])){echo $slika7;}?>">
+        </div>
+        <div class="inp-group">
+            <label for="slika">Dodaj 8. sliku</label>
+            <img src="<?php echo $_SESSION['base'] ?>/images/modle/<?php echo $slika8;?>" alt="" width='100px' height='100px'>
+            <input type="file" name="slika8" id="" value="<?php if(isset($_POST['slika8'])){echo $slika8;}?>">
+        </div>
+       
 
             <!--HASHTAG-->
         <div class="inp-group">
@@ -296,23 +339,48 @@ if(isset($_GET['update'])){
     $_SESSION['new_id']=$_POST['id'];
     $naziv=$_POST['naziv'];
     $kategorija=$_POST['kategorija'];
-    $tmp_img=$_FILES["slika"]["name"];
-    $tmp_img_name=$_FILES["slika"]["tmp_name"];
     $hashtag=$_POST['hashtag'];
-    $path=$_SESSION['base'];
-    move_uploaded_file($tmp_img_name,"$path/images/modle/$tmp_img");
+    $path='';
+
+    $tmp_img=$_FILES["slika1"]["name"];
+    $tmp_img_name=$_FILES["slika1"]["tmp_name"];
+    move_uploaded_file($tmp_img_name,"../images/modle/$tmp_img");
+
+    $tmp_img2=$_FILES["slika2"]["name"];
+    $tmp_img_name2=$_FILES["slika2"]["tmp_name"];
+    move_uploaded_file($tmp_img_name2,"../images/modle/$tmp_img2");
+
+    $tmp_img3=$_FILES["slika3"]["name"];
+    $tmp_img_name3=$_FILES["slika3"]["tmp_name"];
+    move_uploaded_file($tmp_img_name3,"../images/modle/$tmp_img3");
+
+    $tmp_img4=$_FILES["slika4"]["name"];
+    $tmp_img_name4=$_FILES["slika4"]["tmp_name"];
+    move_uploaded_file($tmp_img_name4,"../images/modle/$tmp_img4");
+
+    $tmp_img5=$_FILES["slika5"]["name"];
+    $tmp_img_name5=$_FILES["slika5"]["tmp_name"];
+    move_uploaded_file($tmp_img_name5,"../images/modle/$tmp_img5");
+
+    $tmp_img6=$_FILES["slika6"]["name"];
+    $tmp_img_name6=$_FILES["slika6"]["tmp_name"];
+    move_uploaded_file($tmp_img_name6,"../images/modle/$tmp_img6");
+
+    $tmp_img7=$_FILES["slika7"]["name"];
+    $tmp_img_name7=$_FILES["slika7"]["tmp_name"];
+    move_uploaded_file($tmp_img_name7,"../images/modle/$tmp_img7");
   
     if(empty($tmp_img)){
         $res=$query->getProductByid($_SESSION['old_id']);
         while($row=$res->fetch(PDO::FETCH_ASSOC)){
-            $tmp_img=$row['slika'];
+            $tmp_img=$row['slika1'];
         }
     }
  
 
     //handling imprint
-    if(isset($_POST['imprint']) && $_POST['imprint']==2){
-        $query->updateImprintsByCookieCutters($_SESSION['old_id'],$_POST['imprint']); //ako je utiskivac 2, odnosno bez utiskivaca, onda obrisi onaj red gde postoji utiskivac za tu modlu.
+    if(isset($_POST['imprint']) && $_POST['imprint']==0){
+        $query->updateImprintsByCookieCutters($_SESSION['old_id'],$_POST['imprint']); //ako je utiskivac 0, odnosno bez utiskivaca, onda obrisi onaj red gde postoji utiskivac za tu modlu.
     }elseif (isset($_POST['addImprint'])) {
        
         $query->addImprint(1,$_SESSION['old_id']);  
@@ -322,11 +390,20 @@ if(isset($_GET['update'])){
 
     if (isset($_POST['withoutImprint'])) {
         
-        $query->addImprint(2,$_SESSION['old_id']);
+        $query->addImprint(0,$_SESSION['old_id']);
     }
 
+echo $idForm;
+echo $tmp_img,$tmp_img2,$tmp_img3,$tmp_img4,$tmp_img5,$tmp_img6,$tmp_img7,$_SESSION['old_id'];
 
-   $exe=$query->updateProduct($idForm,$naziv,$kategorija,$tmp_img,$hashtag,$_SESSION['old_id']);
+   $exe=$query->updateProduct($idForm,$naziv,$kategorija,$hashtag,$_SESSION['old_id']);
+   $updImg=$query->UPDATEALLIMAGES($idForm,$tmp_img,$tmp_img2,$tmp_img3,$tmp_img4,$tmp_img5,$tmp_img6,$tmp_img7,$_SESSION['old_id']);
+  
+   if ($updImg) {
+    echo 'dobro';
+   }else{
+    echo 'ne valja';
+   }
 
    //handling size
    if(!empty($_POST['velicinaAdd'])){
@@ -387,7 +464,7 @@ if(isset($_GET['update'])){
     }
     
 }
-    if($exe){
+   if($exe){
            die(mysqli_error($connection));
        }else{
             $msg="Uspesno azuriran proizvod";

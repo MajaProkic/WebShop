@@ -20,27 +20,27 @@ if(isset($_POST['value'])){
         case '0':
             $getAllProducts=$query->getAllProducts();
             while ($row=$getAllProducts->fetch(PDO::FETCH_ASSOC)) {
-                $func->write_product($row['id'],$row['slika'],$row['naziv']);
+                $func->write_product($row['id'],$row['slika1'],$row['naziv']);
             }
             break;
 
         case '1':
             $lastAdded=$query->latestAddedCookieCutter();
             while ($row=$lastAdded->fetch(PDO::FETCH_ASSOC)) {
-                $func->write_product($row['id'],$row['slika'],$row['naziv']);
+                $func->write_product($row['id'],$row['slika1'],$row['naziv']);
             }
             break;
         
         case '2':
             $getCookieCutterWithImprint=$query->getCookieCutterWithimprint();
             while ($row=$getCookieCutterWithImprint->fetch(PDO::FETCH_ASSOC)) {
-                $func->write_product($row['id'],$row['slika'],$row['naziv']);
+                $func->write_product($row['id'],$row['slika1'],$row['naziv']);
             }
             break;
         case '3':
             $getCookieCutterWithoutImprint=$query->getCookieCutterWithoutimprint();
             while ($row=$getCookieCutterWithoutImprint->fetch(PDO::FETCH_ASSOC)) {
-                $func->write_product($row['id'],$row['slika'],$row['naziv']);
+                $func->write_product($row['id'],$row['slika1'],$row['naziv']);
             }
             break;
         case '4':

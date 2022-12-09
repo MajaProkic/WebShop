@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 28, 2022 at 08:52 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- Generation Time: Dec 08, 2022 at 10:45 PM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 7.3.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -38,14 +38,14 @@ CREATE TABLE `cene` (
 --
 
 INSERT INTO `cene` (`ID_velicine`, `ID_utiskivaca`, `Cena`) VALUES
+(6, 0, 100),
 (6, 1, 150),
-(6, 2, 100),
+(7, 0, 130),
 (7, 1, 200),
-(7, 2, 130),
+(8, 0, 160),
 (8, 1, 250),
-(8, 2, 160),
-(9, 1, 190),
-(9, 2, 300);
+(9, 0, 300),
+(9, 1, 190);
 
 -- --------------------------------------------------------
 
@@ -132,7 +132,9 @@ INSERT INTO `kupci` (`id`, `ime`, `prezime`, `email`, `mesto`, `ulica`, `broj`, 
 (61, 'trala', 'lala', 'tralalalala', 'kokso', 'oghu', '59', '1789652369'),
 (63, 'trala', 'lala', 'tralalalala585', 'kokso', 'oghu', '59', '178965236910'),
 (64, 'Maja', 'af', 'afaf', 'fa', 'fa', '45', '466'),
-(65, 'Maja', 'Prokic', 'desa@gmail.com', 'Nova Pazova', 'Nikoja', '2', '0365755758');
+(65, 'Maja', 'Prokic', 'desa@gmail.com', 'Nova Pazova', 'Nikoja', '2', '0365755758'),
+(66, 'Jovana', 'Jovanovic', 'jovanajovanovic@gmail.com', 'Brezovac', 'Brezovac', '00', '0628436452'),
+(67, 'Marko', 'Milovanovic', 'markomarko@gmail.com', 'Ovsiste', 'Nema', '00', '061554475');
 
 -- --------------------------------------------------------
 
@@ -144,7 +146,6 @@ CREATE TABLE `modla` (
   `id` int(11) NOT NULL,
   `naziv` varchar(255) NOT NULL,
   `kategorija_id` int(11) NOT NULL,
-  `slika` varchar(255) NOT NULL,
   `hashtag` varchar(700) NOT NULL,
   `datum_postavljanja` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -153,34 +154,35 @@ CREATE TABLE `modla` (
 -- Dumping data for table `modla`
 --
 
-INSERT INTO `modla` (`id`, `naziv`, `kategorija_id`, `slika`, `hashtag`, `datum_postavljanja`) VALUES
-(19, 'Lane ', 1, 'lane.PNG', '#lane#novogodisnje#modle#modlice#nova#godina', '2006-07-22 23:31:18'),
-(51, 'Krst', 6, 'icons8-cookies-80.png', '#krst#slava#slavske#modle#modlice#bez#utiskivaca#utiskivača#srećna#slava', '2004-07-22 11:26:02'),
-(73, 'Narcis', 2, 'narcis.PNG', '#narcis#biljka#cvet#uskrsnje#modle#modlice#uskršnje', '2031-05-22 12:50:49'),
-(82, 'Grožđe i vino', 6, 'grozdje vino casa.PNG', '#grožđe#vino#čaša#slava#slavska#modla#casa#grozdje', NULL),
-(83, 'Knjiga i krst', 6, 'knjiga sa krstom.PNG', '#krst#knjiga#slava#modla#slavske', NULL),
-(99, 'Zeka', 2, 'zec krupan.PNG', '#zeka#uskrs#modle#modlice#medenjaci', '2031-05-22 17:28:44'),
-(103, 'Zeka drži šargarepu', 2, 'cupavi zeka sa sargarepom.PNG', '#zeka#jaje#zekadrzisargarepu#cupavi#uskrsnje#uskršnje#modle#modlice#sargarepa#sangarepa', NULL),
-(104, 'Zeka na jajetu', 2, 'cupavi zeka na jajetu.PNG', '#zeka#jaje#zekanajajetu#cupavi#uskrsnje#uskršnje#modle#modlice', NULL),
-(105, 'Zeka drži jaje', 2, 'cupavi zeka drzi jaje.PNG', '#zeka#jaje#zekadrzijaje#cupavi#uskrsnje#uskršnje#modle#modlice', NULL),
-(116, 'Anđeo koji se moli', 6, 'andjeo se moli.PNG', '#andjeo#molitva#novogodišnje#slavske#modle', NULL),
-(133, 'Golub', 6, 'golub lik.PNG', '#golub#slavske#modle#modlice#kolac#ptica', NULL),
-(134, 'Grožđe', 6, 'grozdje.PNG', '#grozdje#slava#modla#slavska#kolac#vino', NULL),
-(140, 'Anđeo raširenih krila', 6, 'andjeo rasirenih krila.PNG', '#andjeo#anđeo#slavske#modle#modlice#božić#bozic#kolac', '2006-07-22 23:23:19'),
-(141, 'Bure', 6, 'bure.PNG', '#bure#bacva#slavske#modle#kolac#vino', NULL),
-(142, 'Bure sa linijama', 6, 'bure sa linijamaa.PNG', '#bure#slavske#modle#bacva#bačva', NULL),
-(161, 'Golub sa raširenim krilima', 6, 'golub sa rasirenim krilima.PNG', '#slavske#modle#golub#ptica', NULL),
-(176, 'Bela rada', 11, 'bela rada.PNG', '#cvet#biljka#bela#rada#modla', '2007-07-22 21:44:00'),
-(190, 'Candy Cat - Pepa Pig', 9, 'candy cat.PNG', '#candy#cat#pepa#prase#modlice#za#decu#modle', NULL),
-(193, 'Emily elephant - Pepa Pig', 9, 'emily elephant.PNG', '#pepa#prase#pig#modle#modlice#za#decu', NULL),
-(214, 'Korpa sa jajima', 2, 'korpa sa jajima i leptirom.PNG', '#korpa#jaja#uskrs#uskrsnje#modle#uskršnje#modlice', '2031-05-22 12:24:52'),
-(241, 'Zeka u automobilu', 2, 'auto sa zecom.PNG', '#uskrsnje#modle#modlice#za#kolace', NULL),
-(254, 'Šargarepa sa srcem', 2, 'sargarepa sa srcem.PNG', '#šargarepa#srce#uskršnje#uskrsnje#modle#modlice', '2031-05-22 12:54:46'),
-(255, 'Šargarepa sa ušima', 2, 'sargarepica sa usima.PNG', '#šargarepa#uši#sargarepa#usi#uskrs#uskrsnje#uskršnje#modle#modlice', '2031-05-22 15:01:09'),
-(275, 'Beba spava na oblaku', 5, 'Beba spava na oblaku.PNG', '#beba#rodjendan#novorodjence#novorođenče#rođenje#baby#boy#girl#modle#modla', '2017-06-22 14:53:09'),
-(276, 'Beba', 5, 'beba.PNG', '#beba#dete#sedi#modla#novorodjence#novorođenče#rođenje#rođendan#boy#girl', '2017-06-22 15:16:06'),
-(288, 'Buket ruža', 11, 'Buket ruza.PNG', '#ruze#buket#biljke#cvece#osmi#mart#8#poruka', '2007-07-22 21:45:51'),
-(299, 'Cigla', 13, 'cigla.PNG', '#cigla#stencil', '2024-08-22 23:14:06');
+INSERT INTO `modla` (`id`, `naziv`, `kategorija_id`, `hashtag`, `datum_postavljanja`) VALUES
+(19, 'Lane ', 1, '#lane#novogodisnje#modle#modlice#nova#godina', '2006-07-22 23:31:18'),
+(23, 'Sneško maše', 1, '#snesko#nova#godina#zima#sneg#belić#božić', '0000-00-00 00:00:00'),
+(51, 'Krst', 6, '#krst#slava#slavske#modle#modlice#bez#utiskivaca#utiskivača#srećna#slava', '2004-07-22 11:26:02'),
+(73, 'Narcis', 2, '#narcis#biljka#cvet#uskrsnje#modle#modlice#uskršnje', '2031-05-22 12:50:49'),
+(82, 'Grožđe i vino', 6, '#grožđe#vino#čaša#slava#slavska#modla#casa#grozdje', NULL),
+(83, 'Knjiga i krst', 6, '#krst#knjiga#slava#modla#slavske', NULL),
+(99, 'Zeka', 2, '#zeka#uskrs#modle#modlice#medenjaci', '2031-05-22 17:28:44'),
+(103, 'Zeka drži šargarepu', 2, '#zeka#jaje#zekadrzisargarepu#cupavi#uskrsnje#uskršnje#modle#modlice#sargarepa#sangarepa', NULL),
+(104, 'Zeka na jajetu', 2, '#zeka#jaje#zekanajajetu#cupavi#uskrsnje#uskršnje#modle#modlice', NULL),
+(105, 'Zeka drži jaje', 2, '#zeka#jaje#zekadrzijaje#cupavi#uskrsnje#uskršnje#modle#modlice', NULL),
+(116, 'Anđeo koji se moli', 6, '#andjeo#molitva#novogodišnje#slavske#modle', NULL),
+(133, 'Golub', 6, '#golub#slavske#modle#modlice#kolac#ptica', NULL),
+(134, 'Grožđe', 6, '#grozdje#slava#modla#slavska#kolac#vino', NULL),
+(140, 'Anđeo raširenih krila', 6, '#andjeo#anđeo#slavske#modle#modlice#božić#bozic#kolac', '2006-07-22 23:23:19'),
+(141, 'Bure', 6, '#bure#bacva#slavske#modle#kolac#vino', NULL),
+(142, 'Bure sa linijama', 6, '#bure#slavske#modle#bacva#bačva', NULL),
+(161, 'Golub sa raširenim krilima', 6, '#slavske#modle#golub#ptica', NULL),
+(176, 'Bela rada', 11, '#cvet#biljka#bela#rada#modla', '2007-07-22 21:44:00'),
+(190, 'Candy Cat - Pepa Pig', 9, '#candy#cat#pepa#prase#modlice#za#decu#modle', NULL),
+(193, 'Emily elephant - Pepa Pig', 9, '#pepa#prase#pig#modle#modlice#za#decu', NULL),
+(214, 'Korpa sa jajima', 2, '#korpa#jaja#uskrs#uskrsnje#modle#uskršnje#modlice', '2031-05-22 12:24:52'),
+(241, 'Zeka u automobilu', 2, '#uskrsnje#modle#modlice#za#kolace', NULL),
+(254, 'Šargarepa sa srcem', 2, '#šargarepa#srce#uskršnje#uskrsnje#modle#modlice', '2031-05-22 12:54:46'),
+(255, 'Šargarepa sa ušima', 2, '#šargarepa#uši#sargarepa#usi#uskrs#uskrsnje#uskršnje#modle#modlice', '2031-05-22 15:01:09'),
+(275, 'Beba spava na oblaku', 5, '#beba#rodjendan#novorodjence#novorođenče#rođenje#baby#boy#girl#modle#modla', '2017-06-22 14:53:09'),
+(276, 'Beba', 5, '#beba#dete#sedi#modla#novorodjence#novorođenče#rođenje#rođendan#boy#girl', '2017-06-22 15:16:06'),
+(288, 'Buket ruža', 11, '#ruze#buket#biljke#cvece#osmi#mart#8#poruka', '2007-07-22 21:45:51'),
+(299, 'Cigla', 13, '#cigla#stencil', '2024-08-22 23:14:06');
 
 -- --------------------------------------------------------
 
@@ -303,7 +305,12 @@ INSERT INTO `narudzbenica` (`id`, `id_user`, `datum`, `status`, `napomena`, `nac
 (137, 35, '2022-08-18 18:42:16', 'Neobradjeno', '', 'Pouzećem', 'Post_Express'),
 (138, 35, '2022-08-26 21:49:13', 'Neobradjeno', '', 'Uplata_preko_računa', 'Post_Express'),
 (139, 35, '2022-08-26 21:50:56', 'Neobradjeno', '', 'Uplata_preko_računa', 'Post_Express'),
-(140, 35, '2022-08-26 21:51:48', 'Neobradjeno', '', 'Uplata_preko_računa', 'Post_Express');
+(140, 35, '2022-08-26 21:51:48', 'Neobradjeno', '', 'Uplata_preko_računa', 'Post_Express'),
+(141, 35, '2022-08-28 13:33:51', 'Neobradjeno', '', 'Uplata_preko_računa', 'Post_Express'),
+(142, 35, '2022-08-28 13:36:02', 'Neobradjeno', '', 'Uplata_preko_računa', 'Post_Express'),
+(143, 35, '2022-08-28 13:36:45', 'Neobradjeno', '', 'Uplata_preko_računa', 'Post_Express'),
+(144, 66, '2022-11-08 08:25:11', 'primljeno', '', 'Pouzećem', 'Post_Express'),
+(145, 67, '2022-11-08 08:28:51', 'u izradi', '', 'Pouzećem', 'Post_Express');
 
 -- --------------------------------------------------------
 
@@ -359,7 +366,8 @@ INSERT INTO `opis_modle` (`ID_opisa`, `ID_modle`, `debljina_sekaca`, `sirina_mod
 (31, 288, '1 cm', '6.4 cm', '8.8 cm', '0.5 cm', '9 grama', '6 cm', '10 cm', 'Ne', '8 cm'),
 (34, 0, '1 cm', '6.3 cm', '6.2 cm', '0.12 cm', '9 grama', '0.6 cm', '10 cm', 'Ne', '6 cm'),
 (35, 102, '1 cm', '6.3 cm', '8.8 cm', '0.12 cm', '4 grama', '0.6 cm', '1 cm', 'Ne', '6 cm'),
-(39, 299, '', '', '', '', '', '', '', '', '');
+(39, 299, '', '', '', '', '', '', '', '', ''),
+(41, 23, '0.1 cm', '4.3 cm', '6.2 cm', '0.12 cm', '5 grama', '0.6 cm', '1 cm', 'ne', '6 cm');
 
 -- --------------------------------------------------------
 
@@ -371,7 +379,7 @@ CREATE TABLE `poručeni_artikli` (
   `ID_proizvoda` int(11) NOT NULL,
   `ID_narudzbenice` int(11) NOT NULL,
   `kolicina` int(11) NOT NULL,
-  `utiskivac` bit(11) NOT NULL,
+  `utiskivac` tinyint(1) NOT NULL,
   `velicina` int(11) NOT NULL,
   `cena` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -381,92 +389,158 @@ CREATE TABLE `poručeni_artikli` (
 --
 
 INSERT INTO `poručeni_artikli` (`ID_proizvoda`, `ID_narudzbenice`, `kolicina`, `utiskivac`, `velicina`, `cena`) VALUES
-(73, 138, 1, b'00000110001', 6, 150),
-(73, 139, 1, b'00000110001', 6, 150),
-(73, 140, 1, b'00000110001', 6, 150),
-(99, 138, 1, b'00000110001', 6, 150),
-(99, 139, 1, b'00000110001', 6, 150),
-(99, 140, 1, b'00000110001', 6, 150),
-(103, 127, 1, b'00000110001', 7, 200),
-(161, 0, 2, b'00000110001', 6, 150),
-(161, 81, 2, b'00000110001', 6, 150),
-(193, 0, 1, b'00000110001', 7, 200),
-(193, 81, 1, b'00000110001', 7, 200),
-(214, 80, 1, b'00000110001', 6, 150),
-(214, 127, 1, b'00000110001', 7, 200),
-(214, 128, 1, b'00000110001', 7, 200),
-(214, 129, 1, b'00000110001', 7, 200),
-(214, 130, 1, b'00000110001', 7, 200),
-(214, 131, 1, b'00000110001', 7, 200),
-(214, 132, 1, b'00000110001', 7, 200),
-(227, 82, 1, b'00000110001', 6, 150),
-(227, 83, 1, b'00000110001', 6, 150),
-(241, 127, 1, b'00000110001', 7, 200),
-(242, 82, 1, b'00000110001', 7, 200),
-(242, 83, 1, b'00000110001', 7, 200),
-(255, 84, 1, b'00000110010', 7, 130),
-(255, 96, 1, b'00000110001', 6, 150),
-(255, 97, 1, b'00000110001', 6, 150),
-(255, 98, 1, b'00000110001', 6, 150),
-(255, 99, 1, b'00000110001', 6, 150),
-(255, 100, 1, b'00000110001', 6, 150),
-(255, 101, 1, b'00000110001', 6, 150),
-(255, 102, 1, b'00000110001', 6, 150),
-(255, 103, 1, b'00000110001', 6, 150),
-(255, 104, 1, b'00000110001', 6, 150),
-(255, 105, 1, b'00000110001', 6, 150),
-(255, 106, 1, b'00000110001', 6, 150),
-(255, 107, 1, b'00000110001', 6, 150),
-(255, 108, 1, b'00000110001', 6, 150),
-(255, 109, 1, b'00000110001', 6, 150),
-(255, 110, 1, b'00000110001', 6, 150),
-(255, 111, 1, b'00000110001', 6, 150),
-(255, 120, 1, b'00000110001', 7, 200),
-(255, 121, 1, b'00000110001', 7, 200),
-(255, 122, 1, b'00000110001', 7, 200),
-(255, 123, 1, b'00000110001', 7, 200),
-(255, 124, 1, b'00000110001', 7, 200),
-(255, 125, 1, b'00000110001', 7, 200),
-(255, 126, 1, b'00000110001', 7, 200),
-(275, 114, 2, b'00000110001', 6, 150),
-(275, 115, 2, b'00000110001', 6, 150),
-(275, 116, 1, b'00000110001', 7, 200),
-(275, 117, 1, b'00000110001', 7, 200),
-(275, 118, 1, b'00000110001', 7, 200),
-(275, 119, 1, b'00000110001', 7, 200),
-(275, 120, 1, b'00000110001', 7, 200),
-(275, 121, 1, b'00000110001', 7, 200),
-(275, 122, 1, b'00000110001', 7, 200),
-(275, 123, 1, b'00000110001', 7, 200),
-(275, 124, 1, b'00000110001', 7, 200),
-(275, 125, 1, b'00000110001', 7, 200),
-(275, 126, 1, b'00000110001', 7, 200),
-(276, 0, 1, b'00000110001', 7, 200),
-(276, 85, 1, b'00000110001', 7, 200),
-(276, 86, 1, b'00000110001', 7, 200),
-(276, 87, 1, b'00000110001', 7, 200),
-(276, 88, 1, b'00000110001', 7, 200),
-(276, 89, 1, b'00000110001', 7, 200),
-(276, 90, 1, b'00000110001', 7, 200),
-(276, 91, 1, b'00000110001', 7, 200),
-(276, 92, 1, b'00000110001', 7, 200),
-(276, 93, 1, b'00000110001', 7, 200),
-(276, 94, 1, b'00000110001', 7, 200),
-(276, 95, 1, b'00000110001', 7, 200),
-(276, 116, 1, b'00000110001', 6, 150),
-(276, 117, 1, b'00000110001', 6, 150),
-(276, 118, 1, b'00000110001', 6, 150),
-(276, 119, 1, b'00000110001', 6, 150),
-(276, 122, 1, b'00000110001', 6, 150),
-(276, 123, 1, b'00000110001', 6, 150),
-(276, 124, 1, b'00000110001', 6, 150),
-(276, 125, 1, b'00000110001', 6, 150),
-(276, 126, 1, b'00000110001', 6, 150),
-(276, 133, 1, b'00000110001', 6, 150),
-(276, 134, 1, b'00000110001', 6, 150),
-(276, 135, 1, b'00000110001', 7, 200),
-(276, 136, 1, b'00000110001', 7, 200),
-(276, 137, 1, b'00000110001', 7, 200);
+(23, 145, 1, 1, 7, 200),
+(73, 138, 1, 49, 6, 150),
+(73, 139, 1, 49, 6, 150),
+(73, 140, 1, 49, 6, 150),
+(99, 138, 1, 49, 6, 150),
+(99, 139, 1, 49, 6, 150),
+(99, 140, 1, 49, 6, 150),
+(99, 143, 1, 2, 7, 130),
+(99, 144, 2, 1, 6, 300),
+(103, 127, 1, 49, 7, 200),
+(140, 145, 1, 0, 6, 100),
+(161, 0, 2, 49, 6, 150),
+(161, 81, 2, 49, 6, 150),
+(193, 0, 1, 49, 7, 200),
+(193, 81, 1, 49, 7, 200),
+(214, 80, 1, 49, 6, 150),
+(214, 127, 1, 49, 7, 200),
+(214, 128, 1, 49, 7, 200),
+(214, 129, 1, 49, 7, 200),
+(214, 130, 1, 49, 7, 200),
+(214, 131, 1, 49, 7, 200),
+(214, 132, 1, 49, 7, 200),
+(227, 82, 1, 49, 6, 150),
+(227, 83, 1, 49, 6, 150),
+(241, 127, 1, 49, 7, 200),
+(242, 82, 1, 49, 7, 200),
+(242, 83, 1, 49, 7, 200),
+(255, 84, 1, 50, 7, 130),
+(255, 96, 1, 49, 6, 150),
+(255, 97, 1, 49, 6, 150),
+(255, 98, 1, 49, 6, 150),
+(255, 99, 1, 49, 6, 150),
+(255, 100, 1, 49, 6, 150),
+(255, 101, 1, 49, 6, 150),
+(255, 102, 1, 49, 6, 150),
+(255, 103, 1, 49, 6, 150),
+(255, 104, 1, 49, 6, 150),
+(255, 105, 1, 49, 6, 150),
+(255, 106, 1, 49, 6, 150),
+(255, 107, 1, 49, 6, 150),
+(255, 108, 1, 49, 6, 150),
+(255, 109, 1, 49, 6, 150),
+(255, 110, 1, 49, 6, 150),
+(255, 111, 1, 49, 6, 150),
+(255, 120, 1, 49, 7, 200),
+(255, 121, 1, 49, 7, 200),
+(255, 122, 1, 49, 7, 200),
+(255, 123, 1, 49, 7, 200),
+(255, 124, 1, 49, 7, 200),
+(255, 125, 1, 49, 7, 200),
+(255, 126, 1, 49, 7, 200),
+(255, 144, 1, 1, 6, 150),
+(275, 114, 2, 49, 6, 150),
+(275, 115, 2, 49, 6, 150),
+(275, 116, 1, 49, 7, 200),
+(275, 117, 1, 49, 7, 200),
+(275, 118, 1, 49, 7, 200),
+(275, 119, 1, 49, 7, 200),
+(275, 120, 1, 49, 7, 200),
+(275, 121, 1, 49, 7, 200),
+(275, 122, 1, 49, 7, 200),
+(275, 123, 1, 49, 7, 200),
+(275, 124, 1, 49, 7, 200),
+(275, 125, 1, 49, 7, 200),
+(275, 126, 1, 49, 7, 200),
+(276, 0, 1, 49, 7, 200),
+(276, 85, 1, 49, 7, 200),
+(276, 86, 1, 49, 7, 200),
+(276, 87, 1, 49, 7, 200),
+(276, 88, 1, 49, 7, 200),
+(276, 89, 1, 49, 7, 200),
+(276, 90, 1, 49, 7, 200),
+(276, 91, 1, 49, 7, 200),
+(276, 92, 1, 49, 7, 200),
+(276, 93, 1, 49, 7, 200),
+(276, 94, 1, 49, 7, 200),
+(276, 95, 1, 49, 7, 200),
+(276, 116, 1, 49, 6, 150),
+(276, 117, 1, 49, 6, 150),
+(276, 118, 1, 49, 6, 150),
+(276, 119, 1, 49, 6, 150),
+(276, 122, 1, 49, 6, 150),
+(276, 123, 1, 49, 6, 150),
+(276, 124, 1, 49, 6, 150),
+(276, 125, 1, 49, 6, 150),
+(276, 126, 1, 49, 6, 150),
+(276, 133, 1, 49, 6, 150),
+(276, 134, 1, 49, 6, 150),
+(276, 135, 1, 49, 7, 200),
+(276, 136, 1, 49, 7, 200),
+(276, 137, 1, 49, 7, 200),
+(276, 144, 2, 1, 6, 150),
+(276, 145, 2, 1, 6, 150),
+(288, 141, 1, 49, 8, 250),
+(288, 142, 1, 1, 8, 250);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `slike`
+--
+
+CREATE TABLE `slike` (
+  `id` int(11) NOT NULL,
+  `id_product` int(11) NOT NULL,
+  `slika1` varchar(255) DEFAULT NULL,
+  `slika2` varchar(255) DEFAULT NULL,
+  `slika3` varchar(255) DEFAULT NULL,
+  `slika4` varchar(255) DEFAULT NULL,
+  `slika5` varchar(255) DEFAULT NULL,
+  `slika6` varchar(255) DEFAULT NULL,
+  `slika7` varchar(255) DEFAULT NULL,
+  `slika8` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `slike`
+--
+
+INSERT INTO `slike` (`id`, `id_product`, `slika1`, `slika2`, `slika3`, `slika4`, `slika5`, `slika6`, `slika7`, `slika8`) VALUES
+(1, 343, 'slika7.jpg', 'slika1.jpg', 'slika2.jpg', 'slika3.jpg', 'slika4.jpg', 'slika5.jpg', 'slika6.jpg', NULL),
+(2, 19, 'lane.PNG', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 51, 'icons8-cookies-80.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 73, 'narcis.PNG', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(5, 82, 'grozdje vino casa.PNG', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(6, 83, 'knjiga sa krstom.PNG', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(7, 99, 'zec krupan.PNG', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(8, 103, 'cupavi zeka sa sargarepom.PNG', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(9, 104, 'cupavi zeka na jajetu.PNG', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(10, 105, 'cupavi zeka drzi jaje.PNG', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(11, 116, 'andjeo se moli.PNG', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(12, 133, 'golub lik.PNG', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(13, 134, 'grozdje.PNG', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(14, 140, 'andjeo rasirenih krila.PNG', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(15, 141, 'bure.PNG', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(16, 142, 'bure sa linijamaa.PNG', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(17, 161, 'golub sa rasirenim krilima.PNG', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(18, 176, 'bela rada.PNG', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(19, 190, 'candy cat.PNG', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(20, 193, 'emily elephant.PNG', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(21, 214, 'korpa sa jajima i leptirom.PNG', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(22, 241, 'auto sa zecom.PNG', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(23, 254, 'sargarepa sa srcem.PNG', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(24, 255, 'sargarepica sa usima.PNG', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(25, 275, 'Beba spava na oblaku.PNG', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(26, 276, 'beba.PNG', '7107bb0ae87f6468b441c8e849b9aef7.jpg', '8c8603ce8b082cb36854f26a51c63212.jpg', '', '', '', '', NULL),
+(27, 288, 'Buket ruza.PNG', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(28, 299, 'cigla.PNG', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(29, 343, 'cdbacabf8052948c03c038d59b7cf0f4.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(33, 23, 'snesko mase.png', '0-02-05-b2afd82d6601875d68005d87d918919ca343d0a4c9718ff218397d88324b88a2_7794e164b294e454.jpg', '', '', '', '', '', NULL),
+(34, 343, 'icons8-no-image-60.png', '', '', '', '', '', '', NULL),
+(35, 343, NULL, 'icons8-no-image-60.png', '', '', '', '', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -562,6 +636,7 @@ CREATE TABLE `utiskivaci` (
 --
 
 INSERT INTO `utiskivaci` (`ID`, `Naziv`) VALUES
+(0, 'Bez utiskivača'),
 (1, 'sa utiskivacem'),
 (2, 'bez utiskivaca');
 
@@ -581,7 +656,35 @@ CREATE TABLE `utiskivaci_po_modlama` (
 --
 
 INSERT INTO `utiskivaci_po_modlama` (`ID_utiskivaca`, `ID_modle`) VALUES
+(0, 19),
+(0, 51),
+(0, 73),
+(0, 82),
+(0, 83),
+(0, 99),
+(0, 103),
+(0, 104),
+(0, 105),
+(0, 116),
+(0, 133),
+(0, 134),
+(0, 140),
+(0, 141),
+(0, 142),
+(0, 161),
+(0, 176),
+(0, 190),
+(0, 193),
+(0, 214),
+(0, 241),
+(0, 254),
+(0, 255),
+(0, 275),
+(0, 276),
+(0, 288),
+(0, 299),
 (1, 19),
+(1, 23),
 (1, 73),
 (1, 82),
 (1, 83),
@@ -603,33 +706,7 @@ INSERT INTO `utiskivaci_po_modlama` (`ID_utiskivaca`, `ID_modle`) VALUES
 (1, 275),
 (1, 276),
 (1, 288),
-(2, 19),
-(2, 51),
-(2, 73),
-(2, 82),
-(2, 83),
-(2, 99),
-(2, 103),
-(2, 104),
-(2, 105),
-(2, 116),
-(2, 133),
-(2, 134),
-(2, 140),
-(2, 141),
-(2, 142),
-(2, 161),
-(2, 176),
-(2, 190),
-(2, 193),
-(2, 214),
-(2, 241),
-(2, 254),
-(2, 255),
-(2, 275),
-(2, 276),
-(2, 288),
-(2, 299);
+(2, 23);
 
 -- --------------------------------------------------------
 
@@ -676,6 +753,7 @@ CREATE TABLE `velicine_po_modli` (
 INSERT INTO `velicine_po_modli` (`ID_velicine`, `ID_modle`, `RedniBrojVelicine`) VALUES
 (6, 0, 1),
 (6, 19, 2),
+(6, 23, 2),
 (6, 51, 2),
 (6, 53, 1),
 (6, 73, 1),
@@ -706,8 +784,10 @@ INSERT INTO `velicine_po_modli` (`ID_velicine`, `ID_modle`, `RedniBrojVelicine`)
 (6, 255, 1),
 (6, 275, 1),
 (6, 276, 2),
+(6, 343, 2),
 (7, 0, 2),
 (7, 19, 3),
+(7, 23, 3),
 (7, 51, 3),
 (7, 53, 2),
 (7, 73, 2),
@@ -738,8 +818,10 @@ INSERT INTO `velicine_po_modli` (`ID_velicine`, `ID_modle`, `RedniBrojVelicine`)
 (7, 255, 2),
 (7, 275, 2),
 (7, 276, 3),
+(7, 343, 3),
 (8, 0, 3),
 (8, 19, 4),
+(8, 23, 4),
 (8, 51, 4),
 (8, 53, 3),
 (8, 73, 3),
@@ -771,6 +853,7 @@ INSERT INTO `velicine_po_modli` (`ID_velicine`, `ID_modle`, `RedniBrojVelicine`)
 (8, 275, 3),
 (8, 276, 4),
 (8, 288, 1),
+(8, 343, 4),
 (9, 288, 2);
 
 --
@@ -821,6 +904,12 @@ ALTER TABLE `poručeni_artikli`
   ADD PRIMARY KEY (`ID_proizvoda`,`ID_narudzbenice`);
 
 --
+-- Indexes for table `slike`
+--
+ALTER TABLE `slike`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -842,9 +931,7 @@ ALTER TABLE `utiskivaci`
 -- Indexes for table `utiskivaci_po_modlama`
 --
 ALTER TABLE `utiskivaci_po_modlama`
-  ADD PRIMARY KEY (`ID_utiskivaca`,`ID_modle`),
-  ADD KEY `ID_utiskivaca` (`ID_utiskivaca`),
-  ADD KEY `ID_modle` (`ID_modle`);
+  ADD PRIMARY KEY (`ID_utiskivaca`,`ID_modle`);
 
 --
 -- Indexes for table `velicine`
@@ -874,19 +961,25 @@ ALTER TABLE `kategorija`
 -- AUTO_INCREMENT for table `kupci`
 --
 ALTER TABLE `kupci`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `narudzbenica`
 --
 ALTER TABLE `narudzbenica`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
 
 --
 -- AUTO_INCREMENT for table `opis_modle`
 --
 ALTER TABLE `opis_modle`
-  MODIFY `ID_opisa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `ID_opisa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+
+--
+-- AUTO_INCREMENT for table `slike`
+--
+ALTER TABLE `slike`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -899,12 +992,6 @@ ALTER TABLE `user`
 --
 ALTER TABLE `users_online`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
-
---
--- AUTO_INCREMENT for table `utiskivaci`
---
-ALTER TABLE `utiskivaci`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `velicine`

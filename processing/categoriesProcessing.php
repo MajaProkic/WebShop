@@ -20,7 +20,7 @@ if (isset($_GET['kategorija'])) {
       
     }else{
         while ($row=$selectCookiecuttersByCategory->fetch(PDO::FETCH_ASSOC)) {
-            $func->write_product($row['modlaId'],$row['slika'],$row['modlaNaziv']);
+            $func->write_product($row['modlaId'],$row['slika1'],$row['modlaNaziv']);
             }
     }
 

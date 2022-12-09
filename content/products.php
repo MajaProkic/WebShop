@@ -24,7 +24,7 @@ require_once (__DIR__.'/../header/url_extension.php');
                 $qu=$query->PAGINATION($page_first_result,$results_per_page);
                 while ($row=$qu->fetch(PDO::FETCH_ASSOC)) {   
 
-                    $func->write_product($row['id'],$row['slika'],$row['naziv']);
+                    $func->write_product($row['id'],$row['slika1'],$row['naziv']);
                         
                 } 
 
@@ -36,7 +36,7 @@ require_once (__DIR__.'/../header/url_extension.php');
 
         while ($row=$qu->fetch(PDO::FETCH_ASSOC)) {   
 
-            $func->write_product($row['id'],$row['slika'],$row['naziv']);
+            $func->write_product($row['id'],$row['slika1'],$row['naziv']);
                 
         } 
         

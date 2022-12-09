@@ -57,7 +57,7 @@ if($_SESSION['role']=='admin'){
         <td><?php echo $id; ?></td>
         <td><?php echo $row['naziv'] ?></td>
         <td><?php echo $row['kategorija_id'] ?></td>        
-        <td><a href="<?php echo $_SESSION['base']?>/content/product.php?product=<?php echo $row['id'] ?>"> <img src="<?php echo $_SESSION['base']?>/images/modle/<?php echo $row['slika'] ?>" id='ImgCookieCutters'></a></td>
+        <td><a href="<?php echo $_SESSION['base']?>/content/product.php?product=<?php echo $row['id'] ?>"> <img src="<?php echo $_SESSION['base']?>/images/modle/<?php echo $row['slika1'] ?>" id='ImgCookieCutters'></a></td>
         <td><?php echo $row['hashtag'] ?></td>
         <td><a href="update-product.php?update=<?php echo $row['id'] ?>"><img src="<?php echo $_SESSION['base']?>/images/updating.png" alt="update" id='update'></a> </td>
         <td><a href="admin.php?delete=<?php echo $row['id']?>"><img src="<?php echo $_SESSION['base']?>/images/x.png" alt="delete" id='delete'></a></td>

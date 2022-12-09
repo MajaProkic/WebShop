@@ -68,13 +68,40 @@
         .price{
            height: auto;
             text-align: center;
+            
             #average-price{
-                font-size: 16pt;
+                font-size: 14pt;
+                font-family: var(--font);
+            }
+        }
+        .button{
+            
+            button{
+                border-radius: 0%;
+                border: 2px solid #fff;
+
+            }
+            a{
+               
             }
         }
       
     }
     
+}
+@media screen and (max-width:1160px) {
+    .products{ 
+        grid-template-columns: repeat(3,auto);
+        column-gap: 5px;
+        row-gap: 5px;
+    }
+}
+@media screen and (max-width:870px) {
+    .products{ 
+        grid-template-columns: repeat(2,auto);
+        column-gap: 5px;
+        row-gap: 5px;
+    }
 }
 @media screen and (max-width:700px) {
     .products{ 
@@ -83,3 +110,6 @@
         row-gap: 5px;
     }
 }
+
+
+
