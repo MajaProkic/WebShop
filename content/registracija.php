@@ -5,52 +5,13 @@ require_once (__DIR__.'/../functions/functions.php');
 include_once(__DIR__.'/../header/nav.php');
 require_once(__DIR__.'/../DB/query.php');
 require_once(__DIR__.'/../DB/Database.php');
-<<<<<<< HEAD
 require_once (__DIR__.'/../header/url_extension.php');
-=======
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
 
 $database=new Database();
 $db=$database->connection();
 $msg=isset($msg)?$msg:"";
 $query=new Query($db);
 global $query;
-<<<<<<< HEAD
-=======
-
-
-if (isset($_POST['registruj_se'])) {
-    $ime=$func->test_input($_POST['ime']);
-    $prezime=$func->test_input($_POST['prezime']);
-    $grad=$func->test_input($_POST['grad']);
-    $ulica=$func->test_input($_POST['ulica']);
-    $broj=$func->test_input($_POST['broj']);
-    $telefon=$func->test_input($_POST['telefon']);
-    $email=$func->test_input($_POST['email']);
-    $username=$func->test_input($_POST['username']);
-    $lozinka=$func->test_input($_POST['lozinka']);
-    $lozinkaAgain=$func->test_input($_POST['lozinka_check']);
-    
-    
-    $hashed_pass=password_hash($lozinka, PASSWORD_DEFAULT);
-    //provera da li postoji vec unet korisnik sa istim podacima kako se ne bi unosio dva puta
-    $res=$query->getSpecificUser($email,$telefon);
-    $count=$res->rowCount();
-
-    if ($count<1) {
-        $query->insertUser($ime,$prezime,$grad,$ulica,$broj,$telefon,$username,$hashed_pass,$email,'customer');
-        $msg= "Korisnik je uspesno registrovan."; 
-        $func->successfulClass($msg);
-        header('Location:../index.php');
-      
-    }else{
-
-        $msg="Nazalost, doslo je do greske prilikom unosa korisnika"; 
-        $func->errorClass($msg);
-    }
-   
-}
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
 ?>
 <div class="registration-page">
     
@@ -97,7 +58,6 @@ if (isset($_POST['registruj_se'])) {
     </div>
 </div>
 <div class="footer">
-<<<<<<< HEAD
     <?php include_once '../footer/footer.php';
     
     if (isset($_POST['registruj_se'])) {
@@ -134,7 +94,4 @@ if (isset($_POST['registruj_se'])) {
    
 }
     ?>
-=======
-    <?php include_once '../footer/footer.php'?>
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
 </div>

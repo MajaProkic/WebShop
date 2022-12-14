@@ -1,10 +1,5 @@
     
     $(document).ready(function(){
-<<<<<<< HEAD
-
-=======
-         
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
       $('#imprint, #sizee, .plus, .minus').on('change',function(){
           var size=$('#sizee').val();
           var imprint=$('#imprint').val();
@@ -34,11 +29,7 @@
         var id=$('.bt').attr('name')
         console.log(id);
           $.ajax({
-<<<<<<< HEAD
             url:'./processing/delete.php',
-=======
-            url:'../processing/delete.php',
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
             method:'post',
             data:{
               del: id
@@ -48,7 +39,6 @@
           }
         })
       })
-<<<<<<< HEAD
 
       $('.small-img').on('click',function(){
         
@@ -87,19 +77,12 @@
         })
     
     })
-=======
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
       
   //category
       $('.rbutton').on('change',function(){
        
-<<<<<<< HEAD
   
         var vel=$(this).attr("href");
-=======
-      if ($(this).prop("checked") == true) {
-        var vel=$("input[type='radio']:checked").val();
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
         console.log(vel);
         $.ajax({
             url:'./processing/categoriesProcessing.php',
@@ -112,13 +95,7 @@
            $('.products').html(html)       
          }
         })
-<<<<<<< HEAD
     
-=======
-      } else {
-        $('.products').html(html);    
-      }
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
     })
 
 
@@ -144,11 +121,7 @@
 
       var search=$('#searchbar').val();
 
-<<<<<<< HEAD
       if(search!==""){
-=======
-      if(search!=""){
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
           $.ajax({
             url:'./processing/searchbar.php',
             method:'post',
@@ -267,29 +240,6 @@ $('#username').on('change',function() {
               });
 })
 
-<<<<<<< HEAD
-
-=======
-$('#lozinka').on('change',function() {
-    var pattern= /^[A-Za-z0-9ćžđšč]\w{7,14}$/;
-    var lozinka=$("#lozinka").val();
-    if( pattern.test(lozinka) && lozinka!==" " ) {
-    $('#error_lozinka').hide();    
-  }else{
-    $("#error_lozinka").html("Lozinka mora biti duza");
-    $("#error_lozinka").show();
-  }
-})
-
-$('#lozinka_check').on('change',function() {
-  if($('#lozinka_check').val()==$('#lozinka').val()){
-    $("#error_lozinka_check").hide();
-    
-  }else{
-    $("#error_lozinka_check").html("Lozinke se ne poklapaju");
-  }
-})
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
 
   })
 

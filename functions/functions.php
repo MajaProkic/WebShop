@@ -1,12 +1,7 @@
 <?php
 require_once(__DIR__.'/../DB/query.php');
 require_once(__DIR__.'/../DB/Database.php');
-<<<<<<< HEAD
 require_once(__DIR__.'/../header/url_extension.php');
-=======
-
-
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
 
 $infoaboutProduct=isset($infoaboutProduct)?$infoaboutProduct:"";
 class Functions{
@@ -234,14 +229,8 @@ class Functions{
        <div class="product-cart" id='<?php echo $id_product?>'>
           
             <div class="image-of-product">
-<<<<<<< HEAD
                 <a href="<?php echo $_SESSION['base']?>/content/product.php?product=<?php echo $id_product?>"><div class="desc">Pogledajte detalje</div></a>
                 <img src="<?php echo $_SESSION['base']?>/images/modle/<?php echo $path_to_image?>" alt="product">
-=======
-               
-                <a href="/Modlice/content/product.php?product=<?php echo $id_product?>"><div class="desc">Pogledajte detalje</div></a>
-                <img src="/Modlice/images/modle/<?php echo $path_to_image?>" alt="product">
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
             </div>
 
             <div class="title-of-product">
@@ -258,33 +247,21 @@ class Functions{
                     echo $row['minimalna_cena'].'-';
                     echo $row['maksimalna_cena'];
                 }
-<<<<<<< HEAD
                 ?> RSD</p>
             </div>
             <div class="button">
                 <button> <a href="<?php echo $_SESSION['base']?>/content/product.php?product=<?php echo $id_product?>"><div class="desc"> Pogledajte detalje </a></button>
-=======
-                ?>RSD</p>
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
             </div>
            
         </div>
     <?php
    }
-<<<<<<< HEAD
-
-=======
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
    public function infoClass($text)
    {    ?>
    <div class="message" id='msg-info'>
 
         <div class="msg-info-image">
-<<<<<<< HEAD
             <img src="<?php echo $_SESSION['base']?>/images/icons8-info-48.png" alt="info icon">
-=======
-            <img src="/Modlice/images/icons8-info-48.png" alt="info icon">
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
         </div>
         <div class="msg-info-text">
             <?php echo $text?>
@@ -300,11 +277,7 @@ class Functions{
    <div class="message" id='msg-error'>
 
         <div class="msg-error-image">
-<<<<<<< HEAD
             <img src="<?php echo $_SESSION['base']?>/images/icons8-error-48.png" alt="error icon">
-=======
-            <img src="/Modlice/images/icons8-error-48.png" alt="error icon">
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
         </div>
         <div class="msg-error-text">
             <?php echo $text?>
@@ -320,11 +293,7 @@ class Functions{
    <div class="message" id='msg-successful'>
 
         <div class="msg-successful-image">
-<<<<<<< HEAD
             <img src="<?php echo $_SESSION['base']?>/images/icons8-tick-48.png" alt="successful icon">
-=======
-            <img src="/Modlice/images/icons8-tick-48.png" alt="successful icon">
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
         </div>
         <div class="msg-successful-text">
             <?php echo $text?>
@@ -340,11 +309,7 @@ class Functions{
    <div class="message" id='msg-warning'>
 
         <div class="msg-warning-image">
-<<<<<<< HEAD
             <img src="<?php echo $_SESSION['base']?>/images/icons8-xbox-x-48.png" alt="warning icon">
-=======
-            <img src="/Modlice/images/icons8-xbox-x-48.png" alt="warning icon">
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
         </div>
         <div class="msg-warning-text">
             <?php echo $text?>

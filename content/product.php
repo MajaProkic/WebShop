@@ -5,10 +5,7 @@ require_once (__DIR__.'/../functions/functions.php');
 include_once(__DIR__.'/../header/nav.php');
 require_once(__DIR__.'/../DB/query.php');
 require_once(__DIR__.'/../DB/Database.php');
-<<<<<<< HEAD
 require_once (__DIR__.'/../header/url_extension.php');
-=======
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
 
 $database=new Database();
 $db=$database->connection();
@@ -26,30 +23,13 @@ if (isset($_POST['buy'])) {
     $price=$_POST['price'];
     $quantity=$_POST['quantity'];
 
-<<<<<<< HEAD
     if ($_POST['size']!='' && $_POST['imprint']!='') {
-=======
-    if ($_POST['size']!='-' && $_POST['imprint']!='-') {
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
         $arr=$func->add_in_array_imp($id,$naziv,$size,$imprint,$price,$quantity);    
         $mess=$func->sessionCart('product_cart',$arr,$id);
         $func->refresh();
         header('Location:cart.php');
-<<<<<<< HEAD
     }
 }
-=======
-    }else{
-        ?>
-    <div class="msg-error">
-        <?php echo $msg='Morate odabrati veličinu i utiskivač'?>
-    </div>
-        <?php
-    
-    }
-}
-
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
 ?>
 
 <div class="product" >
@@ -70,11 +50,7 @@ if (isset($_POST['buy'])) {
                         $kategorija=$row['naziv kategorije'];
                         global $kategorija;
                         $naziv_proizvoda=$row['naziv modle'];
-<<<<<<< HEAD
                         $slika = $row['slika1'];
-=======
-                        $slika = $row['slika'];
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
                        
                         ?>
                         
@@ -83,7 +59,6 @@ if (isset($_POST['buy'])) {
                         </div>
 
                         <div class="product-img">
-<<<<<<< HEAD
                             <img src="<?php echo $_SESSION['base']?>/images/modle/<?php echo $slika ?>" alt="image of product" class='big-img'>
                             <div class="sub-images">
                                 <?php
@@ -108,9 +83,6 @@ if (isset($_POST['buy'])) {
                                      
                                <?php } ?>
                             </div>
-=======
-                            <img src="../images/modle/<?php echo $slika ?>" alt="image of product">
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
                         </div>
     </section>        
       
@@ -123,13 +95,8 @@ if (isset($_POST['buy'])) {
 
                 <div class="size-and-imprint">
                
-<<<<<<< HEAD
                     <select name="size" id="sizee" required>
                         <option value="" >Odaberite dimenziju</option>
-=======
-                    <select name="size" id="sizee">
-                        <option value="-" selected='selected'>Odaberite dimenziju</option>
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
                         <?php
                             $velicina=$query->selectSizes($product_id);
                         
@@ -139,22 +106,13 @@ if (isset($_POST['buy'])) {
                         <?php  } ?>
                      </select>
                     
-<<<<<<< HEAD
                     <select name="imprint" id="imprint" required>
                             <option value="">Odaberite utiskivac</option>
-=======
-                    <select name="imprint" id="imprint">
-                            <option value="-" selected='selected'>Odaberite utiskivac</option>
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
                             <?php
                                 $selectimprint=$query->selectImprint($product_id);  
 
                                 while ($row=$selectimprint->fetch(PDO::FETCH_ASSOC)) {  ?>
-<<<<<<< HEAD
                                 <option value="<?php echo $row['ID']?>"> <?php echo $row['Naziv']?></option>
-=======
-                                <option value="<?php echo $row['ID']?>"> <?php echo $row['Naziv'] ?></option>
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
                             <?php  }  ?>
                     </select>
                  </div>
@@ -183,35 +141,21 @@ if (isset($_POST['buy'])) {
                                 <?php 
                                     $getHashtag=$query->selecthashtag($product_id);
                                     while ($row=$getHashtag->fetch(PDO::FETCH_ASSOC)) {
-<<<<<<< HEAD
-
-=======
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
                                         $hashatg=$row['hashtag'];
                                         echo $hashatg;
                                     }
                                 ?>        
                             </div>
-<<<<<<< HEAD
                     </div> 
                     <div class="notice">
                        Ukoliko imate posebnu ideju za izradu modle ili neku nedoumicu - možete nas kontaktirati na 062-843-3-192
                     </div>   
             </section>  
-=======
-                    </div>    
-                    
-              
-            </section>  
-         
-     
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
         <?php    
     }
              }
         ?>
         </form>
-<<<<<<< HEAD
 </div>
  <!-- Product class end -->
 
@@ -225,82 +169,4 @@ if (isset($_POST['buy'])) {
 
     <div class="footer">
         <?php include_once '../footer/footer.php'?>
-=======
-
-       
-</div>
-<div class="short-description">
-                        <div class="title">Opis proizvoda:</div>
-                        <div class="description">Napomena: Kako bi Vam dali predstavu o dimenzijama modlice, ispisane su tačne dimenzije za jednu vličinu modle,
-                             u tabeli ispod je navedeno koja veličina je obrađena. Ukoliko Vas zanimaju detalji za drugu dimenziju modle, pišite nam. Više detalja o
-                            modlama možete saznati <a href="footer/o-nama.php#modle">ovde</a></div>
-                   <table id='product_description'>
-                        <?php 
-                            $description=$query->selectdescriptionforspecificproduct($product_id);
-                            while ($row=$description->fetch(PDO::FETCH_ASSOC)) {
-                        ?>
-                                <tr>
-                                    <th>Debljina sekača</th>
-                                    <td><?php echo $row['debljina_sekaca']?></td>
-                                </tr>
-
-                                <tr>
-                                    <th>Širina modle</th>
-                                    <td><?php echo $row['sirina_modle']?></td>
-                                </tr>
-
-                                <tr>
-                                    <th>Dužina modle</th>
-                                    <td><?php echo $row['duzina_modle']?></td>
-                                </tr>
-
-                                <tr>
-                                    <th>Debljina utiskivača</th>
-                                    <td><?php echo $row['debljina_utiskivaca']?></td>
-                                </tr>
-
-                                <tr>
-                                        <th>Težina modle</th>
-                                        <td><?php echo $row['tezina_modle']?></td>
-                                </tr>
-                                <tr>
-                                    <th>Visina utiskivača</th>
-                                    <td><?php echo $row['visina_utiskivaca']?></td>
-                                </tr>
-                                <tr>
-                                    <th>Visina sekača</th>
-                                    <td><?php echo $row['visina_sekaca']?></td>
-                                </tr>
-                                <tr>
-                                    <th>Utiskivač i sekač su spojeni</th>
-                                    <td><?php echo $row['utiskivac_sekac_spojeni']?></td>
-                                </tr>
-                                <tr>
-                                    <th>Veličina opisanog proizvoda je:</th>
-                                    <td><?php echo $row['velicina_testiranog_proizvoda']?></td>
-                                </tr>
-
-                            <?php }?>
-                   </table>
-                </div>
-
-    <div class="related-product">
-            <div class="related-product-text">
-                Možda će Vam zatrebati i ovo
-            </div>
-            <?php 
-        
-            $products=$query->relatedProducts($kategorija);
-            while ($row=$products->fetch(PDO::FETCH_ASSOC)) {
-                if ($row['modlaId']!=$product_id) {
-                    $func->write_product($row['modlaId'],$row['slika'],$row['modlaNaziv']);
-                }
-               
-             } ?>
-    </div>
-
-
-<div class="footer">
-    <?php include_once '../footer/footer.php'?>
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
     </div>

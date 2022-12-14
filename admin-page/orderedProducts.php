@@ -19,7 +19,6 @@ global $func;
     <div class="title">
         <h2>Na ovoj stranici se nalaze porudzbine, njihovi detalji i korisnicki profili</h2>
     </div>
-<<<<<<< HEAD
 <form action="" method='post'>
     <table>
         <thead>
@@ -30,21 +29,11 @@ global $func;
             <th>Poruzbina</th>
             <th>Kupac</th>
             
-=======
-
-    <table>
-        <thead>
-            <th>Ime i prezime korisnika</th>
-            <th>Broj kupovina</th>
-            <th>Detalji porudzbina</th>
-            <th>Profil korisnika</th>
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
         </thead>
         <tbody>
             <?php 
                     $numberoforders=$query->numberoforders();
                         while ($row=$numberoforders->fetch(PDO::FETCH_ASSOC)) {
-<<<<<<< HEAD
                             $getStatus=$query->SELECTSTATUSOFORDER($row['idnarudzbenice']);
                             while ($row_status=$getStatus->fetch(PDO::FETCH_ASSOC)) {
                     
@@ -111,23 +100,10 @@ global $func;
             <?php 
             
                 }   }
-=======
-                    ?>
-                    <tr>
-                        <td><?php echo $row['ime'].' '. $row['prezime']?></td>
-                        <td><?php echo $row['broj porudzbina'];                
-                        ?></td>
-                        <td><a href="details_of_order.php?detail=<?php echo $row['id']?>"><img src="../images/file.png" alt="detalji porudzbine"></a></td>
-                        <td><a href="customer_profile.php?profile=<?php echo $row['id']?>"><img src="../images/user.png" alt="detalji porudzbine"></a></td>
-                    </tr>
-            <?php 
-                }
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
             ?>
             
         </tbody>
     </table>
-<<<<<<< HEAD
     </form>
 </div>
 <?php
@@ -139,6 +115,3 @@ if(isset($_GET['status'])){
  $query->UPDATESTATUSFROMNAARUDZBENICA($status,$id);
 }
 ?>
-=======
-</div>
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61

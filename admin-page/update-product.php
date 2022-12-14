@@ -20,7 +20,6 @@ if(isset($_GET['update'])){
     $id=$row['id'];
     $naziv=$row['naziv'];
     $kategorija_id=$row['kategorija_id'];
-<<<<<<< HEAD
 global $slika1,$slika2,$slika3;
     $slika1=$row['slika1'];
     $slika2=$row['slika2'];
@@ -30,10 +29,6 @@ global $slika1,$slika2,$slika3;
     $slika6=$row['slika6'];
     $slika7=$row['slika7'];
     $slika8=$row['slika8'];
-=======
-
-    $slika=$row['slika'];
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
     $hashtag=$row['hashtag'];
 }
 
@@ -230,7 +225,6 @@ global $slika1,$slika2,$slika3;
             <?php               
                 }
             ?>
-<<<<<<< HEAD
             <!--SLIKE-->
         <div class="inp-group">
             <label for="slika">Dodaj glavnu sliku</label>
@@ -273,14 +267,6 @@ global $slika1,$slika2,$slika3;
             <input type="file" name="slika8" id="" value="<?php if(isset($_POST['slika8'])){echo $slika8;}?>">
         </div>
        
-=======
-            <!--SLIKA-->
-        <div class="inp-group">
-            <label for="slika">Dodaj sliku</label>
-            <img src="../images/modle/<?php echo $slika;?>" alt="" width='100px' height='100px'>
-            <input type="file" name="slika" id="" value="<?php if(isset($_POST['slika'])){echo $slika;}?>">
-        </div>
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
 
             <!--HASHTAG-->
         <div class="inp-group">
@@ -353,7 +339,6 @@ global $slika1,$slika2,$slika3;
     $_SESSION['new_id']=$_POST['id'];
     $naziv=$_POST['naziv'];
     $kategorija=$_POST['kategorija'];
-<<<<<<< HEAD
     $hashtag=$_POST['hashtag'];
     $path='';
 
@@ -384,34 +369,18 @@ global $slika1,$slika2,$slika3;
     $tmp_img7=$_FILES["slika7"]["name"];
     $tmp_img_name7=$_FILES["slika7"]["tmp_name"];
     move_uploaded_file($tmp_img_name7,"../images/modle/$tmp_img7");
-=======
-    $tmp_img=$_FILES["slika"]["name"];
-    $tmp_img_name=$_FILES["slika"]["tmp_name"];
-    $hashtag=$_POST['hashtag'];
-
-    move_uploaded_file($tmp_img_name,"../images/modle/$tmp_img");
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
   
     if(empty($tmp_img)){
         $res=$query->getProductByid($_SESSION['old_id']);
         while($row=$res->fetch(PDO::FETCH_ASSOC)){
-<<<<<<< HEAD
             $tmp_img=$row['slika1'];
-=======
-            $tmp_img=$row['slika'];
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
         }
     }
  
 
     //handling imprint
-<<<<<<< HEAD
     if(isset($_POST['imprint']) && $_POST['imprint']==0){
         $query->updateImprintsByCookieCutters($_SESSION['old_id'],$_POST['imprint']); //ako je utiskivac 0, odnosno bez utiskivaca, onda obrisi onaj red gde postoji utiskivac za tu modlu.
-=======
-    if(isset($_POST['imprint']) && $_POST['imprint']==2){
-        $query->updateImprintsByCookieCutters($_SESSION['old_id'],$_POST['imprint']); //ako je utiskivac 2, odnosno bez utiskivaca, onda obrisi onaj red gde postoji utiskivac za tu modlu.
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
     }elseif (isset($_POST['addImprint'])) {
        
         $query->addImprint(1,$_SESSION['old_id']);  
@@ -421,7 +390,6 @@ global $slika1,$slika2,$slika3;
 
     if (isset($_POST['withoutImprint'])) {
         
-<<<<<<< HEAD
         $query->addImprint(0,$_SESSION['old_id']);
     }
 
@@ -436,13 +404,6 @@ echo $tmp_img,$tmp_img2,$tmp_img3,$tmp_img4,$tmp_img5,$tmp_img6,$tmp_img7,$_SESS
    }else{
     echo 'ne valja';
    }
-=======
-        $query->addImprint(2,$_SESSION['old_id']);
-    }
-
-
-   $exe=$query->updateProduct($idForm,$naziv,$kategorija,$tmp_img,$hashtag,$_SESSION['old_id']);
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
 
    //handling size
    if(!empty($_POST['velicinaAdd'])){
@@ -503,27 +464,16 @@ echo $tmp_img,$tmp_img2,$tmp_img3,$tmp_img4,$tmp_img5,$tmp_img6,$tmp_img7,$_SESS
     }
     
 }
-<<<<<<< HEAD
    if($exe){
-=======
-    if($exe){
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
            die(mysqli_error($connection));
        }else{
             $msg="Uspesno azuriran proizvod";
        }
        if (isset($_SESSION['new_id'])) {
-<<<<<<< HEAD
         header("Location:".$_SESSION['base']."/content/product.php?product=$idForm");
        }else{
            $old=$_SESSION['old_id'];
         header("Location:".$_SESSION['base']."/content/product.php?product=$old");
-=======
-        header("Location:../content/product.php?product=$idForm");
-       }else{
-           $old=$_SESSION['old_id'];
-        header("Location:../content/product.php?product=$old");
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
        }
        $func->refresh();
 }

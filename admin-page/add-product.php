@@ -26,10 +26,6 @@ if(isset($_POST['dodajProizvod'])){
     $velicina=$_POST['velicinaAdd'];
     move_uploaded_file($tmp_img_name,"../images/modle/$tmp_img");
 
-<<<<<<< HEAD
-   
-=======
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
     //description
     $debljina_sekaca=$_POST['debljina_sekaca'];
     $sirina_modle=$_POST['sirina_modle'];
@@ -195,11 +191,6 @@ if(isset($_POST['dodajProizvod'])){
                 <label for="slika">Dodaj 8. sliku</label>
                 <input type="file" name="slika7" id="" >
             </div>
-=======
-                <label for="slika">Dodaj sliku</label>
-                <input type="file" name="slika" id="" >
-            </div>
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
 
             <div class="inp-group">
                 <label for="">Hashtag</label>
