@@ -14,18 +14,20 @@ $func=new Functions();
 global $func;
 ?>
 
-  <button><<</button>
+<i class="fa-solid fa-arrow-left-long"></i>
     <?php 
         $allProducts=$query->getAllProducts();
          $number_of_rows=$allProducts->rowCount();
         $results_per_page=16;
         $pagin=ceil($number_of_rows/$results_per_page);
 
-        for ($i=1; $i < $pagin+1; $i++) { ?>
-        <a id='pagination' href="index.php?page=<?php echo $i ?>"><?php echo $i ?> </a>
-    
+        for ($i=1; $i < $pagin+1; $i++) { 
+      ?>
+        <a id='pagination' href="index.php?page=
+          <?php echo $i ?>"><?php echo $i ?> 
+        </a>
        <?php
-        }
-    ?>
+          }
+          ?>
     
-    <button>>></button>
+    <i class="fa-solid fa-arrow-right-long"></i>

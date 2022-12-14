@@ -8,9 +8,6 @@
                 <option value="4">Po ceni rastuće</option>
                 <option value="5">Po ceni opadajuće</option>
             </select>
-<<<<<<< HEAD
 
             
-=======
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
   

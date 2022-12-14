@@ -1,8 +1,8 @@
 <ul>
-    <li><a href="https://m.facebook.com/profile.php?id=100069486847992&_rdr" target="_blank" ><img src="<?php echo $_SESSION['base']?>/images/icons8-facebook-48.png" alt="facebook icon" fill: #f5f4f2></a></li>
-    <li><a href="https://www.instagram.com/3d.radionica/" target="_blank" ><img src="<?php echo $_SESSION['base']?>/images/icons8-instagram-48.png" alt="instagram icon"></a></li>
-    <li><a href="" target="_blank" ><img src="<?php echo $_SESSION['base']?>/images/icons8-pinterest-48.png" alt="pinterest icon"></a></li> <!--Dodaj link do pinteresta-->
-    <li><a href="mailto:mayap343@gmail.com" target="_blank" ><img src="<?php echo $_SESSION['base']?>/images/icons8-mail-48.png" alt="mail icon"></a></li>
+    <li><a href="https://m.facebook.com/profile.php?id=100069486847992&_rdr" target="_blank" ><i class="fa-brands fa-facebook"></i></a></li>
+    <li><a href="https://www.instagram.com/3d.radionica/" target="_blank" ><i class="fa-brands fa-instagram"></i></a></li>
+    <li><a href="" target="_blank" ><i class="fa-brands fa-pinterest"></i></a></li> <!--Dodaj link do pinteresta-->
+    <li><a href="mailto:mayap343@gmail.com" target="_blank" ><i class="fa-sharp fa-solid fa-envelope"></i></a></li>
 </ul>
 <ul class='footer-menu'>
     <li><a href="<?php echo $_SESSION['base']?>/header/placanje-i-isporuka.php">Plaćanje i isporuka</a></li>
@@ -10,4 +10,3 @@
 </ul>
 
 <p>Copyright &copy <?php echo Date("Y")?> Powered by Maja Prokic</p>
-

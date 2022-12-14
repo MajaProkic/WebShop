@@ -308,6 +308,7 @@
     public function selectIdCategoryAndName($id){
         return $this->sendOnlyOneVariableQuery($this->SELECTIDCATEGORYANDNAME,$id);
     }
+
     public function selectAllCategories(){
         return $this->sendQueryWithReturnValueAndNoParams($this->SELECTALLFROMCATEGORY);
      }

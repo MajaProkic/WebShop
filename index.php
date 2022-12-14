@@ -5,13 +5,19 @@ require_once (__DIR__.'/functions/functions.php');
 include_once(__DIR__.'/header/nav.php');
 require_once(__DIR__.'/DB/query.php');
 require_once (__DIR__.'/header/url_extension.php');
-
 ?>
 
+    <!--SECTION COVER IMAGE-->
+    <section class="cover-image">
+            <div class="cover-text">
+                <h1>Dobrodošli na sajt 3D radionice!</h1>
+              <a href ='#products' class="buy-cover">Pogledajte ponudu</a>
+            </div>
+    </section>
 
     <!--SECTION PRODUCTS -->
     <div class="content">
- 
+
         <div class="filter">
             <?php include_once 'content/partials/filter.php'?>
         </div>
@@ -22,11 +28,25 @@ require_once (__DIR__.'/header/url_extension.php');
 
         <div class="category">
 
-            <?php include_once 'content/partials/categories.php'?>
+            <?php
+          
+            include_once 'content/partials/categories.php';
+                  
+            ?>
         </div>
 
         <section class="products" id="products">
-                  <?php include_once 'content/products.php' ?>
+
+
+                  <?php 
+                
+                  if (isset($_GET['kategorija'])) {
+                    include_once 'processing/categoriesProcessing.php'; // ako se selektuje kategorija odvedi na procesiranje kategorija
+                  }else{
+                    include_once (__DIR__.'/content/productsSwitch.php'); //u svakom slucaju odvedi na switch
+                  }
+     
+                    ?>
 
         </section>
 
@@ -39,7 +59,6 @@ require_once (__DIR__.'/header/url_extension.php');
     <div class="footer">
         <?php include_once (__DIR__.'/footer/footer.php')?>
     </div>
-    
 
         
    

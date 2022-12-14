@@ -4,7 +4,6 @@
     include_once './header/nav.php';
     require_once './functions/functions.php';
     require_once './DB/Database.php';
-<<<<<<< HEAD
 
     $database=new Database();
     $db=$database->connection();
@@ -54,31 +53,3 @@
                         <option value="<?php echo $r['id']?>"><?php echo $r['naziv']?></option>
                  <?php } ?>
             </select>
-=======
-    $database=new Database();
-    $db=$database->connection();
-
-    $query=new Query($db);
-    global $query;
-
-?>
-   <div class="functionality">
-    Kategorije
-   </div>
-            <form action="" method="post">
-                <?php
-                        $res=$query->selectAllCategories();
-                        foreach ($res as $r) {?>
-                            <div class="radio">
-
-                                <input type="hidden" name="id" value='<?php echo $r['id']?>'>
-                                <input type="radio"  class ='rbutton' name="naziv_kategorije" value='<?php echo $r['naziv']?>' id="">
-                                <label for=""><?php echo $r['naziv']?></label>
-                            
-                            </div>
-                           
-                <?php   }  ?>
-                            <button id='unsetCategory'> Resetuj kategorije</button>
-               
-            </form>
->>>>>>> a12b310facd7c35cdf3ea2c2827beb47fbfebd61
