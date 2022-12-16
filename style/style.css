@@ -1,77 +1,76 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,300&display=swap");
 .nav {
   margin: 0;
   height: 70px;
-  width: 100vw;
+  width: 100%;
   background-color: var(--color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 .nav .logo {
-  position: relative;
-  float: left;
-  padding-top: 5px;
-  padding-left: 5px;
+  margin-left: 5px;
 }
-.nav .logo img {
-  height: 60px;
-  width: 60px;
-  border: 1px solid white;
+.nav .logo a img {
+  height: 70px;
 }
-.nav #burger {
-  display: none;
-}
-.nav ul {
+.nav .main-nav ul {
   list-style: none;
 }
-.nav ul li {
-  padding: 20px 15px;
+.nav .main-nav ul li {
   display: inline-block;
+  margin: 0 25px;
 }
-.nav ul li a {
-  color: white;
-  font-family: var(--font);
-  font-size: 14pt;
+.nav .main-nav ul li a {
+  align-items: center;
+  justify-content: center;
   text-transform: uppercase;
+  font-size: 14pt;
+  color: white;
 }
-.nav ul .dropdown {
-  float: right;
-  margin-right: 15px;
+.nav .users-info-nav {
+  display: flex;
+  align-items: center;
 }
-.nav ul .dropdown .dropdown-items {
+.nav .users-info-nav .dropdown {
+  margin-right: 45px;
+}
+.nav .users-info-nav .dropdown i {
+  color: white;
+}
+.nav .users-info-nav .dropdown .dropdown-items {
+  height: 70px;
   display: none;
   position: absolute;
   z-index: 1;
 }
-.nav ul .dropdown:hover .dropdown-items {
-  display: block;
-  padding: 5px;
-  background-color: #302e26;
+.nav .users-info-nav .dropdown:hover .dropdown-items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  top: 48px;
+  background-color: black;
+  right: 40px;
 }
-.nav ul .dropdown:hover .dropdown-items a {
-  color: var(--color);
+.nav .users-info-nav .dropdown:hover .dropdown-items a {
+  text-align: left;
+  color: white;
+  text-transform: uppercase;
+  font-size: 14pt;
+  padding: 10px;
 }
-.nav ul .shopping-cart {
-  padding-top: 20px;
-  padding-right: 15px;
-  float: right;
+.nav .users-info-nav .shopping-cart {
+  margin-right: 35px;
 }
-.nav ul .shopping-cart a {
-  margin: 0;
-  padding: 0;
-}
-.nav ul .shopping-cart a img {
-  height: 40px;
-  width: 40px;
-}
-.nav ul .shopping-cart #counter {
-  position: absolute;
-  top: 0.5rem;
-  right: 9.1em;
-  width: 20px;
-  height: 20px;
-  color: #302e26;
-  background-color: white;
-  text-align: center;
-  border-radius: 10px;
+.nav .users-info-nav .shopping-cart a i {
+  color: white;
 }
 
 @media screen and (max-width: 700px) {
@@ -153,6 +152,7 @@
   font-size: 20pt;
   border: 2px solid white;
   text-decoration: none;
+  scroll-behavior: smooth;
 }
 .cover-image .cover-text .buy-cover:hover {
   color: var(--color);
@@ -183,6 +183,8 @@
 .footer {
   position: relative;
   margin-top: 25px;
+  left: 0;
+  width: 100%;
   bottom: 0;
   background-color: #21201e;
   height: auto;
@@ -210,8 +212,9 @@
 .footer ul li a {
   text-align: center;
 }
-.footer ul li a img {
-  background-color: #f5f4f2;
+.footer ul li a i {
+  color: white;
+  font-size: 25pt;
 }
 .footer .footer-menu li a {
   color: white;
@@ -536,8 +539,11 @@
   }
 }
 .contact-page {
+  position: relative;
+  top: 70px;
+  height: 100vh;
   width: 80%;
-  margin: auto;
+  margin: 10px 0;
   background-color: #f0f2f5;
   border-radius: 25px;
   padding: 15px;
@@ -619,9 +625,9 @@
   font-size: 12pt;
 }
 .content .category #reload {
-  margin: 15px 0;
+  margin: 15px 10px;
   height: auto;
-  width: auto;
+  max-width: 80%;
   text-align: center;
   color: white;
   font-family: var(--font);
@@ -677,23 +683,26 @@
   padding: 5px;
 }
 .content .pagination {
-  width: 80vw;
+  grid-column: 2/2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 30vw;
   text-align: center;
   margin: auto;
+  border-radius: 5px;
+  background-color: white;
+  opacity: 0.8;
 }
-.content .pagination button {
-  width: 40px;
-  height: 40px;
+.content .pagination .fa-arrow-left-long, .content .pagination .fa-arrow-right-long {
+  color: var(--color);
+  font-size: 18pt;
 }
 .content .pagination a {
-  width: 60px;
-  height: 60px;
-  color: white;
-  background-color: var(--color);
-  margin: 5px;
-  font-size: 14pt;
-  padding: 5px;
-  border-radius: 5px;
+  color: var(--color);
+  font-weight: 700;
+  font-size: 18pt;
+  margin: 0 5px;
 }
 
 @media screen and (max-width: 870px) {
@@ -749,6 +758,7 @@
   font-size: 20pt;
   border: 2px solid white;
   text-decoration: none;
+  scroll-behavior: smooth;
 }
 .cover-image .cover-text .buy-cover:hover {
   color: var(--color);
@@ -1257,59 +1267,56 @@
   }
 }
 .registration-page {
-  width: 40%;
-  max-width: 70%;
-  height: 70%;
-  margin-top: 25px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #f0f2f5;
-  border-radius: 25px;
-  padding: 15px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  position: relative;
+  top: 70px;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-.registration-page .form-reg {
-  margin: auto;
+.registration-page form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  flex-direction: column;
+  padding: 10px;
+  max-width: 50vw;
   width: 100%;
-  overflow: hidden;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  margin: 15px;
 }
-.registration-page .form-reg .two-columns {
-  display: inline-flex;
-  margin: auto;
+.registration-page form .input-field {
   width: 90%;
-}
-.registration-page .form-reg input {
-  display: block;
-  width: 90%;
-  height: 3em;
-  margin: 20px 10px;
-  outline: none;
-  border-radius: 15px;
-  border: 0.5px solid var(--color);
-  font-family: var(--font);
-  font-size: 12pt;
-  padding-left: 15px;
-}
-.registration-page .form-reg button {
-  display: block;
   height: 50px;
-  width: auto;
-  padding: 5px;
-  background-color: var(--color);
-  color: white;
-  border: none;
-  font-size: 14pt;
-  font-family: var(--font);
-  border-radius: 15px;
-  margin-left: 10px;
+  position: relative;
+}
+.registration-page form .input-field input {
+  border: 2px solid black;
+  width: 100%;
+  height: 70%;
+  border-radius: 5px;
+  padding: 10px;
+}
+.registration-page form .input-field .fa-eye {
+  position: absolute;
+  top: 11px;
+  right: 0px;
+}
+.registration-page form .input-field .fa-eye-slash {
+  position: absolute;
+  top: 11px;
+  right: 0px;
+  display: none;
+}
+.registration-page form .input-field .fa-eye-slash-chck {
+  display: none;
 }
 
-@media screen and (max-width: 700px) {
-  .registration-page {
-    max-width: 100%;
-    width: 90%;
-  }
-}
 .related-product {
   margin-left: 5%;
   height: auto;
@@ -1536,13 +1543,33 @@
   }
 }
 .placanje-i-isporuka-page, .reklamacije-page, .about-us {
-  width: 80%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   margin: auto;
+  width: 80%;
 }
 .placanje-i-isporuka-page .title, .reklamacije-page .title, .about-us .title {
   margin-top: 25px;
   font-size: 16pt;
   text-align: left;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 10px;
+  width: 100%;
+  background-color: white;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.placanje-i-isporuka-page .title::before, .reklamacije-page .title::before, .about-us .title::before {
+  content: "◢";
+  color: var(--color);
+  padding: 10px;
 }
 .placanje-i-isporuka-page .description, .reklamacije-page .description, .about-us .description {
   font-family: var(--font);
@@ -1550,9 +1577,21 @@
   text-align: justify;
   margin-bottom: 25px;
   letter-spacing: 0.5px;
+  position: relative;
+  height: 0;
+  overflow: hidden;
 }
 .placanje-i-isporuka-page .description a, .reklamacije-page .description a, .about-us .description a {
-  color: wheat;
+  color: var(--color);
+}
+.placanje-i-isporuka-page .active .title::before, .reklamacije-page .active .title::before, .about-us .active .title::before {
+  content: "◥";
+  color: var(--color);
+  padding: 10px;
+}
+.placanje-i-isporuka-page .active .description, .reklamacije-page .active .description, .about-us .active .description {
+  height: auto;
+  padding: 10px;
 }
 
 .short-description {

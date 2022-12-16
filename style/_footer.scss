@@ -1,6 +1,8 @@
 .footer{
     position: relative;
     margin-top: 25px;
+    left: 0;
+    width: 100%;
     bottom: 0;
     background-color: #21201e;
     height: auto;
@@ -28,9 +30,10 @@
             a{
                 text-align: center;
             
-                img{
-                    background-color: #f5f4f2;
-                }
+              i{
+                color: white;
+                font-size: 25pt;
+              }
             }
         }
     }

@@ -1,11 +1,28 @@
 .placanje-i-isporuka-page,.reklamacije-page,.about-us{
-    width: 80%;
+    position: sticky;
+    top: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     margin: auto;
+    width: 80%;
     .title{
+    
         margin-top: 25px;
-
         font-size: 16pt;
         text-align: left;
+        height: fit-content;
+        padding: 10px;
+        width: 100%;
+        background-color: white;
+        border-radius: 15px;
+        cursor: pointer;
+    }
+    .title::before{
+        content: '\25E2';
+        color: var(--color);
+        padding: 10px;
     }
     .description{
         font-family: var(--font);
@@ -13,9 +30,28 @@
         text-align: justify;
         margin-bottom: 25px;
         letter-spacing: 0.5px;
+        position: relative;
+        height: 0;
+        overflow: hidden;
+
         a{
            
-            color: wheat;
+            color: var(--color);
+        }
+    }
+    .active {
+        .title::before{
+            content: '\25E5';
+            color: var(--color);
+            padding: 10px;
+            
+        }
+        .description{
+            height: auto;
+            padding: 10px;
+   
+         
+         
         }
     }
 }

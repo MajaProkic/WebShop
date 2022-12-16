@@ -23,9 +23,9 @@
         }
 
         #reload{
-            margin: 15px 0;
+            margin: 15px 10px;
             height: auto;
-            width: auto;
+            max-width: 80%;
             text-align: center;
             color: white;
             font-family: var(--font);
@@ -86,22 +86,28 @@
         }
     }
     .pagination{
-        width: 80vw;
-       text-align: center;
-       margin: auto;
-        button{
-            width: 40px;
-            height: 40px;
+        grid-column: 2/2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 30vw;
+        text-align: center;
+        margin: auto;
+        border-radius: 5px;
+        background-color: white;
+        opacity: 0.8;
+        .fa-arrow-left-long, .fa-arrow-right-long{
+            color: var(--color);
+            font-size: 18pt;
+
         }
-        a{
-            width: 60px;
-            height: 60px;
-            color: white;
-            background-color: var(--color);
-            margin: 5px;
-            font-size: 14pt;
-            padding: 5px;
-            border-radius: 5px;
+
+        a{  
+
+            color: var(--color);
+            font-weight: 700;
+            font-size: 18pt;
+            margin: 0 5px;
 
         }
     }

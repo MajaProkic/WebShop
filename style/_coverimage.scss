@@ -36,6 +36,7 @@
             font-size: 20pt;
             border: 2px solid white;
             text-decoration: none;
+            scroll-behavior: smooth;
     
             &:hover{
                 color: var(--color);
