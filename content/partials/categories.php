@@ -41,7 +41,7 @@
                        
                    
                             foreach ($countModleByCategories as $count) {?>
-                              <a href="index.php?kategorija=<?php echo $count['naziv']?>" class ='rbutton'><?php echo $count['naziv'] .' ('. $count['broj_modli_po_kategoriji'].')'?></a>
+                              <a href="#<?php echo $count['naziv']?>" class ='rbutton'><?php echo $count['naziv'] .' ('. $count['broj_modli_po_kategoriji'].')'?></a>
                 <?php   }   ?>
                              <a href="." id='reload'>Resetujte kategorije</a>
 

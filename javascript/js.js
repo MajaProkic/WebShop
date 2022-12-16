@@ -1,6 +1,5 @@
-
-  $(document).ready(function(){
     
+  $(document).ready(function(){
 
      $('#imprint, #sizee, .plus, .minus').on('change',function(){
          var size=$('#sizee').val();
@@ -81,16 +80,16 @@
    })
      
  //category
-     $('.rbutton').on('change',function(){
+     $('.rbutton').on('click',function(){
       
  
-       var vel=$(this).attr("href");
-       console.log(vel);
+       var vel=$(this).attr("href").substring(1);
+    console.log(vel);
        $.ajax({
            url:'./processing/categoriesProcessing.php',
-           method:'post',
+           type:'post',
            data:{
-             chck: vel
+            kategorija: vel
            },
        success:function (html) {
          
@@ -298,34 +297,36 @@ function removeInputs() {
  x.parentElement.removeChild(x);
 }
 
-function showpass() {
-  const inputPass=document.querySelector('#lozinka');
-  const fa_eye=document.querySelector('.fa-eye');
-  const fa_eye_slash=document.querySelector('.fa-eye-slash');
 
-  if(inputPass.type=='password'){
-    inputPass.type='text';
-    fa_eye_slash.style.display="block";
-    fa_eye.style.display="none";
-  }else{
-    inputPass.type='password';
-    fa_eye_slash.style.display="none";
-    fa_eye.style.display="block";
-  }
+
+function showpass() {
+ const inputPass=document.querySelector('#lozinka');
+ const fa_eye=document.querySelector('.fa-eye');
+ const fa_eye_slash=document.querySelector('.fa-eye-slash');
+
+ if(inputPass.type=='password'){
+   inputPass.type='text';
+   fa_eye_slash.style.display="block";
+   fa_eye.style.display="none";
+ }else{
+   inputPass.type='password';
+   fa_eye_slash.style.display="none";
+   fa_eye.style.display="block";
+ }
 }
 
 function showCheckPass() {
-  const inputPass=document.querySelector('#lozinka_check');
-  const fa_eye=document.querySelector('.fa-eye-chck');
-  const fa_eye_slash=document.querySelector('.fa-eye-slash-chck');
+ const inputPass=document.querySelector('#lozinka_check');
+ const fa_eye=document.querySelector('.fa-eye-chck');
+ const fa_eye_slash=document.querySelector('.fa-eye-slash-chck');
 
-  if(inputPass.type=='password'){
-    inputPass.type='text';
-    fa_eye_slash.style.display="block";
-    fa_eye.style.display="none";
-  }else{
-    inputPass.type='password';
-    fa_eye_slash.style.display="none";
-    fa_eye.style.display="block";
-  }
+ if(inputPass.type=='password'){
+   inputPass.type='text';
+   fa_eye_slash.style.display="block";
+   fa_eye.style.display="none";
+ }else{
+   inputPass.type='password';
+   fa_eye_slash.style.display="none";
+   fa_eye.style.display="block";
+ }
 }
