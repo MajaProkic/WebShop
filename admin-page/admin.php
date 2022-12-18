@@ -27,11 +27,10 @@ if($_SESSION['role']=='admin'){
 
 <?php if (isset($_SESSION['role']) && $_SESSION['role']=='admin') { ?>
 <div class="admin-page">
-
-    <div class="admin-menu">
-        <?php include_once 'admin-menu.php'; ?>
-
+<div class="admin-menu">
+        <?php include 'admin-menu.php'?>
     </div>
+  
 
     <div class="title">
         <h2>Admin strana</h2>

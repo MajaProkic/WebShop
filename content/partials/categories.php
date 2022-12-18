@@ -35,15 +35,28 @@
     }
 ?>
 
-   <div class="functionality"> Kategorije </div>
+   <div class="functionality"> 
+    <div class="title">Kategorije</div> 
+    
 
                 <?php
-                       
-                   
-                            foreach ($countModleByCategories as $count) {?>
-                              <a href="#<?php echo $count['naziv']?>" class ='rbutton'><?php echo $count['naziv'] .' ('. $count['broj_modli_po_kategoriji'].')'?></a>
-                <?php   }   ?>
+                    
+                   while($row=$countModleByCategories->fetch(PDO::FETCH_ASSOC)) {?>
+                    <div class="category-div">
+                      
+                 
+                        <a href="#<?php echo $row['naziv']?>" class ='rbutton'>
+                        <span class='icon'>
+                            <?php echo $row['ikonica']?>
+                        </span>
+                            <?php echo $row['naziv'] .' ('. $row['broj_modli_po_kategoriji'].')'?>
+                        </a>
+                    </div>
+                <?php   
+                    }   
+                    ?>
                              <a href="." id='reload'>Resetujte kategorije</a>
+    </div>
 
 <!--Za responzivnost -->
             <select name="" id="">

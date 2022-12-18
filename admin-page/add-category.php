@@ -15,23 +15,56 @@ if($_SESSION['role']=='admin'){
 
     if(isset($_POST['dodajKategoriju'])){
         $naziv=$_POST['naziv'];
-        $query->insertCategory($naziv);
+        $ikonica=$_POST['ikonica'];
+        $query->insertCategory($naziv,$ikonica);
             if(!$query){
                 echo "Error";
             }
         }
     }
 ?>
-<div class="admin-menu">
-    <?php include_once 'admin-menu.php'; ?>
-</div>
 
-<div class="form-div">
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-    <div class="form-part">
-        <label for="naziv">Naziv kategorije</label>
-        <input type="text" name="naziv" id="">
-        </div>
-       <button><input type="submit" name="dodajKategoriju" id="" value='Dodaj kategoriju'></button> 
-    </form>
+<div class="add-category">
+    
+    <div class="admin-menu">
+        <?php include_once 'admin-menu.php'; ?>
     </div>
+    <div class="all-categories">
+        <table>
+            <thead>
+                <th>ID</th>
+                <th>Naziv</th>
+                <th>Ikonica</th>
+            </thead>
+      
+        <?php
+            $allcategories=$query->selectAllCategories();
+            while($row=$allcategories->fetch(PDO::FETCH_ASSOC)) {
+             
+        ?>
+              <tr>
+                <td><a href="<?php echo $_SESSION['base']?>/admin-page/update-category.php?category=<?php echo $row['id']?>"><?php echo $row['id']?></td>
+                <td><?php echo $row['naziv']?></td>
+                <td><?php echo $row['ikonica']?></td>
+            </tr>
+      
+        <?php   
+            }
+        ?>
+        </table>
+    </div>
+
+    <div class="form-div">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+                <div class="input-field">
+                    <label for="naziv">Naziv kategorije</label>
+                    <input type="text" name="naziv" id="">
+                </div>
+                <div class="input-field">
+                    <label for="naziv">Ikonica kategorije</label>
+                    <textarea name="ikonica" id="" cols="30" rows="10" placeholder='Ex. <i class="fa-solid fa-eye"></i>'></textarea>
+                </div>
+            <button><input type="submit" name="dodajKategoriju" id="" value='Dodaj kategoriju'></button> 
+        </form>
+    </div>
+</div>

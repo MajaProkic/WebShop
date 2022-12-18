@@ -3,11 +3,13 @@
  class Query{
     private $conn;
 //Modle i kategorije i slike i opis
-    private $SELECTALLFROMCATEGORY="SELECT id, naziv FROM kategorija ORDER BY naziv ";
-    private $COUNTMODLEBYCATEGORY="SELECT COUNT(modla.kategorija_id) as 'broj_modli_po_kategoriji',  kategorija.naziv, kategorija.id FROM `modla` INNER JOIN kategorija on modla.kategorija_id=kategorija.id GROUP by kategorija_id";
+    private $SELECTALLFROMCATEGORY="SELECT * FROM kategorija ORDER BY naziv ";
+    private $COUNTMODLEBYCATEGORY="SELECT COUNT(modla.kategorija_id) as 'broj_modli_po_kategoriji',  kategorija.naziv, kategorija.id, kategorija.ikonica FROM `modla` INNER JOIN kategorija on modla.kategorija_id=kategorija.id GROUP by kategorija_id";
+    private $SELECTCATEGORYBYID="SELECT * FROM `kategorija` where id=?";
     private $GETALLPRODUCTS="SELECT modla.id,modla.naziv,modla.kategorija_id, modla.hashtag, modla.datum_postavljanja, slike.slika1,slike.slika2,slike.slika3,slike.slika4,slike.slika5,slike.slika6,slike.slika7,slike.slika8 FROM modla INNER JOIN slike ON modla.id=slike.id_product ORDER BY id DESC";
     private $INSERTPRODUCT="INSERT INTO modla (id, naziv, kategorija_id, hashtag, datum_postavljanja) VALUES(?,?,?,?,?)"; 
-    private $INSERTCATEGORY="INSERT INTO kategorija (naziv) VALUES(?)";
+    private $INSERTCATEGORY="INSERT INTO kategorija (naziv,ikonica) VALUES(?,?)";
+    private $UPDATECATEGORY="UPDATE kategorija SET naziv=?, ikonica=? WHERE id=?";
     private $DELETEPRODUCT="DELETE FROM modla WHERE id=?";
     private $SELECTIDCATEGORYANDNAME = "SELECT modla.kategorija_id, kategorija.naziv as 'naziv kategorije', modla.naziv as 'naziv modle', modla.*,slike.slika1, kategorija.* FROM modla INNER JOIN kategorija ON modla.kategorija_id=kategorija.id INNER JOIN slike ON modla.id=slike.id_product where modla.id=?";
     private $LATESTADDEDCOOKIECUTTERS="SELECT modla.id,modla.naziv,modla.kategorija_id, modla.hashtag, modla.datum_postavljanja, slike.slika1 FROM modla INNER JOIN slike ON modla.id=slike.id_product ORDER BY datum_postavljanja desc";
@@ -75,6 +77,17 @@
 
     //CHECKING
     private $SETCHARSET="SET CHARACTER SET utf8mb4";
+
+    public function selectCategoryById($id)
+    {
+        return $this->sendOnlyOneVariableQuery($this->SELECTCATEGORYBYID,$id);
+    }
+
+    public function UPDATECATEGORY($naziv,$ikonica,$id){
+     
+        $stmt=$this->conn->prepare($this->UPDATECATEGORY);
+        $stmt->execute([$naziv,$ikonica,$id]);
+     }
 
     public function SELECTSTATUSOFORDER($id)
     {
@@ -372,9 +385,9 @@
         return $id;
      }
 
-     public function insertCategory($naziv){
+     public function insertCategory($naziv,$ikonica){
         $stmt=$this->conn->prepare($this->INSERTCATEGORY);
-        $stmt->execute([$naziv]);
+        $stmt->execute([$naziv,$ikonica]);
         $id = $this->conn->lastInsertId();
         return $id;
      }

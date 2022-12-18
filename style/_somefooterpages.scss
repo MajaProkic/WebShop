@@ -7,6 +7,8 @@
     flex-direction: column;
     margin: auto;
     width: 80%;
+    .info{
+        margin: 10px;
     .title{
     
         margin-top: 25px;
@@ -25,20 +27,23 @@
         padding: 10px;
     }
     .description{
+     
         font-family: var(--font);
         font-size: 14pt;
         text-align: justify;
-        margin-bottom: 25px;
         letter-spacing: 0.5px;
         position: relative;
         height: 0;
         overflow: hidden;
+        transition: all 1s;
+      
 
         a{
            
             color: var(--color);
         }
     }
+}
     .active {
         .title::before{
             content: '\25E5';
@@ -48,9 +53,7 @@
         }
         .description{
             height: auto;
-            padding: 10px;
-   
-         
+            padding: 10px;         
          
         }
     }

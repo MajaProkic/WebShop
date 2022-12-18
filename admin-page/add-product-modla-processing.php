@@ -75,9 +75,7 @@ if(isset($_POST['dodajProizvod'])){
    }
     
         if (empty($isProductAlreadyExistVAL)) {
-            $res = $query->insertProduct($id,$naziv, $kategorija,$hashtag,date('d-m-y H:i:s'));
-            $insertDescription=$query->insertDescriptionOfProduct($id,$debljina_sekaca,$sirina_modle,$duzina_modle,$debljina_utiskivaca,$tezina_modle,$visina_utiskivaca,$visina_sekaca,$utiskivac_sekac_spojeni,$velicina_testiranog_proizvoda);
-            $insertImages=$query->INSERTIMAGES($id,$tmp_img,$tmp_img1,$tmp_img2,$tmp_img3,$tmp_img4,$tmp_img5,$tmp_img6,$tmp_img7);
+           
             if($utiskivac==1){
                 $query->insertUtiskivaciPoModlama(1,$id);//HARD CODE, REPAIR THIS
                 $query->insertUtiskivaciPoModlama(0,$id);
@@ -85,7 +83,11 @@ if(isset($_POST['dodajProizvod'])){
             }else{
                 $query->insertUtiskivaciPoModlama(0,$id);//HARD CODE, REPAIR THIS
             }
-            
+        
+          
+            $res = $query->insertProduct($id,$naziv, $kategorija,$hashtag,date('d-m-y H:i:s'));
+            $insertDescription=$query->insertDescriptionOfProduct($id,$debljina_sekaca,$sirina_modle,$duzina_modle,$debljina_utiskivaca,$tezina_modle,$visina_utiskivaca,$visina_sekaca,$utiskivac_sekac_spojeni,$velicina_testiranog_proizvoda);
+            $insertImages=$query->INSERTIMAGES($id,$tmp_img1,$tmp_img2,$tmp_img3,$tmp_img4,$tmp_img5,$tmp_img6,$tmp_img7);
         
             $msg='Uspešno unet proizvod';
             $func->successfulClass($msg);
@@ -93,14 +95,13 @@ if(isset($_POST['dodajProizvod'])){
             $msg='Nažalost, proizvod nije unet';
             $func->errorClass($msg);
         }
-
         foreach ($velicina as $key => $value) {
             $count=$count+1; //HARD CODE, REPAIR THIS
 
             $query->insertVelicinePoModlama($value,$id,$count);
 
         }
-      
+       
         header('Refresh:1; url='.$_SESSION['base'].'/index.php');
     }
 ?>

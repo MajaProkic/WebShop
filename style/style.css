@@ -9,10 +9,10 @@
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
-  position: fixed;
+  position: -webkit-sticky;
+  position: sticky;
   top: 0;
-  left: 0;
-  z-index: 1;
+  z-index: 1000;
 }
 .nav .logo {
   margin-left: 5px;
@@ -299,14 +299,13 @@
   margin-left: 10px;
 }
 
-.admin-menu {
-  margin-top: 15px;
-}
-
 .admin-page {
   width: 90%;
   margin: auto;
   padding: 0;
+}
+.admin-page .admin-menu {
+  margin-top: 15px;
 }
 .admin-page table {
   margin-top: 15px;
@@ -608,14 +607,24 @@
 .content .category {
   grid-column: 1/1;
   margin-top: 15px;
+  width: 100%;
 }
 .content .category .functionality {
   font-size: 14pt;
   font-weight: bolder;
   font-family: var(--font);
-  margin-left: 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
-.content .category a {
+.content .category .functionality .title {
+  text-align: center;
+}
+.content .category .functionality .category-div {
+  display: grid;
+  grid-template-columns: 15px, auto;
+}
+.content .category .functionality .category-div a {
   text-decoration: none;
   color: black;
   font-family: var(--font);
@@ -624,10 +633,14 @@
   margin-top: 10px;
   font-size: 12pt;
 }
-.content .category #reload {
+.content .category .functionality .category-div a span {
+  color: var(--color);
+  position: relative;
+  left: 0;
+}
+.content .category .functionality #reload {
   margin: 15px 10px;
   height: auto;
-  max-width: 80%;
   text-align: center;
   color: white;
   font-family: var(--font);
@@ -1553,7 +1566,10 @@
   margin: auto;
   width: 80%;
 }
-.placanje-i-isporuka-page .title, .reklamacije-page .title, .about-us .title {
+.placanje-i-isporuka-page .info, .reklamacije-page .info, .about-us .info {
+  margin: 10px;
+}
+.placanje-i-isporuka-page .info .title, .reklamacije-page .info .title, .about-us .info .title {
   margin-top: 25px;
   font-size: 16pt;
   text-align: left;
@@ -1566,22 +1582,22 @@
   border-radius: 15px;
   cursor: pointer;
 }
-.placanje-i-isporuka-page .title::before, .reklamacije-page .title::before, .about-us .title::before {
+.placanje-i-isporuka-page .info .title::before, .reklamacije-page .info .title::before, .about-us .info .title::before {
   content: "◢";
   color: var(--color);
   padding: 10px;
 }
-.placanje-i-isporuka-page .description, .reklamacije-page .description, .about-us .description {
+.placanje-i-isporuka-page .info .description, .reklamacije-page .info .description, .about-us .info .description {
   font-family: var(--font);
   font-size: 14pt;
   text-align: justify;
-  margin-bottom: 25px;
   letter-spacing: 0.5px;
   position: relative;
   height: 0;
   overflow: hidden;
+  transition: all 1s;
 }
-.placanje-i-isporuka-page .description a, .reklamacije-page .description a, .about-us .description a {
+.placanje-i-isporuka-page .info .description a, .reklamacije-page .info .description a, .about-us .info .description a {
   color: var(--color);
 }
 .placanje-i-isporuka-page .active .title::before, .reklamacije-page .active .title::before, .about-us .active .title::before {
@@ -1689,6 +1705,48 @@
   font-family: var(--font);
   border-radius: 15px;
   margin-left: 10px;
+}
+
+.add-category .admin-menu, .update-category .admin-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 15vh;
+}
+.add-category .form-div, .update-category .form-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  flex-direction: column;
+}
+.add-category .form-div .input-field, .update-category .form-div .input-field {
+  width: 50vw;
+  margin: 15px;
+}
+.add-category .form-div .input-field input, .add-category .form-div .input-field textarea, .update-category .form-div .input-field input, .update-category .form-div .input-field textarea {
+  width: 50%;
+  outline: none;
+  border: 2px solid black;
+  border-radius: 10px;
+  height: 50px;
+}
+.add-category .form-div .input-field label, .update-category .form-div .input-field label {
+  font-size: 16pt;
+}
+.add-category .form-div button, .update-category .form-div button {
+  margin: 10px;
+  width: auto;
+  height: 50px;
+}
+.add-category .form-div button input, .update-category .form-div button input {
+  padding: 5px;
+  font-size: 16pt;
+  color: white;
+  font-weight: 400;
+  outline: none;
+  border: none;
+  background-color: var(--color);
 }
 
 :root {

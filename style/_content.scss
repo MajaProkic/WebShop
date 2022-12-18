@@ -5,37 +5,55 @@
     .category{
         grid-column: 1/1;
         margin-top: 15px;
+        width: 100%;
         .functionality{
             font-size: 14pt;
             font-weight:bolder;
             font-family: var(--font);
-            margin-left: 50px;
-        }
-
-        a{
-            text-decoration: none;
-            color: black;
-            font-family: var(--font);
-            display: block;
-            margin-left: 50px;
-            margin-top: 10px;
-            font-size: 12pt;
-        }
-
-        #reload{
-            margin: 15px 10px;
-            height: auto;
-            max-width: 80%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+           .title{
             text-align: center;
-            color: white;
-            font-family: var(--font);
-            font-size: 14pt;
-            padding: 5px;
-            background-color: var(--color);
-            border: none;  
-            border-radius: 15px;
-       
+           }
+            .category-div{
+               display: grid;
+               grid-template-columns: 15px, auto;
+           
+               a{
+                text-decoration: none;
+                color: black;
+                font-family: var(--font);
+                display: block;
+                margin-left: 50px;
+                margin-top: 10px;
+                font-size: 12pt;
+                span{
+                    color: var(--color);
+                    position: relative;
+                    left: 0;
+                }
+               }              
+            }
+
+            #reload{
+                margin: 15px 10px;
+                height: auto;
+                text-align: center;
+                color: white;
+                font-family: var(--font);
+                font-size: 14pt;
+                padding: 5px;
+                background-color: var(--color);
+                border: none;  
+                border-radius: 15px;
+           
+            }
         }
+
+       
+
+       
         select{
             display: none;
             border-radius: 5px;

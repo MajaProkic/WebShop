@@ -1,11 +1,14 @@
-.admin-menu{
-    margin-top: 15px;
-}
+
 
 .admin-page{
+
     width: 90%;
     margin: auto;
     padding: 0;
+    .admin-menu{
+        margin-top: 15px;
+
+    }
     table{
         margin-top: 15px;
         width: 90%;

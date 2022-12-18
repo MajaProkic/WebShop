@@ -48,16 +48,3 @@ require_once (__DIR__.'/../header/url_extension.php');
 <div class="footer">
     <?php include_once '../footer/footer.php'?>
 </div>
-
-<!--Ovo ne treba ovde da stoji, samo proba. Ne radi u js fajlu-->
-<script>
-    const sectionInfo=document.getElementsByClassName('info');
-   
-for (i=0; i<sectionInfo.length; i++) {
-    sectionInfo[i].addEventListener('click', function () {
-      this.classList.toggle('active')
-    })
-  }
-
-
-</script>
