@@ -63,6 +63,9 @@
 @media screen and (max-width:700px) {
 .cover-image{
     margin-top: 0px;
+    background-position: center;
+    background-size: cover;
+    height: 30vh;
     .cover-text{
         h1{
             font-size: 16pt;

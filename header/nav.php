@@ -8,6 +8,8 @@ require_once(__DIR__.'/../header/head.php');
           <a href="<?php echo $_SESSION['base']?>/index.php"><img src="<?php echo $_SESSION['base']?>/images/logo.jpg" alt="Logo 3D radionica"></a> 
         </div>
 
+        
+
         <div class="main-nav">
           <ul>
             <li><a href="<?php echo $_SESSION['base']?>/index.php">Početna strana</a></li>
@@ -48,5 +50,8 @@ require_once(__DIR__.'/../header/head.php');
               <a href="<?php echo $_SESSION['base']?>/content/cart.php"><i class="fa-solid fa-cart-shopping fa-xl"></i></a>
             </div>
              
+        </div>
+        <div id="burger">
+          <i class="fa-solid fa-bars"></i>
         </div>
 </div>

@@ -25,9 +25,25 @@
     .searchbar{
         margin-top: 15px;
         margin-bottom: 15px;
+        width: 100vw;
+      
            input{
                margin: auto;
-               width:80%;
+               width:60%;
+               
+           }
+         
+         
+       }
+   }
+   @media screen and (max-width:870px) {
+    .searchbar{
+        margin-top: 15px;
+        margin-bottom: 15px;
+        width: 100vw;
+           input{
+               margin: auto;
+               width:60%;
                
            }
          

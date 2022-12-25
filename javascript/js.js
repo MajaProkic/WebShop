@@ -56,7 +56,7 @@
 
      $('#burger').on('click',function(){
 
-       $("#nav").toggleClass('show')
+       $(".nav").toggleClass('show');
   
      })
 

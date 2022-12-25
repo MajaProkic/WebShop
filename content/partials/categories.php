@@ -1,10 +1,8 @@
 <?php
-    require_once './DB/query.php';
-    require_once './header/header.php';
-    include_once './header/nav.php';
-    require_once './functions/functions.php';
-    require_once './DB/Database.php';
-
+    require_once($_SERVER['DOCUMENT_ROOT']."/Modlice/DB/Database.php");
+    require_once($_SERVER['DOCUMENT_ROOT']."/Modlice/DB/query.php");
+    require_once($_SERVER['DOCUMENT_ROOT']."/Modlice/header/header.php");
+ 
     $database=new Database();
     $db=$database->connection();
     $query=new Query($db);

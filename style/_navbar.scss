@@ -18,6 +18,9 @@
             }
         }
     }
+    #burger{
+       display: none;
+    }
     .main-nav{
         ul{
             list-style: none;
@@ -80,6 +83,7 @@
             a{
                 i{
                     color: white;
+               
                 }
             }
          
@@ -92,70 +96,69 @@
    
   
     @media screen and (max-width:700px) {
-        
         .nav{
-            width: 100vw;
-               #burger{
-                    display: block;
-                    float: right;
-                    padding-right:10px ;
            
-                a{
-                    img{
-                        margin-top: 20px;
-                        height: 35px;
-                        width: 35px;
-                    }
-                }
-               }
-           
-
-            ul{
-              display: none;
-                li{
-                    padding: 10px 5px;   
-                   a{
-                   font-size: 12pt;
-                   }  
-               
-                }
-                .shopping-cart{
-               
-                      #counter{
-                      
-                          top: 6.0em;
-                          right: 7.2em;
-                          width: 20px;
-                          height: 20px;
-                     
-                  
-                      }
-                     
-                     
-                  }
-            }
-            .show{
-                margin-top: 70px;
+            #burger{
                 display: block;
-                background-color: var(--color);
                 position: absolute;
-                width: 100vw;
-                height: auto;
-              
-              
-                li{
-                    display: block;
-                    
-                    a{
-                        color: aliceblue;
-                       
-                    }
+                top: auto;
+                right: 5px;
+                i{
+                    font-size: 35px;
                 }
             }
-            .dropdown{
-                display: block;
+            .main-nav{
+                display: none;
             }
-            
-           
-        }
+            .users-info-nav{
+                padding: 0 40px;
+            }
+
+            &.show{
+                height: 100vh;
+                z-index: 1;
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+                #burger{
+                    position: absolute;
+                    top: 20px;
+                    right: 10px;
+                    i{
+                        font-size: 35px;
+                    }
+                }
+                .logo{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+                .main-nav,.users-info-nav{
+                  display: block;
+                    
+                }
+                .main-nav{
+                   
+                    ul{
+                        li{
+                            padding: 15px;
+                            width: 100%;
+                            a{
+                                text-align: center;
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+                .users-info-nav{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: row;
+                
+                 
+                }
+            }
     }
+
+}
